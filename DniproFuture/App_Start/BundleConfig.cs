@@ -11,33 +11,42 @@ namespace DniproFuture
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                        "~/Scripts/jquery-ui-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
 
-            // Используйте версию Modernizr для разработчиков, чтобы учиться работать. Когда вы будете готовы перейти к работе,
-            // используйте средство построения на сайте http://modernizr.com, чтобы выбрать только нужные тесты.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+            bundles.Add(new ScriptBundle("~/bundles/animation").Include(
+                         "~/Scripts/cbpAnimatedHeader.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/agency").Include(
+            "~/Scripts/agency.js"));
+            bundles.Add(new ScriptBundle("~/agency/classie").Include(
+                        "~/Scripts/classie.js"));
 
-            bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
-                        "~/Content/themes/base/jquery.ui.core.css",
-                        "~/Content/themes/base/jquery.ui.resizable.css",
-                        "~/Content/themes/base/jquery.ui.selectable.css",
-                        "~/Content/themes/base/jquery.ui.accordion.css",
-                        "~/Content/themes/base/jquery.ui.autocomplete.css",
-                        "~/Content/themes/base/jquery.ui.button.css",
-                        "~/Content/themes/base/jquery.ui.dialog.css",
-                        "~/Content/themes/base/jquery.ui.slider.css",
-                        "~/Content/themes/base/jquery.ui.tabs.css",
-                        "~/Content/themes/base/jquery.ui.datepicker.css",
-                        "~/Content/themes/base/jquery.ui.progressbar.css",
-                        "~/Content/themes/base/jquery.ui.theme.css"));
+    //        <!-- jQuery -->
+    //<script src="js/jquery.js"></script>
+
+    //<!-- Bootstrap Core JavaScript -->
+    //<script src="js/bootstrap.min.js"></script>
+
+    //<!-- Plugin JavaScript -->
+    //<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    //<script src="js/classie.js"></script>
+    //<script src="js/cbpAnimatedHeader.js"></script>
+
+    //<!-- Contact Form JavaScript -->
+    //<script src="js/jqBootstrapValidation.js"></script>
+    //<script src="js/contact_me.js"></script>
+
+    //<!-- Custom Theme JavaScript -->
+    //<script src="js/agency.js"></script>
+            
+            bundles.Add(new StyleBundle("~/Content/bootstrap").Include("~/Content/css/bootstrap.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/css/agency.css"));
+
+
         }
     }
 }

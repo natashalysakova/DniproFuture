@@ -117,7 +117,70 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LayoutTitle" xml:space="preserve">
-    <value>Благодійна організація "Майбутнє Дніпра"</value>
+  <data name="AboutTitle" xml:space="preserve">
+    <value>About us</value>
+  </data>
+  <data name="ClientsTitle" xml:space="preserve">
+    <value>Whom we helped</value>
+  </data>
+  <data name="ContactsBtnTxt" xml:space="preserve">
+    <value>Send message</value>
+  </data>
+  <data name="ContactsTitle" xml:space="preserve">
+    <value>Contact us</value>
+  </data>
+  <data name="HeaderDniproFuture" xml:space="preserve">
+    <value>Dnipro's Future</value>
+  </data>
+  <data name="HeaderMoreInfo" xml:space="preserve">
+    <value>More information</value>
+  </data>
+  <data name="HeaderOrganization" xml:space="preserve">
+    <value>Charity organization</value>
+  </data>
+  <data name="HowClothing" xml:space="preserve">
+    <value>Clothing</value>
+  </data>
+  <data name="HowInformation" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="HowMoney" xml:space="preserve">
+    <value>Money</value>
+  </data>
+  <data name="HowOther" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="HowTitle" xml:space="preserve">
+    <value>How You can help</value>
+  </data>
+  <data name="NavBarAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="NavBarClients" xml:space="preserve">
+    <value>Clients</value>
+  </data>
+  <data name="NavBarContacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="NavBarDonation" xml:space="preserve">
+    <value>Donation</value>
+  </data>
+  <data name="NavBarHelpNow" xml:space="preserve">
+    <value>Help now</value>
+  </data>
+  <data name="NavBarHow" xml:space="preserve">
+    <value>How?</value>
+  </data>
+  <data name="NavBarNews" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="NavBarPartners" xml:space="preserve">
+    <value>Partners</value>
+  </data>
+  <data name="NewsTitle" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="PartnersTitle" xml:space="preserve">
+    <value>Partners</value>
   </data>
 </root>

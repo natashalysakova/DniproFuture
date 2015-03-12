@@ -9,8 +9,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+            <a class="page-scroll" href="#page-top"><img class="logo navbar-brand " src="@Url.Content("~/Content/img/logo.png")" /></a>
         </div>
+
+
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -22,7 +24,7 @@
                     <a class="page-scroll" href="#helpNow">Помочь сейчас</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#donation">Сбор средств</a>
+                    <a class="page-scroll" href="#donation">Сбор</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#about">О нас</a>
@@ -31,24 +33,32 @@
                     <a class="page-scroll" href="#news">Новости</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#how">Как помочь</a>
+                    <a class="page-scroll" href="#how">Как?</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#partners">Нам помогают</a>
+                    <a class="page-scroll" href="#partners">Партнеры</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#clients">Кому помогли</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#contacts">Обратная связь</a>
+                    <a class="page-scroll" href="#contacts">Связь</a>
                 </li>
                 <li>
-                    <span class="glyphicon glyphicon-alert"></span>
-                    <span class="glyphicon glyphicon-education"></span>
-                    <span class="glyphicon glyphicon-tasks"></span>
+                    <div id="languages">
+                        <a href="@Url.Action("ChangeCulture",new { lang = "uk", returnUrl = this.Request.RawUrl })">
+                            <img src="@Url.Content("~/Content/img/blank.gif")" class="flag flag-ua" alt="Українська" />
+                        </a>
+                        <a href="@Url.Action("ChangeCulture",new { lang = "ru", returnUrl = this.Request.RawUrl })">
+                            <img src="@Url.Content("~/Content/img/blank.gif")" class="flag flag-ru" alt="Русский" />
+                        </a>
+                        <a href="@Url.Action("ChangeCulture",new { lang = "en", returnUrl = this.Request.RawUrl })">
+                            <img src="@Url.Content("~/Content/img/blank.gif")" class="flag flag-us" alt="English" />
+                        </a>
+                    </div>
                 </li>
-
             </ul>
+            
         </div>
         <!-- /.navbar-collapse -->
     </div>

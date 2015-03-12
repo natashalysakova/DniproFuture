@@ -9,6 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <title>@ViewRes._LayoutStrings.LayoutTitle</title>
 
     @section scripts{
     }
@@ -44,9 +45,16 @@
 
     @Styles.Render("~/Content/bootstrap")
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/flags")
+
+
+
+
 
 
     @RenderSection("scripts", required: false)
+
+
 
     <footer>
         <div class="container">

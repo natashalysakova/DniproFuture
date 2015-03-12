@@ -72,6 +72,8 @@
     <Reference Include="System.Net.Http.Primitives">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -139,13 +141,54 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Models\DniproFutureModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DniproFutureModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DniproFutureModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DniproFutureModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DniproFutureModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\DniproFutureModelRepository.cs" />
+    <Compile Include="Models\Language.cs">
+      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NeedHelp.cs">
+      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NeedHelpLocal.cs">
+      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\News.cs">
+      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NewsLocal.cs">
+      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Partners.cs">
+      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PartnersLocal.cs">
+      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\DniproFuture_site.mdf" />
+    <Content Include="App_Data\DniproFuture_site_log.ldf">
+      <DependentUpon>DniproFuture_site.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\css\agency.css" />
     <Content Include="Content\css\bootstrap-theme.css" />
     <Content Include="Content\css\bootstrap-theme.min.css" />
@@ -253,6 +296,23 @@
     <Content Include="fonts\font-awesome\scss\_spinning.scss" />
     <Content Include="fonts\font-awesome\scss\_stacked.scss" />
     <Content Include="fonts\font-awesome\scss\_variables.scss" />
+    <EntityDeploy Include="Models\DniproFutureModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DniproFutureModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DniproFutureModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DniproFutureModel.edmx</DependentUpon>
+      <LastGenOutput>DniproFutureModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DniproFutureModel.edmx.diagram">
+      <DependentUpon>DniproFutureModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DniproFutureModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DniproFutureModel.edmx</DependentUpon>
+      <LastGenOutput>DniproFutureModel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\agency.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -286,13 +346,23 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\NavBar.cshtml" />
+    <Content Include="Views\Home\Header.cshtml" />
+    <Content Include="Views\Home\Contacts.cshtml" />
+    <Content Include="Views\Home\HelpNow.cshtml" />
+    <Content Include="Views\Home\Donation.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\Home\Partners.cshtml" />
+    <Content Include="Views\Home\Clients.cshtml" />
+    <Content Include="Views\Home\How.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

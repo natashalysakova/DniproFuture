@@ -138,6 +138,15 @@
   <data name="HeaderOrganization" xml:space="preserve">
     <value>Благотворительная организация</value>
   </data>
+  <data name="HelpNowBtnTxt" xml:space="preserve">
+    <value>Больше информации</value>
+  </data>
+  <data name="HelpNowTitle" xml:space="preserve">
+    <value>Помочь сейчас</value>
+  </data>
+  <data name="HelpNowTxt" xml:space="preserve">
+    <value>У вас есть возможность помочь прямо сейчас</value>
+  </data>
   <data name="HowClothing" xml:space="preserve">
     <value>Одеждой</value>
   </data>

@@ -124,6 +124,33 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Більше інформації.
+        /// </summary>
+        public static string HelpNowBtnTxt {
+            get {
+                return ResourceManager.GetString("HelpNowBtnTxt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Допомогти зараз.
+        /// </summary>
+        public static string HelpNowTitle {
+            get {
+                return ResourceManager.GetString("HelpNowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ви маєте можливість допомогти саме зараз.
+        /// </summary>
+        public static string HelpNowTxt {
+            get {
+                return ResourceManager.GetString("HelpNowTxt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Речами.
         /// </summary>
         public static string HowClothing {

@@ -183,6 +183,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Home\_HomeStrings.Designer.cs" />
+    <Compile Include="Resources\Home\_HomeStrings.en.Designer.cs" />
+    <Compile Include="Resources\Home\_HomeStrings.ru.Designer.cs" />
     <Compile Include="Resources\Views\_Layout\_LayoutStrings.ru.Designer.cs">
       <DependentUpon>_LayoutStrings.ru.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -377,6 +380,9 @@
     <Content Include="Views\Home\How.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Home\_HomeStrings.en.resx" />
+    <EmbeddedResource Include="Resources\Home\_HomeStrings.resx" />
+    <EmbeddedResource Include="Resources\Home\_HomeStrings.ru.resx" />
     <EmbeddedResource Include="Resources\Views\_Layout\_LayoutStrings.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>_LayoutStrings.ru.Designer.cs</LastGenOutput>

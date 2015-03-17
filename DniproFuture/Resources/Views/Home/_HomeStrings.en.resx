@@ -126,6 +126,18 @@
   <data name="ContactsBtnTxt" xml:space="preserve">
     <value>Send message</value>
   </data>
+  <data name="ContactsEmailPH" xml:space="preserve">
+    <value>Your Email *</value>
+  </data>
+  <data name="ContactsMessagePH" xml:space="preserve">
+    <value>Your Message *</value>
+  </data>
+  <data name="ContactsNamePH" xml:space="preserve">
+    <value>Your Name *</value>
+  </data>
+  <data name="ContactsPhonePH" xml:space="preserve">
+    <value>Your Phone *</value>
+  </data>
   <data name="ContactsTitle" xml:space="preserve">
     <value>Contact us</value>
   </data>

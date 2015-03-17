@@ -12,15 +12,16 @@ namespace DniproFuture.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PartnersLocal
+    public partial class ProjectsLocalSet
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int PartnersId { get; set; }
+        public string ProjectName { get; set; }
+        public string AboutProject { get; set; }
+        public int ProjectId { get; set; }
         public int LanguageId { get; set; }
-        public string Link { get; set; }
+        public string Photos { get; set; }
     
-        public virtual Partners Partners { get; set; }
         public virtual Language Language { get; set; }
+        public virtual Projects Projects { get; set; }
     }
 }

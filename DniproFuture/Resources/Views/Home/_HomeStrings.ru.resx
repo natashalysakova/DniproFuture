@@ -126,6 +126,18 @@
   <data name="ContactsBtnTxt" xml:space="preserve">
     <value>Отправить письмо</value>
   </data>
+  <data name="ContactsEmailPH" xml:space="preserve">
+    <value>Ваш Email *</value>
+  </data>
+  <data name="ContactsMessagePH" xml:space="preserve">
+    <value>Ваше сообщение *</value>
+  </data>
+  <data name="ContactsNamePH" xml:space="preserve">
+    <value>Ваше имя *</value>
+  </data>
+  <data name="ContactsPhonePH" xml:space="preserve">
+    <value>Ваш номер телефона *</value>
+  </data>
   <data name="ContactsTitle" xml:space="preserve">
     <value>Свяжитесь с нами</value>
   </data>

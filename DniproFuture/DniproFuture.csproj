@@ -142,6 +142,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\AboutUsOutputModel.cs" />
+    <Compile Include="Models\ClientsOutputModel.cs" />
+    <Compile Include="Models\ContactsOutputModel.cs" />
     <Compile Include="Models\DniproFutureModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -158,9 +161,13 @@
       <DependentUpon>DniproFutureModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DniproFutureModelRepository.cs" />
+    <Compile Include="Models\DonationOutputModel.cs" />
+    <Compile Include="Models\HelpNowOutputModel.cs" />
+    <Compile Include="Models\HowOutputModel.cs" />
     <Compile Include="Models\Language.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MainPageOutputModel.cs" />
     <Compile Include="Models\NeedHelp.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
@@ -173,6 +180,7 @@
     <Compile Include="Models\NewsLocal.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NewsOutputModel.cs" />
     <Compile Include="Models\Partners.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
@@ -182,6 +190,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PartnersOutputModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Views\Home\_HomeStrings.Designer.cs">
       <AutoGen>True</AutoGen>

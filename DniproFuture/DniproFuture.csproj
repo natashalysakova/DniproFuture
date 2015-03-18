@@ -142,7 +142,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Models\AboutUsOutputModel.cs" />
+    <Compile Include="Controllers\NeedHelps1Controller.cs" />
     <Compile Include="Models\ClientsOutputModel.cs" />
     <Compile Include="Models\ContactsOutputModel.cs" />
     <Compile Include="Models\DniproFutureModel.Context.cs">
@@ -163,7 +163,6 @@
     <Compile Include="Models\DniproFutureModelRepository.cs" />
     <Compile Include="Models\DonationOutputModel.cs" />
     <Compile Include="Models\HelpNowOutputModel.cs" />
-    <Compile Include="Models\HowOutputModel.cs" />
     <Compile Include="Models\Language.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
@@ -171,6 +170,7 @@
     <Compile Include="Models\NeedHelp.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NeedHelpInputModel.cs" />
     <Compile Include="Models\NeedHelpLocal.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
@@ -405,6 +405,11 @@
     <Content Include="Views\Home\Partners.cshtml" />
     <Content Include="Views\Home\Clients.cshtml" />
     <Content Include="Views\Home\How.cshtml" />
+    <Content Include="Views\NeedHelps1\Create.cshtml" />
+    <Content Include="Views\NeedHelps1\Delete.cshtml" />
+    <Content Include="Views\NeedHelps1\Details.cshtml" />
+    <Content Include="Views\NeedHelps1\Edit.cshtml" />
+    <Content Include="Views\NeedHelps1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">

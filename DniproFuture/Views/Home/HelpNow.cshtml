@@ -1,4 +1,19 @@
-﻿<!-- Services Section -->
+﻿@using System
+@model DniproFuture.Models.HelpNowOutputModel
+<!-- Services Section -->
+<style>
+    ul .mymodal {         
+          padding:0 0 0 0;
+          margin:0 0 0 0;
+      }
+      ul li .mymodal {     
+          list-style:none;
+          margin-bottom:25px;           
+      }
+      ul li img {
+          cursor: pointer;
+      }
+</style>
 <section id="helpNow">
     <div class="container">
         <div class="row">
@@ -9,25 +24,28 @@
         </div>
         <div class="row text-center">
             <div class="col-md-6">
-                <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                </span>
-                @*<h4 class="service-heading">Responsive Design</h4>*@
-                <p class="text-muted">фотка нуждающегося</p>
+                <h4 class="service-heading">@Model.FullName</h4>
+                <div class="col-md-6 col-md-offset-3">
+                    <img src="@Url.Content("~/Content/img/NeedHelp/" + Model.Photos[0])" class="img-responsive img-circle" />
+                </div>
             </div>
             <div class="col-md-6">
-                <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                </span>
+
+                @if (Model.About.Length > 255)
+                {
+                    <p>@Model.About.Remove(255)...</p>
+                }
+                else
+                {
+                    <p>@Model.About</p>
+                }
+
                 <h4 class="service-heading">@ViewRes._HomeStrings.HelpNowTxt</h4>
-                <button type="submit" class="btn btn-xl">@ViewRes._HomeStrings.HelpNowBtnTxt</button>
+                <div class="portfolio-link btn btn-xl" data-toggle="modal" href="#portfolioModal1">@ViewRes._HomeStrings.HelpNowBtnTxt</div>
             </div>
         </div>
     </div>
 </section>
-
 
 <!-- HelpNow Modal-->
 <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
@@ -43,22 +61,34 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="modal-body">
                         <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive" src="Content/img/portfolio/roundicons-free.png" alt="">
-                        <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                        <p>
-                            <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
-                        </p>
-                        <ul class="list-inline">
-                            <li>Date: July 2014</li>
-                            <li>Client: Round Icons</li>
-                            <li>Category: Graphic Design</li>
-                        </ul>
+                        <h2>@Model.FullName</h2>
+                        <p class="item-intro text-muted">@Model.Age (@Model.Birthday.ToShortDateString())</p>
+                        <p class="item-intro text-muted">@Model.Summ/@Model.NeedSum</p>
+                        <img class="img-responsive" src="@Url.Content("~/Content/img/NeedHelp/" + Model.Photos[0])" alt="">
+                        <p>@Model.About</p>
+
+                        <div class="container mymodal">
+                            <ul class="row mymodal">
+                                @for (int i = 1; i < Model.Photos.Count; i++)
+                                {
+                                    <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4 mymodal"><img src="@Url.Content("~/Content/img/NeedHelp/" + Model.Photos[i])" class="img-responsive" /></li>
+                                }
+                            </ul>
+                        </div>
+
                         <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
     </div>
 </div>
+

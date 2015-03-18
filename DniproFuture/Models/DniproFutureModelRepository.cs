@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 
 namespace DniproFuture.Models
 {
-    public class DniproFutureModelRepository
+    public class DniproFutureModelRepository : IDisposable
     {
         private const int ClientCount = 3;
         private const int NewsCount = 3;
         private const int PartnersCount = 3;
         private const int DonationCount = 3;
         private readonly DniproFuture_siteEntities _dbContext = new DniproFuture_siteEntities();
+
+        public void Dispose()
+        {
+            _dbContext.Dispose();
+        }
 
         internal MainPageOutputModel GetMainPageModel()
         {
@@ -42,7 +50,7 @@ namespace DniproFuture.Models
 
             //Undone clients
             var unsuccessClientsId = GetAllUnsuccessClients();
-            int helpNowrandomClient = unsuccessClientsId[random.Next(0, unsuccessClientsId.Count)];
+            var helpNowrandomClient = unsuccessClientsId[random.Next(0, unsuccessClientsId.Count)];
             for (var i = 0; i < DonationCount; i++)
             {
                 if (unsuccessClientsId.Count == 0)
@@ -59,7 +67,7 @@ namespace DniproFuture.Models
 
             //HelpNow
             model.HelpNowBlock = GetHelpNowOutputModelByClientId(helpNowrandomClient);
-            
+
             //Partners
             var partnersId = GetAllPartners();
             for (var i = 0; i < PartnersCount; i++)
@@ -85,25 +93,26 @@ namespace DniproFuture.Models
 
         private NewsOutputModel[] GetLastNews()
         {
-            var lastNews = (from news in _dbContext.News orderby news.Date descending select news).Take(NewsCount).ToList();
+            var lastNews =
+                (from news in _dbContext.News orderby news.Date descending select news).Take(NewsCount).ToList();
             if (lastNews.Count != 0)
             {
-                NewsOutputModel[] model = new NewsOutputModel[NewsCount];
-                for (int i = 0; i < model.Length; i++)
+                var model = new NewsOutputModel[NewsCount];
+                for (var i = 0; i < model.Length; i++)
                 {
                     var news = (from local in lastNews[i].NewsLocal
-                                where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
-                                select new { local.Title, Text = local.Text.Remove(128) }).FirstOrDefault();;
-                    model[i] = new NewsOutputModel()
-                    {
-                        Title = news.Title,
-                        ShortText = news.Text,
-                        Photo = lastNews[i].Images,
-                        Date = lastNews[i].Date
-                    };
+                        where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
+                        select new {local.Title, Text = local.Text.Remove(128)}).FirstOrDefault();
+                    if (news != null)
+                        model[i] = new NewsOutputModel
+                        {
+                            Title = news.Title,
+                            ShortText = news.Text,
+                            Photo = lastNews[i].Images,
+                            Date = lastNews[i].Date
+                        };
                 }
                 return model;
-
             }
             return new NewsOutputModel[NewsCount];
         }
@@ -120,11 +129,13 @@ namespace DniproFuture.Models
                         select local.Name).FirstOrDefault()
                 }).FirstOrDefault();
 
-            return new PartnersOutputModel()
-            {
-                Logo = partner.Logo,
-                Title = partner.Title
-            };
+            if (partner != null)
+                return new PartnersOutputModel
+                {
+                    Logo = partner.Logo,
+                    Title = partner.Title
+                };
+            return new PartnersOutputModel();
         }
 
         private List<int> GetAllPartners()
@@ -137,18 +148,43 @@ namespace DniproFuture.Models
             var client = (from c in _dbContext.NeedHelp where c.Id == helpNowrandomClient select c).FirstOrDefault();
             if (client != null)
             {
-                var fullName = (from local in client.NeedHelpLocal
-                                where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
-                                select string.Format("{0} {1}", local.FirstName, local.LastName)).FirstOrDefault();;
+                var clientInfo = (from local in client.NeedHelpLocal
+                    where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
+                    select new {FullName = string.Format("{0} {1}", local.FirstName, local.LastName), local.About})
+                    .FirstOrDefault();
 
-                return new HelpNowOutputModel()
-                {
-                    FullName = fullName,
-                    Photo = client.Photos
-                };
+                if (clientInfo != null)
+                    return new HelpNowOutputModel
+                    {
+                        FullName = clientInfo.FullName,
+                        Photos = client.Photos.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries).ToList(),
+                        About = clientInfo.About,
+                        Age = GetAge(client.Birthday),
+                        Birthday = client.Birthday,
+                        NeedSum = client.NeedSum,
+                        Summ = client.Sum
+                    };
+
+                return new HelpNowOutputModel();
             }
 
             return new HelpNowOutputModel();
+        }
+
+        private static int GetAge(DateTime birthday)
+        {
+            var age = DateTime.Today.Year - birthday.Year;
+            var monthdiff = DateTime.Today.Month - birthday.Month;
+            var daydiff = DateTime.Today.Day - birthday.Day;
+            if (daydiff < 0)
+            {
+                monthdiff--;
+            }
+            if (monthdiff < 0)
+            {
+                age--;
+            }
+            return age;
         }
 
         private ClientsOutputModel GetClientOutputModelById(int index)
@@ -156,16 +192,26 @@ namespace DniproFuture.Models
             var client = (from c in _dbContext.NeedHelp where c.Id == index select c).FirstOrDefault();
             if (client != null)
             {
-                var fullName = (from local in client.NeedHelpLocal
+                var clientInfo = (from local in client.NeedHelpLocal
                     where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
-                    select string.Format("{0} {1}", local.FirstName, local.LastName)).FirstOrDefault();
+                    select
+                        new {fullName = string.Format("{0} {1}", local.FirstName, local.LastName), local.About})
+                    .FirstOrDefault();
 
-                return new ClientsOutputModel
-                {
-                    CompleteSum = client.Sum.ToString(),
-                    FullName = fullName,
-                    Photo = client.Photos
-                };
+
+                if (clientInfo != null)
+                    return new ClientsOutputModel
+                    {
+                        CompleteSum = client.Sum.ToString(),
+                        FullName = clientInfo.fullName,
+                        Photos = client.Photos.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries).ToList(),
+                        About = clientInfo.About,
+                        Age = GetAge(client.Birthday),
+                        Birthday = client.Birthday,
+                        NeedSum = client.NeedSum,
+                        Summ = client.Sum
+                    };
+                return new ClientsOutputModel();
             }
             return new ClientsOutputModel();
         }
@@ -179,15 +225,23 @@ namespace DniproFuture.Models
                     where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
                     select
                         new {fullName = string.Format("{0} {1}", local.FirstName, local.LastName), about = local.About})
-                    .FirstOrDefault();;
+                    .FirstOrDefault();
+                
 
-
-                return new DonationOutputModel
+                if (clientInfo != null)
                 {
-                    About = clientInfo.about,
-                    FullName = clientInfo.fullName,
-                    Photo = client.Photos
-                };
+                    return new DonationOutputModel
+                    {
+                        About = clientInfo.about,
+                        FullName = clientInfo.fullName,
+                        Photos = client.Photos.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries).ToList(),
+                        Age = GetAge(client.Birthday),
+                        Birthday = client.Birthday,
+                        NeedSum = client.NeedSum,
+                        Summ = client.Sum
+                    };
+                }
+                return new DonationOutputModel();
             }
             return new DonationOutputModel();
         }
@@ -200,6 +254,69 @@ namespace DniproFuture.Models
         private List<int> GetAllUnsuccessClients()
         {
             return (from client in _dbContext.NeedHelp where !client.Done select client.Id).ToList();
+        }
+
+        internal List<NeedHelp> GetListOfNeedHelp()
+        {
+            return _dbContext.NeedHelp.ToList();
+        }
+
+        internal NeedHelp FindInNeedHelpById(int? id)
+        {
+            return _dbContext.NeedHelp.Find(id);
+        }
+
+        public void AddNeedHelp(NeedHelpInputModel needHelp)
+        {
+            needHelp.WhatNeed.NeedHelpLocal = needHelp.WhoNeed;
+
+            foreach (var helpLocal in needHelp.WhoNeed)
+            {
+                helpLocal.Language = GetLanguageByCode(helpLocal.Language.LanguageCode);
+            }
+
+            _dbContext.NeedHelp.Add(needHelp.WhatNeed);
+            _dbContext.NeedHelpLocalSet.AddRange(needHelp.WhoNeed);
+
+            try
+            {
+                _dbContext.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Debug.WriteLine("- Property: \"{0}\", Error: \"{1}\"", ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+            }
+        }
+
+        private Language GetLanguageByCode(string languageCode)
+        {
+            return Enumerable.FirstOrDefault(_dbContext.Language, language => language.LanguageCode == languageCode);
+        }
+
+        internal void EditNeedHelp(NeedHelp needHelp)
+        {
+            _dbContext.Entry(needHelp).State = EntityState.Modified;
+            _dbContext.SaveChanges();
+        }
+
+        internal void RemoveNeedHelpById(int id)
+        {
+            var needHelp = _dbContext.NeedHelp.Find(id);
+            _dbContext.NeedHelp.Remove(needHelp);
+            _dbContext.SaveChanges();
+        }
+
+        internal List<Language> GetLanguagesList()
+        {
+            return _dbContext.Language.ToList();
         }
     }
 }

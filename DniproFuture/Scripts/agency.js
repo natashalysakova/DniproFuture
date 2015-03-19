@@ -26,7 +26,7 @@ $('.navbar-collapse ul li a').click(function() {
 });
 
 $(document).ready(function () {
-    $('li img').on('click', function () {
+    $('li img .mymodal').on('click', function () {
         var src = $(this).attr('src');
         var img = '<img src="' + src + '" class="img-responsive"/>';
         $('#myModal').modal();

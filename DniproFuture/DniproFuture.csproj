@@ -247,6 +247,10 @@
     <Content Include="Content\img\about\3.jpg" />
     <Content Include="Content\img\about\4.jpg" />
     <Content Include="Content\img\header-bg.jpg" />
+    <Content Include="Content\img\How\Clother.png" />
+    <Content Include="Content\img\How\Info.png" />
+    <Content Include="Content\img\How\money.png" />
+    <Content Include="Content\img\How\Other.png" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\logos\aetuts.jpg" />
     <Content Include="Content\img\logos\creative-market.jpg" />

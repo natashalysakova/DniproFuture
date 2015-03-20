@@ -187,11 +187,21 @@ namespace ViewRes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Речами.
+        ///   Looks up a localized string similar to Одягом/Речами.
         /// </summary>
         public static string HowClothing {
             get {
                 return ResourceManager.GetString("HowClothing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;У Вас в гардеробі скупчилися речі, які Ви не носите? Ви вирішили купити нові меблі і не знаєте що робити зі старими меблями? І Ви не знаєте кому б могли всі ці речі стати в нагоді?&lt;br&gt;
+        ///Не поспішайте все це викидати! Адже речі, які здаються марними для вас, можуть бути корисні для інших людей! Наш фонд займається збором гуманітарної допомоги для жителів нашого міста. Тому, якщо у Вас є можливість, а головне бажання допомогти нужденним людям Дніпропетровська, то Ви можете це зробити самостійно або Ми може [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string HowClothingModalTxt {
+            get {
+                return ResourceManager.GetString("HowClothingModalTxt", resourceCulture);
             }
         }
         
@@ -201,6 +211,15 @@ namespace ViewRes {
         public static string HowInformation {
             get {
                 return ResourceManager.GetString("HowInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Закрити.
+        /// </summary>
+        public static string HowModalBtn {
+            get {
+                return ResourceManager.GetString("HowModalBtn", resourceCulture);
             }
         }
         

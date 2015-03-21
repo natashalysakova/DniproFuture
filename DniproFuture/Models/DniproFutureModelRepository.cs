@@ -101,16 +101,35 @@ namespace DniproFuture.Models
                 for (var i = 0; i < model.Length; i++)
                 {
                     var news = (from local in lastNews[i].NewsLocal
-                        where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
-                        select new {local.Title, Text = local.Text.Remove(128)}).FirstOrDefault();
+                                where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
+                                select new { local.Title, Text = local.Text }).FirstOrDefault();
                     if (news != null)
-                        model[i] = new NewsOutputModel
+                    {
+                        if (news.Text.Length > 256)
                         {
-                            Title = news.Title,
-                            ShortText = news.Text,
-                            Photo = lastNews[i].Images,
-                            Date = lastNews[i].Date
-                        };
+                            model[i] = new NewsOutputModel
+                            {
+                                Title = news.Title,
+                                ShortText = news.Text.Remove(256),
+                                Photo = lastNews[i].Images,
+                                Date = lastNews[i].Date
+                            };
+                        }
+                        else
+                        {
+                            model[i] = new NewsOutputModel
+                            {
+                                Title = news.Title,
+                                ShortText = news.Text,
+                                Photo = lastNews[i].Images,
+                                Date = lastNews[i].Date
+                            };
+                        }
+                    }
+                    else
+                        model[i] = new NewsOutputModel();
+
+
                 }
                 return model;
             }
@@ -120,14 +139,14 @@ namespace DniproFuture.Models
         private PartnersOutputModel GetPartnersOutputModelById(int i)
         {
             var partner = (from p in _dbContext.Partners
-                where p.Id == i
-                select new
-                {
-                    p.Logo,
-                    Title = (from local in p.PartnersLocal
-                        where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
-                        select local.Name).FirstOrDefault()
-                }).FirstOrDefault();
+                           where p.Id == i
+                           select new
+                           {
+                               p.Logo,
+                               Title = (from local in p.PartnersLocal
+                                        where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
+                                        select local.Name).FirstOrDefault()
+                           }).FirstOrDefault();
 
             if (partner != null)
                 return new PartnersOutputModel
@@ -149,15 +168,15 @@ namespace DniproFuture.Models
             if (client != null)
             {
                 var clientInfo = (from local in client.NeedHelpLocal
-                    where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
-                    select new {FullName = string.Format("{0} {1}", local.FirstName, local.LastName), local.About})
+                                  where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
+                                  select new { FullName = string.Format("{0} {1}", local.FirstName, local.LastName), local.About })
                     .FirstOrDefault();
 
                 if (clientInfo != null)
                     return new HelpNowOutputModel
                     {
                         FullName = clientInfo.FullName,
-                        Photos = client.Photos.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries).ToList(),
+                        Photos = client.Photos.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(),
                         About = clientInfo.About,
                         Age = GetAge(client.Birthday),
                         Birthday = client.Birthday,
@@ -193,9 +212,9 @@ namespace DniproFuture.Models
             if (client != null)
             {
                 var clientInfo = (from local in client.NeedHelpLocal
-                    where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
-                    select
-                        new {fullName = string.Format("{0} {1}", local.FirstName, local.LastName), local.About})
+                                  where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
+                                  select
+                                      new { fullName = string.Format("{0} {1}", local.FirstName, local.LastName), local.About })
                     .FirstOrDefault();
 
 
@@ -204,7 +223,7 @@ namespace DniproFuture.Models
                     {
                         CompleteSum = client.Sum.ToString(),
                         FullName = clientInfo.fullName,
-                        Photos = client.Photos.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries).ToList(),
+                        Photos = client.Photos.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(),
                         About = clientInfo.About,
                         Age = GetAge(client.Birthday),
                         Birthday = client.Birthday,
@@ -222,11 +241,11 @@ namespace DniproFuture.Models
             if (client != null)
             {
                 var clientInfo = (from local in client.NeedHelpLocal
-                    where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
-                    select
-                        new {fullName = string.Format("{0} {1}", local.FirstName, local.LastName), about = local.About})
+                                  where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
+                                  select
+                                      new { fullName = string.Format("{0} {1}", local.FirstName, local.LastName), about = local.About })
                     .FirstOrDefault();
-                
+
 
                 if (clientInfo != null)
                 {
@@ -234,7 +253,7 @@ namespace DniproFuture.Models
                     {
                         About = clientInfo.about,
                         FullName = clientInfo.fullName,
-                        Photos = client.Photos.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries).ToList(),
+                        Photos = client.Photos.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(),
                         Age = GetAge(client.Birthday),
                         Birthday = client.Birthday,
                         NeedSum = client.NeedSum,
@@ -317,6 +336,45 @@ namespace DniproFuture.Models
         internal List<Language> GetLanguagesList()
         {
             return _dbContext.Language.ToList();
+        }
+
+        internal List<News> GetListOfNews()
+        {
+            return _dbContext.News.ToList();
+        }
+
+        internal News FindInNewsById(int? id)
+        {
+            return _dbContext.News.Find(id);
+        }
+
+        public void AddNews(NewsInputModel news)
+        {
+            news.NewsInfo.NewsLocal = news.Locals;
+
+            foreach (var helpLocal in news.Locals)
+            {
+                helpLocal.Language = GetLanguageByCode(helpLocal.Language.LanguageCode);
+            }
+
+            _dbContext.News.Add(news.NewsInfo);
+            _dbContext.NewsLocalSet.AddRange(news.Locals);
+
+            _dbContext.SaveChanges();
+
+        }
+
+        public void EditNews(News news)
+        {
+            _dbContext.Entry(news).State = EntityState.Modified;
+            _dbContext.SaveChanges();
+        }
+
+        public void RemoveNewsById(int id)
+        {
+            var news = _dbContext.News.Find(id);
+            _dbContext.News.Remove(news);
+            _dbContext.SaveChanges();
         }
     }
 }

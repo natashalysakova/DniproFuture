@@ -143,6 +143,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NeedHelps1Controller.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Models\ClientsOutputModel.cs" />
     <Compile Include="Models\ContactsOutputModel.cs" />
     <Compile Include="Models\DniproFutureModel.Context.cs">
@@ -177,6 +178,7 @@
     <Compile Include="Models\News.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NewsInputModel.cs" />
     <Compile Include="Models\NewsLocal.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
@@ -414,6 +416,11 @@
     <Content Include="Views\NeedHelps1\Details.cshtml" />
     <Content Include="Views\NeedHelps1\Edit.cshtml" />
     <Content Include="Views\NeedHelps1\Index.cshtml" />
+    <Content Include="Views\News\Create.cshtml" />
+    <Content Include="Views\News\Delete.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\News\Edit.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">

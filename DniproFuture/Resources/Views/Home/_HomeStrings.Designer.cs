@@ -206,6 +206,19 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Ви володієте інформацією про людей, яким потрібна допомога?&lt;/p&gt;
+        ///&lt;p&gt;Допомога потрібна Вам або комусь із ваших родичів?&lt;/p&gt;
+        ///&lt;p&gt;Ви знаєте &amp;laquo;Як можна допомогти&amp;raquo; і &amp;laquo;Що потрібно робити&amp;raquo;, але не в силах реалізувати задумане самостійно?&lt;/p&gt;
+        ///&lt;p&gt;Якщо Ви відповіли, хоча б на одне з питань позитивно, в такому випадку Вам варто зв&amp;#39;язатися з нами.&lt;/p&gt;
+        ///&lt;p&gt;Ми - це БФ &amp;laquo;Майбутнє Дніпра&amp;raquo;. Ми надаємо матеріальну та юридичну допомогу людям Дніпропетровська. І нам потрібна Ваша допом [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string HowInfoModalTxt {
+            get {
+                return ResourceManager.GetString("HowInfoModalTxt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Інформацією.
         /// </summary>
         public static string HowInformation {

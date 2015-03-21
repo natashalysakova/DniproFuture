@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutFuture" xml:space="preserve">
+    <value>Создадим&lt;br&gt;будущее&lt;br&gt;вместе!</value>
+  </data>
   <data name="AboutTitle" xml:space="preserve">
     <value>О нас</value>
+  </data>
+  <data name="About_1_Date" xml:space="preserve">
+    <value>Апрель 2015</value>
+  </data>
+  <data name="About_1_SubTitle" xml:space="preserve">
+    <value>Создание</value>
+  </data>
+  <data name="About_1_Txt" xml:space="preserve">
+    <value>Мы приступили к работе и готовы помогать людям!</value>
   </data>
   <data name="ClientsTitle" xml:space="preserve">
     <value>Кому мы помогли</value>
@@ -140,6 +152,15 @@
   </data>
   <data name="ContactsTitle" xml:space="preserve">
     <value>Свяжитесь с нами</value>
+  </data>
+  <data name="DonationMore" xml:space="preserve">
+    <value>Узнать больше</value>
+  </data>
+  <data name="DonationSubTitle" xml:space="preserve">
+    <value>Этим людям нужна помощь</value>
+  </data>
+  <data name="DonationTitle" xml:space="preserve">
+    <value>Сбор средств</value>
   </data>
   <data name="HeaderDniproFuture" xml:space="preserve">
     <value>Будущее Днепра</value>
@@ -205,8 +226,18 @@ Skype:&lt;br&gt;
   <data name="HowMoney" xml:space="preserve">
     <value>Деньгами</value>
   </data>
+  <data name="HowMoneyModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;Если у Вас есть желание и возможность сделать благотворительный взнос, то ниже приведены реквизиты нашего фонда. Средства будут потрачены на реализацию проектов фонда.&lt;/p&gt;</value>
+  </data>
   <data name="HowOther" xml:space="preserve">
     <value>Другое</value>
+  </data>
+  <data name="HowOtherModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;На нашем сайте описано несколько способов для осуществления помощи. Если Вы хотите предложить нам новый способ помощи или Вы желаете сотрудничать с нашим Благотворительным Фондом, то, пожалуйста, свяжитесь с нами любым удобным для Вас способом:&lt;br&gt;
+e-mail:&lt;br&gt;
+Тел. :&lt;br&gt;
+Skype:&lt;br&gt;
+Так же Вы можете просто заполнить заявку на нашем сайте, и мы обязательно с вами свяжемся.&lt;/p&gt;</value>
   </data>
   <data name="HowTitle" xml:space="preserve">
     <value>Как Вы можете помочь?</value>
@@ -234,6 +265,12 @@ Skype:&lt;br&gt;
   </data>
   <data name="NavBarPartners" xml:space="preserve">
     <value>Партнеры</value>
+  </data>
+  <data name="NewsMore" xml:space="preserve">
+    <value>Больше новостей</value>
+  </data>
+  <data name="NewsSubTitle" xml:space="preserve">
+    <value>Последние новости нашего фонда</value>
   </data>
   <data name="NewsTitle" xml:space="preserve">
     <value>Новости</value>

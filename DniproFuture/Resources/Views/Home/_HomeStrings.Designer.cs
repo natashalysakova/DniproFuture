@@ -61,6 +61,42 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Квітень 2015.
+        /// </summary>
+        public static string About_1_Date {
+            get {
+                return ResourceManager.GetString("About_1_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Створення.
+        /// </summary>
+        public static string About_1_SubTitle {
+            get {
+                return ResourceManager.GetString("About_1_SubTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ми приступили до роботи і готові допомагати людям!.
+        /// </summary>
+        public static string About_1_Txt {
+            get {
+                return ResourceManager.GetString("About_1_Txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Створимо&lt;br&gt;майбутнє&lt;br&gt;разом!.
+        /// </summary>
+        public static string AboutFuture {
+            get {
+                return ResourceManager.GetString("AboutFuture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Про нас.
         /// </summary>
         public static string AboutTitle {
@@ -129,6 +165,33 @@ namespace ViewRes {
         public static string ContactsTitle {
             get {
                 return ResourceManager.GetString("ContactsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Узнати більше.
+        /// </summary>
+        public static string DonationMore {
+            get {
+                return ResourceManager.GetString("DonationMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Цим людям потрібна допомога.
+        /// </summary>
+        public static string DonationSubTitle {
+            get {
+                return ResourceManager.GetString("DonationSubTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Збір коштів.
+        /// </summary>
+        public static string DonationTitle {
+            get {
+                return ResourceManager.GetString("DonationTitle", resourceCulture);
             }
         }
         
@@ -246,11 +309,33 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Якщо у Вас є бажання і можливість зробити благодійний внесок, то нижче наведені реквізити нашого фонду. Кошти будуть витрачені на реалізацію проектів фонду.&lt;/p&gt;.
+        /// </summary>
+        public static string HowMoneyModalTxt {
+            get {
+                return ResourceManager.GetString("HowMoneyModalTxt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Інше.
         /// </summary>
         public static string HowOther {
             get {
                 return ResourceManager.GetString("HowOther", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;На нашому сайті описано кілька способів для здійснення допомоги. Якщо Ви хочете запропонувати нам новий спосіб допомоги чи Ви бажаєте співпрацювати з нашим Благодійним Фондом, то, будь ласка, зв&amp;#39;яжіться з нами будь-яким зручним для Вас способом:&lt;br&gt;
+        ///e-mail:&lt;br&gt;
+        ///Тел. :&lt;br&gt;
+        ///Skype:&lt;br&gt;
+        ///Так само Ви можете просто заповнити заявку на нашому сайті, і ми обов&amp;#39;язково з вами зв&amp;#39;яжемося.&lt;/p&gt;.
+        /// </summary>
+        public static string HowOtherModalTxt {
+            get {
+                return ResourceManager.GetString("HowOtherModalTxt", resourceCulture);
             }
         }
         
@@ -332,6 +417,24 @@ namespace ViewRes {
         public static string NavBarPartners {
             get {
                 return ResourceManager.GetString("NavBarPartners", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Більше новин.
+        /// </summary>
+        public static string NewsMore {
+            get {
+                return ResourceManager.GetString("NewsMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Останні новини нашого фонду.
+        /// </summary>
+        public static string NewsSubTitle {
+            get {
+                return ResourceManager.GetString("NewsSubTitle", resourceCulture);
             }
         }
         

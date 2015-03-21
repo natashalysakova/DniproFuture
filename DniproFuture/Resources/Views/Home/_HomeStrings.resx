@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutFuture" xml:space="preserve">
+    <value>Створимо&lt;br&gt;майбутнє&lt;br&gt;разом!</value>
+  </data>
   <data name="AboutTitle" xml:space="preserve">
     <value>Про нас</value>
+  </data>
+  <data name="About_1_Date" xml:space="preserve">
+    <value>Квітень 2015</value>
+  </data>
+  <data name="About_1_SubTitle" xml:space="preserve">
+    <value>Створення</value>
+  </data>
+  <data name="About_1_Txt" xml:space="preserve">
+    <value>Ми приступили до роботи і готові допомагати людям!</value>
   </data>
   <data name="ClientsTitle" xml:space="preserve">
     <value>Кому ми допомогли</value>
@@ -140,6 +152,15 @@
   </data>
   <data name="ContactsTitle" xml:space="preserve">
     <value>Зв'яжіться з нами</value>
+  </data>
+  <data name="DonationMore" xml:space="preserve">
+    <value>Узнати більше</value>
+  </data>
+  <data name="DonationSubTitle" xml:space="preserve">
+    <value>Цим людям потрібна допомога</value>
+  </data>
+  <data name="DonationTitle" xml:space="preserve">
+    <value>Збір коштів</value>
   </data>
   <data name="HeaderDniproFuture" xml:space="preserve">
     <value>Майбутнє Дніпра</value>
@@ -205,8 +226,18 @@ Skype:&lt;br&gt;
   <data name="HowMoney" xml:space="preserve">
     <value>Грошима</value>
   </data>
+  <data name="HowMoneyModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;Якщо у Вас є бажання і можливість зробити благодійний внесок, то нижче наведені реквізити нашого фонду. Кошти будуть витрачені на реалізацію проектів фонду.&lt;/p&gt;</value>
+  </data>
   <data name="HowOther" xml:space="preserve">
     <value>Інше</value>
+  </data>
+  <data name="HowOtherModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;На нашому сайті описано кілька способів для здійснення допомоги. Якщо Ви хочете запропонувати нам новий спосіб допомоги чи Ви бажаєте співпрацювати з нашим Благодійним Фондом, то, будь ласка, зв&amp;#39;яжіться з нами будь-яким зручним для Вас способом:&lt;br&gt;
+e-mail:&lt;br&gt;
+Тел. :&lt;br&gt;
+Skype:&lt;br&gt;
+Так само Ви можете просто заповнити заявку на нашому сайті, і ми обов&amp;#39;язково з вами зв&amp;#39;яжемося.&lt;/p&gt;</value>
   </data>
   <data name="HowTitle" xml:space="preserve">
     <value>Як Ви можете допомогти</value>
@@ -234,6 +265,12 @@ Skype:&lt;br&gt;
   </data>
   <data name="NavBarPartners" xml:space="preserve">
     <value>Партнери</value>
+  </data>
+  <data name="NewsMore" xml:space="preserve">
+    <value>Більше новин</value>
+  </data>
+  <data name="NewsSubTitle" xml:space="preserve">
+    <value>Останні новини нашого фонду</value>
   </data>
   <data name="NewsTitle" xml:space="preserve">
     <value>Новини</value>

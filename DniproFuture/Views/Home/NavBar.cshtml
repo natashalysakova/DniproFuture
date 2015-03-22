@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="page-scroll" href="#page-top"><img class="logo navbar-brand" style="margin-left: -25px;" src="@Url.Content("~/Content/img/logo.png")" /></a>
+            <a class="page-scroll" href="#page-top"><img class="logo navbar-brand" src="@Url.Content("~/Content/img/logo.png")" /></a>
         </div>
 
 
@@ -44,18 +44,21 @@
                 <li>
                     <a class="page-scroll" href="#contacts">@ViewRes._HomeStrings.NavBarContacts</a>
                 </li>
-                <li>
-                    <div id="languages">
-                        <a href="@Url.Action("ChangeCulture",new { lang = "uk", returnUrl = this.Request.RawUrl })">
-                            <img src="@Url.Content("~/Content/img/blank.gif")" class="flag flag-ua" alt="Українська" /></a>
-                        <a href="@Url.Action("ChangeCulture",new { lang = "ru", returnUrl = this.Request.RawUrl })">
-                            <img src="@Url.Content("~/Content/img/blank.gif")" class="flag flag-ru" alt="Русский" /></a>
-                        <a href="@Url.Action("ChangeCulture",new { lang = "en", returnUrl = this.Request.RawUrl })">
-                            <img src="@Url.Content("~/Content/img/blank.gif")" class="flag flag-us" alt="English" /></a>
-                    </div>
-                </li>
+
             </ul>
-            
+
+        </div>
+
+        <div id="languages">
+            <a href="@Url.Action("ChangeCulture",new { lang = "uk", returnUrl = this.Request.RawUrl })">
+                <img src="@Url.Content("~/Content/img/blank.gif")" class="flag flag-ua" alt="Українська" />
+            </a><br/>
+            <a href="@Url.Action("ChangeCulture",new { lang = "ru", returnUrl = this.Request.RawUrl })">
+                <img src="@Url.Content("~/Content/img/blank.gif")" class="flag flag-ru" alt="Русский" />
+            </a><br />
+            <a href="@Url.Action("ChangeCulture",new { lang = "en", returnUrl = this.Request.RawUrl })">
+                <img src="@Url.Content("~/Content/img/blank.gif")" class="flag flag-us" alt="English" />
+            </a>
         </div>
         <!-- /.navbar-collapse -->
     </div>

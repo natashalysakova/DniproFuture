@@ -944,6 +944,7 @@ body {
     .navbar-default .backFlag {
         height: 75px;
         width: 50px;
+        left: 25px;
     }
 
     .navbar-default .nav li a {

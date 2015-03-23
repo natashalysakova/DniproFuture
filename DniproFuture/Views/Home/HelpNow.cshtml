@@ -26,22 +26,11 @@
         </div>
         <div class="row text-center">
             <div class="col-md-6">
-                <h4 class="service-heading">@Model.FullName</h4>
                 <div class="col-md-6 col-md-offset-3">
-                    <img src="@Url.Content("~/Content/img/NeedHelp/" + Model.Photos[0])" class="img-responsive img-circle" />
+                    <img src="@Url.Content("~/Content/img/NeedHelp/")" class="img-responsive img-circle" />
                 </div>
             </div>
             <div class="col-md-6">
-
-                @if (Model.About.Length > 255)
-                {
-                    <p>@Model.About.Remove(255)...</p>
-                }
-                else
-                {
-                    <p>@Model.About</p>
-                }
-
                 <h4 class="service-heading">@ViewRes._HomeStrings.HelpNowTxt</h4>
                 <div class="portfolio-link btn btn-xl" data-toggle="modal" href="#portfolioModal1">@ViewRes._HomeStrings.HelpNowBtnTxt</div>
             </div>
@@ -63,34 +52,14 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="modal-body">
                         <!-- Project Details Go Here -->
-                        <h2>@Model.FullName</h2>
-                        <p class="item-intro text-muted">@Model.Age (@Model.Birthday.ToShortDateString())</p>
-                        <p class="item-intro text-muted">@Model.Summ/@Model.NeedSum</p>
-                        <img class="img-responsive" src="@Url.Content("~/Content/img/NeedHelp/" + Model.Photos[0])" alt="">
-                        <p>@Model.About</p>
-
-                        <div class="container mymodal">
-                            <ul class="row mymodal">
-                                @for (int i = 1; i < Model.Photos.Count; i++)
-                                {
-                                    <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4 mymodal"><img src="@Url.Content("~/Content/img/NeedHelp/" + Model.Photos[i])" class="img-responsive" /></li>
-                                }
-                            </ul>
-                        </div>
-
+                        <h2>@ViewRes._HomeStrings.HelpNowTitle</h2>
+                        <img class="img-responsive" src=@Url.Content("~/Content/img/NeedHelp/") alt="">
+                        
                         <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
     </div>
 </div>
 

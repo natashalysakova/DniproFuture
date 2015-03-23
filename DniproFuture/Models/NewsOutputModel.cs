@@ -8,5 +8,6 @@ namespace DniproFuture.Models
         public string ShortText { get; set; }
         public string Photo { get; set; }
         public DateTime Date { get; set; }
+        public string Text { get; set; }
     }
 }

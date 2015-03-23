@@ -112,7 +112,9 @@ namespace DniproFuture.Models
                                 Title = news.Title,
                                 ShortText = news.Text.Remove(256),
                                 Photo = lastNews[i].Images,
-                                Date = lastNews[i].Date
+                                Date = lastNews[i].Date,
+                                Text = news.Text
+
                             };
                         }
                         else
@@ -122,7 +124,8 @@ namespace DniproFuture.Models
                                 Title = news.Title,
                                 ShortText = news.Text,
                                 Photo = lastNews[i].Images,
-                                Date = lastNews[i].Date
+                                Date = lastNews[i].Date,
+                                Text = news.Text
                             };
                         }
                     }

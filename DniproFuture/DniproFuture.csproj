@@ -253,7 +253,6 @@
     <Content Include="Content\img\How\Info.png" />
     <Content Include="Content\img\How\money.png" />
     <Content Include="Content\img\How\Other.png" />
-    <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\logos\aetuts.jpg" />
     <Content Include="Content\img\logos\creative-market.jpg" />
     <Content Include="Content\img\logos\designmodo.jpg" />
@@ -277,6 +276,9 @@
     <Content Include="Content\img\team\1.jpg" />
     <Content Include="Content\img\team\2.jpg" />
     <Content Include="Content\img\team\3.jpg" />
+    <Content Include="Content\img\up.png" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\flag.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />

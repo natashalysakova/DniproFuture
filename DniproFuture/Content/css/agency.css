@@ -7,14 +7,15 @@
 body {
     overflow-x: hidden;
     font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #0d4a9a;
 }
 
 .text-muted {
-    color: #777;
+    color: #657b99;
 }
 
 .text-primary {
-    color: #fed136;
+    color: #f3a400;
 }
 
 p {
@@ -35,7 +36,7 @@ a.active {
 }
 
 a {
-    color: #fed136;
+    color: #f3a400;
 }
 
     a:hover,
@@ -61,20 +62,20 @@ h6 {
 }
 
 .bg-light-gray {
-    background-color: #f7f7f7;
+    background-color: #EDF6FF;
 }
 
 .bg-darkest-gray {
-    background-color: #222;
+    background-color: #0d4a9a;
 }
 
 .btn-primary {
-    border-color: #fed136;
+    border-color: #f3a400;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     color: #fff;
-    background-color: #fed136;
+    background-color: #f3a400;
 }
 
     .btn-primary:hover,
@@ -108,25 +109,25 @@ h6 {
     .btn-primary.disabled.active,
     .btn-primary[disabled].active,
     fieldset[disabled] .btn-primary.active {
-        border-color: #fed136;
-        background-color: #fed136;
+        border-color: #f3a400;
+        background-color: #f3a400;
     }
 
     .btn-primary .badge {
-        color: #fed136;
+        color: #f3a400;
         background-color: #fff;
     }
 
 .btn-xl {
     padding: 20px 40px;
-    border-color: #fed136;
+    border-color: #f3a400;
     border-radius: 3px;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: #fff;
-    background-color: #fed136;
+    background-color: #f3a400;
 }
 
     .btn-xl:hover,
@@ -160,23 +161,23 @@ h6 {
     .btn-xl.disabled.active,
     .btn-xl[disabled].active,
     fieldset[disabled] .btn-xl.active {
-        border-color: #fed136;
-        background-color: #fed136;
+        border-color: #f3a400;
+        background-color: #f3a400;
     }
 
     .btn-xl .badge {
-        color: #fed136;
+        color: #f3a400;
         background-color: #fff;
     }
 
 .navbar-default {
     border-color: transparent;
-    background-color: #222;
+    background-color: #0d4a9a;
 }
 
     .navbar-default .navbar-brand {
         font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
-        color: #fed136;
+        color: #f3a400;
     }
 
         .navbar-default .navbar-brand:hover,
@@ -191,8 +192,8 @@ h6 {
     }
 
     .navbar-default .navbar-toggle {
-        border-color: #fed136;
-        background-color: #fed136;
+        border-color: #f3a400;
+        background-color: #f3a400;
     }
 
         .navbar-default .navbar-toggle .icon-bar {
@@ -201,7 +202,7 @@ h6 {
 
         .navbar-default .navbar-toggle:hover,
         .navbar-default .navbar-toggle:focus {
-            background-color: #fed136;
+            background-color: #f3a400;
         }
 
     .navbar-default .nav li a {
@@ -209,19 +210,23 @@ h6 {
         font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
         font-weight: 400;
         letter-spacing: 1px;
+        color: #0d4a9a;
+    }
+
+    .navbar-shrink .nav li a {
         color: #fff;
     }
 
         .navbar-default .nav li a:hover,
         .navbar-default .nav li a:focus {
             outline: 0;
-            color: #fed136;
+            color: #f3a400;
         }
 
     .navbar-default .navbar-nav > .active > a {
         border-radius: 0;
         color: #fff;
-        background-color: #fed136;
+        background-color: #f3a400;
     }
 
         .navbar-default .navbar-nav > .active > a:hover,
@@ -238,13 +243,27 @@ h6 {
         .navbar-default .logo{
             height: 256px;
             width: 256px;
+            position: absolute;
+            top: 20px;
         }
 
-        .navbar-shrink .logo{
-            height: 50px;
-            width: 50px;
-        }
+        .navbar-shrink .logo {
+    height: 90px;
+    width: 90px;
+    left: 21px;
+    position: absolute;
+    top: 8px;
+}
         
+        .navbar-default .backFlag{
+            height: 0;
+            width: 0;
+        }
+
+        .navbar-shrink .backFlag{
+            height: 150px;
+            width: 100px;
+        }
 
 @media(min-width:1200px) {
     .navbar-default {
@@ -270,7 +289,7 @@ h6 {
 
         .navbar-default.navbar-shrink {
             padding: 10px 0;
-            background-color: #222;
+            background-color: #0d4a9a;
         }
 
             .navbar-default.navbar-shrink .navbar-brand {
@@ -287,9 +306,23 @@ h6 {
 
 header {
     text-align: center;
-    color: #fff;
-    background-attachment: scroll;
+    color: #0d4a9a;
+    border-bottom: #f3a400 solid 5px;
+    /*background-attachment: scroll;
     background-image: url(../img/header-bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;*/
+}
+
+.backFlag {
+    position: absolute;
+    top: 0;
+    background-attachment: scroll;
+    background-image: url(../img/flag.png);
     background-position: center center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -346,6 +379,7 @@ header {
 
 section {
     padding: 80px 0;
+    border-bottom: #f3a400 solid 5px;
 }
 
     section h2.section-heading {
@@ -467,7 +501,7 @@ section {
         left: 40px;
         width: 2px;
         margin-left: -1.5px;
-        background-color: #f1f1f1;
+        background-color: #4e6f9a;
     }
 
     .timeline > li {
@@ -515,11 +549,11 @@ section {
             width: 80px;
             height: 80px;
             margin-left: 0;
-            border: 7px solid #f1f1f1;
+            border: 7px solid #4e6f9a;
             border-radius: 100%;
             text-align: center;
             color: #fff;
-            background-color: #fed136;
+            background-color: #f3a400;
         }
 
             .timeline > li .timeline-image h4 {
@@ -678,7 +712,7 @@ aside.clients img {
 }
 
 section#contacts {
-    background-color: #222;
+    background-color: #0d4a9a;
     background-image: url(../img/map-image.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -706,7 +740,7 @@ section#contacts {
             }
 
     section#contacts .form-control:focus {
-        border-color: #fed136;
+        border-color: #f3a400;
         box-shadow: none;
     }
 
@@ -775,7 +809,7 @@ ul.social-buttons {
         line-height: 40px;
         outline: 0;
         color: #fff;
-        background-color: #222;
+        background-color: #0d4a9a;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
@@ -784,7 +818,7 @@ ul.social-buttons {
         ul.social-buttons li a:hover,
         ul.social-buttons li a:focus,
         ul.social-buttons li a:active {
-            background-color: #fed136;
+            background-color: #f3a400;
         }
 
 .btn:focus,
@@ -849,7 +883,7 @@ ul.social-buttons {
         width: 1px;
         height: 75px;
         margin-left: 35px;
-        background-color: #222;
+        background-color: #0d4a9a;
         -webkit-transform: rotate(45deg);
         -ms-transform: rotate(45deg);
         transform: rotate(45deg);
@@ -859,7 +893,7 @@ ul.social-buttons {
             z-index: 1052;
             width: 1px;
             height: 75px;
-            background-color: #222;
+            background-color: #0d4a9a;
             -webkit-transform: rotate(90deg);
             -ms-transform: rotate(90deg);
             transform: rotate(90deg);
@@ -872,12 +906,12 @@ ul.social-buttons {
 
 ::-moz-selection {
     text-shadow: none;
-    background: #fed136;
+    background: #f3a400;
 }
 
 ::selection {
     text-shadow: none;
-    background: #fed136;
+    background: #f3a400;
 }
 
 img::selection {
@@ -889,12 +923,18 @@ img::-moz-selection {
 }
 
 body {
-    webkit-tap-highlight-color: #fed136;
+    webkit-tap-highlight-color: #f3a400;
 }
 
 
 @media(max-width:1200px) {
 .navbar-default .logo{
+height: 50px;
+width: 50px;
+}
+
+@media(max-width:1200px) {
+.navbar-default .backFlag{
 height: 50px;
 width: 50px;
 }

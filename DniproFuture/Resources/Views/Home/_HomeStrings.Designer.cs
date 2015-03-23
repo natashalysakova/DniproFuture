@@ -421,6 +421,15 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Детальніше....
+        /// </summary>
+        public static string NewsDetails {
+            get {
+                return ResourceManager.GetString("NewsDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Більше новин.
         /// </summary>
         public static string NewsMore {

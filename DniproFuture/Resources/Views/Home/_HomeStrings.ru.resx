@@ -266,6 +266,9 @@ Skype:&lt;br&gt;
   <data name="NavBarPartners" xml:space="preserve">
     <value>Партнеры</value>
   </data>
+  <data name="NewsDetails" xml:space="preserve">
+    <value>Подробнее...</value>
+  </data>
   <data name="NewsMore" xml:space="preserve">
     <value>Больше новостей</value>
   </data>

@@ -6,7 +6,7 @@
 
 body {
     overflow-x: hidden;
-    font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Andika', sans-serif;
     color: #0d4a9a;
 }
 
@@ -53,7 +53,7 @@ h4,
 h5,
 h6 {
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Andika', sans-serif;
     font-weight: 700;
 }
 
@@ -72,7 +72,7 @@ h6 {
 .btn-primary {
     border-color: #f3a400;
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Andika', sans-serif;
     font-weight: 700;
     color: #fff;
     background-color: #f3a400;
@@ -123,7 +123,7 @@ h6 {
     border-color: #f3a400;
     border-radius: 3px;
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Andika', sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: #fff;
@@ -176,7 +176,7 @@ h6 {
 }
 
     .navbar-default .navbar-brand {
-        font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
+        font-family: 'Andika', sans-serif;
         color: #f3a400;
     }
 
@@ -207,63 +207,34 @@ h6 {
 
     .navbar-default .nav li a {
         text-transform: uppercase;
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: 'Andika', sans-serif;
         font-weight: 400;
         letter-spacing: 1px;
         color: #0d4a9a;
     }
 
-    .navbar-shrink .nav li a {
-        color: #fff;
-    }
-
-        .navbar-default .nav li a:hover,
-        .navbar-default .nav li a:focus {
-            outline: 0;
-            color: #f3a400;
-        }
-
-    .navbar-default .navbar-nav > .active > a {
-        border-radius: 0;
-        color: #fff;
-        background-color: #f3a400;
-    }
-
-        .navbar-default .navbar-nav > .active > a:hover,
-        .navbar-default .navbar-nav > .active > a:focus {
-            color: #fff;
-            background-color: #fec503;
-
-        }
-
-        .logo {
-            padding: 0;
-        }
-
-        .navbar-default .logo{
-            height: 256px;
-            width: 256px;
-            position: absolute;
-            top: 20px;
-        }
-
-        .navbar-shrink .logo {
-    height: 90px;
-    width: 90px;
-    left: 21px;
-    position: absolute;
-    top: 8px;
+.navbar-shrink .nav li a {
+    color: #fff;
 }
-        
-        .navbar-default .backFlag{
-            height: 0;
-            width: 0;
-        }
 
-        .navbar-shrink .backFlag{
-            height: 150px;
-            width: 100px;
-        }
+.navbar-default .nav li a:hover,
+.navbar-default .nav li a:focus {
+    outline: 0;
+    color: #f3a400;
+}
+
+.navbar-default .navbar-nav > .active > a {
+    border-radius: 0;
+    color: #fff;
+    background-color: #f3a400;
+}
+
+    .navbar-default .navbar-nav > .active > a:hover,
+    .navbar-default .navbar-nav > .active > a:focus {
+        color: #fff;
+        background-color: #fec503;
+    }
+
 
 @media(min-width:1200px) {
     .navbar-default {
@@ -309,7 +280,7 @@ header {
     color: #0d4a9a;
     border-bottom: #f3a400 solid 5px;
     /*background-attachment: scroll;
-    background-image: url(../img/header-bg.jpg);
+    background-image: url(http://de.flash-screen.com/free-wallpaper/ernte-fall-abbildung/goldenes-weizen-feld,1990x1440,51566.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -331,27 +302,27 @@ header {
     -o-background-size: cover;
 }
 
-    header .intro-text {
-        padding-top: 100px;
-        padding-bottom: 50px;
+header .intro-text {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+    header .intro-text .intro-lead-in {
+        margin-bottom: 25px;
+        font-family: 'Andika', sans-serif;
+        font-size: 22px;
+        font-style: italic;
+        line-height: 22px;
     }
 
-        header .intro-text .intro-lead-in {
-            margin-bottom: 25px;
-            font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-            font-size: 22px;
-            font-style: italic;
-            line-height: 22px;
-        }
-
-        header .intro-text .intro-heading {
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-            font-size: 50px;
-            font-weight: 700;
-            line-height: 50px;
-        }
+    header .intro-text .intro-heading {
+        margin-bottom: 25px;
+        text-transform: uppercase;
+        font-family: 'Andika', sans-serif;
+        font-size: 50px;
+        font-weight: 700;
+        line-height: 50px;
+    }
 
 @media(min-width:1200px) {
     header .intro-text {
@@ -361,7 +332,7 @@ header {
 
         header .intro-text .intro-lead-in {
             margin-bottom: 25px;
-            font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-family: 'Andika', sans-serif;
             font-size: 40px;
             font-style: italic;
             line-height: 40px;
@@ -370,7 +341,7 @@ header {
         header .intro-text .intro-heading {
             margin-bottom: 50px;
             text-transform: uppercase;
-            font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-family: 'Andika', sans-serif;
             font-size: 75px;
             font-weight: 700;
             line-height: 75px;
@@ -391,7 +362,7 @@ section {
     section h3.section-subheading {
         margin-bottom: 40px;
         text-transform: none;
-        font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: 'Andika', sans-serif;
         font-size: 16px;
         font-style: italic;
         font-weight: 400;
@@ -425,7 +396,7 @@ section {
             width: 100%;
             height: 100%;
             opacity: 0;
-            background: rgba(254,209,54,.9);
+            background: rgba(243, 164, 0, 0.6);
             -webkit-transition: all ease .5s;
             -moz-transition: all ease .5s;
             transition: all ease .5s;
@@ -470,7 +441,7 @@ section {
 
         .portfolio .portfolio-item .portfolio-caption p {
             margin: 0;
-            font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-family: 'Andika', sans-serif;
             font-size: 16px;
             font-style: italic;
         }
@@ -501,7 +472,7 @@ section {
         left: 40px;
         width: 2px;
         margin-left: -1.5px;
-        background-color: #4e6f9a;
+        background-color: #4d6e99;
     }
 
     .timeline > li {
@@ -549,7 +520,7 @@ section {
             width: 80px;
             height: 80px;
             margin-left: 0;
-            border: 7px solid #4e6f9a;
+            border: 7px solid #4d6e99;
             border-radius: 100%;
             text-align: center;
             color: #fff;
@@ -637,7 +608,7 @@ section {
         }
 }
 
-@media(min-width:992px) {
+@media(min-width:1200px) {
     .timeline > li {
         min-height: 150px;
     }
@@ -746,28 +717,28 @@ section#contacts {
 
     section#contacts::-webkit-input-placeholder {
         text-transform: uppercase;
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: 'Andika', sans-serif;
         font-weight: 700;
         color: #bbb;
     }
 
     section#contacts:-moz-placeholder {
         text-transform: uppercase;
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: 'Andika', sans-serif;
         font-weight: 700;
         color: #bbb;
     }
 
     section#contacts::-moz-placeholder {
         text-transform: uppercase;
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: 'Andika', sans-serif;
         font-weight: 700;
         color: #bbb;
     }
 
     section#contacts:-ms-input-placeholder {
         text-transform: uppercase;
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: 'Andika', sans-serif;
         font-weight: 700;
         color: #bbb;
     }
@@ -784,7 +755,7 @@ footer {
     footer span.copyright {
         text-transform: uppercase;
         text-transform: none;
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: 'Andika', sans-serif;
         line-height: 40px;
     }
 
@@ -792,7 +763,7 @@ footer {
         margin-bottom: 0;
         text-transform: uppercase;
         text-transform: none;
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: 'Andika', sans-serif;
         line-height: 40px;
     }
 
@@ -850,7 +821,7 @@ ul.social-buttons {
 
         .portfolio-modal .modal-content p.item-intro {
             margin: 20px 0 30px;
-            font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-family: 'Andika', sans-serif;
             font-size: 16px;
             font-style: italic;
         }
@@ -927,14 +898,54 @@ body {
 }
 
 
-@media(max-width:1200px) {
-.navbar-default .logo{
-height: 50px;
-width: 50px;
+
+.logo {
+    padding: 0;
+}
+
+.navbar-default .logo {
+    height: 256px;
+    width: 256px;
+    position: absolute;
+    top: 20px;
+}
+
+.navbar-shrink .logo {
+    height: 90px;
+    width: 90px;
+    left: 21px;
+    position: absolute;
+    top: 8px;
+}
+
+.navbar-default .backFlag {
+    height: 0;
+    width: 0;
+}
+
+.navbar-shrink .backFlag {
+    height: 150px;
+    width: 100px;
 }
 
 @media(max-width:1200px) {
-.navbar-default .backFlag{
-height: 50px;
-width: 50px;
+    .navbar-default .logo {
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        top: 2px;
+    }
+
+    .navbar-shrink .logo {
+        left: 0px;
+    }
+
+    .navbar-default .backFlag {
+        height: 75px;
+        width: 50px;
+    }
+
+    .navbar-default .nav li a {
+        color: #ffffff;
+    }
 }

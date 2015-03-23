@@ -111,7 +111,7 @@ namespace DniproFuture.Models
                             {
                                 Title = news.Title,
                                 ShortText = news.Text.Remove(256),
-                                Photo = lastNews[i].Images,
+                                Photo = lastNews[i].Images.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(),
                                 Date = lastNews[i].Date,
                                 Text = news.Text
 
@@ -123,7 +123,7 @@ namespace DniproFuture.Models
                             {
                                 Title = news.Title,
                                 ShortText = news.Text,
-                                Photo = lastNews[i].Images,
+                                Photo = lastNews[i].Images.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(),
                                 Date = lastNews[i].Date,
                                 Text = news.Text
                             };
@@ -217,7 +217,7 @@ namespace DniproFuture.Models
                 var clientInfo = (from local in client.NeedHelpLocal
                                   where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
                                   select
-                                      new { fullName = string.Format("{0} {1}", local.FirstName, local.LastName), local.About })
+                                      new { fullName = string.Format("{0} {1}", local.FirstName, local.Name), local.About })
                     .FirstOrDefault();
 
 

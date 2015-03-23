@@ -1,5 +1,7 @@
-﻿<!-- Team Section -->
-<section id="donation" >
+﻿@model DniproFuture.Models.DonationOutputModel[]
+
+<!-- Team Section -->
+<section id="donation">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -8,60 +10,27 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img src="Content/img/team/1.jpg" class="img-responsive img-circle" alt="">
-                    <h4>Kay Garland</h4>
-                    <p class="text-muted">Lead Designer</p>
-                    <ul class="list-inline social-buttons">
-                        <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
+
+            @for (int i = 0; i < Model.Length; i++)
+            {
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="@Url.Content("~/Content/img/NeedHelp/" + Model[i].Photos[0])" class="img-responsive img-circle" alt="">
+                        <h4>@Model[i].FullName</h4>
+                        <p class="text-muted">@Model[i].Age лет (@Model[i].Birthday.ToShortDateString())</p>
+
+                        @{
+                int percent = (int)((Model[i].Summ / Model[i].NeedSum) * 100);
+                        }
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="@percent" aria-valuemin="0" aria-valuemax="100" style="width: @percent%;">
+                                @string.Format("{0}/{1}", @Model[i].Summ, @Model[i].NeedSum)
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img src="Content/img/team/2.jpg" class="img-responsive img-circle" alt="">
-                    <h4>Larry Parker</h4>
-                    <p class="text-muted">Lead Marketer</p>
-                    <ul class="list-inline social-buttons">
-                        <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img src="Content/img/team/3.jpg" class="img-responsive img-circle" alt="">
-                    <h4>Diana Pertersen</h4>
-                    <p class="text-muted">Lead Developer</p>
-                    <ul class="list-inline social-buttons">
-                        <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+
+            }
         </div>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-right">

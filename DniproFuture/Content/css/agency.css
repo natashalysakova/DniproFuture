@@ -432,7 +432,6 @@ section {
         padding: 25px;
         max-width: 400px;
         text-align: center;
-        background-color: #fff;
     }
 
         .portfolio .portfolio-item .portfolio-caption h4 {
@@ -950,4 +949,9 @@ body {
     .navbar-default .nav li a {
         color: #ffffff;
     }
+}
+
+
+.progress-bar {
+    color: #0d4a9a;
 }

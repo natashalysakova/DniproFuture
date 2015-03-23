@@ -18,7 +18,7 @@
                             <h5>@Model[i].Title</h5>
                             <p class="text-muted text-justify">@Model[i].ShortText ...</p>
                             <p class="text-muted text-left">@Model[i].Date.ToShortDateString()</p>
-                            <a align="right" data-toggle="modal" href="#NewsModal_@i">More-></a>
+                            <p class="text-right"><a align="right" data-toggle="modal" href="#NewsModal_@i">@ViewRes._HomeStrings.NewsDetails</a></p>
                         </div>
                     </div>
                 }
@@ -56,7 +56,7 @@
                         <!-- Project Details Go Here -->
                         <h2>@Model[0].Title</h2>
                         <!--<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>-->
-                        <div class="text-justify fa-align-justify">
+                        <div class="text-justify">
                             <img class="img-responsive" src=@Model[0].Photo alt="">
                             @MvcHtmlString.Create(Model[0].Text)
                         </div>
@@ -83,7 +83,7 @@
                     <div class="modal-body">
                         <h2>@Model[1].Title</h2>
                         <!--<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>-->
-                        <div class="text-justify fa-align-justify">
+                        <div class="text-justify">
                             <img class="img-responsive" src=@Model[1].Photo alt="">
                             @MvcHtmlString.Create(Model[1].Text)
                         </div>
@@ -111,7 +111,7 @@
                         <!-- Project Details Go Here -->
                         <h2>@Model[2].Title</h2>
                         <!--<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>-->
-                        <div class="text-justify fa-align-justify">
+                        <div class="text-justify">
                             <img class="img-responsive" src=@Model[2].Photo alt="">
                             @MvcHtmlString.Create(Model[2].Text)
                         </div>

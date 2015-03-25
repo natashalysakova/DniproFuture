@@ -1,4 +1,5 @@
-﻿<section id="helpNow" class="bg-light-gray">
+﻿<!--HelpNow section-->
+<section id="helpNow" class="bg-light-gray">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -13,14 +14,16 @@
             </div>
             <div class="col-md-6">
                 <h4 class="service-heading">@ViewRes._HomeStrings.HelpNowTxt</h4>
-                <div class="portfolio-link btn btn-xl" data-toggle="modal" href="#portfolioModal1">@ViewRes._HomeStrings.HelpNowBtnTxt</div>
+                <div class="portfolio-link btn btn-xl" data-toggle="modal" href="#HelpNowModal">
+                    @ViewRes._HomeStrings.HelpNowBtnTxt
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- HelpNow Modal-->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- HelpNow Modal -->
+<div class="portfolio-modal modal fade" id="HelpNowModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
             <div class="lr">
@@ -32,11 +35,13 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="modal-body">
-                        <!-- Project Details Go Here -->
+                        <!-- HelpNow Details Go Here -->
                         <h2>@ViewRes._HomeStrings.HelpNowTitle</h2>
                         <img class="img-responsive" src=@Url.Content("~/Content/img/NeedHelp/") alt="">
-                        
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                        <div class="text-justify">
+                            @MvcHtmlString.Create(ViewRes._HomeStrings.HelpNowModalTxt)
+                        </div>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> @ViewRes._HomeStrings.HowModalBtn</button>
                     </div>
                 </div>
             </div>

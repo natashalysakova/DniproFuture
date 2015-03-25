@@ -11,7 +11,9 @@
                 <ul class="timeline">
                     <li>
                         <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="Content/img/about/3.jpg" alt="">
+                            <a href="#AboutModal" class="portfolio-link" data-toggle="modal">
+                                <img class="img-circle img-responsive" src="Content/img/about/3.jpg" alt="">
+                            </a>
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
@@ -25,14 +27,37 @@
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image">
-                            <h4>
-                                @MvcHtmlString.Create(ViewRes._HomeStrings.AboutFuture)
-                        </h4>
+                            <h4>@MvcHtmlString.Create(ViewRes._HomeStrings.AboutFuture)</h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Modal-->
+<div class="portfolio-modal modal fade" id="AboutModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <!-- About us Details Go Here -->
+                        <h2>@ViewRes._HomeStrings.AboutTitle</h2>
+                        <div class="text-justify">
+                            @MvcHtmlString.Create(ViewRes._HomeStrings.AboutUsModalTxt)
+                        </div>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> @ViewRes._HomeStrings.HowModalBtn</button>
                     </div>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-</section>
-

@@ -1,6 +1,6 @@
 ﻿@model DniproFuture.Models.DonationOutputModel[]
 
-<!-- Team Section -->
+<!--Donation Section -->
 <section id="donation">
     <div class="container">
         <div class="row">
@@ -10,7 +10,6 @@
             </div>
         </div>
         <div class="row">
-
             @for (int i = 0; i < Model.Length; i++)
             {
                 <div class="col-sm-4">
@@ -18,10 +17,7 @@
                         <img src="@Url.Content("~/Content/img/NeedHelp/" + Model[i].Photos[0])" class="img-responsive img-circle" alt="">
                         <h4>@Model[i].FullName</h4>
                         <p class="text-muted">@Model[i].Age лет (@Model[i].Birthday.ToShortDateString())</p>
-
-                        @{
-                int percent = (int)((Model[i].Summ / Model[i].NeedSum) * 100);
-                        }
+                        @{int percent = (int)((Model[i].Summ / Model[i].NeedSum) * 100);}
                         <div class="progress">
                             <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="@percent" aria-valuemin="0" aria-valuemax="100" style="width: @percent%;">
                                 @string.Format("{0}/{1}", @Model[i].Summ, @Model[i].NeedSum)
@@ -29,7 +25,6 @@
                         </div>
                     </div>
                 </div>
-
             }
         </div>
         <div class="row">

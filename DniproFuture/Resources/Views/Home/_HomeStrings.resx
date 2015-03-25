@@ -123,6 +123,12 @@
   <data name="AboutTitle" xml:space="preserve">
     <value>Про нас</value>
   </data>
+  <data name="AboutUsModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;&lt;h3&gt;Хто ми&lt;/h3&gt;&lt;br&gt;
+Ми - це благодійний фонд «Майбутнє Дніпра». Ми - це група небайдужих людей міста Дніпропетровськ. Ми - це організація, в яку ви завжди можете звернутися, якщо Вам чи Вашим близьким потрібна допомога або Ви самі маєте бажання надати допомогу іншим людям.&lt;/p&gt;
+&lt;p&gt;&lt;h3&gt;Наша мета&lt;/h3&gt;&lt;br&gt;
+Робота нашої організації спрямована на поліпшення життєвих умов як жителів усього міста Дніпропетровськ в цілому, так і на допомогу незахищеним верствам населення зокрема.&lt;/p&gt;</value>
+  </data>
   <data name="About_1_Date" xml:space="preserve">
     <value>Квітень 2015</value>
   </data>
@@ -173,6 +179,12 @@
   </data>
   <data name="HelpNowBtnTxt" xml:space="preserve">
     <value>Більше інформації</value>
+  </data>
+  <data name="HelpNowModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;Благодійний фонд "Майбутнє Дніпра" буде вдячний за будь-яку фінансову та матеріальну допомогу. Пожертви будуть витрачені на реалізацію соціальних проектів фонду та на допомогу незахищеним верствам населення.&lt;br&gt;
+При переказі коштів, будь ласка, обов'язково вкажіть позначку "благодійна допомога".&lt;/p&gt;
+&lt;p&gt;Реквізити для переказу:&lt;br&gt;
+______________________&lt;/p&gt;</value>
   </data>
   <data name="HelpNowTitle" xml:space="preserve">
     <value>Допомогти зараз</value>
@@ -277,6 +289,9 @@ Skype:&lt;br&gt;
   </data>
   <data name="NewsTitle" xml:space="preserve">
     <value>Новини</value>
+  </data>
+  <data name="PartnersAll" xml:space="preserve">
+    <value>Всі партнери</value>
   </data>
   <data name="PartnersTitle" xml:space="preserve">
     <value>Партнери</value>

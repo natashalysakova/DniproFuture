@@ -457,6 +457,15 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Всі партнери.
+        /// </summary>
+        public static string PartnersAll {
+            get {
+                return ResourceManager.GetString("PartnersAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Партнери.
         /// </summary>
         public static string PartnersTitle {

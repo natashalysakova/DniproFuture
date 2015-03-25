@@ -278,6 +278,9 @@ Skype:&lt;br&gt;
   <data name="NewsTitle" xml:space="preserve">
     <value>Новости</value>
   </data>
+  <data name="PartnersAll" xml:space="preserve">
+    <value>Все партнеры</value>
+  </data>
   <data name="PartnersTitle" xml:space="preserve">
     <value>Партнеры</value>
   </data>

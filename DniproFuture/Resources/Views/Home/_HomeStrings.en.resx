@@ -277,6 +277,9 @@ Also, you can simply fill out an application on our website and we will contact 
   <data name="NewsTitle" xml:space="preserve">
     <value>News</value>
   </data>
+  <data name="PartnersAll" xml:space="preserve">
+    <value>All partners</value>
+  </data>
   <data name="PartnersTitle" xml:space="preserve">
     <value>Partners</value>
   </data>

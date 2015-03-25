@@ -15,13 +15,13 @@ namespace DniproFuture.Models
     public partial class NeedHelpLocal
     {
         public int Id { get; set; }
-        public string Name { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
         public string About { get; set; }
         public int NeedHelpId { get; set; }
         public int LanguageId { get; set; }
+        public string Patronymic { get; set; }
     
         public virtual NeedHelp NeedHelp { get; set; }
         public virtual Language Language { get; set; }

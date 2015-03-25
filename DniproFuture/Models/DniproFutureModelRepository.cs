@@ -217,7 +217,7 @@ namespace DniproFuture.Models
                 var clientInfo = (from local in client.NeedHelpLocal
                                   where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
                                   select
-                                      new { fullName = string.Format("{0} {1}", local.FirstName, local.Name), local.About })
+                                      new { fullName = string.Format("{0} {1}", local.FirstName, local.LastName), local.About })
                     .FirstOrDefault();
 
 

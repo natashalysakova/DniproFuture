@@ -672,6 +672,7 @@ section {
         margin-top: 25px;
         margin-bottom: 0;
         text-transform: none;
+        color: #f3a400;
     }
 
     .team-member p {
@@ -953,5 +954,9 @@ body {
 
 
 .progress-bar {
-    color: #0d4a9a;
+    color: #f3a400;
+}
+
+.progress-bar-warning {
+    background-color: #0d4a9a;
 }

@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +27,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 
 <body id="page-top" class="index">
@@ -41,28 +39,32 @@
     @Scripts.Render("~/bundles/animation")
     @Scripts.Render("~/bundles/agency")
 
-
-
     @Scripts.Render("~/bundles/jqueryval")
 
     @Styles.Render("~/Content/bootstrap")
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/flags")
 
-
-
-
-
-
     @RenderSection("scripts", required: false)
-
-
 
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">ВоТаНа &copy; Майбутнє Дніпра 2015</span>
+                    <h4>@ViewRes._LayoutStrings.FooterContacts</h4>
+                    <div class="text-left col-md-4">
+                        <ul class="list-group-item-info list-unstyled">
+                            <li>
+                                Tel:
+                            </li>
+                            <li>
+                                E-mail:
+                            </li>
+                            <li>
+                                Skype:
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
@@ -77,16 +79,9 @@
                         </li>
                     </ul>
                 </div>
-                @*<div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li>
-                            <a href="#">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
-                </div>*@
+                <div class="col-md-4">
+                    <span class="copyright">ВоТаНа &copy; Майбутнє Дніпра 2015</span>
+                </div>
             </div>
         </div>
     </footer>

@@ -106,6 +106,18 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;&lt;h3&gt;Хто ми&lt;/h3&gt;&lt;br&gt;
+        ///Ми - це благодійний фонд «Майбутнє Дніпра». Ми - це група небайдужих людей міста Дніпропетровськ. Ми - це організація, в яку ви завжди можете звернутися, якщо Вам чи Вашим близьким потрібна допомога або Ви самі маєте бажання надати допомогу іншим людям.&lt;/p&gt;
+        ///&lt;p&gt;&lt;h3&gt;Наша мета&lt;/h3&gt;&lt;br&gt;
+        ///Робота нашої організації спрямована на поліпшення життєвих умов як жителів усього міста Дніпропетровськ в цілому, так і на допомогу незахищеним верствам населення зокрема.&lt;/p&gt;.
+        /// </summary>
+        public static string AboutUsModalTxt {
+            get {
+                return ResourceManager.GetString("AboutUsModalTxt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Кому ми допомогли.
         /// </summary>
         public static string ClientsTitle {
@@ -228,6 +240,18 @@ namespace ViewRes {
         public static string HelpNowBtnTxt {
             get {
                 return ResourceManager.GetString("HelpNowBtnTxt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Благодійний фонд &quot;Майбутнє Дніпра&quot; буде вдячний за будь-яку фінансову та матеріальну допомогу. Пожертви будуть витрачені на реалізацію соціальних проектів фонду та на допомогу незахищеним верствам населення.&lt;br&gt;
+        ///При переказі коштів, будь ласка, обов&apos;язково вкажіть позначку &quot;благодійна допомога&quot;.&lt;/p&gt;
+        ///&lt;p&gt;Реквізити для переказу:&lt;br&gt;
+        ///______________________&lt;/p&gt;.
+        /// </summary>
+        public static string HelpNowModalTxt {
+            get {
+                return ResourceManager.GetString("HelpNowModalTxt", resourceCulture);
             }
         }
         

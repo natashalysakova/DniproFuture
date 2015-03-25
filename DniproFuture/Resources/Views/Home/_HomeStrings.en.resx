@@ -123,6 +123,12 @@
   <data name="AboutTitle" xml:space="preserve">
     <value>About us</value>
   </data>
+  <data name="AboutUsModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;&lt;h3&gt;Who we are&lt;/h3&gt;&lt;br&gt;
+We are a charitable foundation "Future of Dnipra". We - a group of concerned people of the city of Dnepropetrovsk. We are an organization in which you can always ask if you or your loved ones need help or you want to help other people.&lt;/p&gt;
+&lt;p&gt;&lt;h3&gt;Our goal&lt;/h3&gt;&lt;br&gt;
+The work of our organization is dedicated to improving the living conditions of the inhabitants as the entire city Dnepropetrovsk in general and to help vulnerable people in particular.&lt;/p&gt;</value>
+  </data>
   <data name="About_1_Date" xml:space="preserve">
     <value>April 2015</value>
   </data>
@@ -173,6 +179,12 @@
   </data>
   <data name="HelpNowBtnTxt" xml:space="preserve">
     <value>More information</value>
+  </data>
+  <data name="HelpNowModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;Charitable Foundation "Future of Dnipra" will be grateful for any financial and material assistance. Donations will be spent on social projects and fund to help vulnerable people.&lt;br&gt;
+When transferring funds, please be sure to include a note "charity".&lt;/p&gt;
+&lt;p&gt;Requisites for transfer:&lt;br&gt;
+______________________&lt;/p&gt;</value>
   </data>
   <data name="HelpNowTitle" xml:space="preserve">
     <value>Help now</value>

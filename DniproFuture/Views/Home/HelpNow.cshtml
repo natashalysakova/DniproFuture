@@ -38,6 +38,9 @@
                         <!-- HelpNow Details Go Here -->
                         <h2>@ViewRes._HomeStrings.HelpNowTitle</h2>
                         <img class="img-responsive" src=@Url.Content("~/Content/img/NeedHelp/") alt="">
+                        <div class="text-justify">
+                            @MvcHtmlString.Create(ViewRes._HomeStrings.HelpNowModalTxt)
+                        </div>
                         <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> @ViewRes._HomeStrings.HowModalBtn</button>
                     </div>
                 </div>

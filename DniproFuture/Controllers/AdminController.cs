@@ -39,5 +39,7 @@ namespace DniproFuture.Controllers
             }
             return View();
         }
+
+        //I'll gonna Die
     }
 }

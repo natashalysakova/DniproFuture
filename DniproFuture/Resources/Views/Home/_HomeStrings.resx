@@ -254,6 +254,9 @@ Skype:&lt;br&gt;
   <data name="HowTitle" xml:space="preserve">
     <value>Як Ви можете допомогти</value>
   </data>
+  <data name="MessageSend" xml:space="preserve">
+    <value>Ваше повідомлення надіслано успішно</value>
+  </data>
   <data name="NavBarAbout" xml:space="preserve">
     <value>Про нас</value>
   </data>

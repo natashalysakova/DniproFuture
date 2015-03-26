@@ -253,6 +253,9 @@ Also, you can simply fill out an application on our website and we will contact 
   <data name="HowTitle" xml:space="preserve">
     <value>How You can help</value>
   </data>
+  <data name="MessageSend" xml:space="preserve">
+    <value>Your message send successfully</value>
+  </data>
   <data name="NavBarAbout" xml:space="preserve">
     <value>About</value>
   </data>

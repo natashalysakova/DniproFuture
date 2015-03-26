@@ -10,6 +10,7 @@ namespace DniproFuture.Models
         public NewsOutputModel[] NewsBlock { get; set; }
         public PartnersOutputModel[] PartnersBlock { get; set; }
         public ClientsOutputModel[] ClientsBlock { get; set; }
+        public ContactsOutputModel ContactsBlock { get; set; }
     }
 
     static class ExtentionClass

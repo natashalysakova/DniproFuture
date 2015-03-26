@@ -141,7 +141,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MailsController.cs" />
+    <Compile Include="Controllers\NeedHelps1Controller.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Models\ClientsOutputModel.cs" />
+    <Compile Include="Models\ContactsOutputModel.cs" />
     <Compile Include="Models\DniproFutureModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -158,21 +164,30 @@
       <DependentUpon>DniproFutureModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DniproFutureModelRepository.cs" />
+    <Compile Include="Models\DonationOutputModel.cs" />
+    <Compile Include="Models\HelpNowOutputModel.cs" />
     <Compile Include="Models\Language.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Mail.cs">
+      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MainPageOutputModel.cs" />
     <Compile Include="Models\NeedHelp.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NeedHelpInputModel.cs" />
     <Compile Include="Models\NeedHelpLocal.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\News.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NewsInputModel.cs" />
     <Compile Include="Models\NewsLocal.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NewsOutputModel.cs" />
     <Compile Include="Models\Partners.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
@@ -182,7 +197,32 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PartnersOutputModel.cs" />
+    <Compile Include="Models\Projects.cs">
+      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProjectsLocalSet.cs">
+      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Views\Home\_HomeStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_HomeStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Home\_HomeStrings.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_HomeStrings.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Home\_HomeStrings.ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_HomeStrings.ru.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Views\_Layout\_LayoutStrings.ru.Designer.cs">
       <DependentUpon>_LayoutStrings.ru.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -217,7 +257,10 @@
     <Content Include="Content\img\about\3.jpg" />
     <Content Include="Content\img\about\4.jpg" />
     <Content Include="Content\img\header-bg.jpg" />
-    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\How\Clother.png" />
+    <Content Include="Content\img\How\Info.png" />
+    <Content Include="Content\img\How\money.png" />
+    <Content Include="Content\img\How\Other.png" />
     <Content Include="Content\img\logos\aetuts.jpg" />
     <Content Include="Content\img\logos\creative-market.jpg" />
     <Content Include="Content\img\logos\designmodo.jpg" />
@@ -241,6 +284,9 @@
     <Content Include="Content\img\team\1.jpg" />
     <Content Include="Content\img\team\2.jpg" />
     <Content Include="Content\img\team\3.jpg" />
+    <Content Include="Content\img\up.png" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\flag.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -274,47 +320,47 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
-    <Content Include="fonts\font-awesome\css\font-awesome.css" />
-    <Content Include="fonts\font-awesome\css\font-awesome.min.css" />
-    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\css\bootstrap-theme.css.map" />
     <Content Include="Content\css\bootstrap.css.map" />
-    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\font-awesome\fonts\FontAwesome.otf" />
-    <Content Include="fonts\font-awesome\less\bordered-pulled.less" />
-    <Content Include="fonts\font-awesome\less\core.less" />
-    <Content Include="fonts\font-awesome\less\fixed-width.less" />
-    <Content Include="fonts\font-awesome\less\font-awesome.less" />
-    <Content Include="fonts\font-awesome\less\icons.less" />
-    <Content Include="fonts\font-awesome\less\larger.less" />
-    <Content Include="fonts\font-awesome\less\list.less" />
-    <Content Include="fonts\font-awesome\less\mixins.less" />
-    <Content Include="fonts\font-awesome\less\path.less" />
-    <Content Include="fonts\font-awesome\less\rotated-flipped.less" />
-    <Content Include="fonts\font-awesome\less\spinning.less" />
-    <Content Include="fonts\font-awesome\less\stacked.less" />
-    <Content Include="fonts\font-awesome\less\variables.less" />
-    <Content Include="fonts\font-awesome\scss\font-awesome.scss" />
-    <Content Include="fonts\font-awesome\scss\_bordered-pulled.scss" />
-    <Content Include="fonts\font-awesome\scss\_core.scss" />
-    <Content Include="fonts\font-awesome\scss\_fixed-width.scss" />
-    <Content Include="fonts\font-awesome\scss\_icons.scss" />
-    <Content Include="fonts\font-awesome\scss\_larger.scss" />
-    <Content Include="fonts\font-awesome\scss\_list.scss" />
-    <Content Include="fonts\font-awesome\scss\_mixins.scss" />
-    <Content Include="fonts\font-awesome\scss\_path.scss" />
-    <Content Include="fonts\font-awesome\scss\_rotated-flipped.scss" />
-    <Content Include="fonts\font-awesome\scss\_spinning.scss" />
-    <Content Include="fonts\font-awesome\scss\_stacked.scss" />
-    <Content Include="fonts\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\fonts\font-awesome\less\core.less" />
+    <Content Include="Content\fonts\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\fonts\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\fonts\font-awesome\less\icons.less" />
+    <Content Include="Content\fonts\font-awesome\less\larger.less" />
+    <Content Include="Content\fonts\font-awesome\less\list.less" />
+    <Content Include="Content\fonts\font-awesome\less\mixins.less" />
+    <Content Include="Content\fonts\font-awesome\less\path.less" />
+    <Content Include="Content\fonts\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\fonts\font-awesome\less\spinning.less" />
+    <Content Include="Content\fonts\font-awesome\less\stacked.less" />
+    <Content Include="Content\fonts\font-awesome\less\variables.less" />
+    <Content Include="Content\fonts\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_core.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_list.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_path.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_spinning.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_variables.scss" />
     <EntityDeploy Include="Models\DniproFutureModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DniproFutureModel.Designer.cs</LastGenOutput>
@@ -375,8 +421,38 @@
     <Content Include="Views\Home\Partners.cshtml" />
     <Content Include="Views\Home\Clients.cshtml" />
     <Content Include="Views\Home\How.cshtml" />
+    <Content Include="Views\NeedHelps1\Create.cshtml" />
+    <Content Include="Views\NeedHelps1\Delete.cshtml" />
+    <Content Include="Views\NeedHelps1\Details.cshtml" />
+    <Content Include="Views\NeedHelps1\Edit.cshtml" />
+    <Content Include="Views\NeedHelps1\Index.cshtml" />
+    <Content Include="Views\News\Create.cshtml" />
+    <Content Include="Views\News\Delete.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\News\Edit.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Mails\Delete.cshtml" />
+    <Content Include="Views\Mails\Details.cshtml" />
+    <Content Include="Views\Mails\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_HomeStrings.en.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ViewRes</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_HomeStrings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ViewRes</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_HomeStrings.ru.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ViewRes</CustomToolNamespace>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\_Layout\_LayoutStrings.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>_LayoutStrings.ru.Designer.cs</LastGenOutput>
@@ -400,7 +476,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="fonts\Controllers\" />
+    <Folder Include="Content\img\NeedHelp\" />
+    <Folder Include="Content\img\News\" />
+    <Folder Include="Content\img\Partners\" />
+    <Folder Include="Content\img\Projects\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

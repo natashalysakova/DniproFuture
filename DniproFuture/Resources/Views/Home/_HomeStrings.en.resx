@@ -117,8 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutFuture" xml:space="preserve">
+    <value>Create&lt;br&gt;future&lt;br&gt;together!</value>
+  </data>
   <data name="AboutTitle" xml:space="preserve">
     <value>About us</value>
+  </data>
+  <data name="AboutUsModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;&lt;h3&gt;Who we are&lt;/h3&gt;&lt;br&gt;
+We are a charitable foundation "Future of Dnipra". We - a group of concerned people of the city of Dnepropetrovsk. We are an organization in which you can always ask if you or your loved ones need help or you want to help other people.&lt;/p&gt;
+&lt;p&gt;&lt;h3&gt;Our goal&lt;/h3&gt;&lt;br&gt;
+The work of our organization is dedicated to improving the living conditions of the inhabitants as the entire city Dnepropetrovsk in general and to help vulnerable people in particular.&lt;/p&gt;</value>
+  </data>
+  <data name="About_1_Date" xml:space="preserve">
+    <value>April 2015</value>
+  </data>
+  <data name="About_1_SubTitle" xml:space="preserve">
+    <value>Creating</value>
+  </data>
+  <data name="About_1_Txt" xml:space="preserve">
+    <value>We started to work and willing to help people!</value>
   </data>
   <data name="ClientsTitle" xml:space="preserve">
     <value>Whom we helped</value>
@@ -126,8 +144,29 @@
   <data name="ContactsBtnTxt" xml:space="preserve">
     <value>Send message</value>
   </data>
+  <data name="ContactsEmailPH" xml:space="preserve">
+    <value>Your Email *</value>
+  </data>
+  <data name="ContactsMessagePH" xml:space="preserve">
+    <value>Your Message *</value>
+  </data>
+  <data name="ContactsNamePH" xml:space="preserve">
+    <value>Your Name *</value>
+  </data>
+  <data name="ContactsPhonePH" xml:space="preserve">
+    <value>Your Phone *</value>
+  </data>
   <data name="ContactsTitle" xml:space="preserve">
     <value>Contact us</value>
+  </data>
+  <data name="DonationMore" xml:space="preserve">
+    <value>Learn more</value>
+  </data>
+  <data name="DonationSubTitle" xml:space="preserve">
+    <value>These people need Your help</value>
+  </data>
+  <data name="DonationTitle" xml:space="preserve">
+    <value>Fundraising</value>
   </data>
   <data name="HeaderDniproFuture" xml:space="preserve">
     <value>Dnipro's Future</value>
@@ -141,6 +180,12 @@
   <data name="HelpNowBtnTxt" xml:space="preserve">
     <value>More information</value>
   </data>
+  <data name="HelpNowModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;Charitable Foundation "Future of Dnipra" will be grateful for any financial and material assistance. Donations will be spent on social projects and fund to help vulnerable people.&lt;br&gt;
+When transferring funds, please be sure to include a note "charity".&lt;/p&gt;
+&lt;p&gt;Requisites for transfer:&lt;br&gt;
+______________________&lt;/p&gt;</value>
+  </data>
   <data name="HelpNowTitle" xml:space="preserve">
     <value>Help now</value>
   </data>
@@ -148,19 +193,68 @@
     <value>You can help right now</value>
   </data>
   <data name="HowClothing" xml:space="preserve">
-    <value>Clothing</value>
+    <value>Clothing/Things</value>
+  </data>
+  <data name="HowClothingModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;Do you have accumulated in your wardrobe things that you do not wear? You have decided to buy new furniture and do not know what to do with old furniture? And you do not know someone who would come in handy these things?&lt;br&gt;
+Do not rush to throw it all! After all, things that seem useless to you, may be useful for other people! Our foundation is collecting humanitarian aid for the people of our city. Therefore, if you have the opportunity, and most importantly the desire to help people in need of Dnepropetrovsk, you can do it yourself or we can join forces.&lt;/p&gt;
+&lt;p&gt;Our warehouse is engaged in humanitarian assistance to the collection and distribution of funds collected by residents in need of Dnepropetrovsk between people, between people who, because of the prevailing situations in life, have limited financial possibilities. Help is aimed at: the elderly, orphans, people with disabilities.&lt;/p&gt;
+Under the humanitarian aid should be understood&lt;ul&gt;
+	&lt;li&gt;Clothing and shoes of all sizes;&lt;/li&gt;
+	&lt;li&gt;Towels, diapers, bedding (integer, clean);&lt;/li&gt;
+	&lt;li&gt;Hygiene products;&lt;/li&gt;
+	&lt;li&gt;Drugs (with a valid expiration date and not damaged packaging);&lt;/li&gt;
+	&lt;li&gt;Books, toys, stationery;&lt;/li&gt;
+	&lt;li&gt;Food (any non-perishable).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All that you can pass to the warehouse of humanitarian assistance, which is located at: Dnepropetrovsk, st. _______________. Warehouse working time: Mon - Fri from 9:00 to 17:00.&lt;/p&gt;
+&lt;p&gt;Likewise, if you wish to transfer to the warehouse things that have large dimensions, please contact our representatives in any way you like, to clarify information about things and how to deliver them:&lt;br&gt;
+Phone:&lt;br&gt;
+e-mail:&lt;br&gt;
+Skype:&lt;br&gt;
+Or fill out the form on our website.
+&lt;p&gt;The future of our city depends on us!&lt;/p&gt;</value>
+  </data>
+  <data name="HowInfoModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;You have any information about the people who need help?&lt;/p&gt;
+&lt;p&gt;You need any help or someone from your family?&lt;/p&gt;
+&lt;p&gt;You know, &amp;quot;How can I help&amp;quot; and &amp;quot;What to do&amp;quot;, but unable to implement its plans on their own?&lt;/p&gt;
+&lt;p&gt;If you have answered at least one of the questions is positive, in which case you should contact us.&lt;/p&gt;
+&lt;p&gt;We are СА &amp;quot;Future of Dnipra&amp;quot;. We provide financial and legal assistance to people of Dnepropetrovsk. And we need your help! It is not just about financial aid, but also about the information that you have. Our goal - to help the greatest number of people. But to do this we need to know about these people.&lt;/p&gt;
+&lt;p&gt;Therefore, if you own the necessary information, please contact our representatives in any way convenient for you:&lt;br&gt;
+Phone:&lt;br&gt;
+E-mail:&lt;br&gt;
+Skype:&lt;br&gt;
+Or fill out the form on our website.
+&lt;p&gt;The future of our city depends on us!&lt;/p&gt;</value>
   </data>
   <data name="HowInformation" xml:space="preserve">
     <value>Information</value>
   </data>
+  <data name="HowModalBtn" xml:space="preserve">
+    <value>Close</value>
+  </data>
   <data name="HowMoney" xml:space="preserve">
     <value>Money</value>
+  </data>
+  <data name="HowMoneyModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;If you have the desire and the ability to make a charitable contribution, the following are details of our foundation. Funds will be spent on projects fund.&lt;/p&gt;</value>
   </data>
   <data name="HowOther" xml:space="preserve">
     <value>Other</value>
   </data>
+  <data name="HowOtherModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;On our site, the different ways to implement assistance. If you want to offer us a new way to help or you want to cooperate with our Charitable Foundation, please contact us in any convenient way for you:&lt;br&gt;
+e-mail:&lt;br&gt;
+Tel. :&lt;br&gt;
+Skype:&lt;br&gt;
+Also, you can simply fill out an application on our website and we will contact you.&lt;/p&gt;</value>
+  </data>
   <data name="HowTitle" xml:space="preserve">
     <value>How You can help</value>
+  </data>
+  <data name="MessageSend" xml:space="preserve">
+    <value>Your message send successfully</value>
   </data>
   <data name="NavBarAbout" xml:space="preserve">
     <value>About</value>
@@ -186,8 +280,20 @@
   <data name="NavBarPartners" xml:space="preserve">
     <value>Partners</value>
   </data>
+  <data name="NewsDetails" xml:space="preserve">
+    <value>Details...</value>
+  </data>
+  <data name="NewsMore" xml:space="preserve">
+    <value>More news</value>
+  </data>
+  <data name="NewsSubTitle" xml:space="preserve">
+    <value>Last news of our foundation</value>
+  </data>
   <data name="NewsTitle" xml:space="preserve">
     <value>News</value>
+  </data>
+  <data name="PartnersAll" xml:space="preserve">
+    <value>All partners</value>
   </data>
   <data name="PartnersTitle" xml:space="preserve">
     <value>Partners</value>

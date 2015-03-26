@@ -4,179 +4,257 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DniproFuture_siteModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="DniproFuture_siteModelStoreContainer">
-    <EntitySet Name="Language" EntityType="DniproFuture_siteModel.Store.Language" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="NeedHelp" EntityType="DniproFuture_siteModel.Store.NeedHelp" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="News" EntityType="DniproFuture_siteModel.Store.News" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Partners" EntityType="DniproFuture_siteModel.Store.Partners" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="NeedHelpLocalSet" EntityType="DniproFuture_siteModel.Store.NeedHelpLocalSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PartnersLocalSet" EntityType="DniproFuture_siteModel.Store.PartnersLocalSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="NewsLocalSet" EntityType="DniproFuture_siteModel.Store.NewsLocalSet" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="NeedHelpLocalNeedHelp" Association="DniproFuture_siteModel.Store.NeedHelpLocalNeedHelp">
-      <End Role="NeedHelpLocal" EntitySet="NeedHelpLocalSet" />
-      <End Role="NeedHelp" EntitySet="NeedHelp" />
-    </AssociationSet>
-    <AssociationSet Name="NewsNewsLocal" Association="DniproFuture_siteModel.Store.NewsNewsLocal">
-      <End Role="News" EntitySet="News" />
-      <End Role="NewsLocal" EntitySet="NewsLocalSet" />
-    </AssociationSet>
-    <AssociationSet Name="PartnersPartnersLocal" Association="DniproFuture_siteModel.Store.PartnersPartnersLocal">
-      <End Role="Partners" EntitySet="Partners" />
-      <End Role="PartnersLocal" EntitySet="PartnersLocalSet" />
-    </AssociationSet>
-    <AssociationSet Name="NeedHelpLocalLanguage" Association="DniproFuture_siteModel.Store.NeedHelpLocalLanguage">
-      <End Role="NeedHelpLocal" EntitySet="NeedHelpLocalSet" />
-      <End Role="Language" EntitySet="Language" />
-    </AssociationSet>
-    <AssociationSet Name="LanguageNewsLocal" Association="DniproFuture_siteModel.Store.LanguageNewsLocal">
-      <End Role="Language" EntitySet="Language" />
-      <End Role="NewsLocal" EntitySet="NewsLocalSet" />
-    </AssociationSet>
-    <AssociationSet Name="LanguagePartnersLocal" Association="DniproFuture_siteModel.Store.LanguagePartnersLocal">
-      <End Role="Language" EntitySet="Language" />
-      <End Role="PartnersLocal" EntitySet="PartnersLocalSet" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="Language">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="LanguageCode" Type="nvarchar" Nullable="false" MaxLength="2" />
-  </EntityType>
-  <EntityType Name="NeedHelp">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Sum" Type="int" Nullable="false" />
-    <Property Name="NeedSum" Type="int" Nullable="false" />
-    <Property Name="Photos" Type="varchar" Nullable="false" MaxLength="128" />
-    <Property Name="Done" Type="bit" Nullable="false" />
-  </EntityType>
-  <EntityType Name="News">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Images" Type="varchar" Nullable="false" MaxLength="256" />
-    <Property Name="Date" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Partners">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Logo" Type="varchar" Nullable="false" MaxLength="32" />
-  </EntityType>
-  <EntityType Name="NeedHelpLocalSet">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="32" />
-    <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="32" />
-    <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="32" />
-    <Property Name="Address" Type="varchar" Nullable="false" MaxLength="64" />
-    <Property Name="About" Type="varchar(max)" Nullable="false" />
-    <Property Name="NeedHelpId" Type="int" Nullable="false" />
-    <Property Name="LanguageId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="PartnersLocalSet">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="128" />
-    <Property Name="Address" Type="varchar" Nullable="false" MaxLength="128" />
-    <Property Name="About" Type="varchar(max)" Nullable="false" />
-    <Property Name="PartnersId" Type="int" Nullable="false" />
-    <Property Name="LanguageId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="NewsLocalSet">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="128" />
-    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="NewsId" Type="int" Nullable="false" />
-    <Property Name="LanguageId" Type="int" Nullable="false" />
-  </EntityType>
-  <Association Name="NeedHelpLocalNeedHelp">
-    <End Role="NeedHelpLocal" Type="DniproFuture_siteModel.Store.NeedHelpLocalSet" Multiplicity="*" />
-    <End Role="NeedHelp" Type="DniproFuture_siteModel.Store.NeedHelp" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="NeedHelp">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="NeedHelpLocal">
-        <PropertyRef Name="NeedHelpId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="NewsNewsLocal">
-    <End Role="News" Type="DniproFuture_siteModel.Store.News" Multiplicity="1" />
-    <End Role="NewsLocal" Type="DniproFuture_siteModel.Store.NewsLocalSet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="News">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="NewsLocal">
-        <PropertyRef Name="NewsId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PartnersPartnersLocal">
-    <End Role="Partners" Type="DniproFuture_siteModel.Store.Partners" Multiplicity="1" />
-    <End Role="PartnersLocal" Type="DniproFuture_siteModel.Store.PartnersLocalSet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Partners">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PartnersLocal">
-        <PropertyRef Name="PartnersId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="NeedHelpLocalLanguage">
-    <End Role="NeedHelpLocal" Type="DniproFuture_siteModel.Store.NeedHelpLocalSet" Multiplicity="*" />
-    <End Role="Language" Type="DniproFuture_siteModel.Store.Language" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Language">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="NeedHelpLocal">
-        <PropertyRef Name="LanguageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="LanguageNewsLocal">
-    <End Role="Language" Type="DniproFuture_siteModel.Store.Language" Multiplicity="1" />
-    <End Role="NewsLocal" Type="DniproFuture_siteModel.Store.NewsLocalSet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Language">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="NewsLocal">
-        <PropertyRef Name="LanguageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="LanguagePartnersLocal">
-    <End Role="Language" Type="DniproFuture_siteModel.Store.Language" Multiplicity="1" />
-    <End Role="PartnersLocal" Type="DniproFuture_siteModel.Store.PartnersLocalSet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Language">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PartnersLocal">
-        <PropertyRef Name="LanguageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="DniproFuture_siteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LanguageCode" Type="nvarchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Message" Type="text" />
+        </EntityType>
+        <EntityType Name="NeedHelp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sum" Type="int" Nullable="false" />
+          <Property Name="NeedSum" Type="int" Nullable="false" />
+          <Property Name="Photos" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Birthday" Type="date" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="Done" Type="bit" Nullable="false" />
+          <Property Name="FinishDate" Type="date" />
+        </EntityType>
+        <EntityType Name="NeedHelpLocalSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Patronymic" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="About" Type="varchar(max)" Nullable="false" />
+          <Property Name="NeedHelpId" Type="int" Nullable="false" />
+          <Property Name="LanguageId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Images" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NewsLocalSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NewsId" Type="int" Nullable="false" />
+          <Property Name="LanguageId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Partners">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Logo" Type="varchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PartnersLocalSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Link" Type="varchar" MaxLength="256" />
+          <Property Name="PartnersId" Type="int" Nullable="false" />
+          <Property Name="LanguageId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sum" Type="int" Nullable="false" />
+          <Property Name="NeedSum" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="Done" Type="bit" Nullable="false" />
+          <Property Name="FinishDate" Type="date" />
+        </EntityType>
+        <EntityType Name="ProjectsLocalSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectName" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="AboutProject" Type="text" Nullable="false" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+          <Property Name="LanguageId" Type="int" Nullable="false" />
+          <Property Name="Photos" Type="varchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_LanguageNewsLocal">
+          <End Role="Language" Type="Self.Language" Multiplicity="1" />
+          <End Role="NewsLocalSet" Type="Self.NewsLocalSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NewsLocalSet">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LanguagePartnersLocal">
+          <End Role="Language" Type="Self.Language" Multiplicity="1" />
+          <End Role="PartnersLocalSet" Type="Self.PartnersLocalSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PartnersLocalSet">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NeedHelpLocalLanguage">
+          <End Role="Language" Type="Self.Language" Multiplicity="1" />
+          <End Role="NeedHelpLocalSet" Type="Self.NeedHelpLocalSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NeedHelpLocalSet">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NeedHelpLocalNeedHelp">
+          <End Role="NeedHelp" Type="Self.NeedHelp" Multiplicity="1" />
+          <End Role="NeedHelpLocalSet" Type="Self.NeedHelpLocalSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NeedHelp">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NeedHelpLocalSet">
+              <PropertyRef Name="NeedHelpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsNewsLocal">
+          <End Role="News" Type="Self.News" Multiplicity="1" />
+          <End Role="NewsLocalSet" Type="Self.NewsLocalSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NewsLocalSet">
+              <PropertyRef Name="NewsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PartnersPartnersLocal">
+          <End Role="Partners" Type="Self.Partners" Multiplicity="1" />
+          <End Role="PartnersLocalSet" Type="Self.PartnersLocalSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partners">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PartnersLocalSet">
+              <PropertyRef Name="PartnersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectsLocalSet_Language">
+          <End Role="Language" Type="Self.Language" Multiplicity="1" />
+          <End Role="ProjectsLocalSet" Type="Self.ProjectsLocalSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectsLocalSet">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectsLocalSet_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
+          <End Role="ProjectsLocalSet" Type="Self.ProjectsLocalSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectsLocalSet">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DniproFuture_siteModelStoreContainer">
+          <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mail" EntityType="Self.Mail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NeedHelp" EntityType="Self.NeedHelp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NeedHelpLocalSet" EntityType="Self.NeedHelpLocalSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsLocalSet" EntityType="Self.NewsLocalSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Partners" EntityType="Self.Partners" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PartnersLocalSet" EntityType="Self.PartnersLocalSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectsLocalSet" EntityType="Self.ProjectsLocalSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_LanguageNewsLocal" Association="Self.FK_LanguageNewsLocal">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="NewsLocalSet" EntitySet="NewsLocalSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LanguagePartnersLocal" Association="Self.FK_LanguagePartnersLocal">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="PartnersLocalSet" EntitySet="PartnersLocalSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NeedHelpLocalLanguage" Association="Self.FK_NeedHelpLocalLanguage">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="NeedHelpLocalSet" EntitySet="NeedHelpLocalSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NeedHelpLocalNeedHelp" Association="Self.FK_NeedHelpLocalNeedHelp">
+            <End Role="NeedHelp" EntitySet="NeedHelp" />
+            <End Role="NeedHelpLocalSet" EntitySet="NeedHelpLocalSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsNewsLocal" Association="Self.FK_NewsNewsLocal">
+            <End Role="News" EntitySet="News" />
+            <End Role="NewsLocalSet" EntitySet="NewsLocalSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PartnersPartnersLocal" Association="Self.FK_PartnersPartnersLocal">
+            <End Role="Partners" EntitySet="Partners" />
+            <End Role="PartnersLocalSet" EntitySet="PartnersLocalSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectsLocalSet_Language" Association="Self.FK_ProjectsLocalSet_Language">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="ProjectsLocalSet" EntitySet="ProjectsLocalSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectsLocalSet_Projects" Association="Self.FK_ProjectsLocalSet_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ProjectsLocalSet" EntitySet="ProjectsLocalSet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DniproFuture_siteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -189,6 +267,7 @@
           <NavigationProperty Name="NeedHelpLocal" Relationship="DniproFuture_siteModel.NeedHelpLocalLanguage" FromRole="Language" ToRole="NeedHelpLocal" />
           <NavigationProperty Name="NewsLocal" Relationship="DniproFuture_siteModel.LanguageNewsLocal" FromRole="Language" ToRole="NewsLocal" />
           <NavigationProperty Name="PartnersLocal" Relationship="DniproFuture_siteModel.LanguagePartnersLocal" FromRole="Language" ToRole="PartnersLocal" />
+          <NavigationProperty Name="ProjectsLocalSet" Relationship="DniproFuture_siteModel.FK_ProjectsLocalSet_Language" FromRole="Language" ToRole="ProjectsLocalSet" />
         </EntityType>
         <EntityType Name="NeedHelp">
           <Key>
@@ -200,6 +279,9 @@
           <Property Name="Photos" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Done" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="NeedHelpLocal" Relationship="DniproFuture_siteModel.NeedHelpLocalNeedHelp" FromRole="NeedHelp" ToRole="NeedHelpLocal" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FinishDate" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="News">
           <Key>
@@ -250,13 +332,24 @@
             <End Role="Language" EntitySet="Language" />
             <End Role="PartnersLocal" EntitySet="PartnersLocalSet" />
           </AssociationSet>
+          <EntitySet Name="Projects" EntityType="DniproFuture_siteModel.Projects" />
+          <EntitySet Name="ProjectsLocalSet" EntityType="DniproFuture_siteModel.ProjectsLocalSet" />
+          <AssociationSet Name="FK_ProjectsLocalSet_Language" Association="DniproFuture_siteModel.FK_ProjectsLocalSet_Language">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="ProjectsLocalSet" EntitySet="ProjectsLocalSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectsLocalSet_Projects" Association="DniproFuture_siteModel.FK_ProjectsLocalSet_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ProjectsLocalSet" EntitySet="ProjectsLocalSet" />
+          </AssociationSet>
+          <EntitySet Name="Mail" EntityType="DniproFuture_siteModel.Mail" />
+          <EntitySet Name="User" EntityType="DniproFuture_siteModel.User" />
         </EntityContainer>
         <EntityType Name="NeedHelpLocal">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
@@ -265,6 +358,7 @@
           <Property Name="NeedHelpId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Language" Relationship="DniproFuture_siteModel.NeedHelpLocalLanguage" FromRole="NeedHelpLocal" ToRole="Language" />
           <Property Name="LanguageId" Type="Int32" Nullable="false" />
+          <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="NeedHelpLocalNeedHelp">
           <End Type="DniproFuture_siteModel.NeedHelpLocal" Role="NeedHelpLocal" Multiplicity="*" />
@@ -284,12 +378,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="About" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Partners" Relationship="DniproFuture_siteModel.PartnersPartnersLocal" FromRole="PartnersLocal" ToRole="Partners" />
           <Property Name="PartnersId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Language" Relationship="DniproFuture_siteModel.LanguagePartnersLocal" FromRole="PartnersLocal" ToRole="Language" />
           <Property Name="LanguageId" Type="Int32" Nullable="false" />
+          <Property Name="Link" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="NewsLocal">
           <Key>
@@ -363,6 +456,73 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sum" Type="Int32" Nullable="false" />
+          <Property Name="NeedSum" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Done" Type="Boolean" Nullable="false" />
+          <Property Name="FinishDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="ProjectsLocalSet" Relationship="DniproFuture_siteModel.FK_ProjectsLocalSet_Projects" FromRole="Projects" ToRole="ProjectsLocalSet" />
+        </EntityType>
+        <EntityType Name="ProjectsLocalSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="AboutProject" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <Property Name="LanguageId" Type="Int32" Nullable="false" />
+          <Property Name="Photos" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Language" Relationship="DniproFuture_siteModel.FK_ProjectsLocalSet_Language" FromRole="ProjectsLocalSet" ToRole="Language" />
+          <NavigationProperty Name="Projects" Relationship="DniproFuture_siteModel.FK_ProjectsLocalSet_Projects" FromRole="ProjectsLocalSet" ToRole="Projects" />
+        </EntityType>
+        <Association Name="FK_ProjectsLocalSet_Language">
+          <End Type="DniproFuture_siteModel.Language" Role="Language" Multiplicity="1" />
+          <End Type="DniproFuture_siteModel.ProjectsLocalSet" Role="ProjectsLocalSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectsLocalSet">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectsLocalSet_Projects">
+          <End Type="DniproFuture_siteModel.Projects" Role="Projects" Multiplicity="1" />
+          <End Type="DniproFuture_siteModel.ProjectsLocalSet" Role="ProjectsLocalSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectsLocalSet">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Mail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -380,7 +540,10 @@
     <EntitySetMapping Name="NeedHelp">
       <EntityTypeMapping TypeName="IsTypeOf(DniproFuture_siteModel.NeedHelp)">
         <MappingFragment StoreEntitySet="NeedHelp">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Sum" ColumnName="Sum" />
           <ScalarProperty Name="NeedSum" ColumnName="NeedSum" />
           <ScalarProperty Name="Photos" ColumnName="Photos" />
@@ -408,8 +571,8 @@
     <EntitySetMapping Name="NeedHelpLocalSet">
       <EntityTypeMapping TypeName="IsTypeOf(DniproFuture_siteModel.NeedHelpLocal)">
         <MappingFragment StoreEntitySet="NeedHelpLocalSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="Address" ColumnName="Address" />
@@ -422,10 +585,9 @@
     <EntitySetMapping Name="PartnersLocalSet">
       <EntityTypeMapping TypeName="IsTypeOf(DniproFuture_siteModel.PartnersLocal)">
         <MappingFragment StoreEntitySet="PartnersLocalSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="About" ColumnName="About" />
           <ScalarProperty Name="PartnersId" ColumnName="PartnersId" />
           <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
         </MappingFragment>
@@ -442,6 +604,50 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="DniproFuture_siteModel.Projects">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
+                <ScalarProperty Name="Done" ColumnName="Done" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="NeedSum" ColumnName="NeedSum" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectsLocalSet">
+            <EntityTypeMapping TypeName="DniproFuture_siteModel.ProjectsLocalSet">
+              <MappingFragment StoreEntitySet="ProjectsLocalSet">
+                <ScalarProperty Name="Photos" ColumnName="Photos" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="AboutProject" ColumnName="AboutProject" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mail">
+            <EntityTypeMapping TypeName="DniproFuture_siteModel.Mail">
+              <MappingFragment StoreEntitySet="Mail">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="DniproFuture_siteModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

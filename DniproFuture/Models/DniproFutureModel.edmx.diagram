@@ -4,20 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d2dc987cae7d478ab28be29698979f52" Name="Diagram1">
-        <EntityTypeShape EntityType="DniproFuture_siteModel.Language" Width="1.5" PointX="9.375" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DniproFuture_siteModel.NeedHelp" Width="1.5" PointX="2.875" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DniproFuture_siteModel.News" Width="1.5" PointX="1.5" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DniproFuture_siteModel.Partners" Width="1.5" PointX="8.625" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DniproFuture_siteModel.NeedHelpLocal" Width="1.5" PointX="6.25" PointY="1.25" />
+      <Diagram DiagramId="d2dc987cae7d478ab28be29698979f52" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="DniproFuture_siteModel.Language" Width="1.5" PointX="8.625" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DniproFuture_siteModel.NeedHelp" Width="1.5" PointX="4.875" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DniproFuture_siteModel.News" Width="1.5" PointX="4.125" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DniproFuture_siteModel.Partners" Width="1.5" PointX="8.375" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DniproFuture_siteModel.NeedHelpLocal" Width="1.5" PointX="6.75" PointY="1.375" />
         <AssociationConnector Association="DniproFuture_siteModel.NeedHelpLocalNeedHelp" />
-        <EntityTypeShape EntityType="DniproFuture_siteModel.PartnersLocal" Width="1.5" PointX="6" PointY="6.125" />
-        <EntityTypeShape EntityType="DniproFuture_siteModel.NewsLocal" Width="1.5" PointX="3.875" PointY="5.5" />
+        <EntityTypeShape EntityType="DniproFuture_siteModel.PartnersLocal" Width="1.5" PointX="10.375" PointY="5" />
+        <EntityTypeShape EntityType="DniproFuture_siteModel.NewsLocal" Width="1.5" PointX="6" PointY="4.625" />
         <AssociationConnector Association="DniproFuture_siteModel.NewsNewsLocal" />
         <AssociationConnector Association="DniproFuture_siteModel.PartnersPartnersLocal" />
         <AssociationConnector Association="DniproFuture_siteModel.NeedHelpLocalLanguage" />
         <AssociationConnector Association="DniproFuture_siteModel.LanguageNewsLocal" />
         <AssociationConnector Association="DniproFuture_siteModel.LanguagePartnersLocal" />
+        <EntityTypeShape EntityType="DniproFuture_siteModel.Projects" Width="1.5" PointX="8.625" PointY="1.125" />
+        <EntityTypeShape EntityType="DniproFuture_siteModel.ProjectsLocalSet" Width="1.5" PointX="10.75" PointY="2.125" />
+        <AssociationConnector Association="DniproFuture_siteModel.FK_ProjectsLocalSet_Language" />
+        <AssociationConnector Association="DniproFuture_siteModel.FK_ProjectsLocalSet_Projects" />
+        <EntityTypeShape EntityType="DniproFuture_siteModel.Mail" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DniproFuture_siteModel.User" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

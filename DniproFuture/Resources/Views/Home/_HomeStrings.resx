@@ -117,8 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutFuture" xml:space="preserve">
+    <value>Створимо&lt;br&gt;майбутнє&lt;br&gt;разом!</value>
+  </data>
   <data name="AboutTitle" xml:space="preserve">
     <value>Про нас</value>
+  </data>
+  <data name="AboutUsModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;&lt;h3&gt;Хто ми&lt;/h3&gt;&lt;br&gt;
+Ми - це благодійний фонд «Майбутнє Дніпра». Ми - це група небайдужих людей міста Дніпропетровськ. Ми - це організація, в яку ви завжди можете звернутися, якщо Вам чи Вашим близьким потрібна допомога або Ви самі маєте бажання надати допомогу іншим людям.&lt;/p&gt;
+&lt;p&gt;&lt;h3&gt;Наша мета&lt;/h3&gt;&lt;br&gt;
+Робота нашої організації спрямована на поліпшення життєвих умов як жителів усього міста Дніпропетровськ в цілому, так і на допомогу незахищеним верствам населення зокрема.&lt;/p&gt;</value>
+  </data>
+  <data name="About_1_Date" xml:space="preserve">
+    <value>Квітень 2015</value>
+  </data>
+  <data name="About_1_SubTitle" xml:space="preserve">
+    <value>Створення</value>
+  </data>
+  <data name="About_1_Txt" xml:space="preserve">
+    <value>Ми приступили до роботи і готові допомагати людям!</value>
   </data>
   <data name="ClientsTitle" xml:space="preserve">
     <value>Кому ми допомогли</value>
@@ -126,8 +144,29 @@
   <data name="ContactsBtnTxt" xml:space="preserve">
     <value>Надіслати листа</value>
   </data>
+  <data name="ContactsEmailPH" xml:space="preserve">
+    <value>Ваш Email *</value>
+  </data>
+  <data name="ContactsMessagePH" xml:space="preserve">
+    <value>Ваше повідомлення *</value>
+  </data>
+  <data name="ContactsNamePH" xml:space="preserve">
+    <value>Ваше ім'я *</value>
+  </data>
+  <data name="ContactsPhonePH" xml:space="preserve">
+    <value>Ваш номер телефону *</value>
+  </data>
   <data name="ContactsTitle" xml:space="preserve">
     <value>Зв'яжіться з нами</value>
+  </data>
+  <data name="DonationMore" xml:space="preserve">
+    <value>Узнати більше</value>
+  </data>
+  <data name="DonationSubTitle" xml:space="preserve">
+    <value>Цим людям потрібна допомога</value>
+  </data>
+  <data name="DonationTitle" xml:space="preserve">
+    <value>Збір коштів</value>
   </data>
   <data name="HeaderDniproFuture" xml:space="preserve">
     <value>Майбутнє Дніпра</value>
@@ -141,6 +180,12 @@
   <data name="HelpNowBtnTxt" xml:space="preserve">
     <value>Більше інформації</value>
   </data>
+  <data name="HelpNowModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;Благодійний фонд "Майбутнє Дніпра" буде вдячний за будь-яку фінансову та матеріальну допомогу. Пожертви будуть витрачені на реалізацію соціальних проектів фонду та на допомогу незахищеним верствам населення.&lt;br&gt;
+При переказі коштів, будь ласка, обов'язково вкажіть позначку "благодійна допомога".&lt;/p&gt;
+&lt;p&gt;Реквізити для переказу:&lt;br&gt;
+______________________&lt;/p&gt;</value>
+  </data>
   <data name="HelpNowTitle" xml:space="preserve">
     <value>Допомогти зараз</value>
   </data>
@@ -148,19 +193,69 @@
     <value>Ви маєте можливість допомогти саме зараз</value>
   </data>
   <data name="HowClothing" xml:space="preserve">
-    <value>Речами</value>
+    <value>Одягом/Речами</value>
+  </data>
+  <data name="HowClothingModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;У Вас в гардеробі скупчилися речі, які Ви не носите? Ви вирішили купити нові меблі і не знаєте що робити зі старими меблями? І Ви не знаєте кому б могли всі ці речі стати в нагоді?&lt;br&gt;
+Не поспішайте все це викидати! Адже речі, які здаються марними для вас, можуть бути корисні для інших людей! Наш фонд займається збором гуманітарної допомоги для жителів нашого міста. Тому, якщо у Вас є можливість, а головне бажання допомогти нужденним людям Дніпропетровська, то Ви можете це зробити самостійно або Ми можемо об&amp;#39;єднати зусилля.&lt;/p&gt;
+&lt;p&gt;Наш склад гуманітарної допомоги займається збором і розподілом коштів зібраних жителями Дніпропетровська між нужденними людьми, між людьми, які в силу сформованих життєвих ситуацій, мають обмежені матеріальні можливості. Допомога спрямована на: літніх людей, дітей сиріт, людей з обмеженими фізичними здібностями.&lt;/p&gt;
+Під гуманітарною допомогою слід розуміти:
+&lt;ul&gt;
+	&lt;li&gt;Одяг і взуття будь-якого розміру;&lt;/li&gt;
+	&lt;li&gt;Рушники, пелюшки, постільна білизна (ціле, чисте);&lt;/li&gt;
+	&lt;li&gt;Засоби гігієни;&lt;/li&gt;
+	&lt;li&gt;Ліки (з дійсним терміном придатності і не пошкодженою упаковкою);&lt;/li&gt;
+	&lt;li&gt;Книги, іграшки, канцтовари;&lt;/li&gt;
+	&lt;li&gt;Продукти харчування (нешвидкопсувні).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Все це ви можете передати на склад гуманітарної допомоги, який розташований за адресою: м Дніпропетровськ, вул. _______________. Час роботи складу: Пн - Пт з 9:00 до 17.00.&lt;/p&gt;
+&lt;p&gt;Так само, якщо Ви бажаєте передати на склад речі, які мають великі габарити, то, будь ласка, зв&amp;#39;яжіться з нашими представниками будь-яким зручним для вас способом, з метою уточнення інформації про речі і способи їх доставки:&lt;br&gt;
+Тел:&lt;br&gt;
+e-mail:&lt;br&gt;
+Skype:&lt;br&gt;
+Або заповніть форму на нашому сайті.
+&lt;p&gt;Майбутнє нашого міста залежить від Нас!&lt;/p&gt;</value>
+  </data>
+  <data name="HowInfoModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;Ви володієте інформацією про людей, яким потрібна допомога?&lt;/p&gt;
+&lt;p&gt;Допомога потрібна Вам або комусь із ваших родичів?&lt;/p&gt;
+&lt;p&gt;Ви знаєте &amp;laquo;Як можна допомогти&amp;raquo; і &amp;laquo;Що потрібно робити&amp;raquo;, але не в силах реалізувати задумане самостійно?&lt;/p&gt;
+&lt;p&gt;Якщо Ви відповіли, хоча б на одне з питань позитивно, в такому випадку Вам варто зв&amp;#39;язатися з нами.&lt;/p&gt;
+&lt;p&gt;Ми - це БФ &amp;laquo;Майбутнє Дніпра&amp;raquo;. Ми надаємо матеріальну та юридичну допомогу людям Дніпропетровська. І нам потрібна Ваша допомога! Мова йде не тільки про матеріальну допомогу, а й про інформацію, якою ви володієте. Наша мета - допомогти якомога більшій кількості людей. Але для цього нам потрібно знати про цих людей.&lt;/p&gt;
+&lt;p&gt;Тому, якщо ви володієте необхідною інформацією, то, будь ласка, зв&amp;#39;яжіться з нашими представниками будь-яким зручним для вас способом:&lt;br&gt;
+Тел:&lt;br&gt;
+E-mail:&lt;br&gt;
+Skype:&lt;br&gt;
+Або заповніть форму на нашому сайті.
+&lt;p&gt;Майбутнє нашого міста залежить від Нас!&lt;/p&gt;</value>
   </data>
   <data name="HowInformation" xml:space="preserve">
     <value>Інформацією</value>
   </data>
+  <data name="HowModalBtn" xml:space="preserve">
+    <value>Закрити</value>
+  </data>
   <data name="HowMoney" xml:space="preserve">
     <value>Грошима</value>
+  </data>
+  <data name="HowMoneyModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;Якщо у Вас є бажання і можливість зробити благодійний внесок, то нижче наведені реквізити нашого фонду. Кошти будуть витрачені на реалізацію проектів фонду.&lt;/p&gt;</value>
   </data>
   <data name="HowOther" xml:space="preserve">
     <value>Інше</value>
   </data>
+  <data name="HowOtherModalTxt" xml:space="preserve">
+    <value>&lt;p&gt;На нашому сайті описано кілька способів для здійснення допомоги. Якщо Ви хочете запропонувати нам новий спосіб допомоги чи Ви бажаєте співпрацювати з нашим Благодійним Фондом, то, будь ласка, зв&amp;#39;яжіться з нами будь-яким зручним для Вас способом:&lt;br&gt;
+e-mail:&lt;br&gt;
+Тел. :&lt;br&gt;
+Skype:&lt;br&gt;
+Так само Ви можете просто заповнити заявку на нашому сайті, і ми обов&amp;#39;язково з вами зв&amp;#39;яжемося.&lt;/p&gt;</value>
+  </data>
   <data name="HowTitle" xml:space="preserve">
     <value>Як Ви можете допомогти</value>
+  </data>
+  <data name="MessageSend" xml:space="preserve">
+    <value>Ваше повідомлення надіслано успішно</value>
   </data>
   <data name="NavBarAbout" xml:space="preserve">
     <value>Про нас</value>
@@ -186,8 +281,20 @@
   <data name="NavBarPartners" xml:space="preserve">
     <value>Партнери</value>
   </data>
+  <data name="NewsDetails" xml:space="preserve">
+    <value>Детальніше...</value>
+  </data>
+  <data name="NewsMore" xml:space="preserve">
+    <value>Більше новин</value>
+  </data>
+  <data name="NewsSubTitle" xml:space="preserve">
+    <value>Останні новини нашого фонду</value>
+  </data>
   <data name="NewsTitle" xml:space="preserve">
     <value>Новини</value>
+  </data>
+  <data name="PartnersAll" xml:space="preserve">
+    <value>Всі партнери</value>
   </data>
   <data name="PartnersTitle" xml:space="preserve">
     <value>Партнери</value>

@@ -1,36 +1,29 @@
-﻿<!-- Services Section -->
-<section id="helpNow">
+﻿<!--HelpNow section-->
+<section id="helpNow" class="bg-light-gray">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">@ViewRes._HomeStrings.HelpNowTitle</h2>
-                @*<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>*@
             </div>
         </div>
         <div class="row text-center">
             <div class="col-md-6">
-                <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                </span>
-                @*<h4 class="service-heading">Responsive Design</h4>*@
-                <p class="text-muted">фотка нуждающегося</p>
+                <div class="col-md-6 col-md-offset-3">
+                    <img src="@Url.Content("~/Content/img/NeedHelp/")" class="img-responsive img-circle" />
+                </div>
             </div>
             <div class="col-md-6">
-                <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                </span>
                 <h4 class="service-heading">@ViewRes._HomeStrings.HelpNowTxt</h4>
-                <button type="submit" class="btn btn-xl">@ViewRes._HomeStrings.HelpNowBtnTxt</button>
+                <div class="portfolio-link btn btn-xl" data-toggle="modal" href="#HelpNowModal">
+                    @ViewRes._HomeStrings.HelpNowBtnTxt
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-
-<!-- HelpNow Modal-->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- HelpNow Modal -->
+<div class="portfolio-modal modal fade" id="HelpNowModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
             <div class="lr">
@@ -42,23 +35,17 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="modal-body">
-                        <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive" src="Content/img/portfolio/roundicons-free.png" alt="">
-                        <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                        <p>
-                            <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
-                        </p>
-                        <ul class="list-inline">
-                            <li>Date: July 2014</li>
-                            <li>Client: Round Icons</li>
-                            <li>Category: Graphic Design</li>
-                        </ul>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                        <!-- HelpNow Details Go Here -->
+                        <h2>@ViewRes._HomeStrings.HelpNowTitle</h2>
+                        <img class="img-responsive" src=@Url.Content("~/Content/img/NeedHelp/") alt="">
+                        <div class="text-justify">
+                            @MvcHtmlString.Create(ViewRes._HomeStrings.HelpNowModalTxt)
+                        </div>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> @ViewRes._HomeStrings.HowModalBtn</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+

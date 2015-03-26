@@ -61,6 +61,15 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Контакти:.
+        /// </summary>
+        public static string FooterContacts {
+            get {
+                return ResourceManager.GetString("FooterContacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Благодійна організація &quot;Майбутнє Дніпра&quot;.
         /// </summary>
         public static string LayoutTitle {

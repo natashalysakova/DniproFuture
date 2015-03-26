@@ -50,7 +50,6 @@ namespace DniproFuture.Models
 
             //Undone clients
             var unsuccessClientsId = GetAllUnsuccessClients();
-            var helpNowrandomClient = unsuccessClientsId[random.Next(0, unsuccessClientsId.Count)];
             for (var i = 0; i < DonationCount; i++)
             {
                 if (unsuccessClientsId.Count == 0)
@@ -61,12 +60,10 @@ namespace DniproFuture.Models
                 {
                     var index = random.Next(0, unsuccessClientsId.Count);
                     model.DonationBlock[i] = GetDonationOutputModelById(unsuccessClientsId[index]);
-                    unsuccessClientsId.Remove(index);
+                    unsuccessClientsId.Remove(unsuccessClientsId[index]);
                 }
             }
 
-            //HelpNow
-            model.HelpNowBlock = GetHelpNowOutputModelByClientId(helpNowrandomClient);
 
             //Partners
             var partnersId = GetAllPartners();

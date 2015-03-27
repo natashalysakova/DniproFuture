@@ -1,6 +1,9 @@
 ﻿@model DniproFuture.Models.News
+@{
+    Layout = "../Shared/_OtherLayout.cshtml";
+}
 
-<div class="container">
+<div class="container customContainer">
     <div>
         <h4>News</h4>
         <hr />
@@ -24,7 +27,6 @@
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
         @Html.ActionLink("Back to List", "Index")
     </p>
 </div>

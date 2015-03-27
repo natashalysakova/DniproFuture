@@ -450,6 +450,7 @@
     <Content Include="Views\Shared\_OtherLayout.cshtml" />
     <Content Include="Views\Shared\CustomNavbar.cshtml" />
     <Content Include="Views\Home\NeedHelpIndex.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">

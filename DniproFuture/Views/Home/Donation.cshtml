@@ -30,7 +30,7 @@
         </div>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-right">
-                <p class="large text-muted">@ViewRes._HomeStrings.DonationMore</p>
+                <a href="@Url.Action("NeedHelpIndex")"><p class="large text-muted">@ViewRes._HomeStrings.DonationMore</p></a>
             </div>
         </div>
     </div>
@@ -54,7 +54,7 @@
                             <h2>@Model[i].FullName</h2>
                             <div class="text-justify">
                                 <div class="text-center">
-                                    <img class="" src="@Url.Content("~/Content/img/NeedHelp/" + Model[i].Photos[0])" alt="">
+                                    <img class="img-responsive" src="@Url.Content("~/Content/img/NeedHelp/" + Model[i].Photos[0])" alt="">
                                     <p class="text-muted">@Model[i].Age лет (@Model[i].Birthday.ToShortDateString())</p>
                                     @{int percent = (int)((Model[i].Summ / Model[i].NeedSum) * 100);}
                                     <div class="progress">

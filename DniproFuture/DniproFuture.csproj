@@ -255,6 +255,7 @@
     <Content Include="Content\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\customBootstrap.css" />
     <Content Include="Content\css\flags.css" />
     <Content Include="Content\img\blank.gif" />
     <Content Include="Content\img\flags.png" />
@@ -430,14 +431,13 @@
     <Content Include="Views\Home\How.cshtml" />
     <Content Include="Views\NeedHelps1\Create.cshtml" />
     <Content Include="Views\NeedHelps1\Delete.cshtml" />
-    <Content Include="Views\NeedHelps1\Details.cshtml" />
+    <Content Include="Views\Home\NeedHelpDetails.cshtml" />
     <Content Include="Views\NeedHelps1\Edit.cshtml" />
-    <Content Include="Views\NeedHelps1\Index.cshtml" />
     <Content Include="Views\News\Create.cshtml" />
     <Content Include="Views\News\Delete.cshtml" />
-    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\Home\NewsDetails.cshtml" />
     <Content Include="Views\News\Edit.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Home\NewsIndex.cshtml" />
     <Content Include="Views\Mails\Delete.cshtml" />
     <Content Include="Views\Mails\Details.cshtml" />
     <Content Include="Views\Mails\Index.cshtml" />
@@ -445,6 +445,7 @@
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Shared\_OtherLayout.cshtml" />
     <Content Include="Views\Shared\CustomNavbar.cshtml" />
+    <Content Include="Views\Home\NeedHelpIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">

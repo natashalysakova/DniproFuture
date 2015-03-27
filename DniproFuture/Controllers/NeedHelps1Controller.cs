@@ -31,7 +31,7 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NeedHelp needHelp = _repository.FindInNeedHelpById(id);
+            HelpNowOutputModel needHelp = _repository.GetHelpNowOutputModelByClientId(id.GetValueOrDefault());
             if (needHelp == null)
             {
                 return HttpNotFound();

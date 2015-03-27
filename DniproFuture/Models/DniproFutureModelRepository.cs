@@ -169,7 +169,7 @@ namespace DniproFuture.Models
             return (from partner in _dbContext.Partners select partner.Id).ToList();
         }
 
-        private HelpNowOutputModel GetHelpNowOutputModelByClientId(int helpNowrandomClient)
+        public HelpNowOutputModel GetHelpNowOutputModelByClientId(int helpNowrandomClient)
         {
             var client = (from c in _dbContext.NeedHelp where c.Id == helpNowrandomClient select c).FirstOrDefault();
             if (client != null)

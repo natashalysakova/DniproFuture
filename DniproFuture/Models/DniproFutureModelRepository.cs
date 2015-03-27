@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Linq;
@@ -8,6 +9,8 @@ using System.Net.Configuration;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
+using System.Web.UI.WebControls;
+using PagedList;
 
 namespace DniproFuture.Models
 {
@@ -185,7 +188,8 @@ namespace DniproFuture.Models
                         Age = GetAge(client.Birthday),
                         Birthday = client.Birthday,
                         NeedSum = client.NeedSum,
-                        Summ = client.Sum
+                        Summ = client.Sum,
+                        Id = helpNowrandomClient
                     };
 
                 return new HelpNowOutputModel();
@@ -261,7 +265,8 @@ namespace DniproFuture.Models
                         Age = GetAge(client.Birthday),
                         Birthday = client.Birthday,
                         NeedSum = client.NeedSum,
-                        Summ = client.Sum
+                        Summ = client.Sum,
+                        Id = index
                     };
                 }
                 return new DonationOutputModel();
@@ -279,9 +284,15 @@ namespace DniproFuture.Models
             return (from client in _dbContext.NeedHelp where !client.Done select client.Id).ToList();
         }
 
-        internal List<NeedHelp> GetListOfNeedHelp()
+        internal IQueryable<HelpNowOutputModel> GetListOfNeedHelp()
         {
-            return _dbContext.NeedHelp.ToList();
+            List<HelpNowOutputModel> model = new List<HelpNowOutputModel>();
+            var unsuccessClientsId = GetAllUnsuccessClients();
+            foreach (int id in unsuccessClientsId)
+            {
+                model.Add(GetHelpNowOutputModelByClientId(id));
+            }
+            return model.AsQueryable();
         }
 
         internal NeedHelp FindInNeedHelpById(int? id)

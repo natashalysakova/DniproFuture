@@ -13,5 +13,6 @@ namespace DniproFuture.Models
         public int Age { get; set; }
         public DateTime Birthday { get; set; }
         public string About { get; set; }
+        public int Id { get; set; }
     }
 }

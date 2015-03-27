@@ -2,8 +2,9 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "../Shared/_AdminLayout.cshtml";
 }
-<div class="container"> 
+<div class="container customContainer">
     <h2>Details</h2>
 
     <div>
@@ -45,7 +46,6 @@
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
         @Html.ActionLink("Back to List", "Index")
     </p>
 </div>

@@ -10,8 +10,6 @@ namespace DniproFuture.Controllers
     [Authorize]
     public class AdminController : Controller
     {
-        DniproFutureModelRepository _repository = new DniproFutureModelRepository();
-        // GET: Admin
         public ActionResult Index()
         {
             return View();

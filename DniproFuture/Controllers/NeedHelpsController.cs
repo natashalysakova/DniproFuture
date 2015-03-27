@@ -9,6 +9,7 @@ using PagedList;
 
 namespace DniproFuture.Controllers
 {
+    [Authorize]
     public class NeedHelpsController : Controller
     {
         readonly DniproFutureModelRepository _repository = new DniproFutureModelRepository();
@@ -16,7 +17,7 @@ namespace DniproFuture.Controllers
         // GET: NeedHelps1
         public ActionResult Index(int? page)
         {
-           return View(_repository.GetListOfNeedHelp());
+            return View(_repository.GetListOfNeedHelp());
         }
 
         // GET: NeedHelps1/Details/5
@@ -55,7 +56,7 @@ namespace DniproFuture.Controllers
                 {
                     if (photo != null)
                     {
-                       string filename = Path.GetRandomFileName().Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[0] +"." + photo.FileName.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[1];
+                        string filename = Path.GetRandomFileName().Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[0] + "." + photo.FileName.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[1];
                         var path = Path.Combine(Server.MapPath("~/Content/img/NeedHelp"), filename);
                         photo.SaveAs(path);
                         photosList.Add(filename);

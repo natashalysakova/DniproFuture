@@ -10,6 +10,7 @@ using DniproFuture.Models;
 
 namespace DniproFuture.Controllers
 {
+    [Authorize]
     public class MailsController : Controller
     {
         private DniproFuture_siteEntities db = new DniproFuture_siteEntities();
@@ -17,7 +18,7 @@ namespace DniproFuture.Controllers
         // GET: Mails
         public ActionResult Index()
         {
-                return View(db.Mail.ToList());
+            return View(db.Mail.ToList());
         }
 
         // GET: Mails/Details/5
@@ -34,7 +35,6 @@ namespace DniproFuture.Controllers
             }
             return View(mail);
         }
-
 
         // GET: Mails/Delete/5
         public ActionResult Delete(int? id)

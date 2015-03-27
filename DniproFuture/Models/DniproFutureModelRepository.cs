@@ -169,7 +169,7 @@ namespace DniproFuture.Models
             return (from partner in _dbContext.Partners select partner.Id).ToList();
         }
 
-        private HelpNowOutputModel GetHelpNowOutputModelByClientId(int helpNowrandomClient)
+        public HelpNowOutputModel GetHelpNowOutputModelByClientId(int helpNowrandomClient)
         {
             var client = (from c in _dbContext.NeedHelp where c.Id == helpNowrandomClient select c).FirstOrDefault();
             if (client != null)
@@ -284,7 +284,7 @@ namespace DniproFuture.Models
             return (from client in _dbContext.NeedHelp where !client.Done select client.Id).ToList();
         }
 
-        internal IQueryable<HelpNowOutputModel> GetListOfNeedHelp()
+        internal IQueryable<HelpNowOutputModel> GetQueryOfNeedHelp()
         {
             List<HelpNowOutputModel> model = new List<HelpNowOutputModel>();
             var unsuccessClientsId = GetAllUnsuccessClients();
@@ -293,6 +293,11 @@ namespace DniproFuture.Models
                 model.Add(GetHelpNowOutputModelByClientId(id));
             }
             return model.AsQueryable();
+        }
+
+        internal List<NeedHelp> GetListOfNeedHelp()
+        {
+            return (from help in _dbContext.NeedHelp where !help.Done select help).ToList();
         }
 
         internal NeedHelp FindInNeedHelpById(int? id)

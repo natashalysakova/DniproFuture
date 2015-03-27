@@ -1,7 +1,11 @@
 ﻿@model DniproFuture.Models.MainPageOutputModel
 
 @{
-    Html.RenderPartial("NavBar");
+    ViewBag.Title = "Admin: Login";
+    Layout = "../Shared/_MainLayout.cshtml";
+}
+
+@{
     Html.RenderPartial("Header");
     Html.RenderPartial("HelpNow");
     Html.RenderPartial("Donation", Model.DonationBlock);

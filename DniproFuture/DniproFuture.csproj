@@ -147,12 +147,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MailsController.cs" />
-    <Compile Include="Controllers\NeedHelps1Controller.cs" />
+    <Compile Include="Controllers\NeedHelpsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PartnersController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Models\Abstract\IAuthProvider.cs" />
     <Compile Include="Models\ClientsOutputModel.cs" />
+    <Compile Include="Models\Concrete\FormsAuthProvider.cs" />
     <Compile Include="Models\ContactsOutputModel.cs" />
     <Compile Include="Models\DniproFutureModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -175,6 +180,7 @@
     <Compile Include="Models\Language.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Mail.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
@@ -255,6 +261,7 @@
     <Content Include="Content\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\customBootstrap.css" />
     <Content Include="Content\css\flags.css" />
     <Content Include="Content\img\blank.gif" />
     <Content Include="Content\img\flags.png" />
@@ -428,23 +435,40 @@
     <Content Include="Views\Home\Partners.cshtml" />
     <Content Include="Views\Home\Clients.cshtml" />
     <Content Include="Views\Home\How.cshtml" />
-    <Content Include="Views\NeedHelps1\Create.cshtml" />
-    <Content Include="Views\NeedHelps1\Delete.cshtml" />
-    <Content Include="Views\NeedHelps1\Details.cshtml" />
-    <Content Include="Views\NeedHelps1\Edit.cshtml" />
-    <Content Include="Views\NeedHelps1\Index.cshtml" />
+    <Content Include="Views\NeedHelps\Create.cshtml" />
+    <Content Include="Views\NeedHelps\Delete.cshtml" />
+    <Content Include="Views\Home\NeedHelpDetails.cshtml" />
+    <Content Include="Views\NeedHelps\Edit.cshtml" />
     <Content Include="Views\News\Create.cshtml" />
     <Content Include="Views\News\Delete.cshtml" />
-    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\Home\NewsDetails.cshtml" />
     <Content Include="Views\News\Edit.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Home\NewsIndex.cshtml" />
     <Content Include="Views\Mails\Delete.cshtml" />
     <Content Include="Views\Mails\Details.cshtml" />
     <Content Include="Views\Mails\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Shared\_OtherLayout.cshtml" />
     <Content Include="Views\Shared\CustomNavbar.cshtml" />
+    <Content Include="Views\Home\NeedHelpIndex.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\NeedHelps\Index.cshtml" />
+    <Content Include="Views\NeedHelps\Details.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\AdminNavbar.cshtml" />
+    <Content Include="Views\Partners\Create.cshtml" />
+    <Content Include="Views\Partners\Delete.cshtml" />
+    <Content Include="Views\Partners\Details.cshtml" />
+    <Content Include="Views\Partners\Edit.cshtml" />
+    <Content Include="Views\Partners\Index.cshtml" />
+    <Content Include="Views\Projects\Create.cshtml" />
+    <Content Include="Views\Projects\Delete.cshtml" />
+    <Content Include="Views\Projects\Details.cshtml" />
+    <Content Include="Views\Projects\Edit.cshtml" />
+    <Content Include="Views\Projects\Index.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">

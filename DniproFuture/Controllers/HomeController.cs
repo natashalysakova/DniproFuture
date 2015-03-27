@@ -7,6 +7,7 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using DniproFuture.Models;
+using PagedList;
 
 namespace DniproFuture.Controllers
 {
@@ -32,33 +33,53 @@ namespace DniproFuture.Controllers
         public ActionResult Contact(ContactsOutputModel model)
         {
             _repository.SendMessage(model);
-
-            //var fromAddress = new MailAddress("fromemail@gmail.com", "От " + model.Name);
-            //var toAddress = new MailAddress("toemail@gmail.com", "Администратору");
-            //const string fromPassword = "fromemailpassword";
-            //const string subject = "Форма связи \"Будущее Днепра\"";
-            //string body = string.Format("От: {0}\nE-mail: {1}\nТелефон: {2}\nСообщение: {3}", model.Name, model.Email, model.Phone, model.Message);
-
-            //var smtp = new SmtpClient
-            //{
-            //    Host = "smtp.gmail.com",
-            //    Port = 587,
-            //    EnableSsl = true,
-            //    DeliveryMethod = SmtpDeliveryMethod.Network,
-            //    UseDefaultCredentials = false,
-            //    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-            //};
-            //using (var message = new MailMessage(fromAddress, toAddress)
-            //{
-            //    Subject = subject,
-            //    Body = body
-            //})
-            //{
-            //    smtp.Send(message);
-            //}
-
-
             return new RedirectResult("Index");
+        }
+
+        public ActionResult NeedHelpIndex(int? page)
+        {
+            var products = _repository.GetQueryOfNeedHelp(); //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
+
+            var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
+            var onePageOfProducts = products.ToPagedList(pageNumber, 12); // will only contain 25 products max because of the pageSize
+
+            return View(onePageOfProducts);
+        }
+
+        // GET: NeedHelps1/Details/5
+        public ActionResult NeedHelpDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            HelpNowOutputModel needHelp = _repository.GetHelpNowOutputModelByClientId(id.GetValueOrDefault());
+            if (needHelp == null)
+            {
+                return HttpNotFound();
+            }
+            return View(needHelp);
+        }
+
+
+        public ActionResult NewsIndex()
+        {
+            return View(_repository.GetListOfNews());
+        }
+
+        // GET: News/Details/5
+        public ActionResult NewsDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            News news = _repository.FindInNewsById(id);
+            if (news == null)
+            {
+                return HttpNotFound();
+            }
+            return View(news);
         }
     }
 }

@@ -46,6 +46,7 @@ namespace DniproFuture
             bundles.Add(new StyleBundle("~/Content/bootstrap").Include("~/Content/css/bootstrap.css"));
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/css/agency.css"));
             bundles.Add(new StyleBundle("~/Content/flags").Include("~/Content/css/flags.css"));
+            bundles.Add(new StyleBundle("~/Content/customBootstrap").Include("~/Content/css/customBootstrap.css"));
 
 
 

@@ -141,12 +141,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MailsController.cs" />
     <Compile Include="Controllers\NeedHelps1Controller.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Models\Abstract\IAuthProvider.cs" />
     <Compile Include="Models\ClientsOutputModel.cs" />
+    <Compile Include="Models\Concrete\FormsAuthProvider.cs" />
     <Compile Include="Models\ContactsOutputModel.cs" />
     <Compile Include="Models\DniproFutureModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -169,6 +172,7 @@
     <Compile Include="Models\Language.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Mail.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
@@ -435,7 +439,7 @@
     <Content Include="Views\Mails\Details.cshtml" />
     <Content Include="Views\Mails\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">

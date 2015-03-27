@@ -11,6 +11,7 @@ using DniproFuture.Models;
 
 namespace DniproFuture.Controllers
 {
+    [Authorize]
     public class NewsController : Controller
     {
         DniproFutureModelRepository _repository = new DniproFutureModelRepository();

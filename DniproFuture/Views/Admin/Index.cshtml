@@ -1,17 +1,15 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "Admin";
 }
 <div class="container">
-    <h2>Index</h2>
+    <h2>Admin-ka</h2>
 
-    @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
-    {
-        <label title="Login">Логин</label>
-        <input type="text" name="Login" class="form-control" />
-        <label title="Password">Пароль</label>
-        <input type="password" name="Password" class="form-control" />
-        <button class="btn btn-default" type="submit">Войти</button>
-    }
+    <ul>
+        <li>@Html.ActionLink("Почта", "Index", "Mails")</li>
+        <li>@Html.ActionLink("Кому помочь", "Index", "NeedHelps1")</li>
+        <li>@Html.ActionLink("Новости", "Index", "News")</li>
+        <li>@Html.ActionLink("Проекты", "Index", "Projects")</li>
+        <li>@Html.ActionLink("Партнеры", "Index", "Partners")</li>
+    </ul>
 
 </div>

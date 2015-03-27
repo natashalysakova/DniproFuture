@@ -38,7 +38,7 @@ namespace DniproFuture.Controllers
 
         public ActionResult NeedHelpIndex(int? page)
         {
-            var products = _repository.GetListOfNeedHelp(); //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
+            var products = _repository.GetQueryOfNeedHelp(); //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
 
             var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
             var onePageOfProducts = products.ToPagedList(pageNumber, 12); // will only contain 25 products max because of the pageSize

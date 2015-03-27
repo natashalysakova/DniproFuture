@@ -151,7 +151,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MailsController.cs" />
-    <Compile Include="Controllers\NeedHelps1Controller.cs" />
+    <Compile Include="Controllers\NeedHelpsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Models\Abstract\IAuthProvider.cs" />
     <Compile Include="Models\ClientsOutputModel.cs" />
@@ -433,10 +433,10 @@
     <Content Include="Views\Home\Partners.cshtml" />
     <Content Include="Views\Home\Clients.cshtml" />
     <Content Include="Views\Home\How.cshtml" />
-    <Content Include="Views\NeedHelps1\Create.cshtml" />
-    <Content Include="Views\NeedHelps1\Delete.cshtml" />
+    <Content Include="Views\NeedHelps\Create.cshtml" />
+    <Content Include="Views\NeedHelps\Delete.cshtml" />
     <Content Include="Views\Home\NeedHelpDetails.cshtml" />
-    <Content Include="Views\NeedHelps1\Edit.cshtml" />
+    <Content Include="Views\NeedHelps\Edit.cshtml" />
     <Content Include="Views\News\Create.cshtml" />
     <Content Include="Views\News\Delete.cshtml" />
     <Content Include="Views\Home\NewsDetails.cshtml" />
@@ -451,6 +451,10 @@
     <Content Include="Views\Shared\CustomNavbar.cshtml" />
     <Content Include="Views\Home\NeedHelpIndex.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\NeedHelps\Index.cshtml" />
+    <Content Include="Views\NeedHelps\Details.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">

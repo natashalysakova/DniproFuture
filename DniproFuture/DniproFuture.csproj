@@ -446,7 +446,6 @@
     <Content Include="Views\Mails\Details.cshtml" />
     <Content Include="Views\Mails\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Shared\_OtherLayout.cshtml" />
     <Content Include="Views\Shared\CustomNavbar.cshtml" />
     <Content Include="Views\Home\NeedHelpIndex.cshtml" />

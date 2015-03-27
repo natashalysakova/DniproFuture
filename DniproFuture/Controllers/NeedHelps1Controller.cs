@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DniproFuture.Models;
+using PagedList;
 
 namespace DniproFuture.Controllers
 {
@@ -13,10 +14,14 @@ namespace DniproFuture.Controllers
         readonly DniproFutureModelRepository _repository = new DniproFutureModelRepository();
 
         // GET: NeedHelps1
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
+            var products = _repository.GetListOfNeedHelp(); //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
 
-            return View(_repository.GetListOfNeedHelp());
+            var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
+            var onePageOfProducts = products.ToPagedList(pageNumber, 12); // will only contain 25 products max because of the pageSize
+
+            return View(onePageOfProducts);
         }
 
         // GET: NeedHelps1/Details/5

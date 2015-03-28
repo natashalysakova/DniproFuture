@@ -78,6 +78,10 @@ h6 {
     background-color: #f3a400;
 }
 
+.btn-modal{
+    margin:10px;
+}
+
     .btn-primary:hover,
     .btn-primary:focus,
     .btn-primary:active,
@@ -814,6 +818,13 @@ ul.social-buttons {
     .portfolio-modal .modal-content h2 {
         margin-bottom: 15px;
         font-size: 3em;
+    }
+
+    .portfolio-modal .modal-info-content{
+        text-align:center;
+        width:50%;
+        float:left;
+        margin-right: 25px;
     }
 
     .portfolio-modal .modal-content p {

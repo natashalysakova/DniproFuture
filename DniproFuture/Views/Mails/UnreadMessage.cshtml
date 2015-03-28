@@ -1,0 +1,48 @@
+﻿@model DniproFuture.Models.Mail
+
+<tr>
+    <td>
+        <b>
+            @if (Model.Name != null)
+            {
+                @Html.DisplayFor(modelModel => Model.Name)
+
+            }
+            else
+            {
+                @Html.Raw("Анонимное сообщение");
+            }
+        </b>
+    </td>
+    <td>
+        <b>
+
+            @if (Model.Email != null)
+            {
+                @Html.DisplayFor(modelModel => Model.Email)
+            }
+            else
+            {
+                @Html.Raw("Не указан");
+            }
+        </b>
+
+    </td>
+    <td>
+        <b>
+
+            @if (Model.Phone != null)
+            {
+                @Html.DisplayFor(modelModel => Model.Phone)
+            }
+            else
+            {
+                @Html.Raw("Не указан");
+            }
+        </b>
+    </td>
+    <td>
+        @Html.ActionLink("Details", "Details", new { id = Model.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+    </td>
+</tr>

@@ -145,16 +145,16 @@
     <value>Надіслати листа</value>
   </data>
   <data name="ContactsEmailPH" xml:space="preserve">
-    <value>Ваш Email *</value>
+    <value>Ваш Email </value>
   </data>
   <data name="ContactsMessagePH" xml:space="preserve">
     <value>Ваше повідомлення *</value>
   </data>
   <data name="ContactsNamePH" xml:space="preserve">
-    <value>Ваше ім'я *</value>
+    <value>Ваше ім'я </value>
   </data>
   <data name="ContactsPhonePH" xml:space="preserve">
-    <value>Ваш номер телефону *</value>
+    <value>Ваш номер телефону </value>
   </data>
   <data name="ContactsTitle" xml:space="preserve">
     <value>Зв'яжіться з нами</value>
@@ -292,6 +292,9 @@ Skype:&lt;br&gt;
   </data>
   <data name="NewsTitle" xml:space="preserve">
     <value>Новини</value>
+  </data>
+  <data name="NotEmail" xml:space="preserve">
+    <value>Перевірте вірність адресу E-mail</value>
   </data>
   <data name="PartnersAll" xml:space="preserve">
     <value>Всі партнери</value>

@@ -13,12 +13,11 @@ namespace DniproFuture.Controllers
     [Authorize]
     public class MailsController : Controller
     {
-        private DniproFuture_siteEntities db = new DniproFuture_siteEntities();
-
+        private  DniproFutureModelRepository _repository = new DniproFutureModelRepository();
         // GET: Mails
         public ActionResult Index()
         {
-            return View(db.Mail.ToList());
+            return View(_repository.GetMails());
         }
 
         // GET: Mails/Details/5
@@ -28,11 +27,12 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Mail mail = db.Mail.Find(id);
+            Mail mail = _repository.ReadMail(id);
             if (mail == null)
             {
                 return HttpNotFound();
             }
+
             return View(mail);
         }
 
@@ -43,7 +43,7 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Mail mail = db.Mail.Find(id);
+            Mail mail = _repository.FindMailById(id);
             if (mail == null)
             {
                 return HttpNotFound();
@@ -56,9 +56,13 @@ namespace DniproFuture.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Mail mail = db.Mail.Find(id);
-            db.Mail.Remove(mail);
-            db.SaveChanges();
+            _repository.RemoveMailById(id);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ClearAll()
+        {
+            _repository.ClearMail();
             return RedirectToAction("Index");
         }
 
@@ -66,7 +70,7 @@ namespace DniproFuture.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _repository.Dispose();
             }
             base.Dispose(disposing);
         }

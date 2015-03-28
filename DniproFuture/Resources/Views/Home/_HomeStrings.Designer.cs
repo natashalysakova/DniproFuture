@@ -136,7 +136,7 @@ namespace ViewRes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ваш Email *.
+        ///   Looks up a localized string similar to Ваш Email .
         /// </summary>
         public static string ContactsEmailPH {
             get {
@@ -154,7 +154,7 @@ namespace ViewRes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ваше ім&apos;я *.
+        ///   Looks up a localized string similar to Ваше ім&apos;я .
         /// </summary>
         public static string ContactsNamePH {
             get {
@@ -163,7 +163,7 @@ namespace ViewRes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ваш номер телефону *.
+        ///   Looks up a localized string similar to Ваш номер телефону .
         /// </summary>
         public static string ContactsPhonePH {
             get {
@@ -486,6 +486,15 @@ namespace ViewRes {
         public static string NewsTitle {
             get {
                 return ResourceManager.GetString("NewsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Перевірте вірність адресу E-mail.
+        /// </summary>
+        public static string NotEmail {
+            get {
+                return ResourceManager.GetString("NotEmail", resourceCulture);
             }
         }
         

@@ -2,3 +2,7 @@
     padding-top: 80px;
     padding-left: 140px;
 }
+
+.validation-summary-errors {
+    color: red;
+}

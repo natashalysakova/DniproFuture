@@ -1,0 +1,27 @@
+﻿@model DniproFuture.Models.Mail
+@{
+    ViewBag.Title = "Done";
+    Layout = "~/Views/Shared/_OtherLayout.cshtml";
+    if (Model != null)
+    {
+        <meta http-equiv="Refresh" content="10; url=/" />
+    }
+    else
+    {
+        <meta http-equiv="Refresh" content="5; url=/" />
+    }
+}
+
+<h2>Done</h2>
+
+<div class="container customContainer">
+    @if (Model != null)
+    {
+        <h1>Thanks for your message</h1>
+    }
+    else
+    {
+        <h1>Your mesage didnt send..</h1>
+    }
+
+</div>

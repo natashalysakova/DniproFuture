@@ -34,9 +34,7 @@ namespace DniproFuture.Models
         public virtual DbSet<NewsLocal> NewsLocalSet { get; set; }
         public virtual DbSet<Projects> Projects { get; set; }
         public virtual DbSet<ProjectsLocalSet> ProjectsLocalSet { get; set; }
-        public virtual DbSet<Mail> Mail { get; set; }
         public virtual DbSet<User> User { get; set; }
-
-        public System.Data.Entity.DbSet<DniproFuture.Models.LoginViewModel> LoginViewModels { get; set; }
+        public virtual DbSet<Mail> Mail { get; set; }
     }
 }

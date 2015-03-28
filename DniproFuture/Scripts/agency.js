@@ -37,4 +37,21 @@ $(document).ready(function () {
             $('#myModal .modal-body').html('');
         });
     });
+
+
+    GetUnread();
+    setInterval('GetUnread()', 1000);
+
 });
+
+function OnSuccessComment(data) {
+    $('.fromModal').html(data.Name);
+    $('.emailModal').html(data.Email);
+    $('.phoneModal').html(data.Phone);
+    $('.messageModal').html(data.Message);
+
+    $('#DoneModal').modal('show');
+
+}
+
+

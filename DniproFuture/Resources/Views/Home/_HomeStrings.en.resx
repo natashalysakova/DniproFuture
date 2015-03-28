@@ -145,16 +145,16 @@ The work of our organization is dedicated to improving the living conditions of 
     <value>Send message</value>
   </data>
   <data name="ContactsEmailPH" xml:space="preserve">
-    <value>Your Email *</value>
+    <value>Your Email </value>
   </data>
   <data name="ContactsMessagePH" xml:space="preserve">
     <value>Your Message *</value>
   </data>
   <data name="ContactsNamePH" xml:space="preserve">
-    <value>Your Name *</value>
+    <value>Your Name </value>
   </data>
   <data name="ContactsPhonePH" xml:space="preserve">
-    <value>Your Phone *</value>
+    <value>Your Phone </value>
   </data>
   <data name="ContactsTitle" xml:space="preserve">
     <value>Contact us</value>
@@ -291,6 +291,9 @@ Also, you can simply fill out an application on our website and we will contact 
   </data>
   <data name="NewsTitle" xml:space="preserve">
     <value>News</value>
+  </data>
+  <data name="NotEmail" xml:space="preserve">
+    <value>Not valid Email</value>
   </data>
   <data name="PartnersAll" xml:space="preserve">
     <value>All partners</value>

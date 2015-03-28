@@ -19,5 +19,6 @@ namespace DniproFuture.Models
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Message { get; set; }
+        public Nullable<bool> IsRead { get; set; }
     }
 }

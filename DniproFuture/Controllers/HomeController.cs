@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net;
@@ -32,9 +33,44 @@ namespace DniproFuture.Controllers
         [HttpPost]
         public ActionResult Contact(ContactsOutputModel model)
         {
-            _repository.SendMessage(model);
-            return new RedirectResult("Index");
+            if (ModelState.IsValid)
+            {
+                Mail mail = _repository.SendMessage(model);
+                return View("Done", mail);
+            }
+            else
+            {
+                return PartialView(model);
+            }
         }
+
+        [HttpPost]
+        public ActionResult ContactAjax(ContactsOutputModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Mail mail = _repository.SendMessage(model);
+                return Json(mail);
+            }
+            else
+            {
+                return Json("Undone");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult GetUnread()
+        {
+            List<Mail> mail = _repository.GetUnreadMails();
+            return Json(new {mail, mail.Count});
+        }
+
+        [HttpPost]
+        public ActionResult GetUnreadMailView(Mail mail)
+        {
+            return PartialView("UnreadMessage", mail);
+        }
+
 
         public ActionResult NeedHelpIndex(int? page)
         {

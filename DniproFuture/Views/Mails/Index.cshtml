@@ -4,6 +4,9 @@
     ViewBag.Title = "Index";
     Layout = "../Shared/_AdminLayout.cshtml";
 }
+<script>
+    
+</script>
 <div class="container customContainer">
     <h2>Index</h2>
 
@@ -18,33 +21,13 @@
             <th>
                 @Html.DisplayNameFor(model => model.Phone)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Message)
-            </th>
             <th></th>
         </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Phone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Message)
-                </td>
-                <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
-            </tr>
-        }
-
+        <tr class="messages">
+            @foreach (var item in Model)
+            {
+                Html.RenderPartial(item.IsRead == false ? "UnreadMessage" : "ReadMessage", item);
+            }
+        </tr>
     </table>
 </div>

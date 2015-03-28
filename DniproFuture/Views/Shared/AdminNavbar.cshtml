@@ -1,4 +1,36 @@
 ﻿<!-- Navigation -->
+
+    <script>
+        $(document).ready(function () {
+            GetUnread();
+            setInterval('GetUnread()', 1000);
+        });
+
+
+        function GetUnread() {
+            $.ajax({
+                type: "POST",
+                url: "/Home/GetUnread",
+                success: function (mails, count) {
+                    if (count > 0) {
+                        $("#unread").html(count);
+                        $("#unread").show();
+
+                        var messages = $(".messages");
+                        if (messages != null) {
+                            for (var i = 0; i < mails.size; i++) {
+                                var row = document.createElement("tr");
+                                messages.append(row.load("/Home/GetUnreadMailView", mails[i]));
+                            }
+                        }
+                    } else {
+                        $("#unread").hide();
+                    }
+
+                }
+            });
+        }
+    </script>
 <nav class="navbar navbar-default navbar-shrink navbar-fixed-top">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -13,7 +45,6 @@
                 <a class="page-scroll" href="/#page-top"><img class="logo navbar-brand" src="@Url.Content("~/Content/img/logo.png")" /></a>
             </div>
         </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -24,7 +55,10 @@
                     <a class="page-scroll" href="@Url.Action("Index", "Admin")">Админка</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="@Url.Action("Index", "Mails")">Почта</a>
+                    <a class="page-scroll" href="@Url.Action("Index", "Mails")">
+                        Почта
+                        <div type="button" id="unread" class="btn btn-danger btn-xs" hidden="hidden"></div>
+                    </a>
                 </li>
                 <li>
                     <a class="page-scroll" href="@Url.Action("Index", "News")">Новости</a>
@@ -43,7 +77,7 @@
         <div id="languages">
             <a href="@Url.Action("ChangeCulture",new { lang = "uk", returnUrl = this.Request.RawUrl })">
                 <img src="@Url.Content("~/Content/img/blank.gif")" class="flag flag-ua" alt="Українська" />
-            </a><br/>
+            </a><br />
             <a href="@Url.Action("ChangeCulture",new { lang = "ru", returnUrl = this.Request.RawUrl })">
                 <img src="@Url.Content("~/Content/img/blank.gif")" class="flag flag-ru" alt="Русский" />
             </a><br />
@@ -55,4 +89,3 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
-

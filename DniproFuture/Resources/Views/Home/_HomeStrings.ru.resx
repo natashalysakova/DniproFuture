@@ -145,16 +145,16 @@
     <value>Отправить письмо</value>
   </data>
   <data name="ContactsEmailPH" xml:space="preserve">
-    <value>Ваш Email *</value>
+    <value>Ваш Email </value>
   </data>
   <data name="ContactsMessagePH" xml:space="preserve">
     <value>Ваше сообщение *</value>
   </data>
   <data name="ContactsNamePH" xml:space="preserve">
-    <value>Ваше имя *</value>
+    <value>Ваше имя </value>
   </data>
   <data name="ContactsPhonePH" xml:space="preserve">
-    <value>Ваш номер телефона *</value>
+    <value>Ваш номер телефона </value>
   </data>
   <data name="ContactsTitle" xml:space="preserve">
     <value>Свяжитесь с нами</value>
@@ -292,6 +292,9 @@ Skype:&lt;br&gt;
   </data>
   <data name="NewsTitle" xml:space="preserve">
     <value>Новости</value>
+  </data>
+  <data name="NotEmail" xml:space="preserve">
+    <value>Проверьте правильность E-mail</value>
   </data>
   <data name="PartnersAll" xml:space="preserve">
     <value>Все партнеры</value>

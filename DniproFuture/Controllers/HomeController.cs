@@ -62,7 +62,7 @@ namespace DniproFuture.Controllers
         public ActionResult GetUnread()
         {
             List<Mail> mail = _repository.GetUnreadMails();
-            return Json(new {mail, mail.Count});
+            return Json(mail.Count);
         }
 
         [HttpPost]

@@ -1,36 +1,4 @@
 ﻿<!-- Navigation -->
-
-    <script>
-        $(document).ready(function () {
-            GetUnread();
-            setInterval('GetUnread()', 1000);
-        });
-
-
-        function GetUnread() {
-            $.ajax({
-                type: "POST",
-                url: "/Home/GetUnread",
-                success: function (mails, count) {
-                    if (count > 0) {
-                        $("#unread").html(count);
-                        $("#unread").show();
-
-                        var messages = $(".messages");
-                        if (messages != null) {
-                            for (var i = 0; i < mails.size; i++) {
-                                var row = document.createElement("tr");
-                                messages.append(row.load("/Home/GetUnreadMailView", mails[i]));
-                            }
-                        }
-                    } else {
-                        $("#unread").hide();
-                    }
-
-                }
-            });
-        }
-    </script>
 <nav class="navbar navbar-default navbar-shrink navbar-fixed-top">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->

@@ -37,11 +37,6 @@ $(document).ready(function () {
             $('#myModal .modal-body').html('');
         });
     });
-
-
-    GetUnread();
-    setInterval('GetUnread()', 1000);
-
 });
 
 function OnSuccessComment(data) {
@@ -53,5 +48,3 @@ function OnSuccessComment(data) {
     $('#DoneModal').modal('show');
 
 }
-
-

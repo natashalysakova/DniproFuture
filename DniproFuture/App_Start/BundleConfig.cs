@@ -25,6 +25,10 @@ namespace DniproFuture
             bundles.Add(new ScriptBundle("~/agency/classie").Include(
                         "~/Scripts/classie.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/admin").Include(
+"~/Scripts/admin.js"));
+
+
     //        <!-- jQuery -->
     //<script src="js/jquery.js"></script>
 

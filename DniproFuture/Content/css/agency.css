@@ -971,3 +971,7 @@ body {
 .progress-bar-warning {
     background-color: #0d4a9a;
 }
+
+#unread {
+    background: red;
+}

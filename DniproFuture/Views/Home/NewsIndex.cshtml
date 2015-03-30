@@ -1,34 +1,53 @@
-﻿@model System.Collections.Generic.IEnumerable<DniproFuture.Models.News>
+﻿@using DniproFuture.Models
+@using PagedList.Mvc;
+@using PagedList;
+@model IPagedList<DniproFuture.Models.NewsOutputModel>
 @{
     Layout = "../Shared/_OtherLayout.cshtml";
 }
 
 <div class="container customContainer">
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Images)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th></th>
-        </tr>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-right">
+            @Html.PagedListPager(Model, page => Url.Action("NewsIndex", new { page }))
+        </div>
+    </div>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Images)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                </td>
-            </tr>
-        }
+    @foreach (NewsOutputModel news in Model)
+    {
+        <div class="row">
+            <div class="panel panel-primary panel-news">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@news.Title</h3>
+                </div>
+                <div class="panel-body">
 
-    </table>
+                    <div class="media">
+                        <div class="media-left news-preview">
+                            <a href="@Url.Action("NewsDetails", new {id = news.Id})">
+                                <img class="media-object img-responsive" src="@Url.Content("~/Content/img/News/" + news.Photo[0])" alt="@news.Title" width="100%">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            @news.ShortText...
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="panel-footer text-right">
+                    <a align="right" href="@Url.Action("NewsDetails", new {id = news.Id})">
+                        <div class="btn btn-default btn-lg btn-warning">@ViewRes._HomeStrings.NewsDetails</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    }
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-right">
+            @Html.PagedListPager(Model, page => Url.Action("NewsIndex", new { page }))
+        </div>
+    </div>
+
 </div>

@@ -1,6 +1,78 @@
 ﻿.customContainer {
     padding-top: 80px;
     padding-left: 140px;
+    padding-right: 140px;
+}
+
+@media(max-width:1200px) {
+    .customContainer {
+        padding-top: 80px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .flag-ua {
+        margin: 15px;
+        position: fixed;
+        right: 250px;
+        top: 0;
+    }
+
+    .flag-ru {
+        margin: 15px;
+        position: fixed;
+        right: 220px;
+        top: 0;
+    }
+
+    .flag-us {
+        margin: 15px;
+        position: fixed;
+        right: 190px;
+        top: 0;
+    }
+}
+
+@media(max-width:500px) {
+    .customContainer {
+        padding-top: 80px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .navbar-default .backFlag {
+        height: 50px;
+        width: 33px;
+        left: 25px;
+    }
+
+    .navbar-default .logo {
+        height: 33px;
+        width: 33px;
+        position: absolute;
+        top: 2px;
+    }
+
+    .flag-ua {
+        margin: 15px;
+        position: fixed;
+        right: 150px;
+        top: 0;
+    }
+
+    .flag-ru {
+        margin: 15px;
+        position: fixed;
+        right: 120px;
+        top: 0;
+    }
+
+    .flag-us {
+        margin: 15px;
+        position: fixed;
+        right: 90px;
+        top: 0;
+    }
 }
 
 .validation-summary-errors {

@@ -10,5 +10,6 @@ namespace DniproFuture.Models
         public List<string> Photo { get; set; }
         public DateTime Date { get; set; }
         public string Text { get; set; }
+        public int Id { get; set; }
     }
 }

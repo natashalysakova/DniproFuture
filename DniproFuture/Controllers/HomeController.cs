@@ -82,6 +82,16 @@ namespace DniproFuture.Controllers
             return View(onePageOfProducts);
         }
 
+        public ActionResult NewsIndex(int? page)
+        {
+            var news = _repository.GetQueryOfNews(); //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
+
+            var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
+            var onePageOfNews = news.ToPagedList(pageNumber, 10); // will only contain 25 products max because of the pageSize
+
+            return View(onePageOfNews);
+        }
+
         // GET: NeedHelps1/Details/5
         public ActionResult NeedHelpDetails(int? id)
         {
@@ -98,10 +108,10 @@ namespace DniproFuture.Controllers
         }
 
 
-        public ActionResult NewsIndex()
-        {
-            return View(_repository.GetListOfNews());
-        }
+        //public ActionResult NewsIndex()
+        //{
+        //    return View(_repository.GetListOfNews());
+        //}
 
         // GET: News/Details/5
         public ActionResult NewsDetails(int? id)

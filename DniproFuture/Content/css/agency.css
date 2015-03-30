@@ -78,49 +78,49 @@ h6 {
     background-color: #f3a400;
 }
 
-.btn-modal{
-    margin:10px;
+.btn-modal {
+    margin: 10px;
 }
 
-    .btn-primary:hover,
-    .btn-primary:focus,
-    .btn-primary:active,
-    .btn-primary.active,
-    .open .dropdown-toggle.btn-primary {
-        border-color: #f6bf01;
-        color: #fff;
-        background-color: #fec503;
-    }
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+    border-color: #f6bf01;
+    color: #fff;
+    background-color: #fec503;
+}
 
-    .btn-primary:active,
-    .btn-primary.active,
-    .open .dropdown-toggle.btn-primary {
-        background-image: none;
-    }
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+    background-image: none;
+}
 
-    .btn-primary.disabled,
-    .btn-primary[disabled],
-    fieldset[disabled] .btn-primary,
-    .btn-primary.disabled:hover,
-    .btn-primary[disabled]:hover,
-    fieldset[disabled] .btn-primary:hover,
-    .btn-primary.disabled:focus,
-    .btn-primary[disabled]:focus,
-    fieldset[disabled] .btn-primary:focus,
-    .btn-primary.disabled:active,
-    .btn-primary[disabled]:active,
-    fieldset[disabled] .btn-primary:active,
-    .btn-primary.disabled.active,
-    .btn-primary[disabled].active,
-    fieldset[disabled] .btn-primary.active {
-        border-color: #f3a400;
-        background-color: #f3a400;
-    }
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+    border-color: #f3a400;
+    background-color: #f3a400;
+}
 
-    .btn-primary .badge {
-        color: #f3a400;
-        background-color: #fff;
-    }
+.btn-primary .badge {
+    color: #f3a400;
+    background-color: #fff;
+}
 
 .btn-xl {
     padding: 20px 40px;
@@ -272,12 +272,7 @@ h6 {
             }
 }
 
-#languages {
-    margin: 15px;
-    position: fixed;
-    right: 0;
-    top: 50%;
-}
+
 
 header {
     text-align: center;
@@ -820,32 +815,32 @@ ul.social-buttons {
         font-size: 3em;
     }
 
-    .portfolio-modal .modal-info-content{
-        text-align:center;
-        width:50%;
-        float:left;
-        margin-right: 25px;
+.portfolio-modal .modal-info-content {
+    text-align: center;
+    width: 50%;
+    float: left;
+    margin-right: 25px;
+}
+
+.portfolio-modal .modal-content p {
+    margin-bottom: 30px;
+}
+
+    .portfolio-modal .modal-content p.item-intro {
+        margin: 20px 0 30px;
+        font-family: 'Andika', sans-serif;
+        font-size: 16px;
+        font-style: italic;
     }
 
-    .portfolio-modal .modal-content p {
-        margin-bottom: 30px;
-    }
+.portfolio-modal .modal-content ul.list-inline {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
 
-        .portfolio-modal .modal-content p.item-intro {
-            margin: 20px 0 30px;
-            font-family: 'Andika', sans-serif;
-            font-size: 16px;
-            font-style: italic;
-        }
-
-    .portfolio-modal .modal-content ul.list-inline {
-        margin-top: 0;
-        margin-bottom: 30px;
-    }
-
-    .portfolio-modal .modal-content img {
-        margin-bottom: 30px;
-    }
+.portfolio-modal .modal-content img {
+    margin-bottom: 30px;
+}
 
 .portfolio-modal .close-modal {
     position: absolute;
@@ -979,4 +974,34 @@ body {
 #hands {
     border: 5px solid rgb(243, 164, 0);
     width: 66%;
+}
+
+.panel-news {
+    border-color: #0d4a9a;
+}
+
+    .panel-news > .panel-heading {
+        color: #FFF;
+        background-color: #0d4a9a;
+        border-color: #0d4a9a;
+    }
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: #0d4a9a;
+    border-color: #0d4a9a;
+}
+
+.panel-footer {
+    background-color: white;
+}
+
+.news-preview {
+    width: 25%;
+}
+
+#languages {
+    margin: 15px;
+    position: fixed;
+    right: 0;
+    top: 50%;
 }

@@ -28,6 +28,10 @@ namespace DniproFuture
             bundles.Add(new ScriptBundle("~/bundles/admin").Include(
 "~/Scripts/admin.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/lightboxJS").Include(
+"~/Scripts/ekko-lightbox.js"));
+
+
 
     //        <!-- jQuery -->
     //<script src="js/jquery.js"></script>
@@ -51,6 +55,7 @@ namespace DniproFuture
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/css/agency.css"));
             bundles.Add(new StyleBundle("~/Content/flags").Include("~/Content/css/flags.css"));
             bundles.Add(new StyleBundle("~/Content/customBootstrap").Include("~/Content/css/customBootstrap.css"));
+            bundles.Add(new StyleBundle("~/Content/lightboxCSS").Include("~/Content/css/ekko-lightbox.css"));
 
 
 

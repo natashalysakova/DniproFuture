@@ -88,14 +88,14 @@ namespace DniproFuture.Models
             }
 
             //News
-            model.NewsBlock = GetLastNews();
+            model.NewsBlock = GetLastNews(256);
 
             model.ContactsBlock = new ContactsOutputModel();
 
             return model;
         }
 
-        private NewsOutputModel[] GetLastNews()
+        private NewsOutputModel[] GetLastNews(int shortTextLenght)
         {
             var lastNews =
                 (from news in _dbContext.News orderby news.Date descending select news).Take(NewsCount).ToList();
@@ -106,31 +106,25 @@ namespace DniproFuture.Models
                 {
                     var news = (from local in lastNews[i].NewsLocal
                                 where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
-                                select new { local.Title, Text = local.Text }).FirstOrDefault();
+                                select new { local.Title, Text = local.Text, local.NewsId }).FirstOrDefault();
                     if (news != null)
                     {
-                        if (news.Text.Length > 256)
+                        model[i] = new NewsOutputModel()
                         {
-                            model[i] = new NewsOutputModel
-                            {
                                 Title = news.Title,
-                                ShortText = news.Text.Remove(256),
                                 Photo = lastNews[i].Images.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(),
                                 Date = lastNews[i].Date,
-                                Text = news.Text
+                                Text = news.Text,
+                                Id = news.NewsId
+                        };
 
-                            };
+                        if (news.Text.Length > shortTextLenght)
+                        {
+                            model[i].ShortText = news.Text.Remove(shortTextLenght);
                         }
                         else
                         {
-                            model[i] = new NewsOutputModel
-                            {
-                                Title = news.Title,
-                                ShortText = news.Text,
-                                Photo = lastNews[i].Images.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(),
-                                Date = lastNews[i].Date,
-                                Text = news.Text
-                            };
+                            model[i].ShortText = news.Text;
                         }
                     }
                     else
@@ -505,6 +499,13 @@ namespace DniproFuture.Models
             var allMails = _dbContext.Mail.ToList();
             _dbContext.Mail.RemoveRange(allMails);
             _dbContext.SaveChanges();
+        }
+
+        public IQueryable<NewsOutputModel> GetQueryOfNews()
+        {
+            List<NewsOutputModel> model = GetLastNews(512).ToList();
+            return model.AsQueryable();
+
         }
     }
 }

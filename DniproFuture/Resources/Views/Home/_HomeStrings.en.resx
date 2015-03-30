@@ -186,11 +186,14 @@ When transferring funds, please be sure to include a note "charity".&lt;/p&gt;
 &lt;p&gt;Requisites for transfer:&lt;br&gt;
 ______________________&lt;/p&gt;</value>
   </data>
+  <data name="HelpNowSubTitle" xml:space="preserve">
+    <value>You can help right now</value>
+  </data>
   <data name="HelpNowTitle" xml:space="preserve">
     <value>Help now</value>
   </data>
   <data name="HelpNowTxt" xml:space="preserve">
-    <value>You can help right now</value>
+    <value>&lt;p&gt;Charitable Foundation "Future of Dnipra" will be grateful for any financial and material assistance. Donations will be spent on social projects and fund to help vulnerable people.&lt;/p&gt;</value>
   </data>
   <data name="HowClothing" xml:space="preserve">
     <value>Clothing/Things</value>
@@ -216,10 +219,7 @@ Or fill out the form on our website.
 &lt;p&gt;The future of our city depends on us!&lt;/p&gt;</value>
   </data>
   <data name="HowInfoModalTxt" xml:space="preserve">
-    <value>&lt;p&gt;You have any information about the people who need help?&lt;/p&gt;
-&lt;p&gt;You need any help or someone from your family?&lt;/p&gt;
-&lt;p&gt;You know, &amp;quot;How can I help&amp;quot; and &amp;quot;What to do&amp;quot;, but unable to implement its plans on their own?&lt;/p&gt;
-&lt;p&gt;If you have answered at least one of the questions is positive, in which case you should contact us.&lt;/p&gt;
+    <value>&lt;p&gt;You have any information about the people who need help?&lt;br&gt;You need any help or someone from your family?&lt;br&gt;You know, &amp;quot;How can I help&amp;quot; and &amp;quot;What to do&amp;quot;, but unable to implement its plans on their own?&lt;br&gt;If you have answered at least one of the questions is positive, in which case you should contact us.&lt;/p&gt;
 &lt;p&gt;We are СА &amp;quot;Future of Dnipra&amp;quot;. We provide financial and legal assistance to people of Dnepropetrovsk. And we need your help! It is not just about financial aid, but also about the information that you have. Our goal - to help the greatest number of people. But to do this we need to know about these people.&lt;/p&gt;
 &lt;p&gt;Therefore, if you own the necessary information, please contact our representatives in any way convenient for you:&lt;br&gt;
 Phone:&lt;br&gt;

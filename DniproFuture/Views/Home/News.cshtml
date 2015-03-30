@@ -60,9 +60,17 @@
                                 </div>
                                 @MvcHtmlString.Create(Model[i].Text)
                             </div>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> @ViewRes._HomeStrings.HowModalBtn</button>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    @if (Model[i].Photo.Count > 1)
+                    {
+                        <!--Add gallery-->
+                    }
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> @ViewRes._HomeStrings.HowModalBtn</button>
                 </div>
             </div>
         </div>

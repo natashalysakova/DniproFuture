@@ -18,63 +18,20 @@
                             <h5>@Model[i].Title</h5>
                             <p class="text-muted text-justify">@Model[i].ShortText ...</p>
                             <p class="text-muted text-left">@Model[i].Date.ToShortDateString()</p>
-                            <p class="text-right"><a align="right" data-toggle="modal" href="#NewsModal_@i">@ViewRes._HomeStrings.NewsDetails</a></p>
+                            <p class="text-right">
+                                <a align="right" href="@Url.Action("NewsDetails", new { id = Model[i].Id })">
+                                    @ViewRes._HomeStrings.NewsDetails
+                                </a>
+                            </p>
                         </div>
                     </div>
                 }
             }
         </div>
         <div class="row">
-            <div class="col-sm-4">
-            </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 col-sm-offset-4">
                 <button type="button" class="btn btn-primary center-block btn-xl" data-dismiss="modal" onclick="location.href='@Url.Action("NewsIndex")';">@ViewRes._HomeStrings.NewsMore</button>
-            </div>
-            <div class="col-sm-4">
             </div>
         </div>
     </div>
 </section>
-
-<!--News Modals-->
-@for (int i = 0; i < Model.Count(); i++)
-{
-    <div class="portfolio-modal modal fade" id="NewsModal_@i" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <!-- Details Go Here -->
-                            <h2>@Model[i].Title</h2>
-                            <!--<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>-->
-                            <div class="text-justify">
-                                <div class="modal-info-content">
-                                    <img class="img-responsive" src=@Model[i].Photo[0] alt="">
-                                </div>
-                                @MvcHtmlString.Create(Model[i].Text)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    @if (Model[i].Photo.Count > 1)
-                    {
-                        <!--Add gallery-->
-                    }
-                </div>
-                <div class="row">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> @ViewRes._HomeStrings.HowModalBtn</button>
-                </div>
-            </div>
-        </div>
-    </div>
-}
-
-

@@ -1,16 +1,12 @@
 ﻿@model IEnumerable<DniproFuture.Models.NeedHelp>
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "Done";
     Layout = "../Shared/_AdminLayout.cshtml";
 }
 <div class="container customContainer">
 
     <h2>View</h2>
-
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
     <table class="table">
         <tr>
             <th>
@@ -27,6 +23,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinishDate)
             </th>
             <th></th>
         </tr>
@@ -48,6 +47,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinishDate)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

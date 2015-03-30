@@ -20,6 +20,12 @@ namespace DniproFuture.Controllers
             return View(_repository.GetListOfNeedHelp());
         }
 
+        // GET: NeedHelps1
+        public ActionResult Done(int? page)
+        {
+            return View(_repository.GetListOfDone());
+        }
+
         // GET: NeedHelps1/Details/5
         public ActionResult Details(int? id)
         {

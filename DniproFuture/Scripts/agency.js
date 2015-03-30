@@ -37,6 +37,8 @@ $(document).ready(function () {
             $('#myModal .modal-body').html('');
         });
     });
+
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function (event) { event.preventDefault(); $(this).ekkoLightbox(); });
 });
 
 function OnSuccessComment(data) {
@@ -48,3 +50,4 @@ function OnSuccessComment(data) {
     $('#DoneModal').modal('show');
 
 }
+

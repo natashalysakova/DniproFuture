@@ -507,5 +507,10 @@ namespace DniproFuture.Models
             return model.AsQueryable();
 
         }
+
+        public List<NeedHelp> GetListOfDone()
+        {
+            return (from help in _dbContext.NeedHelp where help.Done select help).ToList();
+        }
     }
 }

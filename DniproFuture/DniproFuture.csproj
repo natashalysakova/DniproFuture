@@ -480,6 +480,7 @@
     <Content Include="Views\Home\Done.cshtml" />
     <Content Include="Views\Mails\ReadMessage.cshtml" />
     <Content Include="Views\Mails\UnreadMessage.cshtml" />
+    <Content Include="Views\NeedHelps\Done.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">

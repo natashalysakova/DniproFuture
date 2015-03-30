@@ -83,3 +83,10 @@ footer {
 .validation-summary-errors {
     color: red;
 }
+
+.halfBlock-content {
+    text-align: center;
+    width: 50%;
+    float: left;
+    margin-right: 25px;
+}

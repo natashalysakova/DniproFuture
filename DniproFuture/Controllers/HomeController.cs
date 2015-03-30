@@ -120,7 +120,7 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            News news = _repository.FindInNewsById(id);
+            NewsOutputModel news = _repository.GetNewsOutputModel(id);
             if (news == null)
             {
                 return HttpNotFound();

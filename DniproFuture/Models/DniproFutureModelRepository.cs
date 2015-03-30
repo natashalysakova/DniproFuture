@@ -512,5 +512,10 @@ namespace DniproFuture.Models
         {
             return (from help in _dbContext.NeedHelp where help.Done select help).ToList();
         }
+
+        internal NewsOutputModel GetNewsOutputModel(int? id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

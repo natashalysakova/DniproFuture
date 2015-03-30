@@ -36,6 +36,7 @@
     </div>
 </section>
 
+<!--News Modals-->
 @for (int i = 0; i < Model.Count(); i++)
 {
     <div class="portfolio-modal modal fade" id="NewsModal_@i" tabindex="-1" role="dialog" aria-hidden="true">
@@ -54,7 +55,9 @@
                             <h2>@Model[i].Title</h2>
                             <!--<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>-->
                             <div class="text-justify">
-                                <img class="img-responsive" src=@Model[i].Photo[0] alt="">
+                                <div class="modal-info-content">
+                                    <img class="img-responsive" src=@Model[i].Photo[0] alt="">
+                                </div>
                                 @MvcHtmlString.Create(Model[i].Text)
                             </div>
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> @ViewRes._HomeStrings.HowModalBtn</button>

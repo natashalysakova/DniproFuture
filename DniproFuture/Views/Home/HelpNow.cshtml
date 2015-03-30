@@ -11,17 +11,15 @@
                 <img src="@Url.Content("~/Content/img/vsvlvkx.jpg")" id="hands" class="img-responsive img-circle  col-md-offset-2" />
                 </div>
             <div class="col-md-6">
-                <h4 class="service-heading">@ViewRes._HomeStrings.HelpNowTxt</h4>
-                <div class="row">
-                    <p>
-                        Наш благотворительный фонд такой классный. Мы занимается кучей разных вещей. <br />
-                        Благоді́йність, також доброчи́нність — безкорисливе надання допомоги потребуючим, які не є пов'язаними з благодійником.Приклади благодійності часто перетинаються з прикладами філантропії, хоча не всяка благодійність є філантропією, як і навпаки, не всяка філантропія є благодійністю.<br />
-                        Благодійність заснована як на волонтерській, так і професійній діяльності благодійників, благодійних організацій та благодійних фондів яка орієнтована на допомогу та покращення суспільства, окремих його верств чи осіб.
-                    </p>
+                <h4 class="service-heading">@ViewRes._HomeStrings.HelpNowSubTitle</h4>
+                <div class="row text-justify">
+                    @MvcHtmlString.Create(ViewRes._HomeStrings.HelpNowTxt)
                 </div>
-                <div class="portfolio-link btn btn-xl" data-toggle="modal" href="#HelpNowModal">
-                    @ViewRes._HomeStrings.HelpNowBtnTxt
-                </div>
+            </div>
+        </div>
+        <div class="col-md-12 text-center">
+            <div class="portfolio-link btn btn-xl" data-toggle="modal" href="#HelpNowModal">
+                @ViewRes._HomeStrings.HelpNowBtnTxt
             </div>
         </div>
     </div>

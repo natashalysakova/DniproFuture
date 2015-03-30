@@ -186,11 +186,14 @@
 &lt;p&gt;Реквизиты для перевода:&lt;br&gt;
 ______________________&lt;/p&gt;</value>
   </data>
+  <data name="HelpNowSubTitle" xml:space="preserve">
+    <value>У вас есть возможность помочь прямо сейчас</value>
+  </data>
   <data name="HelpNowTitle" xml:space="preserve">
     <value>Помочь сейчас</value>
   </data>
   <data name="HelpNowTxt" xml:space="preserve">
-    <value>У вас есть возможность помочь прямо сейчас</value>
+    <value>&lt;p&gt;Благотворительный фонд "Майбутнє Дніпра" будет благодарен за любую финансовую и материальную помощь. Пожертвования будут потрачены на реализацию социальных проектов фонда и на помощь незащищенным слоям населения.&lt;/p&gt;</value>
   </data>
   <data name="HowClothing" xml:space="preserve">
     <value>Одеждой/Вещами</value>

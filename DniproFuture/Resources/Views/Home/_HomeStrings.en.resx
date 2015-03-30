@@ -186,11 +186,14 @@ When transferring funds, please be sure to include a note "charity".&lt;/p&gt;
 &lt;p&gt;Requisites for transfer:&lt;br&gt;
 ______________________&lt;/p&gt;</value>
   </data>
+  <data name="HelpNowSubTitle" xml:space="preserve">
+    <value>You can help right now</value>
+  </data>
   <data name="HelpNowTitle" xml:space="preserve">
     <value>Help now</value>
   </data>
   <data name="HelpNowTxt" xml:space="preserve">
-    <value>You can help right now</value>
+    <value>&lt;p&gt;Charitable Foundation "Future of Dnipra" will be grateful for any financial and material assistance. Donations will be spent on social projects and fund to help vulnerable people.&lt;/p&gt;</value>
   </data>
   <data name="HowClothing" xml:space="preserve">
     <value>Clothing/Things</value>

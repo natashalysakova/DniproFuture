@@ -186,11 +186,14 @@
 &lt;p&gt;Реквізити для переказу:&lt;br&gt;
 ______________________&lt;/p&gt;</value>
   </data>
+  <data name="HelpNowSubTitle" xml:space="preserve">
+    <value>Ви маєте можливість допомогти саме зараз</value>
+  </data>
   <data name="HelpNowTitle" xml:space="preserve">
     <value>Допомогти зараз</value>
   </data>
   <data name="HelpNowTxt" xml:space="preserve">
-    <value>Ви маєте можливість допомогти саме зараз</value>
+    <value>Благодійний фонд "Майбутнє Дніпра" буде вдячний за будь-яку фінансову та матеріальну допомогу. Пожертви будуть витрачені на реалізацію соціальних проектів фонду та на допомогу незахищеним верствам населення.&lt;/p&gt;</value>
   </data>
   <data name="HowClothing" xml:space="preserve">
     <value>Одягом/Речами</value>

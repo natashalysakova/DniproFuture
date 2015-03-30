@@ -37,7 +37,9 @@
                     <div class="modal-body">
                         <!-- HelpNow Details Go Here -->
                         <h2>@ViewRes._HomeStrings.HelpNowTitle</h2>
-                        <img class="img-responsive" src=@Url.Content("~/Content/img/NeedHelp/") alt="">
+                        <div class="modal-info-content text-center">
+                            <img class="img-circle img-centered" src=@Url.Content("~/Content/img/helpNowPic.jpg") alt="">
+                        </div>
                         <div class="text-justify">
                             @MvcHtmlString.Create(ViewRes._HomeStrings.HelpNowModalTxt)
                         </div>

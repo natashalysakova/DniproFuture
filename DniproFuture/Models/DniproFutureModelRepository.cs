@@ -104,38 +104,13 @@ namespace DniproFuture.Models
                 var model = new NewsOutputModel[NewsCount];
                 for (var i = 0; i < model.Length; i++)
                 {
-                    var news = (from local in lastNews[i].NewsLocal
-                                where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
-                                select new { local.Title, Text = local.Text, local.NewsId }).FirstOrDefault();
-                    if (news != null)
-                    {
-                        model[i] = new NewsOutputModel()
-                        {
-                                Title = news.Title,
-                                Photo = lastNews[i].Images.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(),
-                                Date = lastNews[i].Date,
-                                Text = news.Text,
-                                Id = news.NewsId
-                        };
-
-                        if (news.Text.Length > shortTextLenght)
-                        {
-                            model[i].ShortText = news.Text.Remove(shortTextLenght);
-                        }
-                        else
-                        {
-                            model[i].ShortText = news.Text;
-                        }
-                    }
-                    else
-                        model[i] = new NewsOutputModel();
-
-
+                    model[i] = GetNewsOutputModel(lastNews[i].Id, shortTextLenght);
                 }
                 return model;
             }
             return new NewsOutputModel[NewsCount];
         }
+
 
         private PartnersOutputModel GetPartnersOutputModelById(int i)
         {
@@ -513,9 +488,41 @@ namespace DniproFuture.Models
             return (from help in _dbContext.NeedHelp where help.Done select help).ToList();
         }
 
-        internal NewsOutputModel GetNewsOutputModel(int? id)
+        internal NewsOutputModel GetNewsOutputModel(int? id, int shortTextLenght = 256)
         {
-            throw new NotImplementedException();
+            News newsEntity = FindInNewsById(id);
+            NewsOutputModel model;
+
+            var news = (from local in newsEntity.NewsLocal
+                where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
+                select new {local.Title, Text = local.Text, local.NewsId}).FirstOrDefault();
+            if (news != null)
+            {
+                model = new NewsOutputModel()
+                {
+                    Title = news.Title,
+                    Photo = newsEntity.Images.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(),
+                    Date = newsEntity.Date,
+                    Text = news.Text,
+                    Id = news.NewsId
+                };
+
+                if (news.Text.Length > shortTextLenght)
+                {
+                    model.ShortText = news.Text.Remove(shortTextLenght);
+                }
+                else
+                {
+                    model.ShortText = news.Text;
+                }
+            }
+            else
+            {
+                model = new NewsOutputModel();
+            }
+
+            return model;
         }
+    
     }
 }

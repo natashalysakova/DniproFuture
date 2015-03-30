@@ -5,6 +5,10 @@
     padding-bottom: 25px;
 }
 
+.container-with-bottom-padding {
+    padding-bottom: 25px;
+}
+
 footer {
     border-top: 5px solid rgb(243, 164, 0);
 }

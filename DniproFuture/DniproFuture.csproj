@@ -303,6 +303,7 @@
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\flag.png" />
     <Content Include="Content\css\PagedList.css" />
+    <Content Include="Content\img\vsvlvkx.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />

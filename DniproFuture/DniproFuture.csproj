@@ -263,6 +263,7 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\customBootstrap.css" />
     <Content Include="Content\css\flags.css" />
+    <Content Include="Content\img\AboutPic.jpg" />
     <Content Include="Content\img\blank.gif" />
     <Content Include="Content\img\flags.png" />
     <Content Include="Content\img\about\1.jpg" />
@@ -270,6 +271,7 @@
     <Content Include="Content\img\about\3.jpg" />
     <Content Include="Content\img\about\4.jpg" />
     <Content Include="Content\img\header-bg.jpg" />
+    <Content Include="Content\img\helpNowPic.jpg" />
     <Content Include="Content\img\How\Clother.png" />
     <Content Include="Content\img\How\Info.png" />
     <Content Include="Content\img\How\money.png" />

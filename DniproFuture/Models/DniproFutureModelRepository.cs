@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
@@ -18,9 +19,9 @@ namespace DniproFuture.Models
 {
     public class DniproFutureModelRepository : IDisposable
     {
-        private const int ClientCount = 10;
+        private const int ClientCount = 5;
         private const int NewsCount = 3;
-        private const int PartnersCount = 3;
+        private const int PartnersCount = 4;
         private const int DonationCount = 3;
         private readonly DniproFuture_siteEntities _dbContext = new DniproFuture_siteEntities();
 
@@ -35,8 +36,8 @@ namespace DniproFuture.Models
             var model = new MainPageOutputModel
             {
                 ClientsBlock = new ClientsOutputModel[ClientCount],
-                DonationBlock = new DonationOutputModel[DonationCount],
-                PartnersBlock = new PartnersOutputModel[PartnersCount]
+                DonationBlock = new HelpNowOutputModel[DonationCount],
+                PartnersBlock = new PartnersModel(),
             };
 
             //Alredy done clients
@@ -62,7 +63,7 @@ namespace DniproFuture.Models
             {
                 if (unsuccessClientsId.Count == 0)
                 {
-                    model.DonationBlock[i] = new DonationOutputModel();
+                    model.DonationBlock[i] = new HelpNowOutputModel();
                 }
                 else
                 {
@@ -75,42 +76,60 @@ namespace DniproFuture.Models
 
             //Partners
             var partnersId = GetAllPartners();
+            model.PartnersBlock.AllPartners = new PartnersOutputModel[partnersId.Count];
+            model.PartnersBlock.RandomPartners = new PartnersOutputModel[PartnersCount];
+            for (int i = 0; i < partnersId.Count; i++)
+            {
+                model.PartnersBlock.AllPartners[i] = GetPartnersOutputModelById(partnersId[i]);
+            }
+
             for (var i = 0; i < PartnersCount; i++)
             {
                 if (partnersId.Count == 0)
                 {
-                    model.PartnersBlock[i] = new PartnersOutputModel();
+                    model.PartnersBlock.RandomPartners[i] = new PartnersOutputModel();
                 }
                 else
                 {
                     var index = random.Next(0, partnersId.Count);
-                    model.PartnersBlock[i] = GetPartnersOutputModelById(unsuccessClientsId[index]);
+                    model.PartnersBlock.RandomPartners[i] = GetPartnersOutputModelById(unsuccessClientsId[index]);
                     partnersId.Remove(index);
                 }
             }
 
             //News
-            model.NewsBlock = GetLastNews(256);
+            model.NewsBlock = GetLastNews(256, NewsCountEnum.Few);
 
             model.ContactsBlock = new ContactsOutputModel();
 
             return model;
         }
 
-        private NewsOutputModel[] GetLastNews(int shortTextLenght)
+        private NewsOutputModel[] GetLastNews(int shortTextLenght, NewsCountEnum count)
         {
-            var lastNews =
+            List<News> lastNews;
+            if(count == NewsCountEnum.All)
+            {
+                lastNews =
+                (from news in _dbContext.News orderby news.Date descending select news).ToList();
+            }
+            else
+            {
+                lastNews =
                 (from news in _dbContext.News orderby news.Date descending select news).Take(NewsCount).ToList();
+            }
+
             if (lastNews.Count != 0)
             {
-                var model = new NewsOutputModel[NewsCount];
+                var model = new NewsOutputModel[lastNews.Count];
                 for (var i = 0; i < model.Length; i++)
                 {
                     model[i] = GetNewsOutputModel(lastNews[i].Id, shortTextLenght);
                 }
                 return model;
             }
-            return new NewsOutputModel[NewsCount];
+
+            return new NewsOutputModel[lastNews.Count];
         }
 
 
@@ -214,7 +233,7 @@ namespace DniproFuture.Models
             return new ClientsOutputModel();
         }
 
-        private DonationOutputModel GetDonationOutputModelById(int index)
+        private HelpNowOutputModel GetDonationOutputModelById(int index)
         {
             var client = (from c in _dbContext.NeedHelp where c.Id == index select c).FirstOrDefault();
             if (client != null)
@@ -228,7 +247,7 @@ namespace DniproFuture.Models
 
                 if (clientInfo != null)
                 {
-                    return new DonationOutputModel
+                    return new HelpNowOutputModel
                     {
                         About = clientInfo.about,
                         FullName = clientInfo.fullName,
@@ -240,9 +259,9 @@ namespace DniproFuture.Models
                         Id = index
                     };
                 }
-                return new DonationOutputModel();
+                return new HelpNowOutputModel();
             }
-            return new DonationOutputModel();
+            return new HelpNowOutputModel();
         }
 
         private List<int> GetAllSuccessClients()
@@ -480,9 +499,8 @@ namespace DniproFuture.Models
 
         public IQueryable<NewsOutputModel> GetQueryOfNews()
         {
-            List<NewsOutputModel> model = GetLastNews(512).ToList();
+            List<NewsOutputModel> model = GetLastNews(512, NewsCountEnum.All).ToList();
             return model.AsQueryable();
-
         }
 
         public List<NeedHelp> GetListOfDone()

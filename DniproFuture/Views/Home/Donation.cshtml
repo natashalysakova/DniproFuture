@@ -1,4 +1,4 @@
-﻿@model DniproFuture.Models.OutputModels.DonationOutputModel[]
+﻿@model DniproFuture.Models.OutputModels.HelpNowOutputModel[]
 
 <!--Donation Section -->
 <section id="donation">
@@ -13,17 +13,7 @@
             @for (int i = 0; i < Model.Length; i++)
             {
                 <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="@Url.Content("~/Content/img/NeedHelp/" + Model[i].Photos[0])" class="img-responsive img-circle img-preview" alt="">
-                        <h4>@Model[i].FullName</h4>
-                        <p class="text-muted">@Model[i].Age лет (@Model[i].Birthday.ToShortDateString())</p>
-                        @{int percent = (int)((Model[i].Summ / Model[i].NeedSum) * 100);}
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="@percent" aria-valuemin="0" aria-valuemax="100" style="width: @percent%; ">
-                                @string.Format("{0}/{1}", @Model[i].Summ, @Model[i].NeedSum)
-                            </div>
-                        </div>
-                    </div>
+                        @{ Html.RenderPartial("DonationInfo", Model[i]); }
                     <p class="text-right">
                         <a align="right" href="@Url.Action("NeedHelpDetails", new { id = Model[i].Id })">
                             @ViewRes._HomeStrings.NewsDetails

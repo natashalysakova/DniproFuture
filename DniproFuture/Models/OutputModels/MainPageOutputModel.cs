@@ -2,9 +2,9 @@
 {
     public class MainPageOutputModel
     {
-        public DonationOutputModel[] DonationBlock { get; set; }
+        public HelpNowOutputModel[] DonationBlock { get; set; }
         public NewsOutputModel[] NewsBlock { get; set; }
-        public PartnersOutputModel[] PartnersBlock { get; set; }
+        public PartnersModel PartnersBlock { get; set; }
         public ClientsOutputModel[] ClientsBlock { get; set; }
         public ContactsOutputModel ContactsBlock { get; set; }
     }

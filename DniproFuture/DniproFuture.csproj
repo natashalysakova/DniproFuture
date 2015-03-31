@@ -158,6 +158,7 @@
     <Compile Include="Controllers\PartnersController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Models\Abstract\IAuthProvider.cs" />
+    <Compile Include="Models\NewsCountEnum.cs" />
     <Compile Include="Models\OutputModels\ClientsOutputModel.cs" />
     <Compile Include="Models\Concrete\FormsAuthProvider.cs" />
     <Compile Include="Models\OutputModels\ContactsOutputModel.cs" />
@@ -177,7 +178,6 @@
       <DependentUpon>DniproFutureModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DniproFutureModelRepository.cs" />
-    <Compile Include="Models\OutputModels\DonationOutputModel.cs" />
     <Compile Include="Models\OutputModels\HelpNowOutputModel.cs" />
     <Compile Include="Models\Language.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
@@ -491,6 +491,7 @@
     <Content Include="Views\Mails\ReadMessage.cshtml" />
     <Content Include="Views\Mails\UnreadMessage.cshtml" />
     <Content Include="Views\NeedHelps\Done.cshtml" />
+    <Content Include="Views\Home\DonationInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">

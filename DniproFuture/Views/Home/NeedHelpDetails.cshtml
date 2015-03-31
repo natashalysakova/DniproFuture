@@ -11,15 +11,8 @@
                 <!-- Details Go Here -->
                 <h2 class="text-center">@Model.FullName</h2>
                 <div class="text-justify">
-                    <div class="text-center halfBlock-content">
-                        <img class="img-responsive" src="@Url.Content("~/Content/img/NeedHelp/" + Model.Photos[0])" alt="">
-                        <p class="text-muted">@Model.Age лет (@Model.Birthday.ToShortDateString())</p>
-                        @{int percent = (int)((Model.Summ / Model.NeedSum) * 100);}
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="@percent" aria-valuemin="0" aria-valuemax="100" style="width: @percent%;">
-                                @string.Format("{0}/{1}", @Model.Summ, @Model.NeedSum)
-                            </div>
-                        </div>
+                    <div class="text-center col-md-4">
+                        @{ Html.RenderPartial("DonationInfo", Model); }
                     </div>
                     @MvcHtmlString.Create(Model.About)
                 </div>

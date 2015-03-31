@@ -8,7 +8,7 @@
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">@ViewRes._HomeStrings.ClientsTitle</h2>
             </div>
-            <div class="col-lg-6 col-lg-offset-3">
+            <div class="col-lg-12 text-center">
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
@@ -32,7 +32,7 @@
                             if (i == 0)
                             {
                                 <div class="item active">
-                                    <img src="@Url.Content("~/Content/img/NeedHelp/" + Model[i].Photos[0])" alt="..." height="400">
+                                    <img src="@Url.Content("~/Content/img/NeedHelp/" + Model[i].Photos[0])" alt="...">
                                     <div class="carousel-caption">
                                         <h3>@Model[i].FullName</h3>
                                         <p>@Model[i].Birthday.ToShortDateString()</p>
@@ -45,7 +45,7 @@
                                     <img src="@Url.Content("~/Content/img/NeedHelp/" + Model[i].Photos[0])" alt="..." height="400">
                                     <div class="carousel-caption">
                                         <h3>@Model[i].FullName</h3>
-                                        <p>@Model[i].Birthday</p>
+                                        <p>@Model[i].Birthday.ToShortDateString()</p>
                                     </div>
                                 </div>
 
@@ -65,5 +65,4 @@
                 </div>
             </div>
         </div>
-    </div>
 </section>

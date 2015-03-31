@@ -3,29 +3,28 @@
     Layout = "../Shared/_OtherLayout.cshtml";
 }
 
-    <div class="container customContainer">
-        <div class="row">
-                <div class="col-md-12">
-                    <!-- Details Go Here -->
-                    <h2 class="text-center">@Model.Title</h2>
-                    <p class="text-muted text-center">@Model.Date.ToShortDateString()</p>
-                    <div class="text-justify">
-                        <div class="text-center halfBlock-content">
-                            <img class="img-responsive" src="@Url.Content("~/Content/img/News/" + Model.Photo[0])" alt="">
-                        </div>
-                        @MvcHtmlString.Create(Model.Text)
-                    </div>
-                    @if (Model.Photo.Count != 1)
-                    {
-                        <!--Add gallery here-->
-                    }
+<div class="container customContainer">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Details Go Here -->
+            <h2 class="text-center">@Model.Title</h2>
+            <p class="text-muted text-center">@Model.Date.ToShortDateString()</p>
+            <div class="text-justify">
+                <div class="text-center col-md-4">
+                    <img class="img-responsive" src="@Url.Content("~/Content/img/News/" + Model.Photo[0])" alt="">
                 </div>
+                @MvcHtmlString.Create(Model.Text)
             </div>
-        <div class="row">
+            @if (Model.Photo.Count != 1)
+            {
+                <!--Add gallery here-->
+            }
             <a href="@Request.UrlReferrer">
                 <div type="button" class="btn btn-primary">
                     <i class="fa fa-backward"></i>Назад
                 </div>
             </a>
+
         </div>
     </div>
+</div>

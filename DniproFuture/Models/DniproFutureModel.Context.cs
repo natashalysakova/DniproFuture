@@ -13,10 +13,10 @@ namespace DniproFuture.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DniproFuture_siteEntities : DbContext
+    public partial class dniprofEntities : DbContext
     {
-        public DniproFuture_siteEntities()
-            : base("name=DniproFuture_siteEntities")
+        public dniprofEntities()
+            : base("name=dniprofEntities")
         {
         }
     
@@ -26,17 +26,15 @@ namespace DniproFuture.Models
         }
     
         public virtual DbSet<Language> Language { get; set; }
+        public virtual DbSet<Mail> Mail { get; set; }
         public virtual DbSet<NeedHelp> NeedHelp { get; set; }
+        public virtual DbSet<NeedHelpLocalSet> NeedHelpLocalSet { get; set; }
         public virtual DbSet<News> News { get; set; }
+        public virtual DbSet<NewsLocalSet> NewsLocalSet { get; set; }
         public virtual DbSet<Partners> Partners { get; set; }
-        public virtual DbSet<NeedHelpLocal> NeedHelpLocalSet { get; set; }
-        public virtual DbSet<PartnersLocal> PartnersLocalSet { get; set; }
-        public virtual DbSet<NewsLocal> NewsLocalSet { get; set; }
+        public virtual DbSet<PartnersLocalSet> PartnersLocalSet { get; set; }
         public virtual DbSet<Projects> Projects { get; set; }
         public virtual DbSet<ProjectsLocalSet> ProjectsLocalSet { get; set; }
         public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<Mail> Mail { get; set; }
-
-        public System.Data.Entity.DbSet<DniproFuture.Models.OutputModels.HelpNowOutputModel> DonationOutputModels { get; set; }
     }
 }

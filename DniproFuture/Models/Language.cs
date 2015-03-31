@@ -16,18 +16,18 @@ namespace DniproFuture.Models
     {
         public Language()
         {
-            this.NeedHelpLocal = new HashSet<NeedHelpLocal>();
-            this.NewsLocal = new HashSet<NewsLocal>();
-            this.PartnersLocal = new HashSet<PartnersLocal>();
+            this.NewsLocalSet = new HashSet<NewsLocalSet>();
+            this.PartnersLocalSet = new HashSet<PartnersLocalSet>();
+            this.NeedHelpLocalSet = new HashSet<NeedHelpLocalSet>();
             this.ProjectsLocalSet = new HashSet<ProjectsLocalSet>();
         }
     
         public int Id { get; set; }
         public string LanguageCode { get; set; }
     
-        public virtual ICollection<NeedHelpLocal> NeedHelpLocal { get; set; }
-        public virtual ICollection<NewsLocal> NewsLocal { get; set; }
-        public virtual ICollection<PartnersLocal> PartnersLocal { get; set; }
+        public virtual ICollection<NewsLocalSet> NewsLocalSet { get; set; }
+        public virtual ICollection<PartnersLocalSet> PartnersLocalSet { get; set; }
+        public virtual ICollection<NeedHelpLocalSet> NeedHelpLocalSet { get; set; }
         public virtual ICollection<ProjectsLocalSet> ProjectsLocalSet { get; set; }
     }
 }

@@ -1,13 +1,15 @@
 ﻿@model DniproFuture.Models.OutputModels.HelpNowOutputModel
 
-<div class="team-member">
-    <img class="img-responsive img-circle" src="@Url.Content("~/Content/img/NeedHelp/" + Model.Photos[0])" alt="">
-    <p class="text-muted">@Model.Age лет (@Model.Birthday.ToShortDateString())</p>
-    @{int percent = (int)((Model.Summ / Model.NeedSum) * 100);}
-    <div class="progress">
-        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="@percent" aria-valuemin="0" aria-valuemax="100" style="width: @percent%;">
+@if (Model.FullName != null)
+{
+    <div class="team-member">
+        <img class="img-responsive img-circle" src="@Url.Content("~/Content/img/NeedHelp/" + Model.Photos[0])" alt="">
+        <p class="text-muted">@Model.Age лет (@Model.Birthday.ToShortDateString())</p>
+        @{int percent = (int) ((Model.Summ/Model.NeedSum)*100);}
+        <div class="progress">
+            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="@percent" aria-valuemin="0" aria-valuemax="100" style="width: @percent%;">
+            </div>
         </div>
+        <p class="percent-text">@string.Format("{0}грн/{1}грн", @Model.Summ, @Model.NeedSum)</p>
     </div>
-    <p class="percent-text">@string.Format("{0}грн/{1}грн", @Model.Summ, @Model.NeedSum)</p>
-
-</div>
+}

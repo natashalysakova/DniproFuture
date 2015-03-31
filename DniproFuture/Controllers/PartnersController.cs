@@ -13,7 +13,7 @@ namespace DniproFuture.Controllers
     [Authorize]
     public class PartnersController : Controller
     {
-        private DniproFuture_siteEntities db = new DniproFuture_siteEntities();
+        private dniprofEntities db = new dniprofEntities();
 
         // GET: Partners
         public ActionResult Index()

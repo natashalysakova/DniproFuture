@@ -23,7 +23,7 @@ namespace DniproFuture.Models
         private const int NewsCount = 3;
         private const int PartnersCount = 4;
         private const int DonationCount = 3;
-        private readonly DniproFuture_siteEntities _dbContext = new DniproFuture_siteEntities();
+        private readonly dniprofEntities _dbContext = new dniprofEntities();
 
         public void Dispose()
         {
@@ -140,7 +140,7 @@ namespace DniproFuture.Models
                            select new
                            {
                                p.Logo,
-                               Title = (from local in p.PartnersLocal
+                               Title = (from local in p.PartnersLocalSet
                                         where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
                                         select local.Name).FirstOrDefault()
                            }).FirstOrDefault();
@@ -164,7 +164,7 @@ namespace DniproFuture.Models
             var client = (from c in _dbContext.NeedHelp where c.Id == helpNowrandomClient select c).FirstOrDefault();
             if (client != null)
             {
-                var clientInfo = (from local in client.NeedHelpLocal
+                var clientInfo = (from local in client.NeedHelpLocalSet
                                   where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
                                   select new { FullName = string.Format("{0} {1}", local.FirstName, local.LastName), local.About })
                     .FirstOrDefault();
@@ -209,7 +209,7 @@ namespace DniproFuture.Models
             var client = (from c in _dbContext.NeedHelp where c.Id == index select c).FirstOrDefault();
             if (client != null)
             {
-                var clientInfo = (from local in client.NeedHelpLocal
+                var clientInfo = (from local in client.NeedHelpLocalSet
                                   where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
                                   select
                                       new { fullName = string.Format("{0} {1}", local.FirstName, local.LastName), local.About })
@@ -238,7 +238,7 @@ namespace DniproFuture.Models
             var client = (from c in _dbContext.NeedHelp where c.Id == index select c).FirstOrDefault();
             if (client != null)
             {
-                var clientInfo = (from local in client.NeedHelpLocal
+                var clientInfo = (from local in client.NeedHelpLocalSet
                                   where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
                                   select
                                       new { fullName = string.Format("{0} {1}", local.FirstName, local.LastName), about = local.About })
@@ -297,7 +297,7 @@ namespace DniproFuture.Models
 
         public void AddNeedHelp(NeedHelpInputModel needHelp)
         {
-            needHelp.WhatNeed.NeedHelpLocal = needHelp.WhoNeed;
+            needHelp.WhatNeed.NeedHelpLocalSet = needHelp.WhoNeed;
 
             foreach (var helpLocal in needHelp.WhoNeed)
             {
@@ -360,7 +360,7 @@ namespace DniproFuture.Models
 
         public void AddNews(NewsInputModel news)
         {
-            news.NewsInfo.NewsLocal = news.Locals;
+            news.NewsInfo.NewsLocalSet = news.Locals;
 
             foreach (var helpLocal in news.Locals)
             {
@@ -513,7 +513,7 @@ namespace DniproFuture.Models
             News newsEntity = FindInNewsById(id);
             NewsOutputModel model;
 
-            var news = (from local in newsEntity.NewsLocal
+            var news = (from local in newsEntity.NewsLocalSet
                 where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
                 select new {local.Title, Text = local.Text, local.NewsId}).FirstOrDefault();
             if (news != null)

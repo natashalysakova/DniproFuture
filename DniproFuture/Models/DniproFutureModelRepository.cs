@@ -10,13 +10,15 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Web.UI.WebControls;
+using DniproFuture.Models.InputModels;
+using DniproFuture.Models.OutputModels;
 using PagedList;
 
 namespace DniproFuture.Models
 {
     public class DniproFutureModelRepository : IDisposable
     {
-        private const int ClientCount = 3;
+        private const int ClientCount = 10;
         private const int NewsCount = 3;
         private const int PartnersCount = 3;
         private const int DonationCount = 3;

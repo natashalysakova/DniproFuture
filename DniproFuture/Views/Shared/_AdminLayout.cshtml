@@ -3,13 +3,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
- @{
-        Html.RenderPartial("AdminNavbar");
-    }
+@{
+    Html.RenderPartial("AdminNavbar");
+}
 
 
-    @RenderBody()
+@RenderBody()
 
 @section scripts{
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/dateTimePicker")
+
     @Scripts.Render("~/bundles/admin")
+
+    @Styles.Render("~/Content/datetimecss");
+
 }

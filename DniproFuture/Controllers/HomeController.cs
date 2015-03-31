@@ -8,6 +8,7 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using DniproFuture.Models;
+using DniproFuture.Models.OutputModels;
 using PagedList;
 
 namespace DniproFuture.Controllers

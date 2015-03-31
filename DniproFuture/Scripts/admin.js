@@ -18,3 +18,22 @@ function GetUnread() {
         }
     });
 }
+
+$(function () {
+    $('#datetimepickerNews').datetimepicker({
+        locale: 'ru',
+        format: 'L'
+    });
+    $('#datetimepickerBirthday').datetimepicker({
+        locale: 'ru',
+        format: 'L'
+    });
+    $('#datetimepickerStartDate').datetimepicker({
+        locale: 'ru',
+        format: 'L'
+    });
+    $('#datetimepickerFinishDate').datetimepicker({
+        locale: 'ru',
+        format: 'L'
+    });
+});

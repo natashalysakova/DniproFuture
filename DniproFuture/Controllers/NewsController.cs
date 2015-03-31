@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DniproFuture.Models;
+using DniproFuture.Models.InputModels;
 
 namespace DniproFuture.Controllers
 {
@@ -60,14 +64,30 @@ namespace DniproFuture.Controllers
                     {
                         string filename = Path.GetRandomFileName().Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[0] + "." + photo.FileName.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[1];
                         var path = Path.Combine(Server.MapPath("~/Content/img/News"), filename);
-                        photo.SaveAs(path);
-                        photosList.Add(filename);
 
+                        
+                        if (photosList.Count == 0)
+                        {
+                            try
+                            {
+                                photo.CropAndSave(path);
+                                Response.Write("Done");
+
+                            }
+                            catch (FormatException ex)
+                            {
+                                Response.Write(ex.Message);
+                            }
+                        }
+                        else
+                        {
+                            photo.SaveAs(path);
+                        }
+                        photosList.Add(filename);
                     }
                 }
 
                 news.NewsInfo.Images = String.Join(";", photosList);
-
                 _repository.AddNews(news);
                 return RedirectToAction("Index");
             }
@@ -75,6 +95,7 @@ namespace DniproFuture.Controllers
             ViewBag.Languages = _repository.GetLanguagesList();
             return View(news);
         }
+
 
         // GET: News/Edit/5
         public ActionResult Edit(int? id)

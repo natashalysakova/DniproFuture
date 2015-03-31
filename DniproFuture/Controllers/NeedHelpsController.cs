@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DniproFuture.Models;
+using DniproFuture.Models.InputModels;
 using PagedList;
 
 namespace DniproFuture.Controllers
@@ -64,7 +65,14 @@ namespace DniproFuture.Controllers
                     {
                         string filename = Path.GetRandomFileName().Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[0] + "." + photo.FileName.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[1];
                         var path = Path.Combine(Server.MapPath("~/Content/img/NeedHelp"), filename);
-                        photo.SaveAs(path);
+                        if (photosList.Count == 0)
+                        {
+                            photo.CropAndSave(path);
+                        }
+                        else
+                        {
+                            photo.SaveAs(path);
+                        }
                         photosList.Add(filename);
 
                     }

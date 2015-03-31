@@ -13,6 +13,107 @@ footer {
     border-top: 5px solid rgb(243, 164, 0);
 }
 
+.logo {
+    padding: 0;
+}
+
+.navbar-default .logo {
+    height: 256px;
+    width: 256px;
+    position: absolute;
+    top: 20px;
+}
+
+.navbar-shrink .logo {
+    height: 90px;
+    width: 90px;
+    left: 21px;
+    position: absolute;
+    top: 8px;
+}
+
+.navbar-default .backFlag {
+    height: 0;
+    width: 0;
+}
+
+.navbar-shrink .backFlag {
+    height: 150px;
+    width: 100px;
+}
+
+@media(max-width:1200px) {
+    .navbar-default .logo {
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        top: 2px;
+    }
+
+    .navbar-shrink .logo {
+        left: 0px;
+    }
+
+    .navbar-default .backFlag {
+        height: 75px;
+        width: 50px;
+        left: 25px;
+    }
+
+    .navbar-default .nav li a {
+        color: #ffffff;
+    }
+}
+
+
+.progress-bar {
+    min-width: 6em;
+}
+
+.progress-bar-warning {
+    background-color: #0d4a9a;
+}
+
+#unread {
+    background: red;
+}
+
+#hands {
+    border: 5px solid #f3a400;
+    width: 66%;
+}
+
+.news-preview {
+    width: 25%;
+}
+
+.panel-news {
+    border-color: #0d4a9a;
+}
+
+    .panel-news > .panel-heading {
+        color: #FFF;
+        background-color: #0d4a9a;
+        border-color: #0d4a9a;
+    }
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: #0d4a9a;
+    border-color: #0d4a9a;
+}
+
+.panel-footer {
+    background-color: white;
+}
+
+#languages {
+    margin: 15px;
+    position: fixed;
+    right: 0;
+    top: 50%;
+}
+
+
 @media(max-width:1200px) {
     .customContainer {
         padding-top: 80px;
@@ -93,4 +194,9 @@ footer {
     width: 50%;
     float: left;
     margin-right: 25px;
+}
+
+
+.team-member img{
+    border: 5px solid #0d4a9a;
 }

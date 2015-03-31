@@ -37,4 +37,17 @@ $(document).ready(function () {
             $('#myModal .modal-body').html('');
         });
     });
+
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function (event) { event.preventDefault(); $(this).ekkoLightbox(); });
 });
+
+function OnSuccessComment(data) {
+    $('.fromModal').html(data.Name);
+    $('.emailModal').html(data.Email);
+    $('.phoneModal').html(data.Phone);
+    $('.messageModal').html(data.Message);
+
+    $('#DoneModal').modal('show');
+
+}
+

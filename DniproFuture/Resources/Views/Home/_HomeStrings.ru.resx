@@ -145,16 +145,16 @@
     <value>Отправить письмо</value>
   </data>
   <data name="ContactsEmailPH" xml:space="preserve">
-    <value>Ваш Email *</value>
+    <value>Ваш Email </value>
   </data>
   <data name="ContactsMessagePH" xml:space="preserve">
     <value>Ваше сообщение *</value>
   </data>
   <data name="ContactsNamePH" xml:space="preserve">
-    <value>Ваше имя *</value>
+    <value>Ваше имя </value>
   </data>
   <data name="ContactsPhonePH" xml:space="preserve">
-    <value>Ваш номер телефона *</value>
+    <value>Ваш номер телефона </value>
   </data>
   <data name="ContactsTitle" xml:space="preserve">
     <value>Свяжитесь с нами</value>
@@ -186,11 +186,14 @@
 &lt;p&gt;Реквизиты для перевода:&lt;br&gt;
 ______________________&lt;/p&gt;</value>
   </data>
+  <data name="HelpNowSubTitle" xml:space="preserve">
+    <value>У вас есть возможность помочь прямо сейчас</value>
+  </data>
   <data name="HelpNowTitle" xml:space="preserve">
     <value>Помочь сейчас</value>
   </data>
   <data name="HelpNowTxt" xml:space="preserve">
-    <value>У вас есть возможность помочь прямо сейчас</value>
+    <value>&lt;p&gt;Благотворительный фонд "Майбутнє Дніпра" будет благодарен за любую финансовую и материальную помощь. Пожертвования будут потрачены на реализацию социальных проектов фонда и на помощь незащищенным слоям населения.&lt;/p&gt;</value>
   </data>
   <data name="HowClothing" xml:space="preserve">
     <value>Одеждой/Вещами</value>
@@ -217,10 +220,7 @@ Skype:&lt;br&gt;
 &lt;p&gt;Будущее нашего города зависит от Нас!&lt;/p&gt;</value>
   </data>
   <data name="HowInfoModalTxt" xml:space="preserve">
-    <value>&lt;p&gt;Вы владеете информацией о людях, которым нужна помощь?&lt;/p&gt;
-&lt;p&gt;Помощь нужна Вам или кому-то из ваших родственников?&lt;/p&gt;
-&lt;p&gt;Вы знаете &amp;laquo;Как можно помочь&amp;raquo; и &amp;laquo;Что нужно делать&amp;raquo;, но не в силах реализовать задуманное самостоятельно?&lt;/p&gt;
-&lt;p&gt;Если Вы ответили, хотя бы на один из вопросов положительно, в таком случае Вам стоит связаться с нами.&lt;/p&gt;
+    <value>&lt;p&gt;Вы владеете информацией о людях, которым нужна помощь?&lt;br&gt;Помощь нужна Вам или кому-то из ваших родственников?&lt;br&gt;Вы знаете &amp;laquo;Как можно помочь&amp;raquo; и &amp;laquo;Что нужно делать&amp;raquo;, но не в силах реализовать задуманное самостоятельно?&lt;br&gt;Если Вы ответили, хотя бы на один из вопросов положительно, в таком случае Вам стоит связаться с нами.&lt;/p&gt;
 &lt;p&gt;Мы &amp;ndash; это БФ &amp;laquo;Майбутнє Дніпра&amp;raquo;. Мы оказываем материальную и юридическую помощь людям Днепропетровска. И нам нужна Ваша помощь! Речь идет не только о материальной помощи, но и об информации, которой вы располагаете. Наша цель &amp;ndash; помочь как можно большему количеству людей. Но для этого нам нужно знать об этих людях.&lt;/p&gt;
 &lt;p&gt;Поэтому, если вы владеете необходимой информацией, то, пожалуйста, свяжитесь с нашими представителями любым удобным для вас способом:&lt;br&gt;
 Тел:&lt;br&gt;
@@ -292,6 +292,9 @@ Skype:&lt;br&gt;
   </data>
   <data name="NewsTitle" xml:space="preserve">
     <value>Новости</value>
+  </data>
+  <data name="NotEmail" xml:space="preserve">
+    <value>Проверьте правильность E-mail</value>
   </data>
   <data name="PartnersAll" xml:space="preserve">
     <value>Все партнеры</value>

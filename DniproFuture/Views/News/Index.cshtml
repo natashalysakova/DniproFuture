@@ -1,7 +1,13 @@
-﻿@model System.Collections.Generic.IEnumerable<DniproFuture.Models.News>
+﻿@model IEnumerable<DniproFuture.Models.News>
 
+@{
+    ViewBag.Title = "Index";
+    Layout = "../Shared/_AdminLayout.cshtml";
+}
+<div class="container customContainer">
 
-<div class="container">
+    <h2>Index</h2>
+
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>

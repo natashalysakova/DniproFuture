@@ -43,7 +43,7 @@ a {
     a:focus,
     a:active,
     a.active {
-        color: #fec503;
+        color: #d48f02;
     }
 
 h1,
@@ -78,48 +78,52 @@ h6 {
     background-color: #f3a400;
 }
 
-    .btn-primary:hover,
-    .btn-primary:focus,
-    .btn-primary:active,
-    .btn-primary.active,
-    .open .dropdown-toggle.btn-primary {
-        border-color: #f6bf01;
-        color: #fff;
-        background-color: #fec503;
-    }
+.btn-modal {
+    margin: 10px;
+}
 
-    .btn-primary:active,
-    .btn-primary.active,
-    .open .dropdown-toggle.btn-primary {
-        background-image: none;
-    }
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+    border-color: #be8105;
+    color: #fff;
+    background-color: #d48f02;
+}
 
-    .btn-primary.disabled,
-    .btn-primary[disabled],
-    fieldset[disabled] .btn-primary,
-    .btn-primary.disabled:hover,
-    .btn-primary[disabled]:hover,
-    fieldset[disabled] .btn-primary:hover,
-    .btn-primary.disabled:focus,
-    .btn-primary[disabled]:focus,
-    fieldset[disabled] .btn-primary:focus,
-    .btn-primary.disabled:active,
-    .btn-primary[disabled]:active,
-    fieldset[disabled] .btn-primary:active,
-    .btn-primary.disabled.active,
-    .btn-primary[disabled].active,
-    fieldset[disabled] .btn-primary.active {
-        border-color: #f3a400;
-        background-color: #f3a400;
-    }
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+    background-image: none;
+}
 
-    .btn-primary .badge {
-        color: #f3a400;
-        background-color: #fff;
-    }
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+    border-color: #f3a400;
+    background-color: #f3a400;
+}
+
+.btn-primary .badge {
+    color: #f3a400;
+    background-color: #fff;
+}
 
 .btn-xl {
-    padding: 20px 40px;
+    padding: 20px 20px;
     border-color: #f3a400;
     border-radius: 3px;
     text-transform: uppercase;
@@ -135,9 +139,9 @@ h6 {
     .btn-xl:active,
     .btn-xl.active,
     .open .dropdown-toggle.btn-xl {
-        border-color: #f6bf01;
+        border-color: #be8105;
         color: #fff;
-        background-color: #fec503;
+        background-color: #d48f02;
     }
 
     .btn-xl:active,
@@ -184,7 +188,7 @@ h6 {
         .navbar-default .navbar-brand:focus,
         .navbar-default .navbar-brand:active,
         .navbar-default .navbar-brand.active {
-            color: #fec503;
+            color: #d48f02;
         }
 
     .navbar-default .navbar-collapse {
@@ -232,7 +236,7 @@ h6 {
     .navbar-default .navbar-nav > .active > a:hover,
     .navbar-default .navbar-nav > .active > a:focus {
         color: #fff;
-        background-color: #fec503;
+        background-color: #d48f02;
     }
 
 
@@ -268,12 +272,7 @@ h6 {
             }
 }
 
-#languages {
-    margin: 15px;
-    position: fixed;
-    right: 0;
-    top: 50%;
-}
+
 
 header {
     text-align: center;
@@ -356,7 +355,7 @@ section {
 
     section h2.section-heading {
         margin-top: 0;
-        margin-bottom: 15px;
+        margin-bottom: 80px;
         font-size: 40px;
     }
 
@@ -666,6 +665,7 @@ section {
     .team-member img {
         margin: 0 auto;
         border: 7px solid #fff;
+        width: 100%;
     }
 
     .team-member h4 {
@@ -816,25 +816,32 @@ ul.social-buttons {
         font-size: 3em;
     }
 
-    .portfolio-modal .modal-content p {
-        margin-bottom: 30px;
+.portfolio-modal .modal-info-content {
+    text-align: center;
+    width: 50%;
+    float: left;
+    margin-right: 25px;
+}
+
+.portfolio-modal .modal-content p {
+    margin-bottom: 30px;
+}
+
+    .portfolio-modal .modal-content p.item-intro {
+        margin: 20px 0 30px;
+        font-family: 'Andika', sans-serif;
+        font-size: 16px;
+        font-style: italic;
     }
 
-        .portfolio-modal .modal-content p.item-intro {
-            margin: 20px 0 30px;
-            font-family: 'Andika', sans-serif;
-            font-size: 16px;
-            font-style: italic;
-        }
+.portfolio-modal .modal-content ul.list-inline {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
 
-    .portfolio-modal .modal-content ul.list-inline {
-        margin-top: 0;
-        margin-bottom: 30px;
-    }
-
-    .portfolio-modal .modal-content img {
-        margin-bottom: 30px;
-    }
+.portfolio-modal .modal-content img {
+    margin-bottom: 30px;
+}
 
 .portfolio-modal .close-modal {
     position: absolute;
@@ -900,6 +907,21 @@ body {
 
 
 
+.customContainer {
+    padding-top: 80px;
+    padding-left: 140px;
+    padding-right: 140px;
+    padding-bottom: 25px;
+}
+
+.container-with-bottom-padding {
+    padding-bottom: 25px;
+}
+
+footer {
+    border-top: 5px solid rgb(243, 164, 0);
+}
+
 .logo {
     padding: 0;
 }
@@ -953,10 +975,191 @@ body {
 }
 
 
-.progress-bar {
-    color: #f3a400;
-}
 
 .progress-bar-warning {
     background-color: #0d4a9a;
+}
+
+#unread {
+    background: red;
+}
+
+#hands {
+    border: 5px solid #f3a400;
+    width: 66%;
+}
+
+.news-preview {
+    width: 25%;
+}
+
+.panel-news {
+    border-color: #0d4a9a;
+}
+
+    .panel-news > .panel-heading {
+        color: #FFF;
+        background-color: #0d4a9a;
+        border-color: #0d4a9a;
+    }
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: #0d4a9a;
+    border-color: #0d4a9a;
+}
+
+.panel-footer {
+    background-color: white;
+}
+
+#languages {
+    margin: 15px;
+    position: fixed;
+    right: 0;
+    top: 50%;
+}
+
+
+@media(max-width:1200px) {
+    .customContainer {
+        padding-top: 80px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .flag-ua {
+        margin: 15px;
+        position: fixed;
+        right: 250px;
+        top: 0;
+    }
+
+    .flag-ru {
+        margin: 15px;
+        position: fixed;
+        right: 220px;
+        top: 0;
+    }
+
+    .flag-us {
+        margin: 15px;
+        position: fixed;
+        right: 190px;
+        top: 0;
+    }
+}
+
+@media(max-width:500px) {
+    .customContainer {
+        padding-top: 80px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .navbar-default .backFlag {
+        height: 50px;
+        width: 33px;
+        left: 25px;
+    }
+
+    .navbar-default .logo {
+        height: 33px;
+        width: 33px;
+        position: absolute;
+        top: 2px;
+    }
+
+    .flag-ua {
+        margin: 15px;
+        position: fixed;
+        right: 150px;
+        top: 0;
+    }
+
+    .flag-ru {
+        margin: 15px;
+        position: fixed;
+        right: 120px;
+        top: 0;
+    }
+
+    .flag-us {
+        margin: 15px;
+        position: fixed;
+        right: 90px;
+        top: 0;
+    }
+}
+
+.validation-summary-errors {
+    color: red;
+}
+
+.team-member img {
+    border: 5px solid #0d4a9a;
+}
+
+.progress {
+    margin-bottom: 0;
+}
+
+.carousel .item {
+    height: 500px;
+    width: 500px;
+}
+
+.carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 500px;
+    max-width: none;
+}
+
+.carousel {
+    width: 500px;
+    margin: auto;
+}
+
+@media(max-width:900px) {
+    .carousel .item {
+        height: 400px;
+        width: 400px;
+    }
+
+    .carousel img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: 400px;
+        max-width: none;
+    }
+
+    .carousel {
+        width: 400px;
+        margin: auto;
+    }
+}
+
+@media(max-width:500px) {
+    .carousel .item {
+        height: 250px;
+        width: 250px;
+    }
+
+    .carousel img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: 250px;
+        max-width: none;
+    }
+
+    .carousel {
+        width: 250px;
+        margin: auto;
+    }
 }

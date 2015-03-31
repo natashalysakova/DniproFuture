@@ -1,0 +1,64 @@
+﻿<!-- Navigation -->
+<nav class="navbar navbar-default navbar-shrink navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="backFlag">
+                <a class="page-scroll" href="/"><img class="logo navbar-brand" src="@Url.Content("~/Content/img/logo.png")" /></a>
+            </div>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="/"></a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="@Url.Action("Index", "Admin")">Админка</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="@Url.Action("Index", "Mails")">
+                        Почта
+                        <span id="unread" class="badge" hidden="hidden"></span>
+                        @*<div type="button"  class="btn btn-danger btn-xs" hidden="hidden"></div>*@
+                    </a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="@Url.Action("Index", "News")">Новости</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="@Url.Action("Index", "NeedHelps")">Кому помочь</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="@Url.Action("Done", "NeedHelps")">Помогли</a>
+                </li>
+
+                <li>
+                    <a class="page-scroll" href="@Url.Action("Index", "Partners")">Партнеры</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="@Url.Action("Index", "Projects")">Проекты</a>
+                </li>
+            </ul>
+        </div>
+        <div id="languages">
+            <a href="@Url.Action("ChangeCulture",new { lang = "uk", returnUrl = this.Request.RawUrl })">
+                <img src="@Url.Content("~/Content/img/blank.gif")" class="flag flag-ua" alt="Українська" />
+            </a><br />
+            <a href="@Url.Action("ChangeCulture",new { lang = "ru", returnUrl = this.Request.RawUrl })">
+                <img src="@Url.Content("~/Content/img/blank.gif")" class="flag flag-ru" alt="Русский" />
+            </a><br />
+            <a href="@Url.Action("ChangeCulture",new { lang = "en", returnUrl = this.Request.RawUrl })">
+                <img src="@Url.Content("~/Content/img/blank.gif")" class="flag flag-us" alt="English" />
+            </a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>

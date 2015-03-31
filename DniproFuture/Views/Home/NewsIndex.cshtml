@@ -1,0 +1,54 @@
+﻿@using DniproFuture.Models
+@using DniproFuture.Models.OutputModels
+@using PagedList.Mvc;
+@using PagedList;
+@model IPagedList<DniproFuture.Models.OutputModels.NewsOutputModel>
+@{
+    Layout = "../Shared/_OtherLayout.cshtml";
+}
+
+<div class="container customContainer">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-right">
+            @Html.PagedListPager(Model, page => Url.Action("NewsIndex", new { page }))
+        </div>
+    </div>
+
+    @foreach (NewsOutputModel news in Model)
+    {
+        <div class="row">
+            <div class="panel panel-primary panel-news">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@news.Title</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left news-preview">
+                            <a href="@Url.Action("NewsDetails", new {id = news.Id})">
+                                <img class="media-object img-responsive" src="@Url.Content("~/Content/img/News/" + news.Photo[0])" alt="@news.Title" width="100%">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <p class="panel-title text-muted text-right">@news.Date.ToShortDateString()</p>
+                            @news.ShortText...
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="panel-footer text-right">
+                    <a align="right " href="@Url.Action("NewsDetails", new {id = news.Id})">
+                        <div class="btn btn-default btn-lg btn-warning">@ViewRes._HomeStrings.NewsDetails</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    }
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-right">
+            @Html.PagedListPager(Model, page => Url.Action("NewsIndex", new { page }))
+        </div>
+    </div>
+
+</div>

@@ -1,4 +1,4 @@
-﻿@model DniproFuture.Models.DonationOutputModel[]
+﻿@model DniproFuture.Models.OutputModels.HelpNowOutputModel[]
 
 <!--Donation Section -->
 <section id="donation">
@@ -13,102 +13,20 @@
             @for (int i = 0; i < Model.Length; i++)
             {
                 <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="@Url.Content("~/Content/img/NeedHelp/" + Model[i].Photos[0])" class="img-responsive img-circle" alt="">
-                        <h4>@Model[i].FullName</h4>
-                        <p class="text-muted">@Model[i].Age лет (@Model[i].Birthday.ToShortDateString())</p>
-                        @{int percent = (int)((Model[i].Summ / Model[i].NeedSum) * 100);}
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="@percent" aria-valuemin="0" aria-valuemax="100" style="width: @percent%;">
-                                @string.Format("{0}/{1}", @Model[i].Summ, @Model[i].NeedSum)
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-right"><a align="right" data-toggle="modal" href="#DonationModal_@i">@ViewRes._HomeStrings.NewsDetails</a></p>
+                        @{ Html.RenderPartial("DonationInfo", Model[i]); }
+                    <p class="text-right">
+                        <a align="right" href="@Url.Action("NeedHelpDetails", new { id = Model[i].Id })">
+                            @ViewRes._HomeStrings.NewsDetails
+                        </a>
+                    </p>
                 </div>
             }
         </div>
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-right">
-                <p class="large text-muted">@ViewRes._HomeStrings.DonationMore</p>
+            <div class="col-sm-4 col-sm-offset-4">
+                <button type="button" class="btn btn-primary center-block btn-xl" onclick="location.href='@Url.Action("NeedHelpIndex")';">@ViewRes._HomeStrings.DonationMore</button>
             </div>
         </div>
+
     </div>
 </section>
-
-@for (int i = 0; i < Model.Count(); i++)
-{
-    <div class="portfolio-modal modal fade" id="DonationModal_@i" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <!-- Details Go Here -->
-                            <h2>@Model[i].FullName</h2>
-                            <div class="text-justify">
-                                <div class="text-center">
-                                    <img class="" src="@Url.Content("~/Content/img/NeedHelp/" + Model[i].Photos[0])" alt="">
-                                    <p class="text-muted">@Model[i].Age лет (@Model[i].Birthday.ToShortDateString())</p>
-                                    @{int percent = (int)((Model[i].Summ / Model[i].NeedSum) * 100);}
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="@percent" aria-valuemin="0" aria-valuemax="100" style="width: @percent%;">
-                                            @string.Format("{0}/{1}", @Model[i].Summ, @Model[i].NeedSum)
-                                        </div>
-                                    </div>
-                                </div>
-                                @MvcHtmlString.Create(Model[i].About)
-                            </div>
-                            @if(Model[i].Photos.Count != 1)
-                            {
-                            <div class="row col-lg-6 col-lg-offset-3">
-                                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                                    <!-- Indicators -->
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                        @for (int j = 1; j < Model[i].Photos.Count; j++)
-                                        {
-                                            <li data-target="#carousel-example-generic" data-slide-to="@j"></li>
-                                        }
-                                    </ol>
-                                    <!-- Wrapper for slides -->
-                                    <div class="carousel-inner" role="listbox">
-                                        <div class="item active">
-                                            <img src="@Url.Content("~/Content/img/NeedHelp/" + Model[i].Photos[0])" alt="..." height="400">
-                                        </div>
-                                        @for (int j = 1; j < Model[i].Photos.Count; j++)
-                                        {
-                                            <div class="item">
-                                                <img src="@Url.Content("~/Content/img/NeedHelp/" + Model[i].Photos[j])" alt="..." height="400">
-                                            </div>
-                                        }
-                                    </div>
-
-                                    <!-- Controls -->
-                                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </div>
-                            </div>
-                            }
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> @ViewRes._HomeStrings.HowModalBtn</button>
-                </div>
-            </div>
-        </div>
-    </div>
-}

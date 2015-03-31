@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Metadata.Edm;
+using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Linq;
@@ -8,14 +10,18 @@ using System.Net.Configuration;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
+using System.Web.UI.WebControls;
+using DniproFuture.Models.InputModels;
+using DniproFuture.Models.OutputModels;
+using PagedList;
 
 namespace DniproFuture.Models
 {
     public class DniproFutureModelRepository : IDisposable
     {
-        private const int ClientCount = 3;
+        private const int ClientCount = 5;
         private const int NewsCount = 3;
-        private const int PartnersCount = 3;
+        private const int PartnersCount = 4;
         private const int DonationCount = 3;
         private readonly DniproFuture_siteEntities _dbContext = new DniproFuture_siteEntities();
 
@@ -30,8 +36,8 @@ namespace DniproFuture.Models
             var model = new MainPageOutputModel
             {
                 ClientsBlock = new ClientsOutputModel[ClientCount],
-                DonationBlock = new DonationOutputModel[DonationCount],
-                PartnersBlock = new PartnersOutputModel[PartnersCount]
+                DonationBlock = new HelpNowOutputModel[DonationCount],
+                PartnersBlock = new PartnersModel(),
             };
 
             //Alredy done clients
@@ -57,7 +63,7 @@ namespace DniproFuture.Models
             {
                 if (unsuccessClientsId.Count == 0)
                 {
-                    model.DonationBlock[i] = new DonationOutputModel();
+                    model.DonationBlock[i] = new HelpNowOutputModel();
                 }
                 else
                 {
@@ -70,75 +76,62 @@ namespace DniproFuture.Models
 
             //Partners
             var partnersId = GetAllPartners();
+            model.PartnersBlock.AllPartners = new PartnersOutputModel[partnersId.Count];
+            model.PartnersBlock.RandomPartners = new PartnersOutputModel[PartnersCount];
+            for (int i = 0; i < partnersId.Count; i++)
+            {
+                model.PartnersBlock.AllPartners[i] = GetPartnersOutputModelById(partnersId[i]);
+            }
+
             for (var i = 0; i < PartnersCount; i++)
             {
                 if (partnersId.Count == 0)
                 {
-                    model.PartnersBlock[i] = new PartnersOutputModel();
+                    model.PartnersBlock.RandomPartners[i] = new PartnersOutputModel();
                 }
                 else
                 {
                     var index = random.Next(0, partnersId.Count);
-                    model.PartnersBlock[i] = GetPartnersOutputModelById(unsuccessClientsId[index]);
+                    model.PartnersBlock.RandomPartners[i] = GetPartnersOutputModelById(unsuccessClientsId[index]);
                     partnersId.Remove(index);
                 }
             }
 
             //News
-            model.NewsBlock = GetLastNews();
+            model.NewsBlock = GetLastNews(256, NewsCountEnum.Few);
 
             model.ContactsBlock = new ContactsOutputModel();
 
             return model;
         }
 
-        private NewsOutputModel[] GetLastNews()
+        private NewsOutputModel[] GetLastNews(int shortTextLenght, NewsCountEnum count)
         {
-            var lastNews =
+            List<News> lastNews;
+            if(count == NewsCountEnum.All)
+            {
+                lastNews =
+                (from news in _dbContext.News orderby news.Date descending select news).ToList();
+            }
+            else
+            {
+                lastNews =
                 (from news in _dbContext.News orderby news.Date descending select news).Take(NewsCount).ToList();
+            }
+
             if (lastNews.Count != 0)
             {
-                var model = new NewsOutputModel[NewsCount];
+                var model = new NewsOutputModel[lastNews.Count];
                 for (var i = 0; i < model.Length; i++)
                 {
-                    var news = (from local in lastNews[i].NewsLocal
-                                where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
-                                select new { local.Title, Text = local.Text }).FirstOrDefault();
-                    if (news != null)
-                    {
-                        if (news.Text.Length > 256)
-                        {
-                            model[i] = new NewsOutputModel
-                            {
-                                Title = news.Title,
-                                ShortText = news.Text.Remove(256),
-                                Photo = lastNews[i].Images.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(),
-                                Date = lastNews[i].Date,
-                                Text = news.Text
-
-                            };
-                        }
-                        else
-                        {
-                            model[i] = new NewsOutputModel
-                            {
-                                Title = news.Title,
-                                ShortText = news.Text,
-                                Photo = lastNews[i].Images.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(),
-                                Date = lastNews[i].Date,
-                                Text = news.Text
-                            };
-                        }
-                    }
-                    else
-                        model[i] = new NewsOutputModel();
-
-
+                    model[i] = GetNewsOutputModel(lastNews[i].Id, shortTextLenght);
                 }
                 return model;
             }
-            return new NewsOutputModel[NewsCount];
+
+            return new NewsOutputModel[lastNews.Count];
         }
+
 
         private PartnersOutputModel GetPartnersOutputModelById(int i)
         {
@@ -166,7 +159,7 @@ namespace DniproFuture.Models
             return (from partner in _dbContext.Partners select partner.Id).ToList();
         }
 
-        private HelpNowOutputModel GetHelpNowOutputModelByClientId(int helpNowrandomClient)
+        public HelpNowOutputModel GetHelpNowOutputModelByClientId(int helpNowrandomClient)
         {
             var client = (from c in _dbContext.NeedHelp where c.Id == helpNowrandomClient select c).FirstOrDefault();
             if (client != null)
@@ -185,7 +178,8 @@ namespace DniproFuture.Models
                         Age = GetAge(client.Birthday),
                         Birthday = client.Birthday,
                         NeedSum = client.NeedSum,
-                        Summ = client.Sum
+                        Summ = client.Sum,
+                        Id = helpNowrandomClient
                     };
 
                 return new HelpNowOutputModel();
@@ -239,7 +233,7 @@ namespace DniproFuture.Models
             return new ClientsOutputModel();
         }
 
-        private DonationOutputModel GetDonationOutputModelById(int index)
+        private HelpNowOutputModel GetDonationOutputModelById(int index)
         {
             var client = (from c in _dbContext.NeedHelp where c.Id == index select c).FirstOrDefault();
             if (client != null)
@@ -253,7 +247,7 @@ namespace DniproFuture.Models
 
                 if (clientInfo != null)
                 {
-                    return new DonationOutputModel
+                    return new HelpNowOutputModel
                     {
                         About = clientInfo.about,
                         FullName = clientInfo.fullName,
@@ -261,12 +255,13 @@ namespace DniproFuture.Models
                         Age = GetAge(client.Birthday),
                         Birthday = client.Birthday,
                         NeedSum = client.NeedSum,
-                        Summ = client.Sum
+                        Summ = client.Sum,
+                        Id = index
                     };
                 }
-                return new DonationOutputModel();
+                return new HelpNowOutputModel();
             }
-            return new DonationOutputModel();
+            return new HelpNowOutputModel();
         }
 
         private List<int> GetAllSuccessClients()
@@ -279,9 +274,20 @@ namespace DniproFuture.Models
             return (from client in _dbContext.NeedHelp where !client.Done select client.Id).ToList();
         }
 
+        internal IQueryable<HelpNowOutputModel> GetQueryOfNeedHelp()
+        {
+            List<HelpNowOutputModel> model = new List<HelpNowOutputModel>();
+            var unsuccessClientsId = GetAllUnsuccessClients();
+            foreach (int id in unsuccessClientsId)
+            {
+                model.Add(GetHelpNowOutputModelByClientId(id));
+            }
+            return model.AsQueryable();
+        }
+
         internal List<NeedHelp> GetListOfNeedHelp()
         {
-            return _dbContext.NeedHelp.ToList();
+            return (from help in _dbContext.NeedHelp where !help.Done select help).ToList();
         }
 
         internal NeedHelp FindInNeedHelpById(int? id)
@@ -381,18 +387,21 @@ namespace DniproFuture.Models
             _dbContext.SaveChanges();
         }
 
-        internal void SendMessage(ContactsOutputModel model)
+        internal Mail SendMessage(ContactsOutputModel model)
         {
             Mail newMail = new Mail()
             {
                 Email = model.Email,
                 Message = model.Message,
                 Name = model.Name,
-                Phone = model.Phone
+                Phone = model.Phone,
+                IsRead = false
             };
 
             _dbContext.Mail.Add(newMail);
             _dbContext.SaveChanges();
+
+            return newMail;
         }
 
         public bool IsUserExist(string login, string password)
@@ -450,5 +459,90 @@ namespace DniproFuture.Models
                 return false;
             }
         }
+
+        public List<Mail> GetUnreadMails()
+        {
+            return (from mail in _dbContext.Mail where mail.IsRead == false select mail).ToList();
+        }
+
+        internal List<Mail> GetMails()
+        {
+            return _dbContext.Mail.OrderByDescending(x => x.Id).ToList();
+        }
+
+        public void RemoveMailById(int id)
+        {
+            Mail mail = _dbContext.Mail.Find(id);
+            _dbContext.Mail.Remove(mail);
+            _dbContext.SaveChanges();
+        }
+
+        public Mail FindMailById(int? id)
+        {
+            return _dbContext.Mail.Find(id);
+        }
+
+        public Mail ReadMail(int? id)
+        {
+            Mail mail = _dbContext.Mail.Find(id);
+            mail.IsRead = true;
+            _dbContext.SaveChanges();
+            return mail;
+        }
+
+        internal void ClearMail()
+        {
+            var allMails = _dbContext.Mail.ToList();
+            _dbContext.Mail.RemoveRange(allMails);
+            _dbContext.SaveChanges();
+        }
+
+        public IQueryable<NewsOutputModel> GetQueryOfNews()
+        {
+            List<NewsOutputModel> model = GetLastNews(512, NewsCountEnum.All).ToList();
+            return model.AsQueryable();
+        }
+
+        public List<NeedHelp> GetListOfDone()
+        {
+            return (from help in _dbContext.NeedHelp where help.Done select help).ToList();
+        }
+
+        internal NewsOutputModel GetNewsOutputModel(int? id, int shortTextLenght = 256)
+        {
+            News newsEntity = FindInNewsById(id);
+            NewsOutputModel model;
+
+            var news = (from local in newsEntity.NewsLocal
+                where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
+                select new {local.Title, Text = local.Text, local.NewsId}).FirstOrDefault();
+            if (news != null)
+            {
+                model = new NewsOutputModel()
+                {
+                    Title = news.Title,
+                    Photo = newsEntity.Images.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(),
+                    Date = newsEntity.Date,
+                    Text = news.Text,
+                    Id = news.NewsId
+                };
+
+                if (news.Text.Length > shortTextLenght)
+                {
+                    model.ShortText = news.Text.Remove(shortTextLenght);
+                }
+                else
+                {
+                    model.ShortText = news.Text;
+                }
+            }
+            else
+            {
+                model = new NewsOutputModel();
+            }
+
+            return model;
+        }
+    
     }
 }

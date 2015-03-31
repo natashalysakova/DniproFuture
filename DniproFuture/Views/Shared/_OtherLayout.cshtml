@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "_OtherLayout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Html.RenderPartial("CustomNavbar");
+}
+
+@RenderBody()
+
+@section scripts{
+    @Styles.Render("~/Content/customBootstrap")
+}

@@ -22,8 +22,8 @@
         <EntityTypeShape EntityType="DniproFuture_siteModel.ProjectsLocalSet" Width="1.5" PointX="10.75" PointY="2.125" />
         <AssociationConnector Association="DniproFuture_siteModel.FK_ProjectsLocalSet_Language" />
         <AssociationConnector Association="DniproFuture_siteModel.FK_ProjectsLocalSet_Projects" />
-        <EntityTypeShape EntityType="DniproFuture_siteModel.Mail" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="DniproFuture_siteModel.User" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DniproFuture_siteModel.Mail" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

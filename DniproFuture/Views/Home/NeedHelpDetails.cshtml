@@ -1,0 +1,28 @@
+﻿@using DniproFuture.Models
+@model DniproFuture.Models.OutputModels.HelpNowOutputModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "../Shared/_OtherLayout.cshtml";
+}
+<div class="container customContainer">
+    <div class="row">
+            <div class="col-md-12">
+                <!-- Details Go Here -->
+                <h2 class="text-center">@Model.FullName</h2>
+                <div class="text-justify">
+                    <div class="text-center col-md-4">
+                        @{ Html.RenderPartial("DonationInfo", Model); }
+                    </div>
+                    @MvcHtmlString.Create(Model.About)
+                </div>
+                @if (Model.Photos.Count != 1)
+                {
+                    <!--Add gallery here-->
+                }
+        </div>
+    </div>
+    <div class="row">
+        <a href="@Request.UrlReferrer"><div type="button" class="btn btn-primary"><i class="fa fa-backward"></i>Назад</div></a>
+    </div>
+</div>

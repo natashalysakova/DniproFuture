@@ -31,6 +31,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -57,6 +58,12 @@
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -141,13 +148,20 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HttpPostedFileBaseHelper.cs" />
     <Compile Include="Controllers\MailsController.cs" />
-    <Compile Include="Controllers\NeedHelps1Controller.cs" />
+    <Compile Include="Controllers\NeedHelpsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
-    <Compile Include="Models\ClientsOutputModel.cs" />
-    <Compile Include="Models\ContactsOutputModel.cs" />
+    <Compile Include="Controllers\PartnersController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Models\Abstract\IAuthProvider.cs" />
+    <Compile Include="Models\NewsCountEnum.cs" />
+    <Compile Include="Models\OutputModels\ClientsOutputModel.cs" />
+    <Compile Include="Models\Concrete\FormsAuthProvider.cs" />
+    <Compile Include="Models\OutputModels\ContactsOutputModel.cs" />
     <Compile Include="Models\DniproFutureModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -164,30 +178,30 @@
       <DependentUpon>DniproFutureModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DniproFutureModelRepository.cs" />
-    <Compile Include="Models\DonationOutputModel.cs" />
-    <Compile Include="Models\HelpNowOutputModel.cs" />
+    <Compile Include="Models\OutputModels\HelpNowOutputModel.cs" />
     <Compile Include="Models\Language.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Mail.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MainPageOutputModel.cs" />
+    <Compile Include="Models\OutputModels\MainPageOutputModel.cs" />
     <Compile Include="Models\NeedHelp.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\NeedHelpInputModel.cs" />
+    <Compile Include="Models\InputModels\NeedHelpInputModel.cs" />
     <Compile Include="Models\NeedHelpLocal.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\News.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\NewsInputModel.cs" />
+    <Compile Include="Models\InputModels\NewsInputModel.cs" />
     <Compile Include="Models\NewsLocal.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\NewsOutputModel.cs" />
+    <Compile Include="Models\OutputModels\NewsOutputModel.cs" />
     <Compile Include="Models\Partners.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
@@ -197,7 +211,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\PartnersOutputModel.cs" />
+    <Compile Include="Models\OutputModels\PartnersOutputModel.cs" />
     <Compile Include="Models\Projects.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
@@ -244,12 +258,19 @@
     <Content Include="App_Data\DniproFuture_site_log.ldf">
       <DependentUpon>DniproFuture_site.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\css\bootstrap-datetimepicker.css" />
+    <Content Include="Content\css\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\css\agency.css" />
     <Content Include="Content\css\bootstrap-theme.css" />
     <Content Include="Content\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\customBootstrap.css" />
+    <Content Include="Content\css\ekko-lightbox.css" />
+    <Content Include="Content\css\ekko-lightbox.min.css" />
     <Content Include="Content\css\flags.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\AboutPic.jpg" />
     <Content Include="Content\img\blank.gif" />
     <Content Include="Content\img\flags.png" />
     <Content Include="Content\img\about\1.jpg" />
@@ -257,6 +278,7 @@
     <Content Include="Content\img\about\3.jpg" />
     <Content Include="Content\img\about\4.jpg" />
     <Content Include="Content\img\header-bg.jpg" />
+    <Content Include="Content\img\helpNowPic.jpg" />
     <Content Include="Content\img\How\Clother.png" />
     <Content Include="Content\img\How\Info.png" />
     <Content Include="Content\img\How\money.png" />
@@ -287,6 +309,8 @@
     <Content Include="Content\img\up.png" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\flag.png" />
+    <Content Include="Content\css\PagedList.css" />
+    <Content Include="Content\img\vsvlvkx.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -323,12 +347,8 @@
     <Content Include="Content\fonts\font-awesome\css\font-awesome.css" />
     <Content Include="Content\fonts\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\css\bootstrap-theme.css.map" />
     <Content Include="Content\css\bootstrap.css.map" />
     <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont.eot" />
@@ -378,12 +398,20 @@
       <DependentUpon>DniproFutureModel.edmx</DependentUpon>
       <LastGenOutput>DniproFutureModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
+    <Content Include="Scripts\admin.js" />
     <Content Include="Scripts\agency.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\cbpAnimatedHeader.js" />
     <Content Include="Scripts\cbpAnimatedHeader.min.js" />
+    <Content Include="Scripts\ekko-lightbox.js" />
+    <Content Include="Scripts\ekko-lightbox.min.js" />
     <Content Include="Scripts\jqBootstrapValidation.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
@@ -397,6 +425,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -421,21 +453,45 @@
     <Content Include="Views\Home\Partners.cshtml" />
     <Content Include="Views\Home\Clients.cshtml" />
     <Content Include="Views\Home\How.cshtml" />
-    <Content Include="Views\NeedHelps1\Create.cshtml" />
-    <Content Include="Views\NeedHelps1\Delete.cshtml" />
-    <Content Include="Views\NeedHelps1\Details.cshtml" />
-    <Content Include="Views\NeedHelps1\Edit.cshtml" />
-    <Content Include="Views\NeedHelps1\Index.cshtml" />
+    <Content Include="Views\NeedHelps\Create.cshtml" />
+    <Content Include="Views\NeedHelps\Delete.cshtml" />
+    <Content Include="Views\Home\NeedHelpDetails.cshtml" />
+    <Content Include="Views\NeedHelps\Edit.cshtml" />
     <Content Include="Views\News\Create.cshtml" />
     <Content Include="Views\News\Delete.cshtml" />
-    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\Home\NewsDetails.cshtml" />
     <Content Include="Views\News\Edit.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Home\NewsIndex.cshtml" />
     <Content Include="Views\Mails\Delete.cshtml" />
     <Content Include="Views\Mails\Details.cshtml" />
     <Content Include="Views\Mails\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Shared\_OtherLayout.cshtml" />
+    <Content Include="Views\Shared\CustomNavbar.cshtml" />
+    <Content Include="Views\Home\NeedHelpIndex.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\NeedHelps\Index.cshtml" />
+    <Content Include="Views\NeedHelps\Details.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\AdminNavbar.cshtml" />
+    <Content Include="Views\Partners\Create.cshtml" />
+    <Content Include="Views\Partners\Delete.cshtml" />
+    <Content Include="Views\Partners\Details.cshtml" />
+    <Content Include="Views\Partners\Edit.cshtml" />
+    <Content Include="Views\Partners\Index.cshtml" />
+    <Content Include="Views\Projects\Create.cshtml" />
+    <Content Include="Views\Projects\Delete.cshtml" />
+    <Content Include="Views\Projects\Details.cshtml" />
+    <Content Include="Views\Projects\Edit.cshtml" />
+    <Content Include="Views\Projects\Index.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Home\Done.cshtml" />
+    <Content Include="Views\Mails\ReadMessage.cshtml" />
+    <Content Include="Views\Mails\UnreadMessage.cshtml" />
+    <Content Include="Views\NeedHelps\Done.cshtml" />
+    <Content Include="Views\Home\DonationInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">

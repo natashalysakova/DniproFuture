@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "_AdminLayout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Html.RenderPartial("AdminNavbar");
+}
+
+
+@RenderBody()
+
+@section scripts{
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/dateTimePicker")
+
+    @Scripts.Render("~/bundles/admin")
+
+    @Styles.Render("~/Content/datetimecss");
+
+}

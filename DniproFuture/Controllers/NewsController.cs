@@ -1,25 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DniproFuture.Models;
 using DniproFuture.Models.InputModels;
+using DniproFuture.Models.Repository;
 
 namespace DniproFuture.Controllers
 {
     [Authorize]
     public class NewsController : Controller
     {
-        DniproFutureModelRepository _repository = new DniproFutureModelRepository();
-
+        private readonly DniproFutureModelRepository _repository = new DniproFutureModelRepository();
         // GET: News
         public ActionResult Index()
         {
@@ -33,7 +27,7 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            News news = _repository.FindInNewsById(id);
+            var news = _repository.FindInNewsById(id);
             if (news == null)
             {
                 return HttpNotFound();
@@ -57,22 +51,23 @@ namespace DniproFuture.Controllers
         {
             if (ModelState.IsValid)
             {
-                List<string> photosList = new List<string>();
-                foreach (HttpPostedFileBase photo in images)
+                var photosList = new List<string>();
+                foreach (var photo in images)
                 {
                     if (photo != null)
                     {
-                        string filename = Path.GetRandomFileName().Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[0] + "." + photo.FileName.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[1];
+                        var filename =
+                            Path.GetRandomFileName().Split(new[] {'.'}, StringSplitOptions.RemoveEmptyEntries)[0] + "." +
+                            photo.FileName.Split(new[] {'.'}, StringSplitOptions.RemoveEmptyEntries)[1];
                         var path = Path.Combine(Server.MapPath("~/Content/img/News"), filename);
 
-                        
+
                         if (photosList.Count == 0)
                         {
                             try
                             {
                                 photo.CropAndSave(path);
                                 Response.Write("Done");
-
                             }
                             catch (FormatException ex)
                             {
@@ -96,7 +91,6 @@ namespace DniproFuture.Controllers
             return View(news);
         }
 
-
         // GET: News/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -104,7 +98,7 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            News news = _repository.FindInNewsById(id);
+            var news = _repository.FindInNewsById(id);
             if (news == null)
             {
                 return HttpNotFound();
@@ -134,7 +128,7 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            News news = _repository.FindInNewsById(id);
+            var news = _repository.FindInNewsById(id);
             if (news == null)
             {
                 return HttpNotFound();

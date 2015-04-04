@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace DniproFuture.Models.OutputModels
+﻿namespace DniproFuture.Models.OutputModels
 {
     public class PartnersOutputModel
     {

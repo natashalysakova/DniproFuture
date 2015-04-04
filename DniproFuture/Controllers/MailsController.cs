@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
+﻿using System.Net;
 using System.Web.Mvc;
 using DniproFuture.Models;
-
+using DniproFuture.Models.Repository;
 namespace DniproFuture.Controllers
 {
     [Authorize]
     public class MailsController : Controller
     {
         private  DniproFutureModelRepository _repository = new DniproFutureModelRepository();
+
         // GET: Mails
         public ActionResult Index()
         {

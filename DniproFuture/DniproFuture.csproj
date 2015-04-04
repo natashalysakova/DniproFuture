@@ -158,10 +158,11 @@
     <Compile Include="Controllers\PartnersController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Models\Abstract\IAuthProvider.cs" />
+    <Compile Include="Models\DateTimeExtention.cs" />
+    <Compile Include="Models\MD5Extention.cs" />
     <Compile Include="Models\NewsCountEnum.cs" />
-    <Compile Include="Models\OutputModels\ClientsOutputModel.cs" />
     <Compile Include="Models\Concrete\FormsAuthProvider.cs" />
-    <Compile Include="Models\OutputModels\ContactsOutputModel.cs" />
+    <Compile Include="Models\InputModels\ContactsInputModel.cs" />
     <Compile Include="Models\DniproFutureModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -177,7 +178,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DniproFutureModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DniproFutureModelRepository.cs" />
     <Compile Include="Models\OutputModels\HelpNowOutputModel.cs" />
     <Compile Include="Models\Language.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
@@ -218,6 +218,11 @@
     <Compile Include="Models\ProjectsLocalSet.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Repository\General.cs" />
+    <Compile Include="Models\Repository\Mail.cs" />
+    <Compile Include="Models\Repository\NeedHelp.cs" />
+    <Compile Include="Models\Repository\News.cs" />
+    <Compile Include="Models\Repository\Partners.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>

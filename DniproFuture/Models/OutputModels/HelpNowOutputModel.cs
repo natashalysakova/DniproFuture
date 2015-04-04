@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DniproFuture.Models.OutputModels
 {
-    public class HelpNowOutputModel
+    public class NeedHelpOutputModel
     {
         public string FullName { get; set; }
         public List<string> Photos { get; set; }

@@ -4,7 +4,7 @@
 @using DniproFuture.Models.OutputModels
 @using PagedList.Mvc;
 @using PagedList;
-@model IPagedList<DniproFuture.Models.OutputModels.HelpNowOutputModel>
+@model IPagedList<DniproFuture.Models.OutputModels.NeedHelpOutputModel>
 
 <link href="/Content/css/PagedList.css" rel="stylesheet" type="text/css" />
 @{
@@ -32,7 +32,7 @@
 
                 if (index < Model.Count)
                 {
-                    HelpNowOutputModel help = Model[index];
+                    NeedHelpOutputModel help = Model[index];
                     <div class="col-sm-4">
                             @{ Html.RenderPartial("DonationInfo", help); }
                         <p class="text-right"><a align="right" href="@Url.Action("NeedHelpDetails", new { id = help.Id })">@ViewRes._HomeStrings.NewsDetails</a>

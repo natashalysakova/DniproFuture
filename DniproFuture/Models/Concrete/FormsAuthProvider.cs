@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using DniproFuture.Models.Abstract;
+using DniproFuture.Models.Repository;
 
 namespace DniproFuture.Models.Concrete
 {

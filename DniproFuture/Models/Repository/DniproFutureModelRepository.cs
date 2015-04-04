@@ -1,23 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Core.Metadata.Edm;
-using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Linq;
-using System.Net.Configuration;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
-using System.Web.UI.WebControls;
 using DniproFuture.Models.InputModels;
 using DniproFuture.Models.OutputModels;
-using PagedList;
 
-namespace DniproFuture.Models
+namespace DniproFuture.Models.Repository
 {
-    public class DniproFutureModelRepository : IDisposable
+    public partial class DniproFutureModelRepository : IDisposable
     {
         private const int ClientCount = 5;
         private const int NewsCount = 3;

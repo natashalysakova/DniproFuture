@@ -196,7 +196,6 @@
     <Compile Include="Models\OutputModels\ClientsOutputModel.cs" />
     <Compile Include="Models\Concrete\FormsAuthProvider.cs" />
     <Compile Include="Models\OutputModels\ContactsOutputModel.cs" />
-    <Compile Include="Models\DniproFutureModelRepository.cs" />
     <Compile Include="Models\OutputModels\HelpNowOutputModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\OutputModels\MainPageOutputModel.cs" />
@@ -219,6 +218,7 @@
     <Compile Include="Models\ProjectsLocalSet.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Repository\DniproFutureModelRepository.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>DniproFutureModel.tt</DependentUpon>
     </Compile>

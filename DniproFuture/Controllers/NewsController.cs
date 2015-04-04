@@ -12,6 +12,7 @@ using System.Web;
 using System.Web.Mvc;
 using DniproFuture.Models;
 using DniproFuture.Models.InputModels;
+using DniproFuture.Models.Repository;
 
 namespace DniproFuture.Controllers
 {

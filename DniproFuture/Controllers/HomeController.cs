@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using DniproFuture.Models;
 using DniproFuture.Models.OutputModels;
+using DniproFuture.Models.Repository;
 using PagedList;
 
 namespace DniproFuture.Controllers

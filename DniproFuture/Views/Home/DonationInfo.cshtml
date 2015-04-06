@@ -1,7 +1,6 @@
 ﻿@model DniproFuture.Models.OutputModels.NeedHelpOutputModel
 
 <div class="team-member">
-    <h2 class="text-center">@Model.FullName</h2>
     <img class="img-responsive img-circle" src="@Url.Content("~/Content/img/NeedHelp/" + Model.Photos[0])" alt="">
     <p class="text-muted">@Model.Age лет (@Model.Birthday.ToShortDateString())</p>
     @{int percent = (int) ((Model.Summ/Model.NeedSum)*100);}

@@ -1,4 +1,4 @@
-﻿@model DniproFuture.Models.Partners
+﻿@model DniproFuture.Models.InputModels.PartnersInputModel
 
 @{
     ViewBag.Title = "Create";
@@ -8,7 +8,7 @@
     <h2>Create</h2>
 
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Create", "Partners", FormMethod.Post, new {@enctype = "multipart/form-data"}))
     {
         @Html.AntiForgeryToken()
 
@@ -16,11 +16,41 @@
             <h4>Partners</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            @for (int i = 0; i < ViewBag.Languages.Count; i++)
+            {
+                <div class="form-group hidden">
+                    @Html.LabelFor(model => model.LocalInfo[i].Language.LanguageCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+
+                        @Html.EditorFor(model => model.LocalInfo[i].Language.LanguageCode, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.Languages[i].LanguageCode } })
+                    </div>
+                </div>
+
+                string localestr = "Name - " + ViewBag.Languages[i].LanguageCode;
+                
+                <div class="form-group">
+                    @Html.Label(localestr, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LocalInfo[i].Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LocalInfo[i].Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            }
+
             <div class="form-group">
-                @Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.MainInfo.Link, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Logo, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Logo, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.MainInfo.Link, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MainInfo.Link, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MainInfo.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input accept="image/*" id="Logo" name="photo" type="file" />
                 </div>
             </div>
 

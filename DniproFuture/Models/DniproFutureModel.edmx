@@ -73,6 +73,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Logo" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Link" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="PartnersLocalSet">
           <Key>
@@ -80,7 +81,6 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="128" Nullable="false" />
-          <Property Name="Link" Type="varchar" MaxLength="256" />
           <Property Name="PartnersId" Type="int" Nullable="false" />
           <Property Name="LanguageId" Type="int" Nullable="false" />
         </EntityType>
@@ -300,6 +300,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Logo" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="PartnersLocal" Relationship="DniproFuture_siteModel.PartnersPartnersLocal" FromRole="Partners" ToRole="PartnersLocal" />
+          <Property Name="Link" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
         </EntityType>
         <EntityContainer Name="DniproFuture_siteEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Language" EntityType="Self.Language" />
@@ -383,7 +384,6 @@
           <Property Name="PartnersId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Language" Relationship="DniproFuture_siteModel.LanguagePartnersLocal" FromRole="PartnersLocal" ToRole="Language" />
           <Property Name="LanguageId" Type="Int32" Nullable="false" />
-          <Property Name="Link" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="NewsLocal">
           <Key>
@@ -565,7 +565,8 @@
     <EntitySetMapping Name="Partners">
       <EntityTypeMapping TypeName="IsTypeOf(DniproFuture_siteModel.Partners)">
         <MappingFragment StoreEntitySet="Partners">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Logo" ColumnName="Logo" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -587,7 +588,6 @@
     <EntitySetMapping Name="PartnersLocalSet">
       <EntityTypeMapping TypeName="IsTypeOf(DniproFuture_siteModel.PartnersLocal)">
         <MappingFragment StoreEntitySet="PartnersLocalSet">
-          <ScalarProperty Name="Link" ColumnName="Link" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="PartnersId" ColumnName="PartnersId" />

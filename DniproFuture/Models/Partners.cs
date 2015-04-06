@@ -21,6 +21,7 @@ namespace DniproFuture.Models
     
         public int Id { get; set; }
         public string Logo { get; set; }
+        public string Link { get; set; }
     
         public virtual ICollection<PartnersLocal> PartnersLocal { get; set; }
     }

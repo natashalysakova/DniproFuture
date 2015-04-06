@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DniproFuture.Models;
+using DniproFuture.Models.InputModels;
+using DniproFuture.Models.Repository;
 
 namespace DniproFuture.Controllers
 {
     [Authorize]
     public class PartnersController : Controller
     {
-        private DniproFuture_siteEntities db = new DniproFuture_siteEntities();
+        private DniproFutureModelRepository _repository = new DniproFutureModelRepository();
 
         // GET: Partners
         public ActionResult Index()
         {
-            return View(db.Partners.ToList());
+            return View(_repository.GetListOfPartners());
         }
 
         // GET: Partners/Details/5
@@ -28,7 +31,7 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Partners partners = db.Partners.Find(id);
+            Partners partners = _repository.FindPartnerById(id);
             if (partners == null)
             {
                 return HttpNotFound();
@@ -39,6 +42,7 @@ namespace DniproFuture.Controllers
         // GET: Partners/Create
         public ActionResult Create()
         {
+            ViewBag.Languages = _repository.GetLanguagesList();
             return View();
         }
 
@@ -47,15 +51,25 @@ namespace DniproFuture.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Logo")] Partners partners)
+        public ActionResult Create(PartnersInputModel partners, HttpPostedFileBase photo)
         {
             if (ModelState.IsValid)
             {
-                db.Partners.Add(partners);
-                db.SaveChanges();
+                if (photo != null)
+                {
+                    var filename =
+                        Path.GetRandomFileName().Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[0] + "." +
+                        photo.FileName.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[1];
+                    var path = Path.Combine(Server.MapPath("~/Content/img/Partners"), filename);
+                    photo.SaveAs(path);
+                    partners.MainInfo.Logo = filename;
+                }
+
+                _repository.AddPartner(partners);
                 return RedirectToAction("Index");
             }
 
+            ViewBag.Languages = _repository.GetLanguagesList();
             return View(partners);
         }
 
@@ -66,7 +80,7 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Partners partners = db.Partners.Find(id);
+            Partners partners = _repository.FindPartnerById(id);
             if (partners == null)
             {
                 return HttpNotFound();
@@ -83,8 +97,7 @@ namespace DniproFuture.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(partners).State = EntityState.Modified;
-                db.SaveChanges();
+                _repository.EditParter(partners);
                 return RedirectToAction("Index");
             }
             return View(partners);
@@ -97,7 +110,7 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Partners partners = db.Partners.Find(id);
+            Partners partners = _repository.FindPartnerById(id);
             if (partners == null)
             {
                 return HttpNotFound();
@@ -110,9 +123,7 @@ namespace DniproFuture.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Partners partners = db.Partners.Find(id);
-            db.Partners.Remove(partners);
-            db.SaveChanges();
+            _repository.RemovePartnerById(id);
             return RedirectToAction("Index");
         }
 
@@ -120,7 +131,7 @@ namespace DniproFuture.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _repository.Dispose();
             }
             base.Dispose(disposing);
         }

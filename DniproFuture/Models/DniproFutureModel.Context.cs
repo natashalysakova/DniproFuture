@@ -36,7 +36,5 @@ namespace DniproFuture.Models
         public virtual DbSet<ProjectsLocalSet> ProjectsLocalSet { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Mail> Mail { get; set; }
-
-        public System.Data.Entity.DbSet<DniproFuture.Models.OutputModels.NeedHelpOutputModel> DonationOutputModels { get; set; }
     }
 }

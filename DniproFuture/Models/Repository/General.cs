@@ -82,8 +82,8 @@ namespace DniproFuture.Models.Repository
                 else
                 {
                     var index = random.Next(0, partnersId.Count);
-                    model.PartnersBlock.RandomPartners[i] = GetPartnersOutputModelById(unsuccessClientsId[index]);
-                    partnersId.Remove(index);
+                    model.PartnersBlock.RandomPartners[i] = GetPartnersOutputModelById(partnersId[index]);
+                    partnersId.Remove(partnersId[index]);
                 }
             }
 
@@ -119,5 +119,6 @@ namespace DniproFuture.Models.Repository
 
             return false;
         }
+
     }
 }

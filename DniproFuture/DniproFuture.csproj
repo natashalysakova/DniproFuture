@@ -159,6 +159,7 @@
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Models\Abstract\IAuthProvider.cs" />
     <Compile Include="Models\DateTimeExtention.cs" />
+    <Compile Include="Models\InputModels\PartnersInputModel.cs" />
     <Compile Include="Models\MD5Extention.cs" />
     <Compile Include="Models\NewsCountEnum.cs" />
     <Compile Include="Models\Concrete\FormsAuthProvider.cs" />

@@ -4,6 +4,7 @@
     {
         public string Title { get; set; }
         public string Logo { get; set; }
+        public string Link { get; set; }
     }
 
     public class PartnersModel

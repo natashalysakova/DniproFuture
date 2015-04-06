@@ -1,4 +1,6 @@
-﻿@using DniproFuture.Models.OutputModels
+﻿@using System.Web.UI.WebControls
+@using DniproFuture.Models
+@using DniproFuture.Models.OutputModels
 @model PartnersModel
 <!-- Partners Section -->
 <section id="partners" class="portfolio">
@@ -14,7 +16,7 @@
                 <div class="col-md-3 col-sm-6 portfolio-item">
                     <img src="@Url.Content("~/Content/img/Partners/" + partners.Logo)" class="img-responsive text-muted" alt="">
                     <div class="portfolio-caption">
-                        <h4>@partners.Title</h4>
+                        <a href="@partners.Link"><h4>@partners.Title</h4></a>
                     </div>
                 </div>
 
@@ -43,13 +45,12 @@
                     <!-- All Partners Go Here -->
                     <h2>@ViewRes._HomeStrings.PartnersAll</h2>
                     <!--<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>-->
-                    @for (int i = 0; i < Model.AllPartners.Length; i+=4)
+                    @for (int i = 0; i < Model.AllPartners.Length; i += 4)
                     {
                         <div class="row">
                             @for (int j = 0; j < 4; j++)
                             {
-                                PartnersOutputModel partners = Model.AllPartners[i + j];
-                                if (partners != null)
+                                if (i + j < Model.AllPartners.Length)
                                 {
                                     <div class="col-md-3 col-sm-6 portfolio-item">
                                         <div class="portfolio-hover">
@@ -57,11 +58,12 @@
                                                 <i class="fa fa-plus fa-3x"></i>
                                             </div>
                                         </div>
-                                        <img src="@Url.Content("~/Content/img/Partners/" + partners.Logo)" class="img-responsive" alt="">
+                                        <img src="@Url.Content("~/Content/img/Partners/" + Model.AllPartners[i+j].Logo)" class="img-responsive" alt="">
                                         <div class="portfolio-caption">
-                                            <h4>@partners.Title</h4>
+                                            <a href="@Model.AllPartners[i+j].Link"><h4>@Model.AllPartners[i + j].Title</h4></a>
                                         </div>
                                     </div>
+
                                 }
                             }
                         </div>

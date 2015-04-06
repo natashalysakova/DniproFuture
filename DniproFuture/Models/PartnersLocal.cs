@@ -18,7 +18,6 @@ namespace DniproFuture.Models
         public string Name { get; set; }
         public int PartnersId { get; set; }
         public int LanguageId { get; set; }
-        public string Link { get; set; }
     
         public virtual Partners Partners { get; set; }
         public virtual Language Language { get; set; }

@@ -17,14 +17,15 @@
             </div>
             @if (Model.Photo.Count != 1)
             {
-                <!--Add gallery here-->
+                <!--TODO: Add gallery here-->
             }
-            <a href="@Request.UrlReferrer">
-                <div type="button" class="btn btn-primary">
-                    <i class="fa fa-backward"></i>Назад
-                </div>
-            </a>
-
         </div>
+    </div>
+    <div class="row page-header">
+        <a href="@Request.UrlReferrer">
+            <div type="button" class="btn btn-primary">
+                <i class="fa fa-backward"></i>Назад
+            </div>
+        </a>
     </div>
 </div>

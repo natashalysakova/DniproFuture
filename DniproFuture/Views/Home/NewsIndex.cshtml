@@ -8,6 +8,14 @@
 }
 
 <div class="container customContainer">
+
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h2 class="section-heading">@ViewRes._HomeStrings.NewsTitle</h2>
+            <h3 class="section-subheading text-muted">@ViewRes._HomeStrings.NewsSubTitle</h3>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 text-right">
             @Html.PagedListPager(Model, page => Url.Action("NewsIndex", new { page }))
@@ -25,7 +33,10 @@
                     <div class="media">
                         <div class="media-left news-preview">
                             <a href="@Url.Action("NewsDetails", new {id = news.Id})">
-                                <img class="media-object img-responsive" src="@Url.Content("~/Content/img/News/" + news.Photo[0])" alt="@news.Title" width="100%">
+                                @if (news.Photo.Count > 0)
+                                {
+                                    <img class="media-object img-responsive" src="@Url.Content("~/Content/img/News/" + news.Photo[0])" alt="@news.Title" width="100%">
+                                }
                             </a>
                         </div>
                         <div class="media-body">

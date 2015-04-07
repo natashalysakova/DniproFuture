@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="59c8c6315cb844aa9ee51351b8c6c173" Name="Diagram1">
+        <EntityTypeShape EntityType="uh357966_dbModel.Language" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="uh357966_dbModel.Mail" Width="1.5" PointX="8.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="uh357966_dbModel.NeedHelp" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="uh357966_dbModel.NeedHelpLocalSet" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="uh357966_dbModel.News" Width="1.5" PointX="3.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="uh357966_dbModel.NewsLocalSet" Width="1.5" PointX="6" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="uh357966_dbModel.Partners" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="uh357966_dbModel.PartnersLocalSet" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="uh357966_dbModel.Projects" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="uh357966_dbModel.ProjectsLocalSet" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="uh357966_dbModel.User" Width="1.5" PointX="5.75" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="uh357966_dbModel.FK_NeedHelpLocalSet_ToLanguage" ManuallyRouted="false" />
+        <AssociationConnector Association="uh357966_dbModel.FK_NewsLocalSet_ToLanguage" ManuallyRouted="false" />
+        <AssociationConnector Association="uh357966_dbModel.FK_PartnersLocalSet_ToLanguage" ManuallyRouted="false" />
+        <AssociationConnector Association="uh357966_dbModel.FK_ProjectsLocalSet_ToLanguage" ManuallyRouted="false" />
+        <AssociationConnector Association="uh357966_dbModel.FK_NeedHelpLocalSet_ToNeedHelp" ManuallyRouted="false" />
+        <AssociationConnector Association="uh357966_dbModel.FK_NewsLocalSet_ToNews" ManuallyRouted="false" />
+        <AssociationConnector Association="uh357966_dbModel.FK_PartnersLocalSet_ToPartners" ManuallyRouted="false" />
+        <AssociationConnector Association="uh357966_dbModel.FK_ProjectsLocalSet_ToProject" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,58 +1,55 @@
-﻿@model System.Collections.Generic.IEnumerable<DniproFuture.Models.NeedHelp>
+﻿@using System.Web.Mvc.Html
+@using DniproFuture.Models
+@model System.Collections.Generic.IEnumerable<DniproFuture.Models.NeedHelp>
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "Нуждаются в помощи";
     Layout = "../Shared/_AdminLayout.cshtml";
 }
 <div class="container customContainer">
 
-    <h2>View</h2>
+    <h2>@ViewBag.Title</h2>
 
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Добавить человека", "Create")
     </p>
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Sum)
+                ФИО
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NeedSum)
+                Нужно
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Photos)
+                Собрано
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Birthday)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartDate)
+                Дата начала сбора
             </th>
             <th></th>
         </tr>
 
         @foreach (var item in Model)
         {
+            NeedHelpLocalSet local = item.NeedHelpLocalSet.ElementAt(0);
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Sum)
+                    @Html.Label(string.Format("{0} {1} {2}", local.FirstName, local.Patronymic, local.LastName))
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.NeedSum)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Photos)
+                    @Html.DisplayFor(modelItem => item.Sum)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Birthday)
+                    @item.StartDate.ToShortDateString()
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.StartDate)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Подробности", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
                 </td>
             </tr>
         }

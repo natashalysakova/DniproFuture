@@ -1,19 +1,46 @@
-﻿@model DniproFuture.Models.NeedHelp
+﻿@using System.Diagnostics
+@using DniproFuture.Models
+@model DniproFuture.Models.NeedHelp
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Подробности";
     Layout = "../Shared/_AdminLayout.cshtml";
 }
 <div class="container customContainer">
 
-    <h2>Details</h2>
-
+    <h2>Подробности</h2>
     <div>
-        <h4>NeedHelp</h4>
         <hr />
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.Sum)
+                ФИО
+            </dt>
+            @foreach (NeedHelpLocalSet local in Model.NeedHelpLocalSet)
+            {
+                <dd>@string.Format("{0} {1} {2}", local.FirstName, local.Patronymic, local.LastName) - @local.Language.LanguageCode</dd>
+            }
+            <hr />
+
+            <dt>
+                Адрес
+            </dt>
+            @foreach (NeedHelpLocalSet local in Model.NeedHelpLocalSet)
+            {
+                <dd>@local.Address - @local.Language.LanguageCode</dd>
+            }
+            <hr />
+
+            <dt>
+                Информация
+            </dt>
+            @foreach (NeedHelpLocalSet local in Model.NeedHelpLocalSet)
+            {
+                <dd>@local.About - @local.Language.LanguageCode</dd>
+                <hr />
+            }
+
+            <dt>
+                Собрано
             </dt>
 
             <dd>
@@ -21,7 +48,7 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.NeedSum)
+                Нужно
             </dt>
 
             <dd>
@@ -29,49 +56,43 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.Photos)
+                Дата рождения
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Photos)
+                @Model.Birthday.ToShortDateString()
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.Done)
+                Дата начала сбора
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Done)
+                @Model.StartDate.ToShortDateString()
             </dd>
 
+            @if (Model.FinishDate.HasValue)
+            {
+                <dt>
+                    Дата окончания сбора
+                </dt>
+
+                <dd>
+                    @Model.FinishDate.Value.ToShortDateString()
+                </dd>
+            }
             <dt>
-                @Html.DisplayNameFor(model => model.Birthday)
+                Фото
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Birthday)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.StartDate)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.StartDate)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.FinishDate)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.FinishDate)
+                @*TODO: Add gallery here*@
             </dd>
 
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Редактировать", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("На предыдущую страницу", "Index")
     </p>
 </div>

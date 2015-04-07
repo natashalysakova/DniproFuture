@@ -16,18 +16,18 @@ namespace DniproFuture.Models
     {
         public NeedHelp()
         {
-            this.NeedHelpLocal = new HashSet<NeedHelpLocal>();
+            this.NeedHelpLocalSet = new HashSet<NeedHelpLocalSet>();
         }
     
         public int Id { get; set; }
         public int Sum { get; set; }
         public int NeedSum { get; set; }
         public string Photos { get; set; }
-        public bool Done { get; set; }
         public System.DateTime Birthday { get; set; }
         public System.DateTime StartDate { get; set; }
+        public bool Done { get; set; }
         public Nullable<System.DateTime> FinishDate { get; set; }
     
-        public virtual ICollection<NeedHelpLocal> NeedHelpLocal { get; set; }
+        public virtual ICollection<NeedHelpLocalSet> NeedHelpLocalSet { get; set; }
     }
 }

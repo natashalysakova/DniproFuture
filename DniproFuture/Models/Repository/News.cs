@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using DniproFuture.Models.InputModels;
@@ -24,7 +27,10 @@ namespace DniproFuture.Models.Repository
                 return model;
             }
 
-            return new NewsOutputModel[lastNews.Count];
+            if(count == NewsCountEnum.Few)
+                return new NewsOutputModel[NewsCount];
+
+            return new NewsOutputModel[0];
         }
 
         internal List<News> GetListOfNews()
@@ -39,7 +45,7 @@ namespace DniproFuture.Models.Repository
 
         public void AddNews(NewsInputModel news)
         {
-            news.NewsInfo.NewsLocal = news.Locals;
+            news.NewsInfo.NewsLocalSet = news.Locals;
 
             foreach (var helpLocal in news.Locals)
             {
@@ -54,13 +60,58 @@ namespace DniproFuture.Models.Repository
 
         public void EditNews(News news)
         {
-            _dbContext.Entry(news).State = EntityState.Modified;
-            _dbContext.SaveChanges();
+            News notModified = FindInNewsById(news.Id);
+
+
+            for (int i = 0; i < notModified.NewsLocalSet.Count; i++)
+            {
+                var localNotModify = notModified.NewsLocalSet.ElementAt(i);
+                var localModify = news.NewsLocalSet.ElementAt(i);
+
+                localNotModify.Title = localModify.Title;
+                localNotModify.Text = localModify.Text;
+            }
+
+            notModified.Date = news.Date;
+
+            try
+            {
+                _dbContext.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Debug.WriteLine("- Property: \"{0}\", Error: \"{1}\"", ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+            }
         }
 
-        public void RemoveNewsById(int id)
+        public void RemoveNewsById(int id, string path)
         {
             var news = _dbContext.News.Find(id);
+
+            for (int i = news.NewsLocalSet.Count - 1; i >= 0; i--)
+            {
+                NewsLocalSet local = news.NewsLocalSet.ElementAt(i);
+                _dbContext.Entry(local).State = EntityState.Deleted;
+            }
+
+            List<string> photos = news.Images.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            foreach (string s in photos)
+            {
+                string fullPath = Path.Combine(path, s);
+                if (System.IO.File.Exists(fullPath))
+                {
+                    System.IO.File.Delete(fullPath);
+                }
+            }
+
             _dbContext.News.Remove(news);
             _dbContext.SaveChanges();
         }
@@ -76,7 +127,7 @@ namespace DniproFuture.Models.Repository
             var newsEntity = FindInNewsById(id);
             NewsOutputModel model;
 
-            var news = (from local in newsEntity.NewsLocal
+            var news = (from local in newsEntity.NewsLocalSet
                 where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
                 select new {local.Title, local.Text, local.NewsId}).FirstOrDefault();
             if (news != null)

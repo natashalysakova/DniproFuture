@@ -13,7 +13,7 @@ namespace DniproFuture.Models.Repository
         private const int NewsCount = 3;
         private const int PartnersCount = 4;
         private const int DonationCount = 3;
-        private readonly DniproFuture_siteEntities _dbContext = new DniproFuture_siteEntities();
+        private readonly uh357966_dbEntities _dbContext = new uh357966_dbEntities();
 
         public void Dispose()
         {

@@ -13,7 +13,7 @@ namespace DniproFuture.Controllers
     [Authorize]
     public class ProjectsController : Controller
     {
-        private DniproFuture_siteEntities db = new DniproFuture_siteEntities();
+        private uh357966_dbEntities db = new uh357966_dbEntities();
 
         // GET: Projects
         public ActionResult Index()

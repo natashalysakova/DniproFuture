@@ -19,7 +19,7 @@ namespace DniproFuture.Models.Repository
                 select new
                 {
                     p.Logo,
-                    Title = (from local in p.PartnersLocal
+                    Title = (from local in p.PartnersLocalSet
                         where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
                         select local.Name).FirstOrDefault(),
                     p.Link
@@ -53,7 +53,7 @@ namespace DniproFuture.Models.Repository
 
         internal void AddPartner(PartnersInputModel partners)
         {
-            partners.MainInfo.PartnersLocal = partners.LocalInfo;
+            partners.MainInfo.PartnersLocalSet = partners.LocalInfo;
 
             foreach (var helpLocal in partners.LocalInfo)
             {

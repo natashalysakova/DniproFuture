@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -56,9 +57,11 @@ namespace DniproFuture.Controllers
                 {
                     if (photo != null)
                     {
+                        string[] splited = photo.FileName.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+                        string extention = splited.Last();
                         var filename =
-                            Path.GetRandomFileName().Split(new[] {'.'}, StringSplitOptions.RemoveEmptyEntries)[0] + "." +
-                            photo.FileName.Split(new[] {'.'}, StringSplitOptions.RemoveEmptyEntries)[1];
+                            Path.GetRandomFileName().Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[0] + "." +
+                            extention;
                         var path = Path.Combine(Server.MapPath("~/Content/img/News"), filename);
 
 
@@ -82,7 +85,11 @@ namespace DniproFuture.Controllers
                     }
                 }
 
-                news.NewsInfo.Images = String.Join(";", photosList);
+                if (photosList.Count > 0)
+                    news.NewsInfo.Images = String.Join(";", photosList);
+                else
+                    news.NewsInfo.Images = String.Empty;
+
                 _repository.AddNews(news);
                 return RedirectToAction("Index");
             }
@@ -103,6 +110,8 @@ namespace DniproFuture.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.Languages = _repository.GetLanguagesList();
             return View(news);
         }
 
@@ -111,13 +120,15 @@ namespace DniproFuture.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Images,Date")] News news)
+        public ActionResult Edit(News news)
         {
             if (ModelState.IsValid)
             {
                 _repository.EditNews(news);
                 return RedirectToAction("Index");
             }
+
+            ViewBag.Languages = _repository.GetLanguagesList();
             return View(news);
         }
 
@@ -141,7 +152,8 @@ namespace DniproFuture.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            _repository.RemoveNewsById(id);
+            string fullPath = Request.MapPath("~/Content/img/News");
+            _repository.RemoveNewsById(id, fullPath);
             return RedirectToAction("Index");
         }
 

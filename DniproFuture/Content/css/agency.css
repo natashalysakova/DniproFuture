@@ -1174,3 +1174,11 @@ footer {
         margin: auto;
     }
 }
+
+
+.carousel-indicators .active {
+    background-color: rgb(243, 164, 0);
+}
+.carousel-indicators li {
+    border: 1px solid #F3A400;
+}

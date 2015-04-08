@@ -16,13 +16,13 @@ namespace DniproFuture.Models
     {
         public News()
         {
-            this.NewsLocal = new HashSet<NewsLocal>();
+            this.NewsLocalSet = new HashSet<NewsLocalSet>();
         }
     
         public int Id { get; set; }
         public string Images { get; set; }
         public System.DateTime Date { get; set; }
     
-        public virtual ICollection<NewsLocal> NewsLocal { get; set; }
+        public virtual ICollection<NewsLocalSet> NewsLocalSet { get; set; }
     }
 }

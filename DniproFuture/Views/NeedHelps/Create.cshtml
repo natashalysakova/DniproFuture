@@ -4,94 +4,66 @@
     Layout = "../Shared/_AdminLayout.cshtml";
 }
 <div class="container customContainer">
-    <h2>Create</h2>
-    @using (Html.BeginForm("Create", "NeedHelps", FormMethod.Post, new {@enctype = "multipart/form-data"}))
+    <h2>Добавить нуждающегося</h2>
+    @using (Html.BeginForm("Create", "NeedHelps", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>NeedHelp</h4>
-            <hr/>
-            @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
             @for (int i = 0; i < ViewBag.Languages.Count; i++)
             {
-                <div class="form-group">
-                    @Html.LabelFor(model => model.WhoNeed[i].Language.LanguageCode, htmlAttributes: new {@class = "control-label col-md-2"})
-                    <div class="col-md-10">
-
-                        @Html.EditorFor(model => model.WhoNeed[i].Language.LanguageCode, new {htmlAttributes = new {@class = "form-control", @Value = ViewBag.Languages[i].LanguageCode}})
+                <div class="form-group ">
+                    <label class="control-label col-md-2 col-md-offset-1">@ViewBag.Languages[i].LanguageCode</label>
+                    <div class="col-md-10 hidden">
+                        @Html.EditorFor(model => model.WhoNeed[i].Language.LanguageCode, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.Languages[i].LanguageCode } })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.WhoNeed[i].FirstName, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <label class="control-label col-md-2">Имя</label>
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.WhoNeed[i].FirstName, new {htmlAttributes = new {@class = "form-control"}})
-                        @Html.ValidationMessageFor(model => model.WhoNeed[i].FirstName, "", new {@class = "text-danger"})
+                        @Html.EditorFor(model => model.WhoNeed[i].FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.WhoNeed[i].FirstName, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.WhoNeed[i].LastName, htmlAttributes: new {@class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.WhoNeed[i].LastName, new {htmlAttributes = new {@class = "form-control"}})
-                        @Html.ValidationMessageFor(model => model.WhoNeed[i].LastName, "", new {@class = "text-danger"})
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.WhoNeed[i].Patronymic, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <label class="control-label col-md-2">Отчество</label>
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.WhoNeed[i].Patronymic, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.WhoNeed[i].Patronymic, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.WhoNeed[i].Address, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <label class="control-label col-md-2">Фамилия</label>
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.WhoNeed[i].Address, new {htmlAttributes = new {@class = "form-control"}})
-                        @Html.ValidationMessageFor(model => model.WhoNeed[i].Address, "", new {@class = "text-danger"})
+                        @Html.EditorFor(model => model.WhoNeed[i].LastName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.WhoNeed[i].LastName, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.WhoNeed[i].About, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <label class="control-label col-md-2">Адресс</label>
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.WhoNeed[i].About, new {htmlAttributes = new {@class = "form-control"}})
-                        @Html.ValidationMessageFor(model => model.WhoNeed[i].About, "", new {@class = "text-danger"})
+                        @Html.EditorFor(model => model.WhoNeed[i].Address, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.WhoNeed[i].Address, "", new { @class = "text-danger" })
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Информация</label>
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.WhoNeed[i].About, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.WhoNeed[i].About, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <hr />
             }
 
-
-
             <div class="form-group">
-                @Html.LabelFor(model => model.WhatNeed.Sum, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.WhatNeed.Sum, new {htmlAttributes = new {@class = "form-control"}})
-                    @Html.ValidationMessageFor(model => model.WhatNeed.Sum, "", new {@class = "text-danger"})
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.WhatNeed.NeedSum, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.WhatNeed.NeedSum, new {htmlAttributes = new {@class = "form-control"}})
-                    @Html.ValidationMessageFor(model => model.WhatNeed.NeedSum, "", new {@class = "text-danger"})
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.WhatNeed.Done, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-10">
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.WhatNeed.Done)
-                        @Html.ValidationMessageFor(model => model.WhatNeed.Done, "", new {@class = "text-danger"})
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.WhatNeed.Birthday, htmlAttributes: new {@class = "control-label col-md-2"})
+                <label class="control-label col-md-2">Дата рождения</label>
                 <div class="col-md-10">
                     <div class='input-group date' id='datetimepickerBirthday'>
                         <input type='text' class="form-control" name="WhatNeed.Birthday" />
@@ -99,15 +71,40 @@
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                     </div>
-                    @Html.ValidationMessageFor(model => model.WhatNeed.Birthday, "", new {@class = "text-danger"})
+                    @Html.ValidationMessageFor(model => model.WhatNeed.Birthday, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Нужно собрать</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.WhatNeed.NeedSum, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.WhatNeed.NeedSum, "", new { @class = "text-danger" })
                 </div>
             </div>
 
 
+            <div class="form-group">
+                <label class="control-label col-md-2">Собрано</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.WhatNeed.Sum, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.WhatNeed.Sum, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
 
             <div class="form-group">
-                @Html.LabelFor(model => model.WhatNeed.StartDate, htmlAttributes: new {@class = "control-label col-md-2"})
+                <label class="control-label col-md-2">Сбор закончен?</label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.WhatNeed.Done)
+                        @Html.ValidationMessageFor(model => model.WhatNeed.Done, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Дата начала сбора</label>
                 <div class="col-md-10">
                     <div class='input-group date' id='datetimepickerStartDate'>
                         <input type='text' class="form-control" name="WhatNeed.StartDate" />
@@ -115,12 +112,12 @@
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                     </div>
-                    @Html.ValidationMessageFor(model => model.WhatNeed.StartDate, "", new {@class = "text-danger"})
+                    @Html.ValidationMessageFor(model => model.WhatNeed.StartDate, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.WhatNeed.FinishDate, htmlAttributes: new {@class = "control-label col-md-2"})
+                <label class="control-label col-md-2">Дата окончания сбора</label>
                 <div class="col-md-10">
                     <div class='input-group date' id='datetimepickerFinishDate'>
                         <input type='text' class="form-control" name="WhatNeed.FinishDate" />
@@ -128,26 +125,26 @@
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                     </div>
-                    @Html.ValidationMessageFor(model => model.WhatNeed.FinishDate, "", new {@class = "text-danger"})
+                    @Html.ValidationMessageFor(model => model.WhatNeed.FinishDate, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.WhatNeed.Photos, htmlAttributes: new {@class = "control-label col-md-2"})
+                <label class="control-label col-md-2">Информация</label>
                 <div class="col-md-10">
-                    <input accept="image/*" id="Photos" multiple="multiple" name="photos" type="file"/>
+                    <input accept="image/*" id="Photos" multiple="multiple" name="photos" type="file" />
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default"/>
+                    <input type="submit" value="Добавить" class="btn btn-default" />
                 </div>
             </div>
         </div>
     }
 
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("На предыдущую страницу", "Index")
     </div>
 </div>

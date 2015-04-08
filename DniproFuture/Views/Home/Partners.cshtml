@@ -1,4 +1,6 @@
-﻿@using DniproFuture.Models.OutputModels
+﻿@using System.Web.UI.WebControls
+@using DniproFuture.Models
+@using DniproFuture.Models.OutputModels
 @model PartnersModel
 <!-- Partners Section -->
 <section id="partners" class="portfolio">
@@ -12,14 +14,15 @@
             @foreach (PartnersOutputModel partners in Model.RandomPartners)
             {
                 <div class="col-md-3 col-sm-6 portfolio-item">
-                    <img src="@Url.Content("~/Content/img/Partners/" + partners.Logo)" class="img-responsive text-muted" alt="">
+                    <img src="@Url.Content("~/Content/img/Partners/" + partners.Logo)" class="img-responsive text-muted  partner-member" alt="">
                     <div class="portfolio-caption">
-                        <h4>@partners.Title</h4>
+                        <a href="@partners.Link"><h4>@partners.Title</h4></a>
                     </div>
-                </div>
 
+                </div>
             }
         </div>
+
         <div class="row text-center">
             <div class="portfolio-link btn btn-xl" data-toggle="modal" href="#PartnersModal">
                 @ViewRes._HomeStrings.PartnersAll
@@ -43,25 +46,22 @@
                     <!-- All Partners Go Here -->
                     <h2>@ViewRes._HomeStrings.PartnersAll</h2>
                     <!--<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>-->
-                    @for (int i = 0; i < Model.AllPartners.Length; i+=4)
+                    @for (int i = 0; i < Model.AllPartners.Length; i += 4)
                     {
                         <div class="row">
                             @for (int j = 0; j < 4; j++)
                             {
-                                PartnersOutputModel partners = Model.AllPartners[i + j];
-                                if (partners != null)
+                                if (i + j < Model.AllPartners.Length)
                                 {
-                                    <div class="col-md-3 col-sm-6 portfolio-item">
-                                        <div class="portfolio-hover">
-                                            <div class="portfolio-hover-content">
-                                                <i class="fa fa-plus fa-3x"></i>
-                                            </div>
-                                        </div>
-                                        <img src="@Url.Content("~/Content/img/Partners/" + partners.Logo)" class="img-responsive" alt="">
-                                        <div class="portfolio-caption">
-                                            <h4>@partners.Title</h4>
-                                        </div>
-                                    </div>
+                                    <a href="@Model.AllPartners[i+j].Link">
+                                        <div class="col-md-3 col-sm-6 portfolio-item">
+                                            <img class="img-responsive partner-member" src="@Url.Content("~/Content/img/Partners/" + Model.AllPartners[i+j].Logo)" alt="">
+                                                <div class="portfolio-caption">
+                                                    <h4>@Model.AllPartners[i + j].Title</h4>
+
+                                                </div>
+</div>
+                                    </a>
                                 }
                             }
                         </div>

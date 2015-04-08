@@ -1047,6 +1047,15 @@ footer {
         right: 190px;
         top: 0;
     }
+
+    .team-member img {
+        width: 50%;
+    }
+
+    img.partner-member {
+        width: 50%;
+        margin: auto;
+    }
 }
 
 @media(max-width:500px) {
@@ -1141,6 +1150,8 @@ footer {
         width: 400px;
         margin: auto;
     }
+
+    
 }
 
 @media(max-width:500px) {
@@ -1162,4 +1173,12 @@ footer {
         width: 250px;
         margin: auto;
     }
+}
+
+
+.carousel-indicators .active {
+    background-color: rgb(243, 164, 0);
+}
+.carousel-indicators li {
+    border: 1px solid #F3A400;
 }

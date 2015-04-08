@@ -1,82 +1,27 @@
-﻿@model DniproFuture.Models.NeedHelp
+﻿@using System.Linq
+@using DniproFuture.Models
+@model DniproFuture.Models.NeedHelp
 
 @{
     ViewBag.Title = "Delete";
     Layout = "../Shared/_AdminLayout.cshtml";
 }
 <div class="container customContainer">
-    <h2>Delete</h2>
-
-    <h3>Are you sure you want to delete this?</h3>
+    <h3>Уверены, что хотите удалить этого человека из базы?</h3>
     <div>
-        <h4>NeedHelp</h4>
         <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Sum)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Sum)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.NeedSum)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.NeedSum)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Photos)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Photos)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Done)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Done)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Birthday)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Birthday)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.StartDate)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.StartDate)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.FinishDate)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.FinishDate)
-            </dd>
-
-        </dl>
+        @{
+            NeedHelpLocalSet local = Model.NeedHelpLocalSet.ElementAt(0);
+        }
+        <h4>@Html.Label(string.Format("{0} {1} {2}", local.FirstName, local.Patronymic, local.LastName))</h4>
 
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
 
             <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
+                <input type="submit" value="Удалить" class="btn btn-default" /> |
+                @Html.ActionLink("Вернуться назад", "Index")
             </div>
         }
     </div>

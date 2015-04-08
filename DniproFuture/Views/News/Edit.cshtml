@@ -1,4 +1,5 @@
-﻿@model DniproFuture.Models.News
+﻿@using System.Linq
+@model DniproFuture.Models.News
 @{
     Layout = "../Shared/_AdminLayout.cshtml";
 }
@@ -8,36 +9,77 @@
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>News</h4>
-            <hr/>
-            @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+            @{
+        var local = Model.NewsLocalSet.ElementAt(0);
+            }
+            <h4>@local.Title</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.Id)
 
+            @for (int i = 0; i < Model.NewsLocalSet.Count; i++)
+            {
+                <div class="form-group">
+                    <label class="control-label col-md-2 col-md-offset-1">@Model.NewsLocalSet.ElementAt(i).Language.LanguageCode</label>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Заголовок</label>
+                    <div class="col-md-10">
+                        <input aria-invalid="false" class="form-control text-box single-line valid" id="Title" name="NewsLocalSet[@i].Title" value="@Model.NewsLocalSet.ElementAt(i).Title" type="text">
+
+                        @Html.ValidationMessageFor(model => Model.NewsLocalSet.ElementAt(i).Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Текст</label>
+                    <div class="col-md-10">
+                        <textarea class="form-control" cols="20" id="Text" name="NewsLocalSet[@i].Text" rows="3">@Model.NewsLocalSet.ElementAt(i).Text</textarea>
+                        @Html.ValidationMessageFor(model => Model.NewsLocalSet.ElementAt(i).Text, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <hr>
+            }
+
+
+
             <div class="form-group">
-                @Html.LabelFor(model => model.Images, htmlAttributes: new {@class = "control-label col-md-2"})
+                <label class="control-label col-md-2">Дата окончания сбора</label>
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Images, new {htmlAttributes = new {@class = "form-control"}})
-                    @Html.ValidationMessageFor(model => model.Images, "", new {@class = "text-danger"})
+                    <div class='input-group date' id='datetimepickerNews'>
+                        <input type='text' class="form-control" name="Date" value="@Model.Date" /><span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Date, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Date, new {htmlAttributes = new {@class = "form-control"}})
-                    @Html.ValidationMessageFor(model => model.Date, "", new {@class = "text-danger"})
-                </div>
+            @* TODO: Придумать, как редактировать загруженные фотографии *@
+
+
+            @*<div class="form-group">
+            @Html.LabelFor(model => model.Images, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Images, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Images, "", new { @class = "text-danger" })
             </div>
+        </div>*@
+
+
+
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default"/>
+                    <input type="submit" value="Сохранить изменения" class="btn btn-default" />
                 </div>
             </div>
         </div>
     }
 
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("На предыдущую стрницу", "Index")
     </div>
 </div>

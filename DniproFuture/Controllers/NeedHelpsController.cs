@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DniproFuture.Models;
 using DniproFuture.Models.InputModels;
-using PagedList;
+using DniproFuture.Models.Repository;
 
 namespace DniproFuture.Controllers
 {
     [Authorize]
     public class NeedHelpsController : Controller
     {
-        readonly DniproFutureModelRepository _repository = new DniproFutureModelRepository();
-
+        private readonly DniproFutureModelRepository _repository = new DniproFutureModelRepository();
         // GET: NeedHelps1
         public ActionResult Index(int? page)
         {
@@ -34,7 +34,7 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NeedHelp needHelp = _repository.FindInNeedHelpById(id);
+            var needHelp = _repository.FindInNeedHelpById(id);
             if (needHelp == null)
             {
                 return HttpNotFound();
@@ -58,13 +58,19 @@ namespace DniproFuture.Controllers
         {
             if (ModelState.IsValid)
             {
-                List<string> photosList = new List<string>();
-                foreach (HttpPostedFileBase photo in photos)
+                var photosList = new List<string>();
+                foreach (var photo in photos)
                 {
                     if (photo != null)
                     {
-                        string filename = Path.GetRandomFileName().Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[0] + "." + photo.FileName.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[1];
+
+                        string[] splited = photo.FileName.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+                        string extention = splited.Last();
+                        var filename =
+                            Path.GetRandomFileName().Split(new[] {'.'}, StringSplitOptions.RemoveEmptyEntries)[0] + "." +
+                            extention;
                         var path = Path.Combine(Server.MapPath("~/Content/img/NeedHelp"), filename);
+                        
                         if (photosList.Count == 0)
                         {
                             photo.CropAndSave(path);
@@ -74,11 +80,15 @@ namespace DniproFuture.Controllers
                             photo.SaveAs(path);
                         }
                         photosList.Add(filename);
-
                     }
                 }
 
-                whoNeedHelp.WhatNeed.Photos = String.Join(";", photosList);
+                if(photosList.Count >0)
+                    whoNeedHelp.WhatNeed.Photos = String.Join(";", photosList);
+                else
+                {
+                    whoNeedHelp.WhatNeed.Photos = String.Empty;
+                }
 
                 _repository.AddNeedHelp(whoNeedHelp);
                 return RedirectToAction("Index");
@@ -95,11 +105,13 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NeedHelp needHelp = _repository.FindInNeedHelpById(id);
+            var needHelp = _repository.FindInNeedHelpById(id);
             if (needHelp == null)
             {
                 return HttpNotFound();
             }
+
+            ViewBag.Languages = _repository.GetLanguagesList();
             return View(needHelp);
         }
 
@@ -108,13 +120,15 @@ namespace DniproFuture.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Sum,NeedSum,Photos,Done,Birthday,StartDate,FinishDate")] NeedHelp needHelp)
+        public ActionResult Edit(NeedHelp needHelp)
         {
             if (ModelState.IsValid)
             {
                 _repository.EditNeedHelp(needHelp);
                 return RedirectToAction("Index");
             }
+
+            ViewBag.Languages = _repository.GetLanguagesList();
             return View(needHelp);
         }
 
@@ -125,7 +139,7 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NeedHelp needHelp = _repository.FindInNeedHelpById(id);
+            var needHelp = _repository.FindInNeedHelpById(id);
             if (needHelp == null)
             {
                 return HttpNotFound();
@@ -138,7 +152,8 @@ namespace DniproFuture.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            _repository.RemoveNeedHelpById(id);
+            string fullPath = Request.MapPath("~/Content/img/NeedHelp");
+            _repository.RemoveNeedHelpById(id, fullPath);
             return RedirectToAction("Index");
         }
 

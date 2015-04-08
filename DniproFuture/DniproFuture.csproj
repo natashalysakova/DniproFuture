@@ -40,6 +40,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
@@ -158,68 +159,74 @@
     <Compile Include="Controllers\PartnersController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Models\Abstract\IAuthProvider.cs" />
-    <Compile Include="Models\NewsCountEnum.cs" />
-    <Compile Include="Models\OutputModels\ClientsOutputModel.cs" />
-    <Compile Include="Models\Concrete\FormsAuthProvider.cs" />
-    <Compile Include="Models\OutputModels\ContactsOutputModel.cs" />
-    <Compile Include="Models\DniproFutureModel.Context.cs">
+    <Compile Include="Models\DateTimeExtention.cs" />
+    <Compile Include="Models\DniproFutureEntityModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DniproFutureModel.Context.tt</DependentUpon>
+      <DependentUpon>DniproFutureEntityModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DniproFutureModel.cs">
+    <Compile Include="Models\DniproFutureEntityModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+      <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DniproFutureModel.Designer.cs">
+    <Compile Include="Models\DniproFutureEntityModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DniproFutureModel.edmx</DependentUpon>
+      <DependentUpon>DniproFutureEntityModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DniproFutureModelRepository.cs" />
-    <Compile Include="Models\OutputModels\HelpNowOutputModel.cs" />
+    <Compile Include="Models\InputModels\PartnersInputModel.cs" />
     <Compile Include="Models\Language.cs">
-      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+      <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Mail.cs">
-      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+      <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OutputModels\MainPageOutputModel.cs" />
+    <Compile Include="Models\MD5Extention.cs" />
     <Compile Include="Models\NeedHelp.cs">
-      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+      <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\InputModels\NeedHelpInputModel.cs" />
-    <Compile Include="Models\NeedHelpLocal.cs">
-      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+    <Compile Include="Models\NeedHelpLocalSet.cs">
+      <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\News.cs">
-      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+      <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NewsCountEnum.cs" />
+    <Compile Include="Models\Concrete\FormsAuthProvider.cs" />
+    <Compile Include="Models\InputModels\ContactsInputModel.cs" />
+    <Compile Include="Models\NewsLocalSet.cs">
+      <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OutputModels\HelpNowOutputModel.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\OutputModels\MainPageOutputModel.cs" />
+    <Compile Include="Models\InputModels\NeedHelpInputModel.cs" />
     <Compile Include="Models\InputModels\NewsInputModel.cs" />
-    <Compile Include="Models\NewsLocal.cs">
-      <DependentUpon>DniproFutureModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\OutputModels\NewsOutputModel.cs" />
-    <Compile Include="Models\Partners.cs">
-      <DependentUpon>DniproFutureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PartnersLocal.cs">
-      <DependentUpon>DniproFutureModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\OutputModels\PartnersOutputModel.cs" />
+    <Compile Include="Models\Partners.cs">
+      <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PartnersLocalSet.cs">
+      <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Projects.cs">
-      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+      <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProjectsLocalSet.cs">
-      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+      <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Repository\General.cs" />
+    <Compile Include="Models\Repository\Mail.cs" />
+    <Compile Include="Models\Repository\NeedHelp.cs" />
+    <Compile Include="Models\Repository\News.cs" />
+    <Compile Include="Models\Repository\Partners.cs" />
     <Compile Include="Models\User.cs">
-      <DependentUpon>DniproFutureModel.tt</DependentUpon>
+      <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Views\Home\_HomeStrings.Designer.cs">
@@ -254,10 +261,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\DniproFuture_site.mdf" />
-    <Content Include="App_Data\DniproFuture_site_log.ldf">
-      <DependentUpon>DniproFuture_site.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\css\bootstrap-datetimepicker.css" />
     <Content Include="Content\css\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\css\agency.css" />
@@ -291,6 +294,9 @@
     <Content Include="Content\img\logos\themeforest.jpg" />
     <Content Include="Content\img\logos\wordpress.jpg" />
     <Content Include="Content\img\map-image.png" />
+    <Content Include="Content\img\NeedHelp\empty.html" />
+    <Content Include="Content\img\News\empty.html" />
+    <Content Include="Content\img\Partners\empty.html" />
     <Content Include="Content\img\portfolio\dreams-preview.png" />
     <Content Include="Content\img\portfolio\dreams.png" />
     <Content Include="Content\img\portfolio\escape-preview.png" />
@@ -303,6 +309,7 @@
     <Content Include="Content\img\portfolio\startup-framework.png" />
     <Content Include="Content\img\portfolio\treehouse-preview.png" />
     <Content Include="Content\img\portfolio\treehouse.png" />
+    <Content Include="Content\img\Projects\empty.html" />
     <Content Include="Content\img\team\1.jpg" />
     <Content Include="Content\img\team\2.jpg" />
     <Content Include="Content\img\team\3.jpg" />
@@ -381,26 +388,27 @@
     <Content Include="Content\fonts\font-awesome\scss\_spinning.scss" />
     <Content Include="Content\fonts\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\fonts\font-awesome\scss\_variables.scss" />
-    <EntityDeploy Include="Models\DniproFutureModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DniproFutureModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DniproFutureModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DniproFutureModel.edmx</DependentUpon>
-      <LastGenOutput>DniproFutureModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DniproFutureModel.edmx.diagram">
-      <DependentUpon>DniproFutureModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\DniproFutureModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DniproFutureModel.edmx</DependentUpon>
-      <LastGenOutput>DniproFutureModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <EntityDeploy Include="Models\DniproFutureEntityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DniproFutureEntityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DniproFutureEntityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DniproFutureEntityModel.edmx</DependentUpon>
+      <LastGenOutput>DniproFutureEntityModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DniproFutureEntityModel.edmx.diagram">
+      <DependentUpon>DniproFutureEntityModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DniproFutureEntityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DniproFutureEntityModel.edmx</DependentUpon>
+      <LastGenOutput>DniproFutureEntityModel.cs</LastGenOutput>
+    </Content>
+    <None Include="Properties\PublishProfiles\DniproFuture.pubxml" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\admin.js" />
     <Content Include="Scripts\agency.js" />
@@ -431,7 +439,9 @@
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -492,6 +502,7 @@
     <Content Include="Views\Mails\UnreadMessage.cshtml" />
     <Content Include="Views\NeedHelps\Done.cshtml" />
     <Content Include="Views\Home\DonationInfo.cshtml" />
+    <Content Include="Views\News\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">
@@ -532,10 +543,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\img\NeedHelp\" />
-    <Folder Include="Content\img\News\" />
-    <Folder Include="Content\img\Partners\" />
-    <Folder Include="Content\img\Projects\" />
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -555,11 +563,10 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50965</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49740/</IISUrl>
+          <IISUrl>http://localhost:50965/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://dniprofuture.dp.ua</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

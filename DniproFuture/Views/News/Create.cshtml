@@ -3,35 +3,28 @@
     Layout = "../Shared/_AdminLayout.cshtml";
 }
 
-
-
-
-
-
 <div class="container customContainer">
-    <h2>Create</h2>
+    <h2>Добавление новости</h2>
     @using (Html.BeginForm("Create", "News", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>News</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
             @for (var i = 0; i < ViewBag.Languages.Count; i++)
             {
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Locals[i].Language.LanguageCode, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-
+                <div class="form-group ">
+                    <label class="control-label col-md-2 col-md-offset-1">@ViewBag.Languages[i].LanguageCode</label>
+                    <div class="col-md-10 hidden">
                         @Html.EditorFor(model => model.Locals[i].Language.LanguageCode, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.Languages[i].LanguageCode } })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Locals[i].Title, new { @class = "control-label col-md-2" })
+                    <label class="control-label col-md-2">Заголовок</label>
                     <div class="col-md-10">
 
                         @Html.EditorFor(model => model.Locals[i].Title, new { htmlAttributes = new { @class = "form-control" } })
@@ -41,47 +34,49 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Locals[i].Text, new { @class = "control-label col-md-2" })
+                    <label class="control-label col-md-2">Текст</label>
                     <div class="col-md-10">
 
-                        @Html.EditorFor(model => model.Locals[i].Text, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.TextAreaFor(model => model.Locals[i].Text, new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.Locals[i].Text)
 
 
                     </div>
                 </div>
+                <hr />
+
             }
 
 
             <div class="form-group">
-                @Html.LabelFor(model => model.NewsInfo.Images, htmlAttributes: new { @class = "control-label col-md-2" })
+                <label class="control-label col-md-2">Фото</label>
                 <div class="col-md-10">
                     <input accept="image/*" id="Images" multiple="multiple" name="images" type="file" />
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.NewsInfo.Date, htmlAttributes: new {@class = "control-label col-md-2"})
+                <label class="control-label col-md-2">Дата</label>
                 <div class="col-md-10">
                     <div class='input-group date' id='datetimepickerNews'>
-                        <input type='text' class="form-control" name="NewsInfo.Date"/>
+                        <input type='text' class="form-control" name="NewsInfo.Date" />
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                     </div>
                 </div>
-                @Html.ValidationMessageFor(model=>model.NewsInfo.Date)
+                @Html.ValidationMessageFor(model => model.NewsInfo.Date)
             </div>
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Добавить новость" class="btn btn-default" />
                 </div>
             </div>
         </div>
     }
 
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("На предыдущю страницу", "Index")
     </div>
 </div>

@@ -1,27 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
+﻿using System.Globalization;
 using System.Net;
-using System.Net.Mail;
-using System.Web;
 using System.Web.Mvc;
 using DniproFuture.Models;
+using DniproFuture.Models.InputModels;
 using DniproFuture.Models.OutputModels;
+using DniproFuture.Models.Repository;
 using PagedList;
 
 namespace DniproFuture.Controllers
 {
     public class HomeController : Controller
     {
-        DniproFutureModelRepository _repository = new DniproFutureModelRepository();
+        private readonly DniproFutureModelRepository _repository = new DniproFutureModelRepository();
         //
         // GET: /Home/
 
         public ActionResult Index()
         {
-            MainPageOutputModel model = _repository.GetMainPageModel();
+            var model = _repository.GetMainPageModel();
             return View(model);
         }
 
@@ -32,37 +28,31 @@ namespace DniproFuture.Controllers
         }
 
         [HttpPost]
-        public ActionResult Contact(ContactsOutputModel model)
+        public ActionResult Contact(ContactsInputModel model)
         {
             if (ModelState.IsValid)
             {
-                Mail mail = _repository.SendMessage(model);
+                var mail = _repository.SendMessage(model);
                 return View("Done", mail);
             }
-            else
-            {
-                return PartialView(model);
-            }
+            return PartialView(model);
         }
 
         [HttpPost]
-        public ActionResult ContactAjax(ContactsOutputModel model)
+        public ActionResult ContactAjax(ContactsInputModel model)
         {
             if (ModelState.IsValid)
             {
-                Mail mail = _repository.SendMessage(model);
+                var mail = _repository.SendMessage(model);
                 return Json(mail);
             }
-            else
-            {
-                return Json("Undone");
-            }
+            return Json("Undone");
         }
 
         [HttpPost]
         public ActionResult GetUnread()
         {
-            List<Mail> mail = _repository.GetUnreadMails();
+            var mail = _repository.GetUnreadMails();
             return Json(mail.Count);
         }
 
@@ -72,23 +62,26 @@ namespace DniproFuture.Controllers
             return PartialView("UnreadMessage", mail);
         }
 
-
         public ActionResult NeedHelpIndex(int? page)
         {
-            var products = _repository.GetQueryOfNeedHelp(); //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
+            var products = _repository.GetQueryOfNeedHelp();
+                //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
 
             var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
-            var onePageOfProducts = products.ToPagedList(pageNumber, 12); // will only contain 25 products max because of the pageSize
+            var onePageOfProducts = products.ToPagedList(pageNumber, 12);
+                // will only contain 25 products max because of the pageSize
 
             return View(onePageOfProducts);
         }
 
         public ActionResult NewsIndex(int? page)
         {
-            var news = _repository.GetQueryOfNews(); //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
+            var news = _repository.GetQueryOfNews();
+                //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
 
             var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
-            var onePageOfNews = news.ToPagedList(pageNumber, 10); // will only contain 25 products max because of the pageSize
+            var onePageOfNews = news.ToPagedList(pageNumber, 10);
+                // will only contain 25 products max because of the pageSize
 
             return View(onePageOfNews);
         }
@@ -100,14 +93,13 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HelpNowOutputModel needHelp = _repository.GetHelpNowOutputModelByClientId(id.GetValueOrDefault());
+            var needHelp = _repository.GetNeedHelpOutputModelByClientId(id.GetValueOrDefault());
             if (needHelp == null)
             {
                 return HttpNotFound();
             }
             return View(needHelp);
         }
-
 
         //public ActionResult NewsIndex()
         //{
@@ -121,7 +113,7 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NewsOutputModel news = _repository.GetNewsOutputModel(id);
+            var news = _repository.GetNewsOutputModel(id);
             if (news == null)
             {
                 return HttpNotFound();

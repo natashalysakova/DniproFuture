@@ -64,24 +64,27 @@ namespace DniproFuture.Controllers
                             extention;
                         var path = Path.Combine(Server.MapPath("~/Content/img/News"), filename);
 
-
-                        if (photosList.Count == 0)
+                        try
                         {
-                            try
+
+                            if (photosList.Count == 0)
                             {
                                 photo.CropAndSave(path);
                                 Response.Write("Done");
                             }
-                            catch (FormatException ex)
+                            else
                             {
-                                Response.Write(ex.Message);
+                                photo.SaveAs(path);
                             }
                         }
-                        else
+                        catch (FormatException ex)
                         {
-                            photo.SaveAs(path);
+                            return RedirectToAction("Error", ex);
                         }
                         photosList.Add(filename);
+
+                        //return RedirectToAction("Error", "Home", path);
+
                     }
                 }
 
@@ -156,6 +159,13 @@ namespace DniproFuture.Controllers
             _repository.RemoveNewsById(id, fullPath);
             return RedirectToAction("Index");
         }
+
+        public ActionResult Error(string ex)
+        {
+            ViewBag.Error = ex;
+            return View();
+        }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -70,6 +70,7 @@ namespace DniproFuture.Controllers
                             Path.GetRandomFileName().Split(new[] {'.'}, StringSplitOptions.RemoveEmptyEntries)[0] + "." +
                             extention;
                         var path = Path.Combine(Server.MapPath("~/Content/img/NeedHelp"), filename);
+                        
                         if (photosList.Count == 0)
                         {
                             photo.CropAndSave(path);

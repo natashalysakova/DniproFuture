@@ -294,6 +294,9 @@
     <Content Include="Content\img\logos\themeforest.jpg" />
     <Content Include="Content\img\logos\wordpress.jpg" />
     <Content Include="Content\img\map-image.png" />
+    <Content Include="Content\img\NeedHelp\empty.html" />
+    <Content Include="Content\img\News\empty.html" />
+    <Content Include="Content\img\Partners\empty.html" />
     <Content Include="Content\img\portfolio\dreams-preview.png" />
     <Content Include="Content\img\portfolio\dreams.png" />
     <Content Include="Content\img\portfolio\escape-preview.png" />
@@ -306,6 +309,7 @@
     <Content Include="Content\img\portfolio\startup-framework.png" />
     <Content Include="Content\img\portfolio\treehouse-preview.png" />
     <Content Include="Content\img\portfolio\treehouse.png" />
+    <Content Include="Content\img\Projects\empty.html" />
     <Content Include="Content\img\team\1.jpg" />
     <Content Include="Content\img\team\2.jpg" />
     <Content Include="Content\img\team\3.jpg" />
@@ -498,6 +502,7 @@
     <Content Include="Views\Mails\UnreadMessage.cshtml" />
     <Content Include="Views\NeedHelps\Done.cshtml" />
     <Content Include="Views\Home\DonationInfo.cshtml" />
+    <Content Include="Views\News\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">
@@ -539,10 +544,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\img\NeedHelp\" />
-    <Folder Include="Content\img\News\" />
-    <Folder Include="Content\img\Partners\" />
-    <Folder Include="Content\img\Projects\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -562,11 +563,10 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50965</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49740/</IISUrl>
+          <IISUrl>http://localhost:50965/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://dniprofuture.dp.ua</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

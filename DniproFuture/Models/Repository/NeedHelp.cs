@@ -13,6 +13,22 @@ namespace DniproFuture.Models.Repository
 {
     public partial class DniproFutureModelRepository
     {
+        internal NeedHelpOutputModel GetNeedHelpOutputModel(string title)
+        {
+            int id = -1;
+            foreach (NeedHelp n in _dbContext.NeedHelp)
+            {
+                foreach (NeedHelpLocalSet localSet in n.NeedHelpLocalSet)
+                {
+                    string fullName = localSet.GetFullName();
+                    if (fullName.GetStringForUrl() == title)
+                        id = n.Id;
+                }
+            }
+
+            return GetNeedHelpOutputModelByClientId(id);
+        }
+
         public NeedHelpOutputModel GetNeedHelpOutputModelByClientId(int helpNowrandomClient)
         {
             var client = (from c in _dbContext.NeedHelp where c.Id == helpNowrandomClient select c).FirstOrDefault();
@@ -20,7 +36,7 @@ namespace DniproFuture.Models.Repository
             {
                 var clientInfo = (from local in client.NeedHelpLocalSet
                     where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
-                    select new {FullName = string.Format("{0} {1}", local.FirstName, local.LastName), local.About})
+                    select new {FullName = local.GetFullName(), local.About})
                     .FirstOrDefault();
 
                 if (clientInfo != null)
@@ -41,6 +57,8 @@ namespace DniproFuture.Models.Repository
 
             return new NeedHelpOutputModel();
         }
+
+
 
         internal IQueryable<NeedHelpOutputModel> GetQueryOfNeedHelp()
         {

@@ -48,6 +48,7 @@ namespace DniproFuture.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create(NewsInputModel news, HttpPostedFileBase[] images)
         {
             if (ModelState.IsValid)
@@ -123,6 +124,7 @@ namespace DniproFuture.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit(News news)
         {
             if (ModelState.IsValid)

@@ -87,13 +87,13 @@ namespace DniproFuture.Controllers
         }
 
         // GET: NeedHelps1/Details/5
-        public ActionResult NeedHelpDetails(int? id)
+        public ActionResult NeedHelpDetails(string name)
         {
-            if (id == null)
+            if (name == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var needHelp = _repository.GetNeedHelpOutputModelByClientId(id.GetValueOrDefault());
+            var needHelp = _repository.GetNeedHelpOutputModel(name);
             if (needHelp == null)
             {
                 return HttpNotFound();
@@ -101,19 +101,15 @@ namespace DniproFuture.Controllers
             return View(needHelp);
         }
 
-        //public ActionResult NewsIndex()
-        //{
-        //    return View(_repository.GetListOfNews());
-        //}
 
         // GET: News/Details/5
-        public ActionResult NewsDetails(int? id)
+        public ActionResult NewsDetails(string title)
         {
-            if (id == null)
+            if (title == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var news = _repository.GetNewsOutputModel(id);
+            var news = _repository.GetNewsOutputModel(title);
             if (news == null)
             {
                 return HttpNotFound();

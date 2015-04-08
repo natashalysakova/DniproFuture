@@ -179,6 +179,7 @@
     <Compile Include="Models\Language.cs">
       <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LocalSetExtention.cs" />
     <Compile Include="Models\Mail.cs">
       <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
@@ -225,6 +226,7 @@
     <Compile Include="Models\Repository\NeedHelp.cs" />
     <Compile Include="Models\Repository\News.cs" />
     <Compile Include="Models\Repository\Partners.cs" />
+    <Compile Include="Models\StringExtention.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>

@@ -33,7 +33,7 @@
                         <h4 class="text-center">@help.FullName</h4>
 
                         @{ Html.RenderPartial("DonationInfo", help); }
-                        <p class="text-right"><a align="right" href="@Url.Action("NeedHelpDetails", new {id = help.Id})">@ViewRes._HomeStrings.NewsDetails</a>
+                        <p class="text-right"><a align="right" href="@Url.Action("NeedHelpDetails", "Home", new { name = help.FullName.GetStringForUrl() })">@ViewRes._HomeStrings.NewsDetails</a>
                         </p>
                     </div>
                 }

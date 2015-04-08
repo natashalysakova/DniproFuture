@@ -8,7 +8,7 @@ namespace DniproFuture.Models
 {
     public static class StringExtention
     {
-        public static string GetClearTitle(this string title)
+        public static string GetStringForUrl(this string title)
         {
             Regex pattern = new Regex("[.,!?:;-]|[\"]");
 

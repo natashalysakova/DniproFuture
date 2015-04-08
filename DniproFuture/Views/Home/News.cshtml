@@ -23,7 +23,7 @@
                                 <p class="text-muted text-justify">@Model[i].ShortText ...</p>
                                 <p class="text-muted text-left">@Model[i].Date.ToShortDateString()</p>
                                 <p class="text-right">
-                                    <a align="right" href="@Url.Action("NewsDetails", new {id = Model[i].Id})">
+                                    <a align="right" href="@Url.Action("NewsDetails", "Home", new { title=Model[i].Title.GetStringForUrl()})">
                                         @ViewRes._HomeStrings.NewsDetails
                                     </a>
                                 </p>
@@ -35,7 +35,7 @@
         </div>
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4">
-                <button type="button" class="btn btn-primary center-block btn-xl" data-dismiss="modal" onclick="location.href='@Url.Action("NewsIndex")';">@ViewRes._HomeStrings.NewsMore</button>
+                <button type="button" class="btn btn-primary center-block btn-xl" data-dismiss="modal" onclick="location.href='@Url.Action("NewsIndex", "Home")';">@ViewRes._HomeStrings.NewsMore</button>
             </div>
         </div>
     </div>

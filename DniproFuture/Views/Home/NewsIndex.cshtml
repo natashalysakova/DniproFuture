@@ -32,7 +32,7 @@
                 <div class="panel-body">
                     <div class="media">
                         <div class="media-left news-preview">
-                            <a href="@Url.Action("NewsDetails", new {id = news.Id})">
+                            <a href="@Url.Action("NewsDetails", "Home", new { title= news.Title.GetStringForUrl()})">
                                 @if (news.Photo.Count > 0)
                                 {
                                     <img class="media-object img-responsive" src="@Url.Content("~/Content/img/News/" + news.Photo[0])" alt="@news.Title" width="100%">
@@ -48,7 +48,7 @@
 
                 </div>
                 <div class="panel-footer text-right">
-                    <a align="right " href="@Url.Action("NewsDetails", new {id = news.Id})">
+                    <a align="right " href="@Url.Action("NewsDetails", "Home", new { title= news.Title.GetStringForUrl()})">
                         <div class="btn btn-default btn-lg btn-warning">@ViewRes._HomeStrings.NewsDetails</div>
                     </a>
                 </div>

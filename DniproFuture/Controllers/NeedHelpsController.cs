@@ -6,6 +6,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DniproFuture.Models;
+using DniproFuture.Models.Extentions;
 using DniproFuture.Models.InputModels;
 using DniproFuture.Models.Repository;
 
@@ -54,6 +55,8 @@ namespace DniproFuture.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
+
         public ActionResult Create(NeedHelpInputModel whoNeedHelp, HttpPostedFileBase[] photos)
         {
             if (ModelState.IsValid)
@@ -120,6 +123,8 @@ namespace DniproFuture.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
+
         public ActionResult Edit(NeedHelp needHelp)
         {
             if (ModelState.IsValid)

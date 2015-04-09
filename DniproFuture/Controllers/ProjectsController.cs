@@ -47,6 +47,8 @@ namespace DniproFuture.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
+
         public ActionResult Create([Bind(Include = "Id,Sum,NeedSum,StartDate,Done,FinishDate")] Projects projects)
         {
             if (ModelState.IsValid)
@@ -79,6 +81,8 @@ namespace DniproFuture.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
+
         public ActionResult Edit([Bind(Include = "Id,Sum,NeedSum,StartDate,Done,FinishDate")] Projects projects)
         {
             if (ModelState.IsValid)

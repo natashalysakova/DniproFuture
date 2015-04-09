@@ -86,7 +86,9 @@
             </dt>
 
             <dd>
-                @*TODO: Add gallery here*@
+                @{
+                    Html.RenderPartial("Gallery", new GalleryModel() { Photos = Model.Photos.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(), Type = GalleryType.NeedHelp });
+                }
             </dd>
 
         </dl>

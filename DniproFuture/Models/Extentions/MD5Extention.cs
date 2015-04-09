@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
 
-namespace DniproFuture.Models
+namespace DniproFuture.Models.Extentions
 {
     public static class Md5Extention
     {

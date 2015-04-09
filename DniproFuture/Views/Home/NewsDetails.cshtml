@@ -1,4 +1,5 @@
-﻿@model DniproFuture.Models.OutputModels.NewsOutputModel
+﻿@using DniproFuture.Models
+@model DniproFuture.Models.OutputModels.NewsOutputModel
 @{
     Layout = "../Shared/_OtherLayout.cshtml";
 }
@@ -18,16 +19,16 @@
                 </div>
                 @MvcHtmlString.Create(Model.Text)
             </div>
-            @if (Model.Photo.Count > 1)
-            {
-                <!--TODO: Add gallery here-->
-            }
         </div>
+        @if (Model.Photo.Count > 1)
+        {
+            Html.RenderPartial("Gallery", new GalleryModel() { Photos = Model.Photo, Type = GalleryType.News });
+        }
     </div>
     <div class="row page-header">
         <a href="@Request.UrlReferrer">
             <div type="button" class="btn btn-primary">
-                <i class="fa fa-backward"></i>Назад
+                <i class="fa fa-backward"></i>@ViewRes._HomeStrings.Back
             </div>
         </a>
     </div>

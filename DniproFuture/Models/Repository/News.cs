@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using DniproFuture.Models.Extentions;
 using DniproFuture.Models.InputModels;
 using DniproFuture.Models.OutputModels;
 
@@ -22,7 +23,7 @@ namespace DniproFuture.Models.Repository
                 var model = new NewsOutputModel[lastNews.Count];
                 for (var i = 0; i < model.Length; i++)
                 {
-                    model[i] = GetNewsOutputModel(lastNews[i].Id, shortTextLenght);
+                    model[i] = GetNewsOutputModelById(lastNews[i].Id, shortTextLenght);
                 }
                 return model;
             }
@@ -122,7 +123,23 @@ namespace DniproFuture.Models.Repository
             return model.AsQueryable();
         }
 
-        internal NewsOutputModel GetNewsOutputModel(int? id, int shortTextLenght = 256)
+        internal NewsOutputModel GetNewsOutputModel(string title)
+        {
+            int? id = null;
+            foreach (News n in _dbContext.News)
+            {
+                foreach (NewsLocalSet localSet in n.NewsLocalSet)
+                {
+                    if (localSet.Title.GetStringForUrl() == title)
+                        id = n.Id;
+                }
+            }
+
+            return GetNewsOutputModelById(id);
+        }
+
+
+        internal NewsOutputModel GetNewsOutputModelById(int? id, int shortTextLenght = 256)
         {
             var newsEntity = FindInNewsById(id);
             NewsOutputModel model;

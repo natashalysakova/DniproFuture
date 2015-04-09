@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Net.Mime;
 using System.Web;
 
-namespace DniproFuture.Controllers
+namespace DniproFuture.Models.Extentions
 {
-    public static class HttpPostedFileBaseHelper
+    public static class HttpPostedFileBaseExtention
     {
 
         public static void CropAndSave(this HttpPostedFileBase photo, string path)

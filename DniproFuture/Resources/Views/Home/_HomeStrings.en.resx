@@ -138,6 +138,9 @@ The work of our organization is dedicated to improving the living conditions of 
   <data name="About_1_Txt" xml:space="preserve">
     <value>We started to work and willing to help people!</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
   <data name="ClientsTitle" xml:space="preserve">
     <value>Whom we helped</value>
   </data>
@@ -167,6 +170,9 @@ The work of our organization is dedicated to improving the living conditions of 
   </data>
   <data name="DonationTitle" xml:space="preserve">
     <value>Fundraising</value>
+  </data>
+  <data name="Gallery" xml:space="preserve">
+    <value>Gallery</value>
   </data>
   <data name="HeaderDniproFuture" xml:space="preserve">
     <value>Dnipro's Future</value>

@@ -1,6 +1,7 @@
 ﻿@using System.Linq
 @using System.Web.Mvc.Html
 @using DniproFuture.Models
+@using DniproFuture.Models.Extentions
 @model System.Collections.Generic.IEnumerable<DniproFuture.Models.NeedHelp>
 
 @{
@@ -48,9 +49,9 @@
                     @item.StartDate.ToShortDateString()
                 </td>
                 <td>
-                    @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Подробности", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Редактировать", "Edit", new {id = item.Id}) |
+                    @Html.ActionLink("Подробности", "NeedHelpDetails", "Home", new { name = local.GetFullName().GetStringForUrl() }, null) |
+                    @Html.ActionLink("Удалить", "Delete", new {id = item.Id})
                 </td>
             </tr>
         }

@@ -37,12 +37,14 @@ namespace DniproFuture.Models.Repository
             {
                 var clientInfo = (from local in client.NeedHelpLocalSet
                     where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
-                    select new {FullName = local.GetFullName(), local.About})
+                    select new {FullName = local.GetFullName(), local.FirstName, local.LastName, local.About})
                     .FirstOrDefault();
 
                 if (clientInfo != null)
                     return new NeedHelpOutputModel
                     {
+                        FirstName = clientInfo.FirstName,
+                        LastName = clientInfo.LastName,
                         FullName = clientInfo.FullName,
                         Photos = client.Photos.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries).ToList(),
                         About = clientInfo.About,

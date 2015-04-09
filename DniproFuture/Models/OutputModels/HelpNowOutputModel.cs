@@ -6,6 +6,8 @@ namespace DniproFuture.Models.OutputModels
     public class NeedHelpOutputModel
     {
         public string FullName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public List<string> Photos { get; set; }
         public double Summ { get; set; }
         public double NeedSum { get; set; }

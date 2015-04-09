@@ -138,6 +138,9 @@
   <data name="About_1_Txt" xml:space="preserve">
     <value>Ми приступили до роботи і готові допомагати людям!</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>Назад</value>
+  </data>
   <data name="ClientsTitle" xml:space="preserve">
     <value>Кому ми допомогли</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="DonationTitle" xml:space="preserve">
     <value>Збір коштів</value>
+  </data>
+  <data name="Gallery" xml:space="preserve">
+    <value>Галерея</value>
   </data>
   <data name="HeaderDniproFuture" xml:space="preserve">
     <value>Майбутнє Дніпра</value>

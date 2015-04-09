@@ -175,6 +175,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DniproFutureEntityModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\GalleryModel.cs" />
     <Compile Include="Models\InputModels\PartnersInputModel.cs" />
     <Compile Include="Models\InputModels\ProjectInputModel.cs" />
     <Compile Include="Models\Language.cs">
@@ -669,6 +670,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
+    <Content Include="Views\Home\Gallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">
@@ -680,11 +682,13 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>_HomeStrings.Designer.cs</LastGenOutput>
       <CustomToolNamespace>ViewRes</CustomToolNamespace>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>_HomeStrings.ru.Designer.cs</LastGenOutput>
       <CustomToolNamespace>ViewRes</CustomToolNamespace>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\_Layout\_LayoutStrings.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

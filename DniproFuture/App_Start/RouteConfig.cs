@@ -14,8 +14,8 @@ namespace DniproFuture
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "event",
-                url: "event/{title}",
+                name: "news",
+                url: "news/{title}",
                 defaults: new { controller = "Home", action = "NewsDetails" }
             );
 
@@ -26,8 +26,14 @@ namespace DniproFuture
             );
 
             routes.MapRoute(
+                name: "projects",
+                url: "projects/{title}",
+                defaults: new { controller = "Home", action = "ProjectsDetails" }
+            );
+
+            routes.MapRoute(
                 name: "newsIndex",
-                url: "event",
+                url: "news",
                 defaults: new { controller = "Home", action = "NewsIndex" }
             );
 
@@ -37,6 +43,18 @@ namespace DniproFuture
                 defaults: new { controller = "Home", action = "NeedHelpIndex" }
             );
 
+            routes.MapRoute(
+                name: "projectsIndex",
+                url: "projects",
+                defaults: new { controller = "Home", action = "ProjectsIndex" }
+            );
+
+
+            routes.MapRoute(
+    name: "Admin",
+    url: "admin/{controller}/{action}/{id}",
+    defaults: new { controller = "Admin", action = "Index", id = UrlParameter.Optional }
+);
 
 
             routes.MapRoute(

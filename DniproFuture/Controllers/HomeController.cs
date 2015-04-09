@@ -65,28 +65,27 @@ namespace DniproFuture.Controllers
         public ActionResult NeedHelpIndex(int? page)
         {
             var products = _repository.GetQueryOfNeedHelp();
-                //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
-
-            var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
+            var pageNumber = page ?? 1;
             var onePageOfProducts = products.ToPagedList(pageNumber, 12);
-                // will only contain 25 products max because of the pageSize
-
             return View(onePageOfProducts);
         }
 
         public ActionResult NewsIndex(int? page)
         {
             var news = _repository.GetQueryOfNews();
-                //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
-
-            var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
+            var pageNumber = page ?? 1;
             var onePageOfNews = news.ToPagedList(pageNumber, 10);
-                // will only contain 25 products max because of the pageSize
-
             return View(onePageOfNews);
         }
 
-        // GET: NeedHelps1/Details/5
+        public ActionResult ProjectsIndex(int? page)
+        {
+            var news = _repository.GetQueryOfProjects();
+            var pageNumber = page ?? 1;
+            var onePageOfNews = news.ToPagedList(pageNumber, 10);
+            return View(onePageOfNews);
+        }
+        
         public ActionResult NeedHelpDetails(string name)
         {
             if (name == null)
@@ -101,8 +100,6 @@ namespace DniproFuture.Controllers
             return View(needHelp);
         }
 
-
-        // GET: News/Details/5
         public ActionResult NewsDetails(string title)
         {
             if (title == null)
@@ -110,6 +107,20 @@ namespace DniproFuture.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var news = _repository.GetNewsOutputModel(title);
+            if (news == null)
+            {
+                return HttpNotFound();
+            }
+            return View(news);
+        }
+
+        public ActionResult ProjectDetails(string title)
+        {
+            if (title == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var news = _repository.GetProjectOutputModel(title);
             if (news == null)
             {
                 return HttpNotFound();

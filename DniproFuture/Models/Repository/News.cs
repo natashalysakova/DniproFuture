@@ -156,7 +156,7 @@ namespace DniproFuture.Models.Repository
                     Date = newsEntity.Date,
                     Text = news.Text,
                     Id = news.NewsId,
-                    ShortText = news.Text.Length > shortTextLenght ? news.Text.Remove(shortTextLenght) : news.Text
+                    ShortText = news.Text.Length > shortTextLenght ? news.Text.GetTextWithoutTags().Remove(shortTextLenght) : news.Text.GetTextWithoutTags()
                 };
 
             }

@@ -14,5 +14,12 @@ namespace DniproFuture.Models.Extentions
 
             return s;
         }
+
+        public static string GetTextWithoutTags(this string text)
+        {
+            Regex pattern = new Regex(@"<(?!\/?(>)).*?>");
+            string result = pattern.Replace(text, string.Empty);
+            return result;
+        }
     }
 }

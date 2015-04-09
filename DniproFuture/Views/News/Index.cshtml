@@ -1,5 +1,6 @@
 ﻿@using System.Linq
 @using DniproFuture.Models
+@using DniproFuture.Models.Extentions
 @model System.Collections.Generic.IEnumerable<DniproFuture.Models.News>
 
 @{
@@ -36,7 +37,7 @@
                 </td>
                 <td>
                     @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Подробности", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Подробности", "NewsDetails", "Home", new { title = local.Title.GetStringForUrl() }, null) |
                     @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
                 </td>
             </tr>

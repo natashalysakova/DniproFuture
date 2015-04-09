@@ -639,9 +639,7 @@
     <Content Include="Views\Home\NeedHelpIndex.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\NeedHelps\Index.cshtml" />
-    <Content Include="Views\NeedHelps\Details.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\News\Details.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\AdminNavbar.cshtml" />
     <Content Include="Views\Partners\Create.cshtml" />

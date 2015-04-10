@@ -355,7 +355,7 @@ section {
 
     section h2.section-heading {
         margin-top: 0;
-        margin-bottom: 80px;
+        margin-bottom: 40px;
         font-size: 40px;
     }
 
@@ -1150,8 +1150,6 @@ footer {
         width: 400px;
         margin: auto;
     }
-
-    
 }
 
 @media(max-width:500px) {

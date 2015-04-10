@@ -36,7 +36,7 @@ namespace DniproFuture.Models.Repository
 
         internal List<News> GetListOfNews()
         {
-            return _dbContext.News.ToList();
+            return _dbContext.News.OrderByDescending(x=>x.Date).ToList();
         }
 
         internal News FindInNewsById(int? id)

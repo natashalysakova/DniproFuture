@@ -658,7 +658,7 @@ section {
 }
 
 .team-member {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -1198,4 +1198,13 @@ footer {
 
 .mail-table {
     margin-top: 20px;
+}
+
+.members{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.members img{
+    width: 100%;
 }

@@ -16,7 +16,7 @@
             {
                 if (Model[i].FullName != null)
                 {
-                    <div class="col-md-4">
+                    <div class="col-md-4 team-member">
                         <h2 class="text-center">@Model[i].FirstName<br/>@Model[i].LastName</h2>
                         @{ Html.RenderPartial("DonationInfo", Model[i]); }
                         <p class="text-right">

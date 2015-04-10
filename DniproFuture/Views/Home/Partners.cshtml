@@ -13,22 +13,26 @@
         <div class="row">
             @if (ViewBag.PartnersCount == 1)
             {
-                <div class="col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-2 text-center">
-                    <img src="@Url.Content("~/Content/img/Partners/" + Model.RandomPartners[0].Logo)" class="img-responsive text-muted  partner-member" alt="">
-                    <div class="portfolio-caption">
-                        <a href="@Model.RandomPartners[0].Link"><h4>@Model.RandomPartners[0].Title</h4></a>
-                    </div>
+                <div class="col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-2 team-member members">
+                    <a href="@Model.RandomPartners[0].Link">
+                        <img src="@Url.Content("~/Content/img/Partners/" + Model.RandomPartners[0].Logo)" class="img-responsive text-muted  partner-member img-circle" alt="">
+                        <div class="portfolio-caption">
+                            <h4>@Model.RandomPartners[0].Title</h4>
+                        </div>
+                    </a>
                 </div>
             }
             else if (ViewBag.PartnersCount == 2)
             {
                 for (int i = 0; i < 2; i++)
                 {
-                    <div class="col-md-offset-4 col-md-2 col-sm-offset-4 col-sm-2 text-center">
-                        <img src="@Url.Content("~/Content/img/Partners/" + Model.RandomPartners[i].Logo)" class="img-responsive text-muted  partner-member" alt="">
-                        <div class="portfolio-caption">
-                            <a href="@Model.RandomPartners[i].Link"><h4>@Model.RandomPartners[i].Title</h4></a>
-                        </div>
+                    <div class="col-md-offset-4 col-md-2 col-sm-offset-4 col-sm-2 team-member members">
+                        <a href="@Model.RandomPartners[i].Link">
+                            <img src="@Url.Content("~/Content/img/Partners/" + Model.RandomPartners[i].Logo)" class="img-responsive text-muted  partner-member img-circle" alt="">
+                            <div class="portfolio-caption">
+                                <h4>@Model.RandomPartners[i].Title</h4>
+                            </div>
+                        </a>
                     </div>
                 }
             }
@@ -36,11 +40,13 @@
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    <div class="col-md-offset-3 col-md-2 col-sm-offset-3 col-sm-2 text-center">
-                        <img src="@Url.Content("~/Content/img/Partners/" + Model.RandomPartners[i].Logo)" class="img-responsive text-muted  partner-member" alt="">
-                        <div class="portfolio-caption">
-                            <a href="@Model.RandomPartners[i].Link"><h4>@Model.RandomPartners[i].Title</h4></a>
-                        </div>
+                    <div class="col-md-offset-3 col-md-2 col-sm-offset-3 col-sm-2 team-member members">
+                        <a href="@Model.RandomPartners[i].Link">
+                            <img src="@Url.Content("~/Content/img/Partners/" + Model.RandomPartners[i].Logo)" class="img-responsive text-muted  partner-member img-circle" alt="">
+                            <div class="portfolio-caption">
+                                <h4>@Model.RandomPartners[i].Title</h4>
+                            </div>
+                        </a>
                     </div>
                 }
             }
@@ -48,11 +54,13 @@
             {
                 foreach (PartnersOutputModel partners in Model.RandomPartners)
                 {
-                    <div class="col-md-offset-2 col-md-2 col-sm-4 portfolio-item">
-                        <img src="@Url.Content("~/Content/img/Partners/" + partners.Logo)" class="img-responsive text-muted  partner-member" alt="">
-                        <div class="portfolio-caption">
-                            <a href="@partners.Link"><h4>@partners.Title</h4></a>
-                        </div>
+                    <div class="col-md-offset-2 col-md-2 col-sm-4 portfolio-item team-member members">
+                        <a href="@partners.Link">
+                            <img src="@Url.Content("~/Content/img/Partners/" + partners.Logo)" class="img-responsive text-muted  partner-member img-circle" alt="">
+                            <div class="portfolio-caption">
+                                <h4>@partners.Title</h4>
+                            </div>
+                        </a>
                     </div>
                 }
             }

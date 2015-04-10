@@ -21,6 +21,7 @@ namespace DniproFuture.Controllers
             var model = _repository.GetMainPageModel();
             ViewBag.ClientsCount = model.ClientsBlock.Count(x => x.FullName != null);
             ViewBag.PartnersCount = model.PartnersBlock.RandomPartners.Count(x => x.Title != null);
+            ViewBag.NewsCount = model.NewsBlock.Count(x => x.Title != null);
             return View(model);
         }
 

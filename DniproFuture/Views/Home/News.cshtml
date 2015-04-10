@@ -9,29 +9,71 @@
             </div>
         </div>
         <div class="row">
-                @for (int i = 0; i < 3; i++)
-                {
-                    if (i < Model.Length)
+            @switch ((int)ViewBag.NewsCount)
+            {
+                case 0:
+                    break;
+                case 1:
+                    <div class="col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
+                        <div class="team-member">
+                            @if (Model[0].Photo.Count > 0)
+                            {
+                                <img src="@Url.Content("~/Content/img/News/" + Model[0].Photo[0])" class="img-responsive img-circle img-preview" alt="">
+                            }
+                            <h5>@Model[0].Title</h5>
+                            <p class="text-muted text-justify">@Model[0].ShortText ...</p>
+                            <p class="text-muted text-left">@Model[0].Date.ToShortDateString()</p>
+                            <p class="text-right">
+                                <a align="right" href="@Url.Action("NewsDetails", "Home", new { title=Model[0].Title.GetStringForUrl()})">
+                                    @ViewRes._HomeStrings.NewsDetails
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    break;
+                case 2:
+                    for (int i = 0; i < 2; i++)
+                    {
+                        <div class="col-md-offset-3 col-md-3 col-lg-offset-3 col-lg-3">
+                                    <div class="team-member">
+                                        @if (Model[i].Photo.Count > 0)
+                                        {
+                                            <img src="@Url.Content("~/Content/img/News/" + Model[i].Photo[0])" class="img-responsive img-circle img-preview" alt="">
+                                        }
+                                        <h5>@Model[i].Title</h5>
+                                        <p class="text-muted text-justify">@Model[i].ShortText ...</p>
+                                        <p class="text-muted text-left">@Model[i].Date.ToShortDateString()</p>
+                                        <p class="text-right">
+                                            <a align="right" href="@Url.Action("NewsDetails", "Home", new { title=Model[i].Title.GetStringForUrl()})">
+                                                @ViewRes._HomeStrings.NewsDetails
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                    }
+                    break;
+                default:
+                    for (int i = 0; i < 3; i++)
                     {
                         <div class="col-md-4 col-lg-4">
-                            <div class="team-member">
-                                @if (Model[i].Photo.Count > 0)
-                                {
-                                    <img src="@Url.Content("~/Content/img/News/" + Model[i].Photo[0])" class="img-responsive img-circle img-preview" alt="">
-
-                                }
-                                <h5>@Model[i].Title</h5>
-                                <p class="text-muted text-justify">@Model[i].ShortText ...</p>
-                                <p class="text-muted text-left">@Model[i].Date.ToShortDateString()</p>
-                                <p class="text-right">
-                                    <a align="right" href="@Url.Action("NewsDetails", "Home", new { title=Model[i].Title.GetStringForUrl()})">
-                                        @ViewRes._HomeStrings.NewsDetails
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
+                                    <div class="team-member">
+                                        @if (Model[i].Photo.Count > 0)
+                                        {
+                                            <img src="@Url.Content("~/Content/img/News/" + Model[i].Photo[0])" class="img-responsive img-circle img-preview" alt="">
+                                        }
+                                        <h5>@Model[i].Title</h5>
+                                        <p class="text-muted text-justify">@Model[i].ShortText ...</p>
+                                        <p class="text-muted text-left">@Model[i].Date.ToShortDateString()</p>
+                                        <p class="text-right">
+                                            <a align="right" href="@Url.Action("NewsDetails", "Home", new { title=Model[i].Title.GetStringForUrl()})">
+                                                @ViewRes._HomeStrings.NewsDetails
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
                     }
-                }
+                    break;
+            }
         </div>
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4">

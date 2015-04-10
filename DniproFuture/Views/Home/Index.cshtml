@@ -13,7 +13,7 @@
     Html.RenderPartial("News", Model.NewsBlock);
     Html.RenderPartial("How");    
     Html.RenderPartial("Partners", Model.PartnersBlock);
-    if (ViewBag.Clients > 0) 
+    if (ViewBag.ClientsCount > 0) 
     {
         Html.RenderPartial("Clients", Model.ClientsBlock);
     }

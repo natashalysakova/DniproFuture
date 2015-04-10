@@ -14,7 +14,7 @@
                     <ol class="carousel-indicators">
                         @for (var i = 0; i < Model.Length; i++)
                         {
-                            if (Model[i].FullName != null)
+                            if (Model[i].FullName != null && Model[i].Photos.Count > 0)
                             {
                                 if (i == 0)
                                 {
@@ -32,7 +32,7 @@
                     <div class="carousel-inner" role="listbox">
                         @for (var i = 0; i < Model.Length; i++)
                         {
-                            if (Model[i].FullName != null)
+                            if (Model[i].FullName != null && Model[i].Photos.Count > 0)
                             {
                                 if (i == 0)
                                 {

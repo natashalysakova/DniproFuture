@@ -46,6 +46,11 @@ namespace DniproFuture.Models.Repository
             return _dbContext.Partners.ToList();
         }
 
+        internal IQueryable<Partners> GetQueryOfPartners()
+        {
+            return _dbContext.Partners.ToList().AsQueryable();
+        }
+
         internal Partners FindPartnerById(int? id)
         {
             return _dbContext.Partners.Find(id);

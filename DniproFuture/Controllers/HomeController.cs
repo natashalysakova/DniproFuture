@@ -67,7 +67,7 @@ namespace DniproFuture.Controllers
 
         public ActionResult NeedHelpIndex(int? page)
         {
-            var products = _repository.GetQueryOfNeedHelp();
+            var products = _repository.GetQueryOfNeedHelpOutputModel();
             var pageNumber = page ?? 1;
             var onePageOfProducts = products.ToPagedList(pageNumber, 12);
             return View(onePageOfProducts);

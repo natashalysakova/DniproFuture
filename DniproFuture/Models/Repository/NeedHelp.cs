@@ -63,10 +63,18 @@ namespace DniproFuture.Models.Repository
 
 
 
-        internal IQueryable<NeedHelpOutputModel> GetQueryOfNeedHelp()
+        internal IQueryable<NeedHelpOutputModel> GetQueryOfNeedHelpOutputModel()
         {
             var unsuccessClientsId = GetAllUnsuccessClients();
             var model = unsuccessClientsId.Select(GetNeedHelpOutputModelByClientId).ToList();
+            return model.AsQueryable();
+        }
+
+        internal IQueryable<NeedHelp> GetQueryOfNeedHelp()
+        {
+            var model = (from help in _dbContext.NeedHelp
+                where !help.Done
+                select help).ToList();
             return model.AsQueryable();
         }
 
@@ -135,9 +143,6 @@ namespace DniproFuture.Models.Repository
             notModified.StartDate = needHelp.StartDate;
             notModified.Sum = needHelp.Sum;
 
-            if (needHelp.Photos != notModified.Photos)
-                notModified.Photos = needHelp.Photos;
-
             _dbContext.Entry(notModified).State = EntityState.Modified;
             
 
@@ -182,9 +187,9 @@ namespace DniproFuture.Models.Repository
             _dbContext.SaveChanges();
         }
 
-        public List<NeedHelp> GetListOfDone()
+        public IQueryable<NeedHelp> GetQueryOfDone()
         {
-            return (from help in _dbContext.NeedHelp where help.Done select help).ToList();
+            return (from help in _dbContext.NeedHelp where help.Done select help).ToList().AsQueryable();
         }
 
         private List<int> GetAllSuccessClients()

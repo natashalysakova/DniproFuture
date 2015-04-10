@@ -2,7 +2,9 @@
 @using System.Web.Mvc.Html
 @using DniproFuture.Models
 @using DniproFuture.Models.Extentions
-@model System.Collections.Generic.IEnumerable<DniproFuture.Models.NeedHelp>
+@using PagedList;
+@using PagedList.Mvc
+@model IPagedList<NeedHelp>
 
 @{
     ViewBag.Title = "Нуждаются в помощи";
@@ -13,8 +15,15 @@
     <h2>@ViewBag.Title</h2>
 
     <p>
-        @Html.ActionLink("Добавить человека", "Create")
+        <div class="btn btn-warning" onclick="location.href = '@Url.Action("Create", "NeedHelps")';">Добавить человека</div>
     </p>
+
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-right">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
+    </div>
+
     <table class="table">
         <tr>
             <th>
@@ -50,11 +59,18 @@
                 </td>
                 <td>
                     @Html.ActionLink("Редактировать", "Edit", new {id = item.Id}) |
-                    @Html.ActionLink("Подробности", "NeedHelpDetails", "Home", new { name = local.GetFullName().GetStringForUrl() }, null) |
+                    @Html.ActionLink("Подробности", "NeedHelpDetails", "Home", new {name = local.GetFullName().GetStringForUrl()}, null) |
                     @Html.ActionLink("Удалить", "Delete", new {id = item.Id})
                 </td>
             </tr>
         }
 
     </table>
+
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-right">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
+    </div>
+
 </div>

@@ -5,30 +5,28 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <div class="container customContainer">
-    <h2>Create</h2>
-
+    <h2>Добавить партнера</h2>
+    <hr/>
 
     @using (Html.BeginForm("Create", "Partners", FormMethod.Post, new {@enctype = "multipart/form-data"}))
     {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>Partners</h4>
-            <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
             @for (int i = 0; i < ViewBag.Languages.Count; i++)
             {
                 <div class="form-group hidden">
-                    @Html.LabelFor(model => model.LocalInfo[i].Language.LanguageCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <label class="control-label col-md-2 col-md-offset-1">@ViewBag.Languages[i].LanguageCode</label>
                     <div class="col-md-10">
 
                         @Html.EditorFor(model => model.LocalInfo[i].Language.LanguageCode, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.Languages[i].LanguageCode } })
                     </div>
                 </div>
 
-                string localestr = "Name - " + ViewBag.Languages[i].LanguageCode;
+                string localestr = "Имя - " + ViewBag.Languages[i].LanguageCode;
                 
                 <div class="form-group">
                     @Html.Label(localestr, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -40,7 +38,7 @@
             }
 
             <div class="form-group">
-                @Html.LabelFor(model => model.MainInfo.Link, htmlAttributes: new { @class = "control-label col-md-2" })
+                <label class="control-label col-md-2">Ссылка</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.MainInfo.Link, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.MainInfo.Link, "", new { @class = "text-danger" })
@@ -48,7 +46,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.MainInfo.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <label class="control-label col-md-2">Логотип</label>
                 <div class="col-md-10">
                     <input accept="image/*" id="Logo" name="photo" type="file" />
                 </div>
@@ -56,14 +54,14 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Добавить" class="btn btn-default" />
                 </div>
             </div>
         </div>
     }
-
+    <hr/>
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("На предыдущую страницу", "Index")
     </div>
 
 </div>

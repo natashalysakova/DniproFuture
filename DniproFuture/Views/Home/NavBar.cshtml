@@ -38,9 +38,12 @@
                 <li>
                     <a class="page-scroll" href="#partners">@ViewRes._HomeStrings.NavBarPartners</a>
                 </li>
-                <li>
-                    <a class="page-scroll" href="#clients">@ViewRes._HomeStrings.NavBarClients</a>
-                </li>
+                @if(ViewBag.ClientsCount > 0)
+                { 
+                    <li>
+                        <a class="page-scroll" href="#clients">@ViewRes._HomeStrings.NavBarClients</a>
+                    </li>
+                }
                 <li>
                     <a class="page-scroll" href="#contacts">@ViewRes._HomeStrings.NavBarContacts</a>
                 </li>

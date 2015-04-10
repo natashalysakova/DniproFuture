@@ -11,18 +11,52 @@
             </div>
         </div>
         <div class="row">
-            @foreach (PartnersOutputModel partners in Model.RandomPartners)
+            @if (ViewBag.PartnersCount == 1)
             {
-                <div class="col-md-3 col-sm-6 portfolio-item">
-                    <img src="@Url.Content("~/Content/img/Partners/" + partners.Logo)" class="img-responsive text-muted  partner-member" alt="">
+                <div class="col-md-12 col-sm-12 portfolio-item text-center">
+                    <img src="@Url.Content("~/Content/img/Partners/" + Model.RandomPartners[0].Logo)" class="img-responsive text-muted  partner-member" alt="">
                     <div class="portfolio-caption">
-                        <a href="@partners.Link"><h4>@partners.Title</h4></a>
+                        <a href="@Model.RandomPartners[0].Link"><h4>@Model.RandomPartners[0].Title</h4></a>
                     </div>
-
                 </div>
             }
+            else if (ViewBag.PartnersCount == 2)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    <div class="col-md-6 col-sm-6 portfolio-item text-center">
+                        <img src="@Url.Content("~/Content/img/Partners/" + Model.RandomPartners[i].Logo)" class="img-responsive text-muted  partner-member" alt="">
+                        <div class="portfolio-caption">
+                            <a href="@Model.RandomPartners[i].Link"><h4>@Model.RandomPartners[i].Title</h4></a>
+                        </div>
+                    </div>
+                }
+            }
+            else if (ViewBag.PartnersCount == 3)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    <div class="col-md-4 col-sm-6 portfolio-item text-center">
+                        <img src="@Url.Content("~/Content/img/Partners/" + Model.RandomPartners[i].Logo)" class="img-responsive text-muted  partner-member" alt="">
+                        <div class="portfolio-caption">
+                            <a href="@Model.RandomPartners[i].Link"><h4>@Model.RandomPartners[i].Title</h4></a>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                foreach (PartnersOutputModel partners in Model.RandomPartners)
+                {
+                    <div class="col-md-3 col-sm-6 portfolio-item">
+                        <img src="@Url.Content("~/Content/img/Partners/" + partners.Logo)" class="img-responsive text-muted  partner-member" alt="">
+                        <div class="portfolio-caption">
+                            <a href="@partners.Link"><h4>@partners.Title</h4></a>
+                        </div>
+                    </div>
+                }
+            }
         </div>
-
         <div class="row text-center">
             <div class="portfolio-link btn btn-xl" data-toggle="modal" href="#PartnersModal">
                 @ViewRes._HomeStrings.PartnersAll
@@ -56,11 +90,11 @@
                                     <a href="@Model.AllPartners[i+j].Link">
                                         <div class="col-md-3 col-sm-6 portfolio-item">
                                             <img class="img-responsive partner-member" src="@Url.Content("~/Content/img/Partners/" + Model.AllPartners[i+j].Logo)" alt="">
-                                                <div class="portfolio-caption">
-                                                    <h4>@Model.AllPartners[i + j].Title</h4>
+                                            <div class="portfolio-caption">
+                                                <h4>@Model.AllPartners[i + j].Title</h4>
 
-                                                </div>
-</div>
+                                            </div>
+                                        </div>
                                     </a>
                                 }
                             }

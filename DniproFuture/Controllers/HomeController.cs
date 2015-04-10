@@ -6,6 +6,7 @@ using DniproFuture.Models.InputModels;
 using DniproFuture.Models.OutputModels;
 using DniproFuture.Models.Repository;
 using PagedList;
+using System.Linq;
 
 namespace DniproFuture.Controllers
 {
@@ -18,6 +19,8 @@ namespace DniproFuture.Controllers
         public ActionResult Index()
         {
             var model = _repository.GetMainPageModel();
+            ViewBag.ClientsCount = model.ClientsBlock.Count(x => x.FullName != null);
+            ViewBag.PartnersCount = model.PartnersBlock.RandomPartners.Count(x => x.Title != null);
             return View(model);
         }
 

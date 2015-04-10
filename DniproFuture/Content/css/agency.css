@@ -1194,3 +1194,10 @@ footer {
     background-color: #F3A400;
     border-color: #F3A400;
 }
+.hovered {
+    cursor: pointer;
+}
+
+.mail-table {
+    margin-top: 20px;
+}

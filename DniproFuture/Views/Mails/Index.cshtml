@@ -8,21 +8,23 @@
     
 </script>
 <div class="container customContainer">
-    <h2>Index</h2>
+    <h2>Входящие</h2>
 
-    <a class="page-scroll btn btn-xl" href="@Url.Action("ClearAll", "Mails")">Нахуй ВсЁ</a>
-
-
-    <table class="table">
+    <div class="btn btn-warning" onclick="location.href = '@Url.Action("ClearAll", "Mails")';">Очистить почту</div>
+    
+    <table class="table table-hover mail-table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Имя
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                E-mail
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Phone)
+                Номер телефона
+            </th>
+            <th>
+                Дата
             </th>
             <th></th>
         </tr>

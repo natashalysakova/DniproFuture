@@ -7,52 +7,35 @@
 <div class="container customContainer">
     <h2>Delete</h2>
 
-    <h3>Are you sure you want to delete this?</h3>
+    <h3>Вы уверены, что хотите удалить это сообщение?</h3>
+    <hr/>
     <div>
-        <h4>Mail</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Name)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Email)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Phone)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Phone)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Message)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Message)
-            </dd>
-
-        </dl>
-
+        <div>
+            <h4>@Model.Name</h4>
+            @if (Model.Email != null)
+            {
+                <p>
+                    <a href="mailto:@Model.Email">Ответить: @Model.Email</a>
+                </p>
+            }
+            @if (Model.Phone != null)
+            {
+                <p>
+                    <a href="tel:@Model.Phone">Позвонить: @Model.Phone</a>
+                </p>
+            }
+            <p>
+                @Model.Message
+            </p>
+        </div>
+        <hr/>
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
 
             <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
+                <input type="submit" value="Удалить" class="btn btn-danger" /> |
+                @Html.ActionLink("На предыдущую страницу", "Index")
             </div>
         }
     </div>

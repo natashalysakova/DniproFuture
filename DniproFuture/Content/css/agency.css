@@ -1182,3 +1182,15 @@ footer {
 .carousel-indicators li {
     border: 1px solid #F3A400;
 }
+
+.btn-info {
+    color: #FFF;
+    background-color: #0d4a9a;
+    border-color: #0d4a9a;
+}
+
+.btn-warning {
+    color: #FFF;
+    background-color: #F3A400;
+    border-color: #F3A400;
+}

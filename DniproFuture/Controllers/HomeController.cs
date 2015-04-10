@@ -75,7 +75,7 @@ namespace DniproFuture.Controllers
 
         public ActionResult NewsIndex(int? page)
         {
-            var news = _repository.GetQueryOfNews();
+            var news = _repository.GetQueryOfNewsOutputModel();
             var pageNumber = page ?? 1;
             var onePageOfNews = news.ToPagedList(pageNumber, 10);
             return View(onePageOfNews);

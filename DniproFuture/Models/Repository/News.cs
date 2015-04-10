@@ -117,9 +117,15 @@ namespace DniproFuture.Models.Repository
             _dbContext.SaveChanges();
         }
 
-        public IQueryable<NewsOutputModel> GetQueryOfNews()
+        public IQueryable<NewsOutputModel> GetQueryOfNewsOutputModel()
         {
             var model = GetLastNews(512, NewsCountEnum.All).ToList();
+            return model.AsQueryable();
+        }
+
+        public IQueryable<News> GetQueryOfNews()
+        {
+            var model = GetListOfNews();
             return model.AsQueryable();
         }
 

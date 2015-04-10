@@ -1,7 +1,8 @@
 ﻿@using System.Linq
 @using DniproFuture.Models
 @using DniproFuture.Models.Extentions
-@model System.Collections.Generic.IEnumerable<DniproFuture.Models.News>
+@using PagedList.Mvc
+@model PagedList.IPagedList<News>
 
 @{
     ViewBag.Title = "Index";
@@ -12,8 +13,18 @@
     <h2>Новости</h2>
 
     <p>
-        @Html.ActionLink("Добавить новость", "Create")
+        <div class="btn btn-warning" onclick=" location.href = '@Url.Action("Create", "News")'; ">
+            Добавить человека
+        </div>
     </p>
+
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-right">
+            @Html.PagedListPager(Model, page => Url.Action("NewsIndex", new { page }))
+        </div>
+    </div>
+
+
     <table class="table">
         <tr>
             <th>
@@ -36,12 +47,19 @@
                     @item.Date.ToShortDateString()
                 </td>
                 <td>
-                    @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Подробности", "NewsDetails", "Home", new { title = local.Title.GetStringForUrl() }, null) |
-                    @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Редактировать", "Edit", new {id = item.Id}) |
+                    @Html.ActionLink("Подробности", "NewsDetails", "Home", new {title = local.Title.GetStringForUrl()}, null) |
+                    @Html.ActionLink("Удалить", "Delete", new {id = item.Id})
                 </td>
             </tr>
         }
 
     </table>
+
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-right">
+            @Html.PagedListPager(Model, page => Url.Action("NewsIndex", new { page }))
+        </div>
+    </div>
+
 </div>

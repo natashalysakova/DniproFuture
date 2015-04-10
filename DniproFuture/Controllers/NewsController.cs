@@ -53,38 +53,10 @@ namespace DniproFuture.Controllers
         {
             if (ModelState.IsValid)
             {
-                var photosList = new List<string>();
-                foreach (var photo in images)
-                {
-                    if (photo != null)
-                    {
-                        string[] splited = photo.FileName.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
-                        string extention = splited.Last();
-                        var filename =
-                            Path.GetRandomFileName().Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[0] + "." +
-                            extention;
-                        var path = Path.Combine(Server.MapPath("~/Content/img/News"), filename);
+                var path = Server.MapPath("~/Content/img/News");
+                var photosList = images.GetPhotosList(path);
 
-                        if (photosList.Count == 0)
-                        {
-                            photo.CropAndSave(path);
-                            Response.Write("Done");
-                        }
-                        else
-                        {
-                            photo.SaveAs(path);
-                        }
-
-                        photosList.Add(filename);
-                    }
-                }
-
-                if(photosList.Count > 0)
-                    news.NewsInfo.Images = String.Join(";", photosList);
-                else
-                    news.NewsInfo.Images = String.Empty;
-
-                _repository.AddNews(news);
+                _repository.AddNews(news, photosList);
                 return RedirectToAction("Index");
             }
 
@@ -111,11 +83,14 @@ namespace DniproFuture.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Edit(News news)
+        public ActionResult Edit(News news, HttpPostedFileBase[] newPhotos, OldPhotoModel[] oldPhotos)
         {
             if (ModelState.IsValid)
             {
-                _repository.EditNews(news);
+                var path = Server.MapPath("~/Content/img/News");
+                var photosList = newPhotos.GetPhotosList(path, oldPhotos);
+
+                _repository.EditNews(news, photosList, oldPhotos);
                 return RedirectToAction("Index");
             }
 

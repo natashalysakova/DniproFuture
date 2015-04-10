@@ -201,6 +201,7 @@
     <Compile Include="Models\NewsLocalSet.cs">
       <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OldPhotoModel.cs" />
     <Compile Include="Models\OutputModels\HelpNowOutputModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\OutputModels\MainPageOutputModel.cs" />
@@ -670,6 +671,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Home\Gallery.cshtml" />
+    <Content Include="Views\Shared\EditorGallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">

@@ -88,7 +88,7 @@ namespace DniproFuture.Models.Repository
             return _dbContext.NeedHelp.Find(id);
         }
 
-        public void AddNeedHelp(NeedHelpInputModel needHelp)
+        public void AddNeedHelp(NeedHelpInputModel needHelp, List<string> photosList )
         {
             needHelp.WhatNeed.NeedHelpLocalSet = needHelp.WhoNeed;
 
@@ -96,6 +96,11 @@ namespace DniproFuture.Models.Repository
             {
                 helpLocal.Language = GetLanguageByCode(helpLocal.Language.LanguageCode);
             }
+
+            if (photosList.Count > 0)
+                needHelp.WhatNeed.Photos = String.Join(";", photosList);
+            else
+                needHelp.WhatNeed.Photos = String.Empty;
 
 
             _dbContext.NeedHelp.Add(needHelp.WhatNeed);
@@ -119,7 +124,7 @@ namespace DniproFuture.Models.Repository
             }
         }
 
-        internal void EditNeedHelp(NeedHelp needHelp)
+        private void EditNeedHelp(NeedHelp needHelp)
         {
             NeedHelp notModified = FindInNeedHelpById(needHelp.Id);
 
@@ -200,6 +205,36 @@ namespace DniproFuture.Models.Repository
         private List<int> GetAllUnsuccessClients()
         {
             return (from client in _dbContext.NeedHelp where !client.Done select client.Id).ToList();
+        }
+
+        public void EditNeedHelp(NeedHelp needHelp, List<string> newPhotosString, OldPhotoModel[] oldPhotos)
+        {
+            bool firsPhotoisDeleted = false;
+            for (int i = 0; i < oldPhotos.Length; i++)
+            {
+                if (i == 0)
+                {
+                    if (!oldPhotos[i].IsLeave)
+                    {
+                        firsPhotoisDeleted = true;
+                    }
+                }
+
+                if (oldPhotos[i].IsLeave)
+                {
+                    if (firsPhotoisDeleted)
+                    {
+                        newPhotosString.Add(oldPhotos[i].Path);
+                    }
+                    else
+                    {
+                        newPhotosString.Insert(0, oldPhotos[i].Path);
+                    }
+                }
+            }
+
+            needHelp.Photos = string.Join(";", newPhotosString);
+            EditNeedHelp(needHelp);
         }
     }
 }

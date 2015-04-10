@@ -68,39 +68,10 @@ namespace DniproFuture.Controllers
         {
             if (ModelState.IsValid)
             {
-                var photosList = new List<string>();
-                foreach (var photo in photos)
-                {
-                    if (photo != null)
-                    {
+                var path = Server.MapPath("~/Content/img/NeedHelp");
+                var photosList = photos.GetPhotosList(path);
 
-                        string[] splited = photo.FileName.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
-                        string extention = splited.Last();
-                        var filename =
-                            Path.GetRandomFileName().Split(new[] {'.'}, StringSplitOptions.RemoveEmptyEntries)[0] + "." +
-                            extention;
-                        var path = Path.Combine(Server.MapPath("~/Content/img/NeedHelp"), filename);
-                        
-                        if (photosList.Count == 0)
-                        {
-                            photo.CropAndSave(path);
-                        }
-                        else
-                        {
-                            photo.SaveAs(path);
-                        }
-                        photosList.Add(filename);
-                    }
-                }
-
-                if(photosList.Count >0)
-                    whoNeedHelp.WhatNeed.Photos = String.Join(";", photosList);
-                else
-                {
-                    whoNeedHelp.WhatNeed.Photos = String.Empty;
-                }
-
-                _repository.AddNeedHelp(whoNeedHelp);
+                _repository.AddNeedHelp(whoNeedHelp, photosList);
                 return RedirectToAction("Index");
             }
 
@@ -132,11 +103,14 @@ namespace DniproFuture.Controllers
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
 
-        public ActionResult Edit(NeedHelp needHelp)
+        public ActionResult Edit(NeedHelp needHelp, HttpPostedFileBase[] newPhotos, OldPhotoModel[] oldPhotos)
         {
             if (ModelState.IsValid)
             {
-                _repository.EditNeedHelp(needHelp);
+                var path = Server.MapPath("~/Content/img/NeedHelp");
+                var photosList = newPhotos.GetPhotosList(path, oldPhotos);
+
+                _repository.EditNeedHelp(needHelp, photosList, oldPhotos);
                 return RedirectToAction("Index");
             }
 

@@ -11,7 +11,7 @@
 @RenderBody()
 
 @section scripts{
-    @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/jqueryval")
 
     @Scripts.Render("~/bundles/moment")
     @Scripts.Render("~/bundles/dateTimePicker")
@@ -19,6 +19,16 @@
     @Scripts.Render("~/bundles/admin")
     @Scripts.Render("~/bundles/tinymce")
 
-    @Styles.Render("~/Content/datetimecss")
+    @Styles.Render("~/Content/datetimecss")*@
+
+        <script type="text/javascript" src="~/Scripts/moment.min.js"></script>
+<script type="text/javascript" src="~/Scripts/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/admin.js"></script>
+    <script type="text/javascript" src="~/Scripts/tinymce/tinymce.min.js"></script>
+
+<link rel="stylesheet" href="~/Content/css/bootstrap-datetimepicker.min.css" />
+
+
 
 }

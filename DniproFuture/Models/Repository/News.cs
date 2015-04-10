@@ -9,6 +9,7 @@ using System.Threading;
 using DniproFuture.Models.Extentions;
 using DniproFuture.Models.InputModels;
 using DniproFuture.Models.OutputModels;
+using Microsoft.Ajax.Utilities;
 
 namespace DniproFuture.Models.Repository
 {
@@ -28,7 +29,7 @@ namespace DniproFuture.Models.Repository
                 return model;
             }
 
-            if(count == NewsCountEnum.Few)
+            if (count == NewsCountEnum.Few)
                 return new NewsOutputModel[NewsCount];
 
             return new NewsOutputModel[0];
@@ -36,7 +37,7 @@ namespace DniproFuture.Models.Repository
 
         internal List<News> GetListOfNews()
         {
-            return _dbContext.News.OrderByDescending(x=>x.Date).ToList();
+            return _dbContext.News.OrderByDescending(x => x.Date).ToList();
         }
 
         internal News FindInNewsById(int? id)
@@ -44,7 +45,7 @@ namespace DniproFuture.Models.Repository
             return _dbContext.News.Find(id);
         }
 
-        public void AddNews(NewsInputModel news)
+        public void AddNews(NewsInputModel news, List<string> photosList)
         {
             news.NewsInfo.NewsLocalSet = news.Locals;
 
@@ -52,6 +53,12 @@ namespace DniproFuture.Models.Repository
             {
                 helpLocal.Language = GetLanguageByCode(helpLocal.Language.LanguageCode);
             }
+
+            if (photosList.Count > 0)
+                news.NewsInfo.Images = String.Join(";", photosList);
+            else
+                news.NewsInfo.Images = String.Empty;
+
 
             _dbContext.News.Add(news.NewsInfo);
             _dbContext.NewsLocalSet.AddRange(news.Locals);
@@ -74,7 +81,7 @@ namespace DniproFuture.Models.Repository
             }
 
             notModified.Date = news.Date;
-
+            notModified.Images = news.Images;
             try
             {
                 _dbContext.SaveChanges();
@@ -151,14 +158,14 @@ namespace DniproFuture.Models.Repository
             NewsOutputModel model;
 
             var news = (from local in newsEntity.NewsLocalSet
-                where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
-                select new {local.Title, local.Text, local.NewsId}).FirstOrDefault();
+                        where local.Language.LanguageCode == Thread.CurrentThread.CurrentUICulture.Name
+                        select new { local.Title, local.Text, local.NewsId }).FirstOrDefault();
             if (news != null)
             {
                 model = new NewsOutputModel
                 {
                     Title = news.Title,
-                    Photo = newsEntity.Images.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries).ToList(),
+                    Photo = newsEntity.Images.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(),
                     Date = newsEntity.Date,
                     Text = news.Text,
                     Id = news.NewsId,
@@ -172,6 +179,39 @@ namespace DniproFuture.Models.Repository
             }
 
             return model;
+        }
+
+        public void EditNews(News news, List<string> newPhotosString, OldPhotoModel[] oldPhotos)
+        {
+            bool firsPhotoisDeleted = false;
+            if (oldPhotos != null)
+            {
+                for (int i = 0; i < oldPhotos.Length; i++)
+                {
+                    if (i == 0)
+                    {
+                        if (!oldPhotos[i].IsLeave)
+                        {
+                            firsPhotoisDeleted = true;
+                        }
+                    }
+
+                    if (oldPhotos[i].IsLeave)
+                    {
+                        if (firsPhotoisDeleted)
+                        {
+                            newPhotosString.Add(oldPhotos[i].Path);
+                        }
+                        else
+                        {
+                            newPhotosString.Insert(0, oldPhotos[i].Path);
+                        }
+                    }
+                }
+            }
+
+            news.Images = string.Join(";", newPhotosString);
+            EditNews(news);
         }
     }
 }

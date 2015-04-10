@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DniproFuture.Models.InputModels;
 
@@ -14,7 +15,8 @@ namespace DniproFuture.Models.Repository
                 Message = model.Message,
                 Name = model.Name,
                 Phone = model.Phone,
-                IsRead = false
+                IsRead = false,
+                Date = DateTime.Now
             };
 
             _dbContext.Mail.Add(newMail);

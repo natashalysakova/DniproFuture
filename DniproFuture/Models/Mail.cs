@@ -20,5 +20,6 @@ namespace DniproFuture.Models
         public string Phone { get; set; }
         public string Message { get; set; }
         public Nullable<bool> IsRead { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
     }
 }

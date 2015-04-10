@@ -44,7 +44,7 @@ namespace DniproFuture.Models.Repository
                 {
                     var index = random.Next(0, successClientsId.Count);
                     model.ClientsBlock[i] = GetNeedHelpOutputModelByClientId(successClientsId[index]);
-                    successClientsId.Remove(index);
+                    successClientsId.Remove(successClientsId[index]);
                 }
             }
 

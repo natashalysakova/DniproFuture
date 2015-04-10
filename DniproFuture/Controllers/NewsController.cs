@@ -9,6 +9,7 @@ using DniproFuture.Models;
 using DniproFuture.Models.Extentions;
 using DniproFuture.Models.InputModels;
 using DniproFuture.Models.Repository;
+using PagedList;
 
 namespace DniproFuture.Controllers
 {
@@ -17,9 +18,12 @@ namespace DniproFuture.Controllers
     {
         private readonly DniproFutureModelRepository _repository = new DniproFutureModelRepository();
 
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(_repository.GetListOfNews());
+            var news = _repository.GetQueryOfNews();
+            int pageNumber = page ?? 1;
+            var onePageView = news.ToPagedList(pageNumber, 25);
+            return View(onePageView);
         }
 
         public ActionResult Details(int? id)

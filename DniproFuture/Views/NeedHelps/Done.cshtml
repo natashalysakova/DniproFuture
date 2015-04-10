@@ -1,63 +1,67 @@
-﻿@model System.Collections.Generic.IEnumerable<DniproFuture.Models.NeedHelp>
+﻿@using DniproFuture.Models
+@using DniproFuture.Models.Extentions
+@using PagedList.Mvc
+@model PagedList.IPagedList<DniproFuture.Models.NeedHelp>
 
 @{
-    ViewBag.Title = "Done";
+    ViewBag.Title = "Мы помогли";
     Layout = "../Shared/_AdminLayout.cshtml";
 }
 <div class="container customContainer">
+    
+    <h2>@ViewBag.Title</h2>
 
-    <h2>View</h2>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-right">
+            @Html.PagedListPager(Model, page => Url.Action("NewsIndex", new {page}))
+        </div>
+    </div>
+
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Sum)
+                ФИО
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NeedSum)
+                Собрано
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Photos)
+                Дата окончания сбора
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Birthday)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FinishDate)
-            </th>
+
             <th></th>
         </tr>
 
         @foreach (var item in Model)
         {
+            NeedHelpLocalSet local = item.NeedHelpLocalSet.ElementAt(0);
             <tr>
+                <td>
+                    @Html.Label(string.Format("{0} {1} {2}", local.FirstName, local.Patronymic, local.LastName))
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Sum)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.NeedSum)
+                    @if (item.FinishDate != null)
+                    {
+                        @item.FinishDate.Value.ToShortDateString()
+                    }
                 </td>
+
                 <td>
-                    @Html.DisplayFor(modelItem => item.Photos)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Birthday)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StartDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FinishDate)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Редактировать", "Edit", new {id = item.Id}) |
+                    @Html.ActionLink("Подробности", "NeedHelpDetails", "Home", new {name = local.GetFullName().GetStringForUrl()}, null) |
+                    @Html.ActionLink("Удалить", "Delete", new {id = item.Id})
                 </td>
             </tr>
         }
 
     </table>
+
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-right">
+            @Html.PagedListPager(Model, page => Url.Action("NewsIndex", new {page}))
+        </div>
+    </div>
 </div>

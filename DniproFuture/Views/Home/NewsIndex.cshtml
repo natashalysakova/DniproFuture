@@ -16,13 +16,11 @@
             <h3 class="section-subheading text-muted">@ViewRes._HomeStrings.NewsSubTitle</h3>
         </div>
     </div>
-
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 text-right">
             @Html.PagedListPager(Model, page => Url.Action("NewsIndex", new { page }))
         </div>
     </div>
-
     @foreach (NewsOutputModel news in Model)
     {
         <div class="row">
@@ -45,8 +43,6 @@
                             @news.ShortText...
                         </div>
                     </div>
-
-
                 </div>
                 <div class="panel-footer text-right">
                     <a align="right " href="@Url.Action("NewsDetails", "Home", new { title= news.Title.GetStringForUrl()})">
@@ -55,12 +51,10 @@
                 </div>
             </div>
         </div>
-
     }
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 text-right">
             @Html.PagedListPager(Model, page => Url.Action("NewsIndex", new { page }))
         </div>
     </div>
-
 </div>

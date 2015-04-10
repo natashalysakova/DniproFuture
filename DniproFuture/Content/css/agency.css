@@ -355,7 +355,7 @@ section {
 
     section h2.section-heading {
         margin-top: 0;
-        margin-bottom: 80px;
+        margin-bottom: 40px;
         font-size: 40px;
     }
 
@@ -1150,8 +1150,6 @@ footer {
         width: 400px;
         margin: auto;
     }
-
-    
 }
 
 @media(max-width:500px) {
@@ -1181,4 +1179,23 @@ footer {
 }
 .carousel-indicators li {
     border: 1px solid #F3A400;
+}
+
+.btn-info {
+    color: #FFF;
+    background-color: #0d4a9a;
+    border-color: #0d4a9a;
+}
+
+.btn-warning {
+    color: #FFF;
+    background-color: #F3A400;
+    border-color: #F3A400;
+}
+.hovered {
+    cursor: pointer;
+}
+
+.mail-table {
+    margin-top: 20px;
 }

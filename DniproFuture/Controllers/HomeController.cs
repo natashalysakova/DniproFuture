@@ -6,6 +6,7 @@ using DniproFuture.Models.InputModels;
 using DniproFuture.Models.OutputModels;
 using DniproFuture.Models.Repository;
 using PagedList;
+using System.Linq;
 
 namespace DniproFuture.Controllers
 {
@@ -18,6 +19,9 @@ namespace DniproFuture.Controllers
         public ActionResult Index()
         {
             var model = _repository.GetMainPageModel();
+            ViewBag.ClientsCount = model.ClientsBlock.Count(x => x.FullName != null);
+            ViewBag.PartnersCount = model.PartnersBlock.RandomPartners.Count(x => x.Title != null);
+            ViewBag.NewsCount = model.NewsBlock.Count(x => x.Title != null);
             return View(model);
         }
 
@@ -64,7 +68,7 @@ namespace DniproFuture.Controllers
 
         public ActionResult NeedHelpIndex(int? page)
         {
-            var products = _repository.GetQueryOfNeedHelp();
+            var products = _repository.GetQueryOfNeedHelpOutputModel();
             var pageNumber = page ?? 1;
             var onePageOfProducts = products.ToPagedList(pageNumber, 12);
             return View(onePageOfProducts);
@@ -72,7 +76,7 @@ namespace DniproFuture.Controllers
 
         public ActionResult NewsIndex(int? page)
         {
-            var news = _repository.GetQueryOfNews();
+            var news = _repository.GetQueryOfNewsOutputModel();
             var pageNumber = page ?? 1;
             var onePageOfNews = news.ToPagedList(pageNumber, 10);
             return View(onePageOfNews);

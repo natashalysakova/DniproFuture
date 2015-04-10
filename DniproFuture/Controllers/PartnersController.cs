@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using DniproFuture.Models;
 using DniproFuture.Models.InputModels;
 using DniproFuture.Models.Repository;
+using PagedList;
 
 namespace DniproFuture.Controllers
 {
@@ -19,9 +20,12 @@ namespace DniproFuture.Controllers
         private DniproFutureModelRepository _repository = new DniproFutureModelRepository();
 
         // GET: Partners
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(_repository.GetListOfPartners());
+            var partners = _repository.GetQueryOfPartners();
+            var pageNumber = page ?? 1;
+            var pagedPartners = partners.ToPagedList(pageNumber, 20);
+            return View(pagedPartners);
         }
 
         // GET: Partners/Details/5

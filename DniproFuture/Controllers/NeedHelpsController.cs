@@ -9,6 +9,7 @@ using DniproFuture.Models;
 using DniproFuture.Models.Extentions;
 using DniproFuture.Models.InputModels;
 using DniproFuture.Models.Repository;
+using PagedList;
 
 namespace DniproFuture.Controllers
 {
@@ -19,13 +20,19 @@ namespace DniproFuture.Controllers
         // GET: NeedHelps1
         public ActionResult Index(int? page)
         {
-            return View(_repository.GetListOfNeedHelp());
+            var help = _repository.GetQueryOfNeedHelp();
+            var pageNumber = page ??  1;
+            var pagedHelp = help.ToPagedList(pageNumber, 20);
+            return View(pagedHelp);
         }
 
         // GET: NeedHelps1
         public ActionResult Done(int? page)
         {
-            return View(_repository.GetListOfDone());
+            var help = _repository.GetQueryOfDone();
+            var pageNumber = page ?? 1;
+            var pagedHelp = help.ToPagedList(pageNumber, 20);
+            return View(pagedHelp);
         }
 
         // GET: NeedHelps1/Details/5

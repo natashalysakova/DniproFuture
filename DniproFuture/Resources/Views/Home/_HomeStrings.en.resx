@@ -159,6 +159,9 @@ The work of our organization is dedicated to improving the living conditions of 
   <data name="ContactsPhonePH" xml:space="preserve">
     <value>Your Phone </value>
   </data>
+  <data name="ContactsSucces" xml:space="preserve">
+    <value>Your Message send succesfully!</value>
+  </data>
   <data name="ContactsTitle" xml:space="preserve">
     <value>Contact us</value>
   </data>

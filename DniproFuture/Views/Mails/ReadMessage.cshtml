@@ -1,6 +1,6 @@
 ﻿@model DniproFuture.Models.Mail
 
-<tr>
+<tr class="hovered" onclick="location.href = '@Url.Action("Details", "Mails", new { id = Model.Id })'; ">
     <td>
         @if (Model.Name != null)
         {
@@ -28,11 +28,17 @@
         }
         else
         {
-            @Html.Raw("Не указан");
+            @Html.Raw("Не указан")
+            ;
         }
     </td>
     <td>
-        @Html.ActionLink("Details", "Details", new { id = Model.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+        @if (Model.Date.HasValue)
+        {
+            @Html.Raw(string.Format("{0} {1}", Model.Date.Value.ToLongTimeString(), Model.Date.Value.ToShortDateString()))
+        }
+    </td>
+    <td>
+        @Html.ActionLink("Удалить", "Delete", new { id = Model.Id })
     </td>
 </tr>

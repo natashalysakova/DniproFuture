@@ -159,6 +159,9 @@
   <data name="ContactsPhonePH" xml:space="preserve">
     <value>Ваш номер телефону </value>
   </data>
+  <data name="ContactsSucces" xml:space="preserve">
+    <value>Ваше повідомлення було відіслано!</value>
+  </data>
   <data name="ContactsTitle" xml:space="preserve">
     <value>Зв'яжіться з нами</value>
   </data>

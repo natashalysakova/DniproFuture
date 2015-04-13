@@ -66,7 +66,7 @@ namespace DniproFuture.Models.Repository
             _dbContext.SaveChanges();
         }
 
-        public void EditProject(Projects projects, List<string> photosList, OldPhotoModel[] oldPhotos)
+        private void EditProject(Projects projects)
         {
             Projects notModified = FindProjectById(projects.Id);
 
@@ -104,6 +104,39 @@ namespace DniproFuture.Models.Repository
                 }
             }
 
+        }
+
+        public void EditProject(Projects projects, List<string> newPhotosString, OldPhotoModel[] oldPhotos)
+        {
+            bool firsPhotoisDeleted = false;
+            if (oldPhotos != null)
+            {
+                for (int i = 0; i < oldPhotos.Length; i++)
+                {
+                    if (i == 0)
+                    {
+                        if (!oldPhotos[i].IsLeave)
+                        {
+                            firsPhotoisDeleted = true;
+                        }
+                    }
+
+                    if (oldPhotos[i].IsLeave)
+                    {
+                        if (firsPhotoisDeleted)
+                        {
+                            newPhotosString.Add(oldPhotos[i].Path);
+                        }
+                        else
+                        {
+                            newPhotosString.Insert(0, oldPhotos[i].Path);
+                        }
+                    }
+                }
+            }
+
+            projects.Photos = string.Join(";", newPhotosString);
+            EditProject(projects);
         }
 
         private List<int> GetAllProjectsIds()

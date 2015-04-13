@@ -147,10 +147,10 @@ namespace DniproFuture.Models.Repository
             notModified.NeedSum = needHelp.NeedSum;
             notModified.StartDate = needHelp.StartDate;
             notModified.Sum = needHelp.Sum;
+            notModified.Photos = needHelp.Photos;
 
             _dbContext.Entry(notModified).State = EntityState.Modified;
             
-
             try
             {
                 _dbContext.SaveChanges();

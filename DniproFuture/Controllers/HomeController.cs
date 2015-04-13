@@ -92,7 +92,7 @@ namespace DniproFuture.Controllers
             return View(onePageOfNews);
         }
 
-        public ActionResult ProjectsIndex(int? page)
+        public ActionResult ProjectIndex(int? page)
         {
             var news = _repository.GetQueryOfProjectsOutputModels();
             var pageNumber = page ?? 1;

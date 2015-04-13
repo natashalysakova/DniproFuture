@@ -51,10 +51,10 @@ namespace DniproFuture
 
 
             routes.MapRoute(
-    name: "Admin",
-    url: "admin/{controller}/{action}/{id}",
-    defaults: new { controller = "Admin", action = "Index", id = UrlParameter.Optional }
-);
+                name: "Admin",
+                url: "admin/{controller}/{action}/{id}",
+                defaults: new { controller = "Admin", action = "Index", id = UrlParameter.Optional }
+            );
 
 
             routes.MapRoute(

@@ -11,11 +11,36 @@ namespace DniproFuture.Models.Repository
 {
     public partial class DniproFutureModelRepository : IDisposable
     {
-        private const int ClientCount = 5;
-        private const int NewsCount = 3;
-        private const int PartnersCount = 4;
-        private const int DonationCount = 3;
-        private const int ProjectsCount = 3;
+        private const int ClientCountConst = 5;
+        private const int NewsCountConst = 3;
+        private const int PartnersCountConst = 4;
+        private const int DonationCountConst = 3;
+        private const int ProjectsCountConst = 3;
+
+        public int ClientsCount
+        {
+            get { return _dbContext.NeedHelp.Count(x => x.Done); }
+        }
+
+        public int PartnersCount
+        {
+            get { return _dbContext.Partners.Count(); }
+        }
+        public int NewsCount
+        {
+            get { return _dbContext.News.Count(x => x.Date <= DateTime.Now); }
+        }
+        public int ProjectsCount
+        {
+            get { return _dbContext.Projects.Count(x => !x.Done); }
+        }
+        public int DonationCount
+        {
+            get { return _dbContext.NeedHelp.Count(x => !x.Done); }
+        }
+
+
+
         private readonly uh357966_dbEntities _dbContext = new uh357966_dbEntities();
 
         public void Dispose()
@@ -28,16 +53,16 @@ namespace DniproFuture.Models.Repository
             //Initialization
             var model = new MainPageModel
             {
-                ClientsBlock = new NeedHelpOutputModel[ClientCount],
-                DonationBlock = new NeedHelpOutputModel[DonationCount],
+                ClientsBlock = new NeedHelpOutputModel[ClientCountConst],
+                DonationBlock = new NeedHelpOutputModel[DonationCountConst],
                 PartnersBlock = new PartnersModel(),
-                ProjectsBlock = new ProjectOutputModel[ProjectsCount]
+                ProjectsBlock = new ProjectOutputModel[ProjectsCountConst]
             };
 
             //Alredy done clients
             var successClientsId = GetAllSuccessClients();
             var random = new Random();
-            for (var i = 0; i < ClientCount; i++)
+            for (var i = 0; i < ClientCountConst; i++)
             {
                 if (successClientsId.Count == 0)
                 {
@@ -53,7 +78,7 @@ namespace DniproFuture.Models.Repository
 
             //Undone clients
             var unsuccessClientsId = GetAllUnsuccessClients();
-            for (var i = 0; i < DonationCount; i++)
+            for (var i = 0; i < DonationCountConst; i++)
             {
                 if (unsuccessClientsId.Count == 0)
                 {
@@ -71,13 +96,13 @@ namespace DniproFuture.Models.Repository
             //Partners
             var partnersId = GetAllPartners();
             model.PartnersBlock.AllPartners = new PartnersOutputModel[partnersId.Count];
-            model.PartnersBlock.RandomPartners = new PartnersOutputModel[PartnersCount];
+            model.PartnersBlock.RandomPartners = new PartnersOutputModel[PartnersCountConst];
             for (var i = 0; i < partnersId.Count; i++)
             {
                 model.PartnersBlock.AllPartners[i] = GetPartnersOutputModelById(partnersId[i]);
             }
 
-            for (var i = 0; i < PartnersCount; i++)
+            for (var i = 0; i < PartnersCountConst; i++)
             {
                 if (partnersId.Count == 0)
                 {
@@ -97,7 +122,7 @@ namespace DniproFuture.Models.Repository
 
             //partners
             var projectsIds = GetAllProjectsIds();
-            for (var i = 0; i < ProjectsCount; i++)
+            for (var i = 0; i < ProjectsCountConst; i++)
             {
                 if (projectsIds.Count == 0)
                 {

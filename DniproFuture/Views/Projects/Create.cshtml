@@ -66,11 +66,11 @@
                     <div class='input-group date' id='datetimepickerStartDate'>
                         @if (Model != null)
                         {
-                            <input type='text' class="form-control" name="WhatNeed.StartDate" value="@Model.ProjectInfo.StartDate"/>
+                            <input type='text' class="form-control" name="ProjectInfo.StartDate" value="@Model.ProjectInfo.StartDate" />
                         }
                         else
                         {
-                            <input type='text' class="form-control" name="WhatNeed.StartDate"/>
+                            <input type='text' class="form-control" name="ProjectInfo.StartDate" />
                         }
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
@@ -86,11 +86,11 @@
                     <div class='input-group date' id='datetimepickerFinishDate'>
                         @if (Model != null)
                         {
-                            <input type='text' class="form-control" name="WhatNeed.FinishDate" value="@Model.ProjectInfo.FinishDate" />
+                            <input type='text' class="form-control" name="ProjectInfo.FinishDate" value="@Model.ProjectInfo.FinishDate" />
                         }
                         else
                         {
-                            <input type='text' class="form-control" name="WhatNeed.StartDate" />
+                            <input type='text' class="form-control" name="ProjectInfo.StartDate" />
                         }
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>

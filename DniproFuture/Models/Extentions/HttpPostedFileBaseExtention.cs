@@ -91,6 +91,7 @@ namespace DniproFuture.Models.Extentions
             var photosList = new List<string>();
             foreach (var photo in photos)
             {
+
                 if (photo != null)
                 {
                     string[] splited = photo.FileName.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
@@ -99,15 +100,15 @@ namespace DniproFuture.Models.Extentions
                         Path.GetRandomFileName().Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[0] + "." +
                         extention;
 
-                    path = Path.Combine(path, filename);
+                    var filePath = Path.Combine(path, filename);
 
                     if (photosList.Count == 0)
                     {
-                        photo.CropAndSave(path);
+                        photo.CropAndSave(filePath);
                     }
                     else
                     {
-                        photo.SaveAs(path);
+                        photo.SaveAs(filePath);
                     }
 
                     photosList.Add(filename);

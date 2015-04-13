@@ -9,5 +9,6 @@ namespace DniproFuture.Models.OutputModels
         public PartnersModel PartnersBlock { get; set; }
         public NeedHelpOutputModel[] ClientsBlock { get; set; }
         public ContactsInputModel ContactsBlock { get; set; }
+        public ProjectOutputModel[] ProjectsBlock { get; set; }
     }
 }

@@ -1,0 +1,31 @@
+﻿@using DniproFuture.Models
+@model DniproFuture.Models.OutputModels.ProjectOutputModel
+@{
+    Layout = "../Shared/_OtherLayout.cshtml";
+}
+
+<div class="container customContainer">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">@Model.Title</h2>
+            <p class="text-muted text-center">@Model.StartDate.ToShortDateString()</p>
+            <div class="text-justify">
+                <div class="text-center col-md-4">
+                    @{ Html.RenderPartial("ProjectInfo", Model); }
+                </div>
+                @MvcHtmlString.Create(Model.About)
+            </div>
+        </div>
+        @if (Model.Photos.Count > 1)
+        {
+            Html.RenderPartial("Gallery", new GalleryModel() { Photos = Model.Photos, Type = GalleryType.Projects });
+        }
+    </div>
+    <div class="row page-header">
+        <a href="@Request.UrlReferrer">
+            <div type="button" class="btn btn-primary">
+                <i class="fa fa-backward"></i>@ViewRes._HomeStrings.Back
+            </div>
+        </a>
+    </div>
+</div>

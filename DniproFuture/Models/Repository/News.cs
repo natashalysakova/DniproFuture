@@ -113,15 +113,7 @@ namespace DniproFuture.Models.Repository
                 _dbContext.Entry(local).State = EntityState.Deleted;
             }
 
-            List<string> photos = news.Images.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            foreach (string s in photos)
-            {
-                string fullPath = Path.Combine(path, s);
-                if (System.IO.File.Exists(fullPath))
-                {
-                    System.IO.File.Delete(fullPath);
-                }
-            }
+            DeleteAllPhotos(path, news.Images);
 
             _dbContext.News.Remove(news);
             _dbContext.SaveChanges();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using DniproFuture.Models.Extentions;
@@ -14,6 +15,7 @@ namespace DniproFuture.Models.Repository
         private const int NewsCount = 3;
         private const int PartnersCount = 4;
         private const int DonationCount = 3;
+        private const int ProjectsCount = 3;
         private readonly uh357966_dbEntities _dbContext = new uh357966_dbEntities();
 
         public void Dispose()
@@ -28,7 +30,8 @@ namespace DniproFuture.Models.Repository
             {
                 ClientsBlock = new NeedHelpOutputModel[ClientCount],
                 DonationBlock = new NeedHelpOutputModel[DonationCount],
-                PartnersBlock = new PartnersModel()
+                PartnersBlock = new PartnersModel(),
+                ProjectsBlock = new ProjectOutputModel[ProjectsCount]
             };
 
             //Alredy done clients
@@ -91,6 +94,24 @@ namespace DniproFuture.Models.Repository
             //News
             model.NewsBlock = GetLastNews(256, NewsCountEnum.Few);
 
+
+            //partners
+            var projectsIds = GetAllProjectsIds();
+            for (var i = 0; i < ProjectsCount; i++)
+            {
+                if (projectsIds.Count == 0)
+                {
+                    model.ProjectsBlock[i] = new ProjectOutputModel();
+                }
+                else
+                {
+                    var index = random.Next(0, projectsIds.Count);
+                    model.ProjectsBlock[i] = GetProjectOutputModelById(projectsIds[index]);
+                    projectsIds.Remove(projectsIds[index]);
+                }
+            }
+
+
             model.ContactsBlock = new ContactsInputModel();
 
             return model;
@@ -119,6 +140,19 @@ namespace DniproFuture.Models.Repository
             }
 
             return false;
+        }
+
+        public void DeleteAllPhotos(string path, string photosString)
+        {
+            List<string> photos = photosString.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            foreach (string s in photos)
+            {
+                string fullPath = Path.Combine(path, s);
+                if (File.Exists(fullPath))
+                {
+                    File.Delete(fullPath);
+                }
+            }
         }
 
     }

@@ -8,14 +8,34 @@
 @{
     Html.RenderPartial("Header");
     Html.RenderPartial("HelpNow");
-    Html.RenderPartial("Donation", Model.DonationBlock);
+    
+    if (ViewBag.DonationCount > 0)
+    {
+        Html.RenderPartial("Donation", Model.DonationBlock);
+    }
+    
     Html.RenderPartial("About");
-    Html.RenderPartial("News", Model.NewsBlock);
-    Html.RenderPartial("How");    
-    Html.RenderPartial("Partners", Model.PartnersBlock);
+    
+    if (ViewBag.NewsCount > 0)
+    {
+        Html.RenderPartial("News", Model.NewsBlock);
+    }
+    if (ViewBag.ProjectsCount > 0)
+    {
+        Html.RenderPartial("Projects", Model.ClientsBlock);
+    }
+    
+    Html.RenderPartial("How");
+    
+    if (ViewBag.PartnersCount > 0)
+    {
+        Html.RenderPartial("Partners", Model.PartnersBlock);
+    }   
+    
     if (ViewBag.ClientsCount > 0) 
     {
         Html.RenderPartial("Clients", Model.ClientsBlock);
     }
+    
     Html.RenderPartial("Contacts", Model.ContactsBlock);
 }

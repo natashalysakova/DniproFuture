@@ -9,11 +9,12 @@ namespace DniproFuture.Models.OutputModels
     {
         public string Title { get; set; }
         public string About { get; set; }
+        public string ShortText { get; set; }
         public List<string> Photos { get; set; }
         public double Summ { get; set; }
         public double NeedSum { get; set; }
         public DateTime StartDate { get; set; }
-        public DateTime FinishDate { get; set; }
+        public DateTime? FinishDate { get; set; }
         public bool IsDone { get; set; }
     }
 }

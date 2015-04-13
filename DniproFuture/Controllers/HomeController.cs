@@ -22,6 +22,8 @@ namespace DniproFuture.Controllers
             ViewBag.ClientsCount = model.ClientsBlock.Count(x => x.FullName != null);
             ViewBag.PartnersCount = model.PartnersBlock.RandomPartners.Count(x => x.Title != null);
             ViewBag.NewsCount = model.NewsBlock.Count(x => x.Title != null);
+            ViewBag.ProjectsCount = model.ProjectsBlock.Count(x => x.Title != null);
+            ViewBag.DonationCount = model.DonationBlock.Count(x => x.FullName != null);
             return View(model);
         }
 
@@ -84,7 +86,7 @@ namespace DniproFuture.Controllers
 
         public ActionResult ProjectsIndex(int? page)
         {
-            var news = _repository.GetQueryOfProjects();
+            var news = _repository.GetQueryOfProjectsOutputModels();
             var pageNumber = page ?? 1;
             var onePageOfNews = news.ToPagedList(pageNumber, 10);
             return View(onePageOfNews);
@@ -124,12 +126,12 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var news = _repository.GetProjectOutputModel(title);
-            if (news == null)
+            var project = _repository.GetProjectOutputModel(title);
+            if (project == null)
             {
                 return HttpNotFound();
             }
-            return View(news);
+            return View(project);
         }
     }
 }

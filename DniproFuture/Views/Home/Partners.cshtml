@@ -11,58 +11,37 @@
             </div>
         </div>
         <div class="row">
-            @if (ViewBag.PartnersCount == 1)
+
+            @{
+                string classes;
+
+                switch ((int)ViewBag.PartnersCount)
+                {
+                    case 1:
+                        classes = "col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-2 team-member members";
+                        break;
+                    case 2:
+                        classes = "col-md-offset-4 col-md-2 col-sm-offset-4 col-sm-2 team-member members";
+                        break;
+                    case 3:
+                        classes = "col-md-offset-3 col-md-2 col-sm-offset-3 col-sm-2 team-member members";
+                        break;
+                    default:
+                        classes = "col-md-offset-2 col-md-2 col-sm-4 portfolio-item team-member members";
+                        break;
+                }
+            }
+
+            @for (int i = 0; i < ViewBag.PartnersCount; i++)
             {
-                <div class="col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-2 team-member members">
-                    <a href="@Model.RandomPartners[0].Link">
-                        <img src="@Url.Content("~/Content/img/Partners/" + Model.RandomPartners[0].Logo)" class="img-responsive text-muted  partner-member img-circle" alt="">
+                <div class="@classes">
+                    <a href="@Model.RandomPartners[i].Link">
+                        <img src="@Url.Content("~/Content/img/Partners/" + Model.RandomPartners[i].Logo)" class="img-responsive text-muted  partner-member img-circle" alt="">
                         <div class="portfolio-caption">
-                            <h4>@Model.RandomPartners[0].Title</h4>
+                            <h4>@Model.RandomPartners[i].Title</h4>
                         </div>
                     </a>
                 </div>
-            }
-            else if (ViewBag.PartnersCount == 2)
-            {
-                for (int i = 0; i < 2; i++)
-                {
-                    <div class="col-md-offset-4 col-md-2 col-sm-offset-4 col-sm-2 team-member members">
-                        <a href="@Model.RandomPartners[i].Link">
-                            <img src="@Url.Content("~/Content/img/Partners/" + Model.RandomPartners[i].Logo)" class="img-responsive text-muted  partner-member img-circle" alt="">
-                            <div class="portfolio-caption">
-                                <h4>@Model.RandomPartners[i].Title</h4>
-                            </div>
-                        </a>
-                    </div>
-                }
-            }
-            else if (ViewBag.PartnersCount == 3)
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    <div class="col-md-offset-3 col-md-2 col-sm-offset-3 col-sm-2 team-member members">
-                        <a href="@Model.RandomPartners[i].Link">
-                            <img src="@Url.Content("~/Content/img/Partners/" + Model.RandomPartners[i].Logo)" class="img-responsive text-muted  partner-member img-circle" alt="">
-                            <div class="portfolio-caption">
-                                <h4>@Model.RandomPartners[i].Title</h4>
-                            </div>
-                        </a>
-                    </div>
-                }
-            }
-            else
-            {
-                foreach (PartnersOutputModel partners in Model.RandomPartners)
-                {
-                    <div class="col-md-offset-2 col-md-2 col-sm-4 portfolio-item team-member members">
-                        <a href="@partners.Link">
-                            <img src="@Url.Content("~/Content/img/Partners/" + partners.Logo)" class="img-responsive text-muted  partner-member img-circle" alt="">
-                            <div class="portfolio-caption">
-                                <h4>@partners.Title</h4>
-                            </div>
-                        </a>
-                    </div>
-                }
             }
         </div>
         <div class="row text-center">

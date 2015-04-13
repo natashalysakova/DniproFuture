@@ -1,8 +1,10 @@
-﻿namespace DniproFuture.Models.InputModels
+﻿using System.Collections.Generic;
+
+namespace DniproFuture.Models.InputModels
 {
     public class ProjectInputModel
     {
         public Projects ProjectInfo { get; set; }
-        public ProjectsLocalSet Local { get; set; }
+        public List<ProjectsLocalSet> Local { get; set; }
     }
 }

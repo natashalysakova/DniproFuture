@@ -1,34 +1,51 @@
-﻿@model DniproFuture.Models.Projects
+﻿@using DniproFuture.Models
+@model DniproFuture.Models.Projects
 
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <div class="container customContainer">
-
-    <h2>Edit</h2>
-
-
-    @using (Html.BeginForm())
+    <h2>@ViewBag.Title</h2>
+    @using (Html.BeginForm("Edit", "Projects", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>Projects</h4>
+            @{
+                var local = Model.ProjectsLocalSet.ElementAt(0);
+            }
+            <h4>@local.ProjectName</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.Id)
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Sum, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Sum, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Sum, "", new { @class = "text-danger" })
+            @for (int i = 0; i < Model.ProjectsLocalSet.Count; i++)
+            {
+                <div class="form-group">
+                    <label class="control-label col-md-2 col-md-offset-1">@ViewBag.Languages[i].LanguageCode</label>
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Название</label>
+                    <div class="col-md-10">
+                        <input aria-invalid="false" class="form-control text-box single-line valid" id="FirstName" name="ProjectsLocalSet[@i].ProjectName" value="@local.ProjectName" type="text">
+                        @Html.ValidationMessageFor(model => Model.ProjectsLocalSet.ElementAt(i).ProjectName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="control-label col-md-2">Информация</label>
+                    <div class="col-md-10">
+                        <textarea class="form-control" cols="20" id="About" name="ProjectsLocalSet[@i].AboutProject" rows="3">@Model.ProjectsLocalSet.ElementAt(i).AboutProject</textarea>
+                        @Html.ValidationMessageFor(model => Model.ProjectsLocalSet.ElementAt(i).AboutProject, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <hr>
+            }
 
             <div class="form-group">
-                @Html.LabelFor(model => model.NeedSum, htmlAttributes: new { @class = "control-label col-md-2" })
+                <label class="control-label col-md-2">Нужно собрать</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.NeedSum, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.NeedSum, "", new { @class = "text-danger" })
@@ -36,15 +53,15 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <label class="control-label col-md-2">Собрано</label>
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Sum, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Sum, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Done, htmlAttributes: new { @class = "control-label col-md-2" })
+                <label class="control-label col-md-2">Сбор закончен?</label>
                 <div class="col-md-10">
                     <div class="checkbox">
                         @Html.EditorFor(model => model.Done)
@@ -54,22 +71,57 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.FinishDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <label class="control-label col-md-2">Дата начала сбора</label>
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.FinishDate, new { htmlAttributes = new { @class = "form-control" } })
+                    <div class='input-group date' id='datetimepickerStartDate'>
+                        <input type='text' class="form-control" name="StartDate" value="@Model.StartDate" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Дата окончания сбора</label>
+                <div class="col-md-10">
+                    <div class='input-group date' id='datetimepickerFinishDate'>
+                        <input type='text' class="form-control" name="FinishDate" value="@Model.FinishDate" /><span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
                     @Html.ValidationMessageFor(model => model.FinishDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @if (Model.Photos != null || Model.Photos != String.Empty)
+            {
+                <div class="form-group">
+                    <label class="control-label col-md-2">
+                        Фотографии
+                    </label>
+                    <div class="col-md-10">
+                        @{
+                Html.RenderPartial("EditorGallery", new GalleryModel() { Photos = Model.Photos.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(), Type = GalleryType.NeedHelp });
+                        }
+                    </div>
+                </div>
+            }
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Фото</label>
+                <div class="col-md-10">
+                    <input accept="image/*" id="Images" multiple="multiple" name="newPhotos" type="file" />
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    <input type="submit" value="Схранить изменения" class="btn btn-default" />
                 </div>
             </div>
         </div>
     }
-
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("На предыдущую страницу", "Index")
     </div>
 </div>

@@ -653,7 +653,6 @@
     <Content Include="Views\Partners\Index.cshtml" />
     <Content Include="Views\Projects\Create.cshtml" />
     <Content Include="Views\Projects\Delete.cshtml" />
-    <Content Include="Views\Projects\Details.cshtml" />
     <Content Include="Views\Projects\Edit.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
@@ -674,6 +673,10 @@
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\Shared\EditorGallery.cshtml" />
+    <Content Include="Views\Home\ProjectIndex.cshtml" />
+    <Content Include="Views\Home\ProjectDetails.cshtml" />
+    <Content Include="Views\Home\Projects.cshtml" />
+    <Content Include="Views\Home\ProjectInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">

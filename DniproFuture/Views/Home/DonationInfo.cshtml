@@ -12,5 +12,5 @@
         <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="@percent" aria-valuemin="0" aria-valuemax="100" style="width: @percent%;">
         </div>
     </div>
-    <p class="percent-text">@string.Format("{0}грн/{1}грн", @Model.Summ, @Model.NeedSum)</p>
+    <p class="percent-text">@string.Format("{0}{2}/{1}{2}", @Model.Summ, @Model.NeedSum, @ViewRes._HomeStrings.Grn)</p>
 </div>

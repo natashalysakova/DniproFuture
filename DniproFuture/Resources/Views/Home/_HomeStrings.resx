@@ -177,6 +177,9 @@
   <data name="Gallery" xml:space="preserve">
     <value>Галерея</value>
   </data>
+  <data name="Grn" xml:space="preserve">
+    <value>грн.</value>
+  </data>
   <data name="HeaderDniproFuture" xml:space="preserve">
     <value>Майбутнє Дніпра</value>
   </data>

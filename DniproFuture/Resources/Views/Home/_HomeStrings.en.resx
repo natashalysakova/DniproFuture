@@ -177,6 +177,9 @@ The work of our organization is dedicated to improving the living conditions of 
   <data name="Gallery" xml:space="preserve">
     <value>Gallery</value>
   </data>
+  <data name="Grn" xml:space="preserve">
+    <value>UAH</value>
+  </data>
   <data name="HeaderDniproFuture" xml:space="preserve">
     <value>Dnipro's Future</value>
   </data>

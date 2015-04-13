@@ -235,6 +235,15 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to грн..
+        /// </summary>
+        public static string Grn {
+            get {
+                return ResourceManager.GetString("Grn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Майбутнє Дніпра.
         /// </summary>
         public static string HeaderDniproFuture {

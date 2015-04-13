@@ -320,4 +320,7 @@ Skype:&lt;br&gt;
   <data name="ProjectsTitle" xml:space="preserve">
     <value>Проекты</value>
   </data>
+  <data name="Start" xml:space="preserve">
+    <value>Начало сбора</value>
+  </data>
 </root>

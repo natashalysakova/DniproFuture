@@ -11,23 +11,25 @@
         <div class="row">
 
             @{
-                string classes;
+                string classes, subclasses;
 
                 switch ((int)ViewBag.ProjectsCount)
                 {
                     case 1: classes = "col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4";
+                        subclasses = "col-md-12 col-lg-12";
                         break;
-                    case 2: classes = "col-md-offset-3 col-md-3 col-lg-offset-3 col-lg-3";
+                    case 2: classes = "col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8";
+                        subclasses = "col-md-6 col-lg-6";
                         break;
-                    default: classes = "col-md-4 col-lg-4";
+                    default: classes = "col-md-12 col-lg-12";
+                        subclasses = "col-md-4 col-lg-4";
                         break;
                 }
             }
-
-            @for (int i = 0; i < ViewBag.ProjectsCount; i++)
-            {
-                <div class="@classes">
-                    <div class="team-member">
+            <div class="@classes">
+                @for (int i = 0; i < ViewBag.ProjectsCount; i++)
+                {
+                    <div class="@subclasses team-member">
                         @if (Model[i].Photos.Count > 0)
                         {
                             <img src="@Url.Content("~/Content/img/Projects/" + Model[i].Photos[0])" class="img-responsive img-circle img-preview" alt="">
@@ -40,8 +42,8 @@
                             </a>
                         </p>
                     </div>
-                </div>
-            }
+                }
+            </div>
 
         </div>
         <div class="row">

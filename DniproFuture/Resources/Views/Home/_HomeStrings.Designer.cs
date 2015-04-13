@@ -487,6 +487,15 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Проекти.
+        /// </summary>
+        public static string NavBarProjects {
+            get {
+                return ResourceManager.GetString("NavBarProjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Детальніше....
         /// </summary>
         public static string NewsDetails {
@@ -546,6 +555,24 @@ namespace ViewRes {
         public static string PartnersTitle {
             get {
                 return ResourceManager.GetString("PartnersTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Більше проектів.
+        /// </summary>
+        public static string ProjectsMore {
+            get {
+                return ResourceManager.GetString("ProjectsMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Проекти.
+        /// </summary>
+        public static string ProjectsTitle {
+            get {
+                return ResourceManager.GetString("ProjectsTitle", resourceCulture);
             }
         }
     }

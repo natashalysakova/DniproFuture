@@ -25,6 +25,7 @@ namespace DniproFuture.Models
         public System.DateTime StartDate { get; set; }
         public bool Done { get; set; }
         public Nullable<System.DateTime> FinishDate { get; set; }
+        public string Photos { get; set; }
     
         public virtual ICollection<ProjectsLocalSet> ProjectsLocalSet { get; set; }
     }

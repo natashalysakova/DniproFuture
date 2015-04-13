@@ -8,7 +8,7 @@ namespace DniproFuture
         // Дополнительные сведения о Bundling см. по адресу http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include("~/Scripts/jquery-{version}.js", "~/Scripts/jquery.maskedinput.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include("~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.min.js"));
 
@@ -27,6 +27,8 @@ namespace DniproFuture
             bundles.Add(new ScriptBundle("~/bundles/lightboxJS").Include("~/Scripts/ekko-lightbox.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/tinymce").Include("~/Scripts/tinymce/tinymce.min.js"));
+            
+            bundles.Add(new ScriptBundle("~/bundles/mask").Include("~/Scripts/jquery.maskedinput.min.js"));
 
 
             

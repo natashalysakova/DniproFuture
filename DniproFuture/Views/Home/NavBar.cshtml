@@ -23,21 +23,36 @@
                 <li>
                     <a class="page-scroll" href="#helpNow">@ViewRes._HomeStrings.NavBarHelpNow</a>
                 </li>
-                <li>
-                    <a class="page-scroll" href="#donation">@ViewRes._HomeStrings.NavBarDonation</a>
-                </li>
+                @if (ViewBag.DonationCount > 0)
+                {
+                    <li>
+                        <a class="page-scroll" href="#donation">@ViewRes._HomeStrings.NavBarDonation</a>
+                    </li>
+                }
                 <li>
                     <a class="page-scroll" href="#about">@ViewRes._HomeStrings.NavBarAbout</a>
                 </li>
-                <li>
-                    <a class="page-scroll" href="#news">@ViewRes._HomeStrings.NavBarNews</a>
-                </li>
+                @if (ViewBag.NewsCount > 0)
+                {
+                    <li>
+                        <a class="page-scroll" href="#news">@ViewRes._HomeStrings.NavBarNews</a>
+                    </li>
+                }
+
+                @if (ViewBag.ProjectsCount > 0)
+                {
+                    <li>
+                        <a class="page-scroll" href="#projects">@ViewRes._HomeStrings.NavBarProjects</a>
+                    </li>
+                }
+                
                 <li>
                     <a class="page-scroll" href="#how">@ViewRes._HomeStrings.NavBarHow</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#partners">@ViewRes._HomeStrings.NavBarPartners</a>
                 </li>
+
                 @if(ViewBag.ClientsCount > 0)
                 { 
                     <li>

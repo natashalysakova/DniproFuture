@@ -85,14 +85,22 @@ namespace DniproFuture.Models.Repository
             }
         }
 
-        internal void RemovePartnerById(int id)
+        internal void RemovePartnerById(int id, string path)
         {
             Partners partners = FindPartnerById(id);
+            for (int i = partners.PartnersLocalSet.Count - 1; i >= 0; i--)
+            {
+                PartnersLocalSet local = partners.PartnersLocalSet.ElementAt(i);
+                _dbContext.Entry(local).State = EntityState.Deleted;
+            }
+
+            DeleteAllPhotos(path, partners.Logo);
+
             _dbContext.Partners.Remove(partners);
             _dbContext.SaveChanges();
         }
 
-        internal void EditParter(Partners partners)
+        internal void EditPartner(Partners partners)
         {
             _dbContext.Entry(partners).State = EntityState.Modified;
             _dbContext.SaveChanges();

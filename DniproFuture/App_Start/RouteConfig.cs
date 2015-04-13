@@ -28,7 +28,7 @@ namespace DniproFuture
             routes.MapRoute(
                 name: "projects",
                 url: "projects/{title}",
-                defaults: new { controller = "Home", action = "ProjectsDetails" }
+                defaults: new { controller = "Home", action = "ProjectDetails" }
             );
 
             routes.MapRoute(
@@ -46,15 +46,15 @@ namespace DniproFuture
             routes.MapRoute(
                 name: "projectsIndex",
                 url: "projects",
-                defaults: new { controller = "Home", action = "ProjectsIndex" }
+                defaults: new { controller = "Home", action = "ProjectIndex" }
             );
 
 
             routes.MapRoute(
-    name: "Admin",
-    url: "admin/{controller}/{action}/{id}",
-    defaults: new { controller = "Admin", action = "Index", id = UrlParameter.Optional }
-);
+                name: "Admin",
+                url: "admin/{controller}/{action}/{id}",
+                defaults: new { controller = "Admin", action = "Index", id = UrlParameter.Optional }
+            );
 
 
             routes.MapRoute(

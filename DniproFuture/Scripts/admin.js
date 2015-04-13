@@ -46,4 +46,21 @@ $(function () {
         ],
         toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
     });
+
 });
+
+function HidePhoto(id) {
+    $('#check_' + id).prop('checked', false);
+    $('#check_' + id).prop('value', false);
+    $('#oldPhoto_' + id).hide();
+    if (id == 0) {
+        $('#imgRemoveAlert').show();
+    }
+}
+
+function ChekUploadedImageCount() {
+    var inp = $('#Images')[0].files;
+    if (inp.length > 0) {
+        $('#imgRemoveAlert').hide();
+    }
+}

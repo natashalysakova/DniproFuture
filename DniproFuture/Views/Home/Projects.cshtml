@@ -1,18 +1,18 @@
 ﻿@using DniproFuture.Models
 @using DniproFuture.Models.Extentions
-@model DniproFuture.Models.OutputModels.NewsOutputModel[]
-<section id="news">
+@model DniproFuture.Models.OutputModels.ProjectOutputModel[]
+<section id="projects" class="bg-light-gray">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">@ViewRes._HomeStrings.NewsTitle</h2>
+                <h2 class="section-heading">@ViewRes._HomeStrings.ProjectsTitle</h2>
             </div>
         </div>
         <div class="row">
             @{
                 string classes, subclasses;
 
-                switch ((int)ViewBag.DonationCount)
+                switch ((int)ViewBag.ProjectsCount)
                 {
                     case 1: classes = "col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4";
                         subclasses = "col-md-12 col-lg-12";
@@ -26,19 +26,17 @@
                 }
             }
             <div class="@classes">
-                @for (int i = 0; i < ViewBag.NewsCount; i++)
+                @for (int i = 0; i < ViewBag.ProjectsCount; i++)
                 {
-
                     <div class="@subclasses team-member">
-                        @if (Model[i].Photo.Count > 0)
+                        @if (Model[i].Photos.Count > 0)
                         {
-                            <img src="@Url.Content("~/Content/img/News/" + Model[i].Photo[0])" class="img-responsive img-circle img-preview" alt="">
+                            <img src="@Url.Content("~/Content/img/Projects/" + Model[i].Photos[0])" class="img-responsive img-circle img-preview" alt="">
                         }
                         <h5>@Model[i].Title</h5>
                         <p class="text-muted text-justify">@Model[i].ShortText ...</p>
-                        <p class="text-muted text-left">@Model[i].Date.ToShortDateString()</p>
                         <p class="text-right">
-                            <a align="right" href="@Url.Action("NewsDetails", "Home", new {title = Model[i].Title.GetStringForUrl()})">
+                            <a align="right" href="@Url.Action("ProjectDetails", "Home", new { title=Model[i].Title.GetStringForUrl()})">
                                 @ViewRes._HomeStrings.NewsDetails
                             </a>
                         </p>
@@ -48,8 +46,9 @@
         </div>
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4">
-                <button type="button" class="btn btn-primary center-block btn-xl" data-dismiss="modal" onclick="location.href='@Url.Action("NewsIndex", "Home")';">@ViewRes._HomeStrings.NewsMore</button>
+                <button type="button" class="btn btn-primary center-block btn-xl" data-dismiss="modal" onclick="location.href='@Url.Action("ProjectIndex", "Home")';">@ViewRes._HomeStrings.ProjectsMore</button>
             </div>
         </div>
     </div>
 </section>
+

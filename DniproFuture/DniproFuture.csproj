@@ -186,6 +186,7 @@
       <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Extentions\MD5Extention.cs" />
+    <Compile Include="Models\Metadata.cs" />
     <Compile Include="Models\NeedHelp.cs">
       <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
@@ -201,6 +202,7 @@
     <Compile Include="Models\NewsLocalSet.cs">
       <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OldPhotoModel.cs" />
     <Compile Include="Models\OutputModels\HelpNowOutputModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\OutputModels\MainPageOutputModel.cs" />
@@ -212,6 +214,7 @@
     </Compile>
     <Compile Include="Models\OutputModels\PartnersOutputModel.cs" />
     <Compile Include="Models\OutputModels\ProjectOutputModel.cs" />
+    <Compile Include="Models\PartialClasses.cs" />
     <Compile Include="Models\Partners.cs">
       <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
@@ -650,7 +653,6 @@
     <Content Include="Views\Partners\Index.cshtml" />
     <Content Include="Views\Projects\Create.cshtml" />
     <Content Include="Views\Projects\Delete.cshtml" />
-    <Content Include="Views\Projects\Details.cshtml" />
     <Content Include="Views\Projects\Edit.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
@@ -670,6 +672,11 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Home\Gallery.cshtml" />
+    <Content Include="Views\Shared\EditorGallery.cshtml" />
+    <Content Include="Views\Home\ProjectIndex.cshtml" />
+    <Content Include="Views\Home\ProjectDetails.cshtml" />
+    <Content Include="Views\Home\Projects.cshtml" />
+    <Content Include="Views\Home\ProjectInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Home\_HomeStrings.en.resx">

@@ -1,4 +1,4 @@
-﻿@model DniproFuture.Models.Projects
+﻿@model DniproFuture.Models.InputModels.ProjectInputModel
 
 @{
     ViewBag.Title = "Create";
@@ -6,68 +6,126 @@
 }
 
 <div class="container customContainer">
-<h2>Create</h2>
+    <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Projects</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sum, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sum, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sum, "", new { @class = "text-danger" })
+    @using (Html.BeginForm("Create", "Projects", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Проект</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            @for (int i = 0; i < ViewBag.Languages.Count; i++)
+            {
+                <div class="form-group ">
+                    <label class="control-label col-md-2 col-md-offset-1">@ViewBag.Languages[i].LanguageCode</label>
+                    <div class="col-md-10 hidden">
+                        @Html.EditorFor(model => model.Local[i].Language.LanguageCode, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.Languages[i].LanguageCode } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Название</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Local[i].ProjectName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Local[i].ProjectName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Информация</label>
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Local[i].AboutProject, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Local[i].AboutProject, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <hr />
+            }
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Собранная сумма</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ProjectInfo.Sum, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ProjectInfo.Sum, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.NeedSum, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NeedSum, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NeedSum, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label class="control-label col-md-2">Необходимая сумма</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ProjectInfo.NeedSum, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ProjectInfo.NeedSum, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label class="control-label col-md-2">Дата начала сбора</label>
+                <div class="col-md-10">
+                    <div class='input-group date' id='datetimepickerStartDate'>
+                        @if (Model != null)
+                        {
+                            <input type='text' class="form-control" name="ProjectInfo.StartDate" value="@Model.ProjectInfo.StartDate" />
+                        }
+                        else
+                        {
+                            <input type='text' class="form-control" name="ProjectInfo.StartDate" />
+                        }
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.ProjectInfo.StartDate, "", new {@class = "text-danger"})
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Done, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Done)
-                    @Html.ValidationMessageFor(model => model.Done, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label class="control-label col-md-2">Дата окончания сбора</label>
+                <div class="col-md-10">
+                    <div class='input-group date' id='datetimepickerFinishDate'>
+                        @if (Model != null)
+                        {
+                            <input type='text' class="form-control" name="ProjectInfo.FinishDate" value="@Model.ProjectInfo.FinishDate" />
+                        }
+                        else
+                        {
+                            <input type='text' class="form-control" name="ProjectInfo.StartDate" />
+                        }
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.ProjectInfo.FinishDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Собрано?</label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.ProjectInfo.Done)
+                        @Html.ValidationMessageFor(model => model.ProjectInfo.Done, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Фотографии</label>
+                <div class="col-md-10">
+                    <input accept="image/*" id="Photos" multiple="multiple" name="photos" type="file" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
                 </div>
             </div>
         </div>
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FinishDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FinishDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FinishDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+    <div>
+        @Html.ActionLink("На предыдущую страницу", "Index")
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 </div>

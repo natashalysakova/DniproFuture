@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
+using System.Linq;
 using System.Web;
 
 namespace DniproFuture.Models.Extentions
@@ -81,6 +84,71 @@ namespace DniproFuture.Models.Extentions
             {
                 throw new FormatException("Loaded file is not image");
             }
+        }
+
+        public static List<string> GetPhotosList(this HttpPostedFileBase[] photos, string path)
+        {
+            var photosList = new List<string>();
+            foreach (var photo in photos)
+            {
+
+                if (photo != null)
+                {
+                    string[] splited = photo.FileName.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+                    string extention = splited.Last();
+                    var filename =
+                        Path.GetRandomFileName().Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[0] + "." +
+                        extention;
+
+                    var filePath = Path.Combine(path, filename);
+
+                    if (photosList.Count == 0)
+                    {
+                        photo.CropAndSave(filePath);
+                    }
+                    else
+                    {
+                        photo.SaveAs(filePath);
+                    }
+
+                    photosList.Add(filename);
+                }
+            }
+            return photosList;
+        }
+
+        public static List<string> GetPhotosList(this HttpPostedFileBase[] photos, string path, OldPhotoModel[] oldPhotos)
+        {
+            List<string> photosList = new List<string>();
+
+            foreach (var photo in photos)
+            {
+                if (photo != null)
+                {
+                    string[] splited = photo.FileName.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+                    string extention = splited.Last();
+                    var filename =
+                        Path.GetRandomFileName().Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)[0] + "." +
+                        extention;
+                    var filePath = Path.Combine(path, filename);
+
+                    if (photosList.Count == 0 && oldPhotos==null)
+                    {
+                        photo.CropAndSave(filePath);
+                    }
+                    else if (photosList.Count == 0 && oldPhotos!=null && (oldPhotos.Count(x => x.IsLeave) == 0 || oldPhotos[0].IsLeave == false))
+                    {
+                        photo.CropAndSave(filePath);
+                    }
+                    else
+                    {
+                        photo.SaveAs(filePath);
+                    }
+
+                    photosList.Add(filename);
+                }
+            }
+            return photosList;
         }
     }
 }

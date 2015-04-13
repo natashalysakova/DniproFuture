@@ -235,6 +235,15 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to грн..
+        /// </summary>
+        public static string Grn {
+            get {
+                return ResourceManager.GetString("Grn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Майбутнє Дніпра.
         /// </summary>
         public static string HeaderDniproFuture {
@@ -487,6 +496,15 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Проекти.
+        /// </summary>
+        public static string NavBarProjects {
+            get {
+                return ResourceManager.GetString("NavBarProjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Детальніше....
         /// </summary>
         public static string NewsDetails {
@@ -546,6 +564,33 @@ namespace ViewRes {
         public static string PartnersTitle {
             get {
                 return ResourceManager.GetString("PartnersTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Більше проектів.
+        /// </summary>
+        public static string ProjectsMore {
+            get {
+                return ResourceManager.GetString("ProjectsMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Проекти.
+        /// </summary>
+        public static string ProjectsTitle {
+            get {
+                return ResourceManager.GetString("ProjectsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Початок сбору.
+        /// </summary>
+        public static string Start {
+            get {
+                return ResourceManager.GetString("Start", resourceCulture);
             }
         }
     }

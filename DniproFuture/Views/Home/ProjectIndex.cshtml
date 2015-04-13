@@ -1,0 +1,59 @@
+﻿@using DniproFuture.Models
+@using DniproFuture.Models.Extentions
+@using DniproFuture.Models.OutputModels
+@using PagedList.Mvc;
+@using PagedList;
+@model IPagedList<DniproFuture.Models.OutputModels.ProjectOutputModel>
+@{
+    Layout = "../Shared/_OtherLayout.cshtml";
+}
+
+<div class="container customContainer">
+
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h2 class="section-heading">!!ПРОЕКТЫ ЗАГОЛОВОК!!</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-right">
+            @Html.PagedListPager(Model, page => Url.Action("ProjectIndex", new { page }))
+        </div>
+    </div>
+    @foreach (ProjectOutputModel project in Model)
+    {
+        <div class="row">
+            <div class="panel panel-primary panel-news">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@project.Title</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left news-preview">
+                            <a href="@Url.Action("ProjectDetails", "Home", new { title= project.Title.GetStringForUrl()})">
+                                @if (project.Photos.Count > 0)
+                                {
+                                    <img class="media-object img-responsive" src="@Url.Content("~/Content/img/Projects/" + project.Photos[0])" alt="@project.Title" width="100%">
+                                }
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <p class="panel-title text-muted text-right">@project.StartDate.ToShortDateString()</p>
+                            @project.ShortText...
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-right">
+                    <a align="right " href="@Url.Action("ProjectDetails", "Home", new { title= project.Title.GetStringForUrl()})">
+                        <div class="btn btn-default btn-lg btn-warning">!!ПОДРОБНОСТИ ПРОЕКТА!!</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-right">
+            @Html.PagedListPager(Model, page => Url.Action("ProjectIndex", new { page }))
+        </div>
+    </div>
+</div>

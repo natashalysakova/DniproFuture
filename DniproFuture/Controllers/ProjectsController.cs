@@ -7,38 +7,31 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DniproFuture.Models;
+using DniproFuture.Models.Extentions;
+using DniproFuture.Models.InputModels;
+using DniproFuture.Models.Repository;
+using PagedList;
 
 namespace DniproFuture.Controllers
 {
     [Authorize]
     public class ProjectsController : Controller
     {
-        private uh357966_dbEntities db = new uh357966_dbEntities();
+        private DniproFutureModelRepository _repository = new DniproFutureModelRepository();
 
         // GET: Projects
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(db.Projects.ToList());
-        }
-
-        // GET: Projects/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Projects projects = db.Projects.Find(id);
-            if (projects == null)
-            {
-                return HttpNotFound();
-            }
-            return View(projects);
+            var news = _repository.GetQueryOfProjects();
+            int pageNumber = page ?? 1;
+            var onePageView = news.ToPagedList(pageNumber, 25);
+            return View(onePageView);
         }
 
         // GET: Projects/Create
         public ActionResult Create()
         {
+            ViewBag.Languages = _repository.GetLanguagesList();
             return View();
         }
 
@@ -49,15 +42,18 @@ namespace DniproFuture.Controllers
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
 
-        public ActionResult Create([Bind(Include = "Id,Sum,NeedSum,StartDate,Done,FinishDate")] Projects projects)
+        public ActionResult Create(ProjectInputModel projects, HttpPostedFileBase[] photos)
         {
             if (ModelState.IsValid)
             {
-                db.Projects.Add(projects);
-                db.SaveChanges();
+                var path = Server.MapPath("~/Content/img/Projects");
+                var photosList = photos.GetPhotosList(path);
+
+                _repository.AddProject(projects, photosList);
                 return RedirectToAction("Index");
             }
 
+            ViewBag.Languages = _repository.GetLanguagesList();
             return View(projects);
         }
 
@@ -68,11 +64,13 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Projects projects = db.Projects.Find(id);
+            Projects projects = _repository.FindProjectById(id);
             if (projects == null)
             {
                 return HttpNotFound();
             }
+
+            ViewBag.Languages = _repository.GetLanguagesList();
             return View(projects);
         }
 
@@ -83,14 +81,18 @@ namespace DniproFuture.Controllers
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
 
-        public ActionResult Edit([Bind(Include = "Id,Sum,NeedSum,StartDate,Done,FinishDate")] Projects projects)
+        public ActionResult Edit(Projects projects, HttpPostedFileBase[] newPhotos, OldPhotoModel[] oldPhotos)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(projects).State = EntityState.Modified;
-                db.SaveChanges();
+                var path = Server.MapPath("~/Content/img/Projects");
+                var photosList = newPhotos.GetPhotosList(path, oldPhotos);
+
+                _repository.EditProject(projects, photosList, oldPhotos);
                 return RedirectToAction("Index");
             }
+
+            ViewBag.Languages = _repository.GetLanguagesList();
             return View(projects);
         }
 
@@ -101,7 +103,7 @@ namespace DniproFuture.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Projects projects = db.Projects.Find(id);
+            Projects projects = _repository.FindProjectById(id);
             if (projects == null)
             {
                 return HttpNotFound();
@@ -114,9 +116,8 @@ namespace DniproFuture.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Projects projects = db.Projects.Find(id);
-            db.Projects.Remove(projects);
-            db.SaveChanges();
+            string fullPath = Request.MapPath("~/Content/img/Projects");
+            _repository.RemoveNewsById(id, fullPath);
             return RedirectToAction("Index");
         }
 
@@ -124,7 +125,7 @@ namespace DniproFuture.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _repository.Dispose();
             }
             base.Dispose(disposing);
         }

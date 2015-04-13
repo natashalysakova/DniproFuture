@@ -101,7 +101,7 @@ namespace DniproFuture.Controllers
         {
             if (ModelState.IsValid)
             {
-                _repository.EditParter(partners);
+                _repository.EditPartner(partners);
                 return RedirectToAction("Index");
             }
             return View(partners);
@@ -127,7 +127,8 @@ namespace DniproFuture.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            _repository.RemovePartnerById(id);
+            string fullPath = Request.MapPath("~/Content/img/Projects");
+            _repository.RemovePartnerById(id, fullPath);
             return RedirectToAction("Index");
         }
 

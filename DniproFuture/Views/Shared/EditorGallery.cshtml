@@ -1,0 +1,32 @@
+﻿@model DniproFuture.Models.GalleryModel
+
+<div class="row">
+
+    @for (int i = 0; i < Model.Photos.Count; i += 4)
+    {
+        <script>
+            ChekUploadedImageCount();
+            setInterval('ChekUploadedImageCount()', 1000);
+        </script>
+        <div class="alert alert-danger" id="imgRemoveAlert" hidden="hidden">
+            <strong>Было удалено основное изображение!</strong> Залейте новое изображение для корректного отображения контента на странице!
+        </div>
+        <div class="row">
+            @for (int j = 0; j < 4; j++)
+            {
+                if (i + j < Model.Photos.Count)
+                {
+                    string img = Model.Photos[i + j];
+                    int k = i + j;
+                    
+                    <div class="col-md-3 text-right " id="oldPhoto_@k">
+                        <input type="text" value="@img" name="oldPhotos[@k].Path" class="hidden" />
+                        <input type="checkbox" checked="checked" name="oldPhotos[@k].IsLeave" value="true" id="check_@k" class="hidden" />
+                        <img src="@Url.Content("~/Content/img/"+ Model.Type +"/" + img)" class="img-responsive img-thumbnail" />
+                        <span class="glyphicon glyphicon-remove hovered remove-sigh" onclick="HidePhoto(@k); "></span>
+                    </div>
+                }
+            }
+        </div>
+    }
+</div>

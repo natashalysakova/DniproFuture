@@ -1,4 +1,5 @@
-﻿@model DniproFuture.Models.InputModels.NeedHelpInputModel
+﻿@using DniproFuture.Models
+@model DniproFuture.Models.InputModels.NeedHelpInputModel
 
 @{
     Layout = "../Shared/_AdminLayout.cshtml";
@@ -66,7 +67,14 @@
                 <label class="control-label col-md-2">Дата рождения</label>
                 <div class="col-md-10">
                     <div class='input-group date' id='datetimepickerBirthday'>
-                        <input type='text' class="form-control" name="WhatNeed.Birthday" />
+                        @if (Model != null)
+                        {
+                            <input type='text' class="form-control" name="WhatNeed.Birthday" value="@Model.WhatNeed.Birthday" />
+                        }
+                        else
+                        {
+                            <input type='text' class="form-control" name="WhatNeed.Birthday" />
+                        }
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -107,7 +115,14 @@
                 <label class="control-label col-md-2">Дата начала сбора</label>
                 <div class="col-md-10">
                     <div class='input-group date' id='datetimepickerStartDate'>
-                        <input type='text' class="form-control" name="WhatNeed.StartDate" />
+                        @if (Model != null)
+                        {
+                            <input type='text' class="form-control" name="WhatNeed.StartDate" value="@Model.WhatNeed.StartDate"/>
+                        }
+                        else
+                        {
+                            <input type='text' class="form-control" name="WhatNeed.StartDate" />
+                        }
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -120,7 +135,14 @@
                 <label class="control-label col-md-2">Дата окончания сбора</label>
                 <div class="col-md-10">
                     <div class='input-group date' id='datetimepickerFinishDate'>
-                        <input type='text' class="form-control" name="WhatNeed.FinishDate" />
+                        @if (Model != null)
+                        {
+                            <input type='text' class="form-control" name="WhatNeed.FinishDate" value="@Model.WhatNeed.FinishDate"/>
+                        }
+                        else
+                        {
+                            <input type='text' class="form-control" name="WhatNeed.StartDate"/>
+                        }
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -130,7 +152,7 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label col-md-2">Информация</label>
+                <label class="control-label col-md-2">Фотографии</label>
                 <div class="col-md-10">
                     <input accept="image/*" id="Photos" multiple="multiple" name="photos" type="file" />
                 </div>

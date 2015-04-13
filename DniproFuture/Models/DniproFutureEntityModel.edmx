@@ -44,7 +44,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="32" Nullable="false" />
-          <Property Name="Patronymic" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Patronymic" Type="varchar" MaxLength="32" />
           <Property Name="Address" Type="varchar" MaxLength="64" Nullable="false" />
           <Property Name="About" Type="varchar(max)" Nullable="false" />
           <Property Name="NeedHelpId" Type="int" Nullable="false" />
@@ -95,6 +95,7 @@
           <Property Name="StartDate" Type="date" Nullable="false" />
           <Property Name="Done" Type="bit" Nullable="false" />
           <Property Name="FinishDate" Type="date" />
+          <Property Name="Photos" Type="nvarchar" MaxLength="256" />
         </EntityType>
         <EntityType Name="ProjectsLocalSet">
           <Key>
@@ -105,7 +106,6 @@
           <Property Name="AboutProject" Type="text" Nullable="false" />
           <Property Name="ProjectId" Type="int" Nullable="false" />
           <Property Name="LanguageId" Type="int" Nullable="false" />
-          <Property Name="Photos" Type="varchar" MaxLength="256" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -304,7 +304,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LastName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Patronymic" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="Address" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="About" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NeedHelpId" Type="Int32" Nullable="false" />
@@ -364,6 +364,7 @@
           <Property Name="Done" Type="Boolean" Nullable="false" />
           <Property Name="FinishDate" Type="DateTime" Precision="0" />
           <NavigationProperty Name="ProjectsLocalSet" Relationship="Self.FK_ProjectsLocalSet_ToProject" FromRole="Projects" ToRole="ProjectsLocalSet" />
+          <Property Name="Photos" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ProjectsLocalSet">
           <Key>
@@ -374,7 +375,6 @@
           <Property Name="AboutProject" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProjectId" Type="Int32" Nullable="false" />
           <Property Name="LanguageId" Type="Int32" Nullable="false" />
-          <Property Name="Photos" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Language" Relationship="Self.FK_ProjectsLocalSet_ToLanguage" FromRole="ProjectsLocalSet" ToRole="Language" />
           <NavigationProperty Name="Projects" Relationship="Self.FK_ProjectsLocalSet_ToProject" FromRole="ProjectsLocalSet" ToRole="Projects" />
         </EntityType>
@@ -624,6 +624,7 @@
           <EntitySetMapping Name="Projects">
             <EntityTypeMapping TypeName="uh357966_dbModel.Projects">
               <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="Photos" ColumnName="Photos" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Sum" ColumnName="Sum" />
                 <ScalarProperty Name="NeedSum" ColumnName="NeedSum" />
@@ -641,7 +642,6 @@
                 <ScalarProperty Name="AboutProject" ColumnName="AboutProject" />
                 <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
                 <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
-                <ScalarProperty Name="Photos" ColumnName="Photos" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

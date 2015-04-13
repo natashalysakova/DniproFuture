@@ -319,4 +319,7 @@ Also, you can simply fill out an application on our website and we will contact 
   <data name="ProjectsTitle" xml:space="preserve">
     <value>Projects</value>
   </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
 </root>

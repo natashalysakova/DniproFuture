@@ -5,7 +5,7 @@
     {
         <img class="img-responsive img-circle" src="@Url.Content("~/Content/img/Projects/" + Model.Photos[0])" alt="">
     }
-    <p class="text-muted">!!Начало сбора!! @Model.StartDate.ToShortDateString()</p>
+    <p class="text-muted">@ViewRes._HomeStrings.Start @Model.StartDate.ToShortDateString()</p>
     @{int percent = (int)((Model.Summ / Model.NeedSum) * 100);}
     <div class="progress">
         <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="@percent" aria-valuemin="0" aria-valuemax="100" style="width: @percent%;">

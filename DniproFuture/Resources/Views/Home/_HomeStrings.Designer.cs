@@ -575,5 +575,14 @@ namespace ViewRes {
                 return ResourceManager.GetString("ProjectsTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Початок сбору.
+        /// </summary>
+        public static string Start {
+            get {
+                return ResourceManager.GetString("Start", resourceCulture);
+            }
+        }
     }
 }

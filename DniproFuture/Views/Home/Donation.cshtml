@@ -12,22 +12,41 @@
             </div>
         </div>
         <div class="row">
-            @for (int i = 0; i < Model.Length; i++)
-            {
-                if (Model[i].FullName != null)
+
+            @{
+                string classes, subclasses;
+
+                switch ((int)ViewBag.DonationCount)
                 {
-                    <div class="col-md-4 team-member">
-                        <h2 class="text-center">@Model[i].FirstName<br/>@Model[i].LastName</h2>
-                        @{ Html.RenderPartial("DonationInfo", Model[i]); }
-                        <p class="text-right">
-                            <a align="right" href="@Url.Action("NeedHelpDetails", "Home", new { name = Model[i].FullName.GetStringForUrl() })">
-                                @ViewRes._HomeStrings.NewsDetails
-                            </a>
-                        </p>
-                    </div>
+                    case 1: classes = "col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4";
+                        subclasses = "col-md-12 col-lg-12";
+                        break;
+                    case 2: classes = "col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8";
+                        subclasses = "col-md-6 col-lg-6";
+                        break;
+                    default: classes = "col-md-12 col-lg-12";
+                        subclasses = "col-md-4 col-lg-4";
+                        break;
                 }
             }
-        </div>
+            <div class="@classes">
+                @for (int i = 0; i < ViewBag.DonationCount; i++)
+                {
+                    if (Model[i].FullName != null)
+                    {
+                        <div class="@subclasses team-member">
+                            <h2 class="text-center">@Model[i].FirstName<br />@Model[i].LastName</h2>
+                            @{ Html.RenderPartial("DonationInfo", Model[i]); }
+                            <p class="text-right">
+                                <a align="right" href="@Url.Action("NeedHelpDetails", "Home", new { name = Model[i].FullName.GetStringForUrl() })">
+                                    @ViewRes._HomeStrings.NewsDetails
+                                </a>
+                            </p>
+                        </div>
+                    }
+                }
+            </div>
+            </div>
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4">
                 <button type="button" class="btn btn-primary center-block btn-xl" onclick="location.href='@Url.Action("NeedHelpIndex", "Home")';">@ViewRes._HomeStrings.DonationMore</button>

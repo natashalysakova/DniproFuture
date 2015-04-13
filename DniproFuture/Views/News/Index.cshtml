@@ -41,12 +41,16 @@
             NewsLocalSet local = item.NewsLocalSet.ElementAt(0);
             <tr>
                 <td>
+                    @if (item.Date > DateTime.Now)
+                    {
+                        <strong><span class="glyphicon glyphicon-time"></span></strong>
+                    }
                     @Html.DisplayFor(modelItem => local.Title)
                 </td>
                 <td>
                     @item.Date.ToShortDateString()
                 </td>
-                <td>
+                <td class="col-md-4">
                     @Html.ActionLink("Редактировать", "Edit", new {id = item.Id}) |
                     @Html.ActionLink("Подробности", "NewsDetails", "Home", new {title = local.Title.GetStringForUrl()}, null) |
                     @Html.ActionLink("Удалить", "Delete", new {id = item.Id})

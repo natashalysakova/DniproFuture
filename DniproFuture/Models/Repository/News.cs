@@ -17,7 +17,10 @@ namespace DniproFuture.Models.Repository
     {
         private NewsOutputModel[] GetLastNews(int shortTextLenght, NewsCountEnum count)
         {
-            List<News> lastNews = count == NewsCountEnum.All ? (from news in _dbContext.News orderby news.Date descending select news).ToList() : (from news in _dbContext.News orderby news.Date descending select news).Take(NewsCount).ToList();
+            var newsQuery =
+                (from news in _dbContext.News where news.Date <= DateTime.Now orderby news.Date descending select news);
+
+            List<News> lastNews = count == NewsCountEnum.All ? newsQuery.ToList() : newsQuery.Take(NewsCount).ToList();
 
             if (lastNews.Count != 0)
             {

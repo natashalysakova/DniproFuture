@@ -290,6 +290,9 @@ Skype:&lt;br&gt;
   <data name="NavBarPartners" xml:space="preserve">
     <value>Партнери</value>
   </data>
+  <data name="NavBarProjects" xml:space="preserve">
+    <value>Проекти</value>
+  </data>
   <data name="NewsDetails" xml:space="preserve">
     <value>Детальніше...</value>
   </data>
@@ -310,5 +313,11 @@ Skype:&lt;br&gt;
   </data>
   <data name="PartnersTitle" xml:space="preserve">
     <value>Партнери</value>
+  </data>
+  <data name="ProjectsMore" xml:space="preserve">
+    <value>Більше проектів</value>
+  </data>
+  <data name="ProjectsTitle" xml:space="preserve">
+    <value>Проекти</value>
   </data>
 </root>

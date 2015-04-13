@@ -289,6 +289,9 @@ Also, you can simply fill out an application on our website and we will contact 
   <data name="NavBarPartners" xml:space="preserve">
     <value>Partners</value>
   </data>
+  <data name="NavBarProjects" xml:space="preserve">
+    <value>Projects</value>
+  </data>
   <data name="NewsDetails" xml:space="preserve">
     <value>Details...</value>
   </data>
@@ -309,5 +312,11 @@ Also, you can simply fill out an application on our website and we will contact 
   </data>
   <data name="PartnersTitle" xml:space="preserve">
     <value>Partners</value>
+  </data>
+  <data name="ProjectsMore" xml:space="preserve">
+    <value>More projects</value>
+  </data>
+  <data name="ProjectsTitle" xml:space="preserve">
+    <value>Projects</value>
   </data>
 </root>

@@ -28,7 +28,7 @@ namespace DniproFuture
             routes.MapRoute(
                 name: "projects",
                 url: "projects/{title}",
-                defaults: new { controller = "Home", action = "ProjectsDetails" }
+                defaults: new { controller = "Home", action = "ProjectDetails" }
             );
 
             routes.MapRoute(

@@ -20,7 +20,7 @@ namespace DniproFuture.Models.Repository
             var newsQuery =
                 (from news in _dbContext.News where news.Date <= DateTime.Now orderby news.Date descending select news);
 
-            List<News> lastNews = count == NewsCountEnum.All ? newsQuery.ToList() : newsQuery.Take(NewsCount).ToList();
+            List<News> lastNews = count == NewsCountEnum.All ? newsQuery.ToList() : newsQuery.Take(NewsCountConst).ToList();
 
             if (lastNews.Count != 0)
             {
@@ -33,7 +33,7 @@ namespace DniproFuture.Models.Repository
             }
 
             if (count == NewsCountEnum.Few)
-                return new NewsOutputModel[NewsCount];
+                return new NewsOutputModel[NewsCountConst];
 
             return new NewsOutputModel[0];
         }

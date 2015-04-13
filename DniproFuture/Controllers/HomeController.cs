@@ -13,18 +13,24 @@ namespace DniproFuture.Controllers
     public class HomeController : Controller
     {
         private readonly DniproFutureModelRepository _repository = new DniproFutureModelRepository();
-        //
-        // GET: /Home/
+
+
 
         public ActionResult Index()
         {
+            FillViewBag();
+
             var model = _repository.GetMainPageModel();
-            ViewBag.ClientsCount = model.ClientsBlock.Count(x => x.FullName != null);
-            ViewBag.PartnersCount = model.PartnersBlock.RandomPartners.Count(x => x.Title != null);
-            ViewBag.NewsCount = model.NewsBlock.Count(x => x.Title != null);
-            ViewBag.ProjectsCount = model.ProjectsBlock.Count(x => x.Title != null);
-            ViewBag.DonationCount = model.DonationBlock.Count(x => x.FullName != null);
             return View(model);
+        }
+
+        private void FillViewBag()
+        {
+            ViewBag.ClientsCount = _repository.ClientsCount;
+            ViewBag.PartnersCount = _repository.PartnersCount;
+            ViewBag.NewsCount = _repository.NewsCount;
+            ViewBag.ProjectsCount = _repository.ProjectsCount;
+            ViewBag.DonationCount = _repository.DonationCount;
         }
 
         public ActionResult ChangeCulture(string lang, string returnUrl)
@@ -73,6 +79,7 @@ namespace DniproFuture.Controllers
             var products = _repository.GetQueryOfNeedHelpOutputModel();
             var pageNumber = page ?? 1;
             var onePageOfProducts = products.ToPagedList(pageNumber, 12);
+            FillViewBag();
             return View(onePageOfProducts);
         }
 
@@ -81,6 +88,7 @@ namespace DniproFuture.Controllers
             var news = _repository.GetQueryOfNewsOutputModel();
             var pageNumber = page ?? 1;
             var onePageOfNews = news.ToPagedList(pageNumber, 10);
+            FillViewBag();
             return View(onePageOfNews);
         }
 
@@ -89,6 +97,7 @@ namespace DniproFuture.Controllers
             var news = _repository.GetQueryOfProjectsOutputModels();
             var pageNumber = page ?? 1;
             var onePageOfNews = news.ToPagedList(pageNumber, 10);
+            FillViewBag();
             return View(onePageOfNews);
         }
         
@@ -103,6 +112,8 @@ namespace DniproFuture.Controllers
             {
                 return HttpNotFound();
             }
+
+            FillViewBag();
             return View(needHelp);
         }
 
@@ -117,6 +128,8 @@ namespace DniproFuture.Controllers
             {
                 return HttpNotFound();
             }
+
+            FillViewBag();
             return View(news);
         }
 
@@ -131,6 +144,8 @@ namespace DniproFuture.Controllers
             {
                 return HttpNotFound();
             }
+
+            FillViewBag();
             return View(project);
         }
     }

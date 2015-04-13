@@ -186,6 +186,7 @@
       <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Extentions\MD5Extention.cs" />
+    <Compile Include="Models\Metadata.cs" />
     <Compile Include="Models\NeedHelp.cs">
       <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>
@@ -213,6 +214,7 @@
     </Compile>
     <Compile Include="Models\OutputModels\PartnersOutputModel.cs" />
     <Compile Include="Models\OutputModels\ProjectOutputModel.cs" />
+    <Compile Include="Models\PartialClasses.cs" />
     <Compile Include="Models\Partners.cs">
       <DependentUpon>DniproFutureEntityModel.tt</DependentUpon>
     </Compile>

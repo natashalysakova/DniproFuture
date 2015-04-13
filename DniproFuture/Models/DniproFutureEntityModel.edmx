@@ -44,7 +44,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="32" Nullable="false" />
-          <Property Name="Patronymic" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Patronymic" Type="varchar" MaxLength="32" />
           <Property Name="Address" Type="varchar" MaxLength="64" Nullable="false" />
           <Property Name="About" Type="varchar(max)" Nullable="false" />
           <Property Name="NeedHelpId" Type="int" Nullable="false" />
@@ -304,7 +304,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LastName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Patronymic" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="Address" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="About" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NeedHelpId" Type="Int32" Nullable="false" />

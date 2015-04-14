@@ -180,5 +180,40 @@ namespace DniproFuture.Models.Repository
             }
         }
 
+
+        private static List<string> ReWritePhotos(List<string> newPhotosString, OldPhotoModel[] oldPhotos)
+        {
+            bool firsPhotoisDeleted = false;
+            int newPhotosCount = newPhotosString.Count;
+
+            for (int i = 0; i < oldPhotos.Length; i++)
+            {
+                if (i == 0)
+                {
+                    if (!oldPhotos[i].IsLeave)
+                    {
+                        firsPhotoisDeleted = true;
+                    }
+                }
+
+                if (oldPhotos[i].IsLeave)
+                {
+                    if (firsPhotoisDeleted)
+                    {
+                        newPhotosString.Add(oldPhotos[i].Path);
+                    }
+                    else
+                    {
+                        if (newPhotosCount == 0)
+                            newPhotosString.Add(oldPhotos[i].Path);
+                        else
+                            newPhotosString.Insert(0, oldPhotos[i].Path);
+                    }
+                }
+            }
+            return newPhotosString;
+        }
+
+
     }
 }

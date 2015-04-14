@@ -1,11 +1,11 @@
-﻿@using System.Linq
+﻿@using System
+@using System.Linq
 @using System.Web.Mvc.Html
 @using DniproFuture.Models
 @using DniproFuture.Models.Extentions
 @using PagedList;
 @using PagedList.Mvc
 @model IPagedList<NeedHelp>
-
 @{
     ViewBag.Title = "Нуждаются в помощи";
     Layout = "../Shared/_AdminLayout.cshtml";
@@ -15,7 +15,7 @@
     <h2>@ViewBag.Title</h2>
 
     <p>
-        <div class="btn btn-warning" onclick="location.href = '@Url.Action("Create", "NeedHelps")';">Добавить человека</div>
+        <div class="btn btn-warning" onclick="location.href ='@Url.Action("Create", "NeedHelps")';">Добавить человека</div>
     </p>
 
     <div class="row">
@@ -51,16 +51,19 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.NeedSum)
                 </td>
-                <td>
+                <td id="sum_@item.Id">
                     @Html.DisplayFor(modelItem => item.Sum)
                 </td>
                 <td>
                     @item.StartDate.ToShortDateString()
                 </td>
                 <td>
-                    @Html.ActionLink("Редактировать", "Edit", new {id = item.Id}) |
-                    @Html.ActionLink("Подробности", "NeedHelpDetails", "Home", new {name = local.GetFullName().GetStringForUrl()}, null) |
-                    @Html.ActionLink("Удалить", "Delete", new {id = item.Id})
+                    <div id="money" type="button" class="hovered fa fa-money" data-toggle="modal" data-target="#myModal" data-id="@item.Id" data-name="@string.Format("{0} {1} ", local.FirstName, local.LastName)"></div>
+                    <a href="@Url.Action("Close", new {id = item.Id})"><span class="fa fa-check"></span></a>
+                    |
+                    <a href="@Url.Action("Edit", new {id = item.Id})"><span class="fa fa-edit"></span></a>
+                    <a href="@Url.Action("NeedHelpDetails", "Home", new {name = local.GetFullName().GetStringForUrl()}, null)"><span class="fa fa-info"></span></a>
+                    <a href="@Url.Action("Delete", new {id = item.Id})"><span class="fa fa-remove"></span></a>
                 </td>
             </tr>
         }
@@ -73,4 +76,51 @@
         </div>
     </div>
 
+</div>
+
+@*нужно изменение текущей суммы: добавление к текущей какого-то кол-ва, указание новой суммы*@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @using (Ajax.BeginForm("EditSumm", "Needhelps", new AjaxOptions() { HttpMethod = "POST", OnSuccess = "OnSuccess" }))
+            {
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+
+                <input type="number" name="id" id="helpId" class="hidden" />
+
+                <div class="modal-body">
+                    <div class="panel panel-primary" id="adding">
+                        <div class="panel-heading">
+                            <label onclick="ChangePanel(1);">
+                                <input type="radio" name="changeType" value="add" checked="checked" /> Добавить к текущей сумме
+                            </label>
+                        </div>
+                        <div class="panel-body">
+                            <p>Укажите cумму добавления</p>
+                            <input type="number" name="summ" />
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default" id="replace">
+                        <div class="panel-heading">
+                            <label onclick="ChangePanel(2);">
+                                <input type="radio" name="changeType" value="change" /> Задать новую сумму
+                            </label>
+                        </div>
+                        <div class="panel-body">
+                            <p>Укажите новую сумму</p>
+                            <input type="number" name="summ" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            }
+        </div>
+    </div>
 </div>

@@ -101,7 +101,7 @@
                     </label>
                     <div class="col-md-10">
                         @{
-                Html.RenderPartial("EditorGallery", new GalleryModel() { Photos = Model.Photos.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(), Type = GalleryType.NeedHelp });
+                Html.RenderPartial("EditorGallery", new GalleryModel() { Photos = Model.Photos.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList(), Type = GalleryType.Projects });
                         }
                     </div>
                 </div>

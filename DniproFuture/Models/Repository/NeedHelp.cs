@@ -201,32 +201,80 @@ namespace DniproFuture.Models.Repository
 
         public void EditNeedHelp(NeedHelp needHelp, List<string> newPhotosString, OldPhotoModel[] oldPhotos)
         {
-            bool firsPhotoisDeleted = false;
-            for (int i = 0; i < oldPhotos.Length; i++)
-            {
-                if (i == 0)
-                {
-                    if (!oldPhotos[i].IsLeave)
-                    {
-                        firsPhotoisDeleted = true;
-                    }
-                }
+            newPhotosString = ReWritePhotos(newPhotosString, oldPhotos);
 
-                if (oldPhotos[i].IsLeave)
+            needHelp.Photos = string.Join(";", newPhotosString);
+            EditNeedHelp(needHelp);
+        }
+
+        public void CloseHelp(NeedHelp needHelp)
+        {
+            needHelp.Sum = needHelp.NeedSum;
+            needHelp.Done = true;
+            needHelp.FinishDate = DateTime.Now;
+            _dbContext.Entry(needHelp).State = EntityState.Modified;
+            _dbContext.SaveChanges();
+
+        }
+
+        public class AddSummResult
+        {
+            public AddSummResult(bool result, int newSumm, int id)
+            {
+                Result = result;
+                NewSumm = newSumm;
+                Id = id;
+            }
+
+            public bool Result { get; set; }
+            public int NewSumm { get; set; }
+            public int Id { get; set; }
+        }
+
+        public AddSummResult AddSummToNeedHelp(int id, string changeType, int[] summ)
+        {
+            NeedHelp help = FindInNeedHelpById(id);
+            bool result = false;
+
+            if (changeType == "add")
+            {
+                if ((help.Sum + summ[0]) < help.NeedSum)
                 {
-                    if (firsPhotoisDeleted)
+                    help.Sum += summ[0];
+                    result = true;
+                }
+            }
+            else if (changeType == "change")
+            {
+                if (summ[1] < help.NeedSum)
+                {
+                    help.Sum = summ[1];
+                    result = true;
+                }
+            }
+
+            if (result)
+            {
+                _dbContext.Entry(help).State = EntityState.Modified;
+                try
+                {
+                    _dbContext.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    foreach (var eve in e.EntityValidationErrors)
                     {
-                        newPhotosString.Add(oldPhotos[i].Path);
-                    }
-                    else
-                    {
-                        newPhotosString.Insert(0, oldPhotos[i].Path);
+                        Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Debug.WriteLine("- Property: \"{0}\", Error: \"{1}\"", ve.PropertyName, ve.ErrorMessage);
+                        }
                     }
                 }
             }
 
-            needHelp.Photos = string.Join(";", newPhotosString);
-            EditNeedHelp(needHelp);
+            return new AddSummResult(result, help.Sum, help.Id);
         }
     }
 }

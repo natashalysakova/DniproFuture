@@ -1,7 +1,49 @@
 ﻿$(document).ready(function () {
     GetUnread();
     setInterval('GetUnread()', 5000);
+
+    $('#myModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var id = button.data('id');
+        var name = button.data('name');
+
+        var modal = $(this);
+        modal.find('.modal-title').text(name);
+        modal.find('#helpId').val(id);
+    });
 });
+
+function OnSuccess(data) {
+    if (data.Result == true) {
+        var str = '#sum_' + data.Id;
+        var field = $(str);
+        field[0].innerHTML = data.NewSumm;
+        $('#myModal').modal('hide');
+    } else {
+        alert("Введено неверное значение. Попробуйте снова");
+    }
+}
+
+
+function ChangePanel(val) {
+
+    var def, prime;
+    if (val === 1) {
+            def = $('#adding');
+    prime = $('#replace');
+
+    } else {
+        prime = $('#adding');
+        def = $('#replace');
+
+    }
+
+    def.removeClass('panel-default');
+    def.addClass('panel-primary');
+    prime.removeClass('panel-primary');
+    prime.addClass('panel-default');
+
+}
 
 function GetUnread() {
     $.ajax({
@@ -64,3 +106,4 @@ function ChekUploadedImageCount() {
         $('#imgRemoveAlert').hide();
     }
 }
+

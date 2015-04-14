@@ -178,32 +178,7 @@ namespace DniproFuture.Models.Repository
 
         public void EditNews(News news, List<string> newPhotosString, OldPhotoModel[] oldPhotos)
         {
-            bool firsPhotoisDeleted = false;
-            if (oldPhotos != null)
-            {
-                for (int i = 0; i < oldPhotos.Length; i++)
-                {
-                    if (i == 0)
-                    {
-                        if (!oldPhotos[i].IsLeave)
-                        {
-                            firsPhotoisDeleted = true;
-                        }
-                    }
-
-                    if (oldPhotos[i].IsLeave)
-                    {
-                        if (firsPhotoisDeleted)
-                        {
-                            newPhotosString.Add(oldPhotos[i].Path);
-                        }
-                        else
-                        {
-                            newPhotosString.Insert(0, oldPhotos[i].Path);
-                        }
-                    }
-                }
-            }
+            newPhotosString = ReWritePhotos(newPhotosString, oldPhotos);
 
             news.Images = string.Join(";", newPhotosString);
             EditNews(news);

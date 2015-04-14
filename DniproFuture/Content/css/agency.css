@@ -1217,3 +1217,29 @@ footer {
     color: red;
     text-shadow: -1px 0 #FFF, 0 1px #FFF, 1px 0 #FFF, 0 -1px #FFF;
 }
+
+td a .fa {
+    font-size: 24px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#money {
+    font-size: 24px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #00a732
+}
+
+td a .fa-check {
+    color: dodgerblue;
+}
+
+td a .fa .fa-info {
+    color: rgb(11, 82, 151);
+}
+
+
+td a .fa-remove {
+    color: red;
+}

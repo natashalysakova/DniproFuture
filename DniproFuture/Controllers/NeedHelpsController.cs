@@ -111,6 +111,10 @@ namespace DniproFuture.Controllers
                 var photosList = newPhotos.GetPhotosList(path, oldPhotos);
 
                 _repository.EditNeedHelp(needHelp, photosList, oldPhotos);
+
+                if (needHelp.Done)
+                    return RedirectToAction("Done");
+
                 return RedirectToAction("Index");
             }
 
@@ -141,6 +145,31 @@ namespace DniproFuture.Controllers
             string fullPath = Request.MapPath("~/Content/img/NeedHelp");
             _repository.RemoveNeedHelpById(id, fullPath);
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Close(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var needHelp = _repository.FindInNeedHelpById(id);
+            if (needHelp == null)
+            {
+                return HttpNotFound();
+            }
+
+            _repository.CloseHelp(needHelp);
+            ViewBag.Languages = _repository.GetLanguagesList();
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult EditSumm(int id, string changeType, int[] summ)
+        {
+            var result = _repository.AddSummToNeedHelp(id, changeType, summ);
+            return Json(result);
         }
 
         protected override void Dispose(bool disposing)

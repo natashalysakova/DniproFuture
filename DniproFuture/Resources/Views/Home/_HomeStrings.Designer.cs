@@ -281,9 +281,7 @@ namespace ViewRes {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Благодійний фонд &quot;Майбутнє Дніпра&quot; буде вдячний за будь-яку фінансову та матеріальну допомогу. Пожертви будуть витрачені на реалізацію соціальних проектів фонду та на допомогу незахищеним верствам населення.&lt;br&gt;
-        ///При переказі коштів, будь ласка, обов&apos;язково вкажіть позначку &quot;благодійна допомога&quot;.&lt;/p&gt;
-        ///&lt;p&gt;Реквізити для переказу:&lt;br&gt;
-        ///______________________&lt;/p&gt;.
+        ///При переказі коштів, будь ласка, обов&apos;язково вкажіть позначку &quot;Благодійний внесок&quot;.&lt;/p&gt;.
         /// </summary>
         public static string HelpNowModalTxt {
             get {
@@ -601,6 +599,21 @@ namespace ViewRes {
         public static string Start {
             get {
                 return ResourceManager.GetString("Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h4&gt;Реквізити для переказу:&lt;/h4&gt;
+        ///&lt;h5&gt;В гривнях (UAH)&lt;/h5&gt;
+        ///Отримувач: Благодійна организація «Майбутнє Дніпра» &lt;br&gt;
+        ///Р/С: 26007050257995 в ПАТ КБ ПРИВАТБАНК&lt;br&gt;
+        ///МФО: 305299&lt;br&gt;
+        ///ЄДРПОУ: 39642709&lt;br&gt;
+        ///Призначення платежа: «Благодійний внесок»&lt;/p&gt;.
+        /// </summary>
+        public static string UAHInfo {
+            get {
+                return ResourceManager.GetString("UAHInfo", resourceCulture);
             }
         }
     }

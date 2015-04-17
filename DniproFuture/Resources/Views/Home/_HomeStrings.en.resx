@@ -194,9 +194,7 @@ The work of our organization is dedicated to improving the living conditions of 
   </data>
   <data name="HelpNowModalTxt" xml:space="preserve">
     <value>&lt;p&gt;Charitable Foundation "Future of Dnipra" will be grateful for any financial and material assistance. Donations will be spent on social projects and fund to help vulnerable people.&lt;br&gt;
-When transferring funds, please be sure to include a note "charity".&lt;/p&gt;
-&lt;p&gt;Requisites for transfer:&lt;br&gt;
-______________________&lt;/p&gt;</value>
+When transferring funds, please be sure to include a note "charity".&lt;/p&gt;</value>
   </data>
   <data name="HelpNowSubTitle" xml:space="preserve">
     <value>You can help right now</value>
@@ -334,5 +332,14 @@ Also, you can simply fill out an application on our website and we will contact 
   </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>
+  </data>
+  <data name="UAHInfo" xml:space="preserve">
+    <value>&lt;h4&gt;Requisites for transfer:&lt;/h4&gt;
+&lt;h5&gt;В гривнях (UAH)&lt;/h5&gt;
+Отримувач: Благодійна организація «Майбутнє Дніпра» &lt;br&gt;
+Р/С: 26007050257995 в ПАТ КБ ПРИВАТБАНК&lt;br&gt;
+МФО: 305299&lt;br&gt;
+ЄДРПОУ: 39642709&lt;br&gt;
+Призначення платежа: «Благодійний внесок»&lt;/p&gt;</value>
   </data>
 </root>

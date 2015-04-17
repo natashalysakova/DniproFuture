@@ -23,12 +23,33 @@
                 <li>
                     <a class="page-scroll" href="#helpNow">@ViewRes._HomeStrings.NavBarHelpNow</a>
                 </li>
-                @if (ViewBag.DonationCount > 0)
-                {
-                    <li>
-                        <a class="page-scroll" href="#donation">@ViewRes._HomeStrings.NavBarDonation</a>
-                    </li>
-                }
+                <li>
+                    <div class="btn-group">
+                        <div type="button" class="dropdown-toggle dropdown-menu-main-button" data-toggle="dropdown" aria-expanded="false">
+                            ДОПОМОГАІ <span class="caret"></span>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-main" role="menu">
+                            @if (ViewBag.DonationCount > 0)
+                            {
+                                <li>
+                                    <a class="page-scroll" href="#donation">@ViewRes._HomeStrings.NavBarDonation</a>
+                                </li>
+                            }
+                            @if (ViewBag.ProjectsCount > 0)
+                            {
+                                <li>
+                                    <a class="page-scroll" href="#projects">@ViewRes._HomeStrings.NavBarProjects</a>
+                                </li>
+                            }
+                            @if (ViewBag.ClientsCount > 0)
+                            {
+                                <li>
+                                    <a class="page-scroll" href="#clients">@ViewRes._HomeStrings.NavBarClients</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </li>
                 <li>
                     <a class="page-scroll" href="#about">@ViewRes._HomeStrings.NavBarAbout</a>
                 </li>
@@ -39,12 +60,6 @@
                     </li>
                 }
 
-                @if (ViewBag.ProjectsCount > 0)
-                {
-                    <li>
-                        <a class="page-scroll" href="#projects">@ViewRes._HomeStrings.NavBarProjects</a>
-                    </li>
-                }
                 
                 <li>
                     <a class="page-scroll" href="#how">@ViewRes._HomeStrings.NavBarHow</a>
@@ -53,12 +68,6 @@
                     <a class="page-scroll" href="#partners">@ViewRes._HomeStrings.NavBarPartners</a>
                 </li>
 
-                @if(ViewBag.ClientsCount > 0)
-                { 
-                    <li>
-                        <a class="page-scroll" href="#clients">@ViewRes._HomeStrings.NavBarClients</a>
-                    </li>
-                }
                 <li>
                     <a class="page-scroll" href="#contacts">@ViewRes._HomeStrings.NavBarContacts</a>
                 </li>

@@ -328,6 +328,9 @@ Skype: dniprofuture&lt;br&gt;
   <data name="PartnersTitle" xml:space="preserve">
     <value>Партнери</value>
   </data>
+  <data name="ProjectsDetales" xml:space="preserve">
+    <value>Деталі проекту</value>
+  </data>
   <data name="ProjectsMore" xml:space="preserve">
     <value>Більше проектів</value>
   </data>

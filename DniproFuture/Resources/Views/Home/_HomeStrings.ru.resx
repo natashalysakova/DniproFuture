@@ -292,6 +292,9 @@ Skype: dniprofuture&lt;br&gt;
   <data name="NavBarHelpNow" xml:space="preserve">
     <value>Помочь сейчас</value>
   </data>
+  <data name="NavBarHelps" xml:space="preserve">
+    <value>Помощь</value>
+  </data>
   <data name="NavBarHow" xml:space="preserve">
     <value>Как помочь</value>
   </data>

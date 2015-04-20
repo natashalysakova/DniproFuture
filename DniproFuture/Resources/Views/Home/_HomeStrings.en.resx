@@ -194,9 +194,7 @@ The work of our organization is dedicated to improving the living conditions of 
   </data>
   <data name="HelpNowModalTxt" xml:space="preserve">
     <value>&lt;p&gt;Charitable Foundation "Future of Dnipra" will be grateful for any financial and material assistance. Donations will be spent on social projects and fund to help vulnerable people.&lt;br&gt;
-When transferring funds, please be sure to include a note "charity".&lt;/p&gt;
-&lt;p&gt;Requisites for transfer:&lt;br&gt;
-______________________&lt;/p&gt;</value>
+When transferring funds, please be sure to include a note "charity".&lt;/p&gt;</value>
   </data>
   <data name="HelpNowSubTitle" xml:space="preserve">
     <value>You can help right now</value>
@@ -222,21 +220,24 @@ Under the humanitarian aid should be understood&lt;ul&gt;
 	&lt;li&gt;Books, toys, stationery;&lt;/li&gt;
 	&lt;li&gt;Food (any non-perishable).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;All that you can pass to the warehouse of humanitarian assistance, which is located at: Dnepropetrovsk, st. _______________. Warehouse working time: Mon - Fri from 9:00 to 17:00.&lt;/p&gt;
+&lt;p&gt;All that you can pass to the warehouse of humanitarian assistance, which is located at: Dnepropetrovsk, Gladkova st. 5. Warehouse working time: Mon - Fri from 9:00 to 17:00.&lt;/p&gt;
 &lt;p&gt;Likewise, if you wish to transfer to the warehouse things that have large dimensions, please contact our representatives in any way you like, to clarify information about things and how to deliver them:&lt;br&gt;
-Phone:&lt;br&gt;
-e-mail:&lt;br&gt;
-Skype:&lt;br&gt;
+Phone: 096-823-32-02; 099-119-43-05&lt;br&gt;
+e-mail: info@dniprofuture.dp.ua&lt;br&gt;
+Skype: dniprofuture &lt;br&gt;
 Or fill out the form on our website.
 &lt;p&gt;The future of our city depends on us!&lt;/p&gt;</value>
   </data>
   <data name="HowInfoModalTxt" xml:space="preserve">
-    <value>&lt;p&gt;You have any information about the people who need help?&lt;br&gt;You need any help or someone from your family?&lt;br&gt;You know, &amp;quot;How can I help&amp;quot; and &amp;quot;What to do&amp;quot;, but unable to implement its plans on their own?&lt;br&gt;If you have answered at least one of the questions is positive, in which case you should contact us.&lt;/p&gt;
+    <value>&lt;p&gt;You have any information about the people who need help?&lt;/p&gt;
+&lt;p&gt;You need any help or someone from your family?&lt;/p&gt;
+&lt;p&gt;You know, &amp;quot;How can I help&amp;quot; and &amp;quot;What to do&amp;quot;, but unable to implement its plans on their own?&lt;/p&gt;
+&lt;p&gt;If you have answered at least one of the questions is positive, in which case you should contact us.&lt;/p&gt;
 &lt;p&gt;We are СА &amp;quot;Future of Dnipra&amp;quot;. We provide financial and legal assistance to people of Dnepropetrovsk. And we need your help! It is not just about financial aid, but also about the information that you have. Our goal - to help the greatest number of people. But to do this we need to know about these people.&lt;/p&gt;
 &lt;p&gt;Therefore, if you own the necessary information, please contact our representatives in any way convenient for you:&lt;br&gt;
-Phone:&lt;br&gt;
-E-mail:&lt;br&gt;
-Skype:&lt;br&gt;
+Phone: 096-823-32-02; 099-119-43-05&lt;br&gt;
+E-mail: info@dniprofuture.dp.ua&lt;br&gt;
+Skype: dniprofuture&lt;br&gt;
 Or fill out the form on our website.
 &lt;p&gt;The future of our city depends on us!&lt;/p&gt;</value>
   </data>
@@ -250,16 +251,23 @@ Or fill out the form on our website.
     <value>Money</value>
   </data>
   <data name="HowMoneyModalTxt" xml:space="preserve">
-    <value>&lt;p&gt;If you have the desire and the ability to make a charitable contribution, the following are details of our foundation. Funds will be spent on projects fund.&lt;/p&gt;</value>
+    <value>&lt;p&gt;If you have the desire and the ability to make a charitable contribution, the following are details of our foundation. Funds will be spent on projects fund.&lt;/p&gt;
+
+&lt;p&gt;В гривнях (UAH)&lt;br&gt;
+Отримувач: Благодійна организація «Майбутнє Дніпра» &lt;br&gt;
+Р/С: 26007050257995 в ПАТ КБ ПРИВАТБАНК&lt;br&gt;
+МФО: 305299&lt;br&gt;
+ЄДРПОУ: 39642709&lt;br&gt;
+Призначення платежа: «Благодійний внесок»&lt;/p&gt;</value>
   </data>
   <data name="HowOther" xml:space="preserve">
     <value>Other</value>
   </data>
   <data name="HowOtherModalTxt" xml:space="preserve">
     <value>&lt;p&gt;On our site, the different ways to implement assistance. If you want to offer us a new way to help or you want to cooperate with our Charitable Foundation, please contact us in any convenient way for you:&lt;br&gt;
-e-mail:&lt;br&gt;
-Tel. :&lt;br&gt;
-Skype:&lt;br&gt;
+Tel: 096-823-32-02; 099-119-43-05&lt;br&gt;
+E-mail: info@dniprofuture.dp.ua&lt;br&gt;
+Skype: dniprofuture&lt;br&gt;
 Also, you can simply fill out an application on our website and we will contact you.&lt;/p&gt;</value>
   </data>
   <data name="HowTitle" xml:space="preserve">
@@ -282,6 +290,9 @@ Also, you can simply fill out an application on our website and we will contact 
   </data>
   <data name="NavBarHelpNow" xml:space="preserve">
     <value>Help now</value>
+  </data>
+  <data name="NavBarHelps" xml:space="preserve">
+    <value>Help</value>
   </data>
   <data name="NavBarHow" xml:space="preserve">
     <value>How?</value>
@@ -316,6 +327,9 @@ Also, you can simply fill out an application on our website and we will contact 
   <data name="PartnersTitle" xml:space="preserve">
     <value>Partners</value>
   </data>
+  <data name="ProjectsDetales" xml:space="preserve">
+    <value>Detales of project</value>
+  </data>
   <data name="ProjectsMore" xml:space="preserve">
     <value>More projects</value>
   </data>
@@ -324,5 +338,14 @@ Also, you can simply fill out an application on our website and we will contact 
   </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>
+  </data>
+  <data name="UAHInfo" xml:space="preserve">
+    <value>&lt;h4&gt;Requisites for transfer:&lt;/h4&gt;
+&lt;h5&gt;В гривнях (UAH)&lt;/h5&gt;
+Отримувач: Благодійна организація «Майбутнє Дніпра» &lt;br&gt;
+Р/С: 26007050257995 в ПАТ КБ ПРИВАТБАНК&lt;br&gt;
+МФО: 305299&lt;br&gt;
+ЄДРПОУ: 39642709&lt;br&gt;
+Призначення платежа: «Благодійний внесок»&lt;/p&gt;</value>
   </data>
 </root>

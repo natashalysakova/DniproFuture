@@ -281,9 +281,7 @@ namespace ViewRes {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Благодійний фонд &quot;Майбутнє Дніпра&quot; буде вдячний за будь-яку фінансову та матеріальну допомогу. Пожертви будуть витрачені на реалізацію соціальних проектів фонду та на допомогу незахищеним верствам населення.&lt;br&gt;
-        ///При переказі коштів, будь ласка, обов&apos;язково вкажіть позначку &quot;благодійна допомога&quot;.&lt;/p&gt;
-        ///&lt;p&gt;Реквізити для переказу:&lt;br&gt;
-        ///______________________&lt;/p&gt;.
+        ///При переказі коштів, будь ласка, обов&apos;язково вкажіть позначку &quot;Благодійний внесок&quot;.&lt;/p&gt;.
         /// </summary>
         public static string HelpNowModalTxt {
             get {
@@ -329,7 +327,7 @@ namespace ViewRes {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;У Вас в гардеробі скупчилися речі, які Ви не носите? Ви вирішили купити нові меблі і не знаєте що робити зі старими меблями? І Ви не знаєте кому б могли всі ці речі стати в нагоді?&lt;br&gt;
-        ///Не поспішайте все це викидати! Адже речі, які здаються марними для вас, можуть бути корисні для інших людей! Наш фонд займається збором гуманітарної допомоги для жителів нашого міста. Тому, якщо у Вас є можливість, а головне бажання допомогти нужденним людям Дніпропетровська, то Ви можете це зробити самостійно або Ми можем [rest of string was truncated]&quot;;.
+        ///Не поспішайте все це викидати! Адже речі, які здаються марними для вас, можуть бути корисні для інших людей! Наш фонд займається збором гуманітарної допомоги для жителів нашого міста. Тому, якщо у Вас є можливість, а головне бажання допомогти нужденним людям Дніпропетровська, то Ви можете це зробити самостійно або Ми може [rest of string was truncated]&quot;;.
         /// </summary>
         public static string HowClothingModalTxt {
             get {
@@ -338,8 +336,11 @@ namespace ViewRes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;Ви володієте інформацією про людей, яким потрібна допомога?&lt;br&gt;Допомога потрібна Вам або комусь із ваших родичів?&lt;br&gt;Ви знаєте &amp;laquo;Як можна допомогти&amp;raquo; і &amp;laquo;Що потрібно робити&amp;raquo;, але не в силах реалізувати задумане самостійно?&lt;br&gt;Якщо Ви відповіли, хоча б на одне з питань позитивно, в такому випадку Вам варто зв&amp;#39;язатися з нами.&lt;/p&gt;
-        ///&lt;p&gt;Ми - це БФ &amp;laquo;Майбутнє Дніпра&amp;raquo;. Ми надаємо матеріальну та юридичну допомогу людям Дніпропетровська. І нам потрібна Ваша допомога! Мова йде не [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;p&gt;Ви володієте інформацією про людей, яким потрібна допомога?&lt;/p&gt;
+        ///&lt;p&gt;Допомога потрібна Вам або комусь із ваших родичів?&lt;/p&gt;
+        ///&lt;p&gt;Ви знаєте &amp;laquo;Як можна допомогти&amp;raquo; і &amp;laquo;Що потрібно робити&amp;raquo;, але не в силах реалізувати задумане самостійно?&lt;/p&gt;
+        ///&lt;p&gt;Якщо Ви відповіли, хоча б на одне з питань позитивно, в такому випадку Вам варто зв&amp;#39;язатися з нами.&lt;/p&gt;
+        ///&lt;p&gt;Ми - це БФ &amp;laquo;Майбутнє Дніпра&amp;raquo;. Ми надаємо матеріальну та юридичну допомогу людям Дніпропетровська. І нам потрібна Ваша допом [rest of string was truncated]&quot;;.
         /// </summary>
         public static string HowInfoModalTxt {
             get {
@@ -375,7 +376,14 @@ namespace ViewRes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;Якщо у Вас є бажання і можливість зробити благодійний внесок, то нижче наведені реквізити нашого фонду. Кошти будуть витрачені на реалізацію проектів фонду.&lt;/p&gt;.
+        ///   Looks up a localized string similar to &lt;p&gt;Якщо у Вас є бажання і можливість зробити благодійний внесок, то нижче наведені реквізити нашого фонду. Кошти будуть витрачені на реалізацію проектів фонду.&lt;/p&gt;
+        ///
+        ///&lt;p&gt;В гривнях (UAH)&lt;br&gt;
+        ///Отримувач: Благодійна организація «Майбутнє Дніпра» &lt;br&gt;
+        ///Р/С: 26007050257995 в ПАТ КБ ПРИВАТБАНК&lt;br&gt;
+        ///МФО: 305299&lt;br&gt;
+        ///ЄДРПОУ: 39642709&lt;br&gt;
+        ///Призначення платежа: «Благодійний внесок»&lt;/p&gt;.
         /// </summary>
         public static string HowMoneyModalTxt {
             get {
@@ -394,9 +402,9 @@ namespace ViewRes {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;На нашому сайті описано кілька способів для здійснення допомоги. Якщо Ви хочете запропонувати нам новий спосіб допомоги чи Ви бажаєте співпрацювати з нашим Благодійним Фондом, то, будь ласка, зв&amp;#39;яжіться з нами будь-яким зручним для Вас способом:&lt;br&gt;
-        ///e-mail:&lt;br&gt;
-        ///Тел. :&lt;br&gt;
-        ///Skype:&lt;br&gt;
+        ///Тел: 096-823-32-02; 099-119-43-05&lt;br&gt;
+        ///E-mail: info@dniprofuture.dp.ua&lt;br&gt;
+        ///Skype: dniprofuture&lt;br&gt;
         ///Так само Ви можете просто заповнити заявку на нашому сайті, і ми обов&amp;#39;язково з вами зв&amp;#39;яжемося.&lt;/p&gt;.
         /// </summary>
         public static string HowOtherModalTxt {
@@ -465,6 +473,15 @@ namespace ViewRes {
         public static string NavBarHelpNow {
             get {
                 return ResourceManager.GetString("NavBarHelpNow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Допомога.
+        /// </summary>
+        public static string NavBarHelps {
+            get {
+                return ResourceManager.GetString("NavBarHelps", resourceCulture);
             }
         }
         
@@ -568,6 +585,15 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Деталі проекту.
+        /// </summary>
+        public static string ProjectsDetales {
+            get {
+                return ResourceManager.GetString("ProjectsDetales", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Більше проектів.
         /// </summary>
         public static string ProjectsMore {
@@ -591,6 +617,21 @@ namespace ViewRes {
         public static string Start {
             get {
                 return ResourceManager.GetString("Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h4&gt;Реквізити для переказу:&lt;/h4&gt;
+        ///&lt;h5&gt;В гривнях (UAH)&lt;/h5&gt;
+        ///Отримувач: Благодійна организація «Майбутнє Дніпра» &lt;br&gt;
+        ///Р/С: 26007050257995 в ПАТ КБ ПРИВАТБАНК&lt;br&gt;
+        ///МФО: 305299&lt;br&gt;
+        ///ЄДРПОУ: 39642709&lt;br&gt;
+        ///Призначення платежа: «Благодійний внесок»&lt;/p&gt;.
+        /// </summary>
+        public static string UAHInfo {
+            get {
+                return ResourceManager.GetString("UAHInfo", resourceCulture);
             }
         }
     }

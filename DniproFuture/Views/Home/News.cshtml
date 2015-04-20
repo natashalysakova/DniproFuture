@@ -12,7 +12,7 @@
             @{
                 string classes, subclasses;
 
-                switch ((int)ViewBag.DonationCount)
+                switch ((int)ViewBag.NewsCount)
                 {
                     case 1: classes = "col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4";
                         subclasses = "col-md-12 col-lg-12";
@@ -26,23 +26,25 @@
                 }
             }
             <div class="@classes">
-                @for (int i = 0; i < ViewBag.NewsCount; i++)
+                @for (int i = 0; i < Model.Length; i++)
                 {
-
-                    <div class="@subclasses team-member">
-                        @if (Model[i].Photo.Count > 0)
-                        {
-                            <img src="@Url.Content("~/Content/img/News/" + Model[i].Photo[0])" class="img-responsive img-circle img-preview" alt="">
-                        }
-                        <h5>@Model[i].Title</h5>
-                        <p class="text-muted text-justify">@Model[i].ShortText ...</p>
-                        <p class="text-muted text-left">@Model[i].Date.ToShortDateString()</p>
-                        <p class="text-right">
-                            <a align="right" href="@Url.Action("NewsDetails", "Home", new {title = Model[i].Title.GetStringForUrl()})">
-                                @ViewRes._HomeStrings.NewsDetails
-                            </a>
-                        </p>
-                    </div>
+                    if (Model[i].Title != null)
+                    {
+                        <div class="@subclasses team-member">
+                            @if (Model[i].Photo.Count > 0)
+                            {
+                                <img src="@Url.Content("~/Content/img/News/" + Model[i].Photo[0])" class="img-responsive img-circle img-preview" alt="">
+                            }
+                            <h5>@Model[i].Title</h5>
+                            <p class="text-muted text-justify">@MvcHtmlString.Create(Model[i].ShortText)...</p>
+                            <p class="text-muted text-left">@Model[i].Date.ToShortDateString()</p>
+                            <p class="text-right">
+                                <a align="right" href="@Url.Action("NewsDetails", "Home", new {title = Model[i].Title.GetStringForUrl()})">
+                                    @ViewRes._HomeStrings.NewsDetails
+                                </a>
+                            </p>
+                        </div>
+                    }
                 }
             </div>
         </div>

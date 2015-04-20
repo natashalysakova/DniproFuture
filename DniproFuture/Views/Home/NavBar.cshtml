@@ -13,7 +13,6 @@
                 <a class="page-scroll" href="#page-top"><img class="logo navbar-brand" src="@Url.Content("~/Content/img/logo.png")" /></a>
             </div>
         </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -23,10 +22,34 @@
                 <li>
                     <a class="page-scroll" href="#helpNow">@ViewRes._HomeStrings.NavBarHelpNow</a>
                 </li>
-                @if (ViewBag.DonationCount > 0)
+                @if (ViewBag.DonationCount > 0 || ViewBag.ProjectsCount > 0 || ViewBag.ClientsCount > 0)
                 {
                     <li>
-                        <a class="page-scroll" href="#donation">@ViewRes._HomeStrings.NavBarDonation</a>
+                        <div class="btn-group">
+                            <div type="button" class="dropdown-toggle dropdown-menu-main-button" data-toggle="dropdown" aria-expanded="false">
+                                @ViewRes._HomeStrings.NavBarHelps<span class="caret"></span>
+                            </div>
+                            <ul class="dropdown-menu dropdown-menu-main" role="menu">
+                                @if (ViewBag.DonationCount > 0)
+                                {
+                                    <li>
+                                        <a class="page-scroll" href="#donation">@ViewRes._HomeStrings.NavBarDonation</a>
+                                    </li>
+                                }
+                                @if (ViewBag.ProjectsCount > 0)
+                                {
+                                    <li>
+                                        <a class="page-scroll" href="#projects">@ViewRes._HomeStrings.NavBarProjects</a>
+                                    </li>
+                                }
+                                @if (ViewBag.ClientsCount > 0)
+                                {
+                                    <li>
+                                        <a class="page-scroll" href="#clients">@ViewRes._HomeStrings.NavBarClients</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
                     </li>
                 }
                 <li>
@@ -39,26 +62,12 @@
                     </li>
                 }
 
-                @if (ViewBag.ProjectsCount > 0)
-                {
-                    <li>
-                        <a class="page-scroll" href="#projects">@ViewRes._HomeStrings.NavBarProjects</a>
-                    </li>
-                }
-                
                 <li>
                     <a class="page-scroll" href="#how">@ViewRes._HomeStrings.NavBarHow</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#partners">@ViewRes._HomeStrings.NavBarPartners</a>
                 </li>
-
-                @if(ViewBag.ClientsCount > 0)
-                { 
-                    <li>
-                        <a class="page-scroll" href="#clients">@ViewRes._HomeStrings.NavBarClients</a>
-                    </li>
-                }
                 <li>
                     <a class="page-scroll" href="#contacts">@ViewRes._HomeStrings.NavBarContacts</a>
                 </li>
@@ -67,7 +76,7 @@
         <div id="languages">
             <a href="@Url.Action("ChangeCulture",new { lang = "uk", returnUrl = this.Request.RawUrl })">
                 <img src="@Url.Content("~/Content/img/blank.gif")" class="flag flag-ua" alt="Українська" />
-            </a><br/>
+            </a><br />
             <a href="@Url.Action("ChangeCulture",new { lang = "ru", returnUrl = this.Request.RawUrl })">
                 <img src="@Url.Content("~/Content/img/blank.gif")" class="flag flag-ru" alt="Русский" />
             </a><br />
@@ -77,4 +86,3 @@
         </div>
     </div>
 </nav>
-

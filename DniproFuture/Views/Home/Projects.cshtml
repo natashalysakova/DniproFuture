@@ -34,7 +34,7 @@
                             <img src="@Url.Content("~/Content/img/Projects/" + Model[i].Photos[0])" class="img-responsive img-circle img-preview" alt="">
                         }
                         <h5>@Model[i].Title</h5>
-                        <p class="text-muted text-justify">@Model[i].ShortText ...</p>
+                        <p class="text-muted text-justify">@MvcHtmlString.Create(Model[i].ShortText)...</p>
                         <p class="text-right">
                             <a align="right" href="@Url.Action("ProjectDetails", "Home", new { title=Model[i].Title.GetStringForUrl()})">
                                 @ViewRes._HomeStrings.NewsDetails

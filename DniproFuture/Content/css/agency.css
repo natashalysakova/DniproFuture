@@ -6,7 +6,7 @@
 
 body {
     overflow-x: hidden;
-    font-family: 'Andika', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #0d4a9a;
 }
 
@@ -53,7 +53,7 @@ h4,
 h5,
 h6 {
     text-transform: uppercase;
-    font-family: 'Andika', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
 }
 
@@ -72,7 +72,7 @@ h6 {
 .btn-primary {
     border-color: #f3a400;
     text-transform: uppercase;
-    font-family: 'Andika', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     color: #fff;
     background-color: #f3a400;
@@ -127,7 +127,7 @@ fieldset[disabled] .btn-primary.active {
     border-color: #f3a400;
     border-radius: 3px;
     text-transform: uppercase;
-    font-family: 'Andika', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: #fff;
@@ -180,7 +180,7 @@ fieldset[disabled] .btn-primary.active {
 }
 
     .navbar-default .navbar-brand {
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         color: #f3a400;
     }
 
@@ -211,7 +211,7 @@ fieldset[disabled] .btn-primary.active {
 
     .navbar-default .nav li a {
         text-transform: uppercase;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 400;
         letter-spacing: 1px;
         color: #0d4a9a;
@@ -308,7 +308,7 @@ header .intro-text {
 
     header .intro-text .intro-lead-in {
         margin-bottom: 25px;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 22px;
         font-style: italic;
         line-height: 22px;
@@ -317,13 +317,13 @@ header .intro-text {
     header .intro-text .intro-heading {
         margin-bottom: 25px;
         text-transform: uppercase;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 50px;
         font-weight: 700;
         line-height: 50px;
     }
 
-@media(min-width:1200px) {
+@media(min-width:1000px) {
     header .intro-text {
         padding-top: 100px;
         padding-bottom: 25px;
@@ -332,7 +332,7 @@ header .intro-text {
 
         header .intro-text .intro-lead-in {
             margin-bottom: 25px;
-            font-family: 'Andika', sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-size: 40px;
             font-style: italic;
             line-height: 40px;
@@ -341,7 +341,7 @@ header .intro-text {
         header .intro-text .intro-heading {
             margin-bottom: 50px;
             text-transform: uppercase;
-            font-family: 'Andika', sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-size: 75px;
             font-weight: 700;
             line-height: 75px;
@@ -362,7 +362,7 @@ section {
     section h3.section-subheading {
         margin-bottom: 40px;
         text-transform: none;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 16px;
         font-style: italic;
         font-weight: 400;
@@ -440,7 +440,7 @@ section {
 
         .portfolio .portfolio-item .portfolio-caption p {
             margin: 0;
-            font-family: 'Andika', sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-size: 16px;
             font-style: italic;
         }
@@ -718,28 +718,28 @@ section#contacts {
 
     section#contacts::-webkit-input-placeholder {
         text-transform: uppercase;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 700;
         color: #bbb;
     }
 
     section#contacts:-moz-placeholder {
         text-transform: uppercase;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 700;
         color: #bbb;
     }
 
     section#contacts::-moz-placeholder {
         text-transform: uppercase;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 700;
         color: #bbb;
     }
 
     section#contacts:-ms-input-placeholder {
         text-transform: uppercase;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 700;
         color: #bbb;
     }
@@ -756,7 +756,7 @@ footer {
     footer span.copyright {
         text-transform: uppercase;
         text-transform: none;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         line-height: 40px;
     }
 
@@ -764,7 +764,7 @@ footer {
         margin-bottom: 0;
         text-transform: uppercase;
         text-transform: none;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         line-height: 40px;
     }
 
@@ -829,7 +829,7 @@ ul.social-buttons {
 
     .portfolio-modal .modal-content p.item-intro {
         margin: 20px 0 30px;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 16px;
         font-style: italic;
     }
@@ -972,8 +972,11 @@ footer {
     .navbar-default .nav li a {
         color: #ffffff;
     }
-}
 
+    .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+        margin-left: 0;
+    }
+}
 
 
 .progress-bar-warning {
@@ -1177,6 +1180,7 @@ footer {
 .carousel-indicators .active {
     background-color: rgb(243, 164, 0);
 }
+
 .carousel-indicators li {
     border: 1px solid #F3A400;
 }
@@ -1192,6 +1196,7 @@ footer {
     background-color: #F3A400;
     border-color: #F3A400;
 }
+
 .hovered {
     cursor: pointer;
 }
@@ -1200,16 +1205,16 @@ footer {
     margin-top: 20px;
 }
 
-.members{
+.members {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.members img{
-    width: 100%;
-}
+    .members img {
+        width: 100%;
+    }
 
-.remove-sigh{
+.remove-sigh {
     position: absolute;
     top: 10px;
     right: 25px;
@@ -1228,7 +1233,7 @@ td a .fa {
     font-size: 24px;
     margin-left: 5px;
     margin-right: 5px;
-    color: #00a732
+    color: #00a732;
 }
 
 td a .fa-check {
@@ -1242,4 +1247,157 @@ td a .fa .fa-info {
 
 td a .fa-remove {
     color: red;
+}
+
+.dropdown-menu-main-button {
+    color: #FFF;
+    padding: 10px 15px;
+    padding-top: 16px;
+    padding-bottom: 15px;
+}
+
+    .dropdown-menu-main-button:hover, .dropdown-menu-main-button:focus {
+        color: #F3A400;
+    }
+
+.dropdown-menu-main-button {
+    text-transform: uppercase;
+    font-family: "Roboto",sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #0D4A9A;
+}
+
+
+@media(max-width: 1200px) {
+    .navbar-default .dropdown-menu-main-button {
+        color: #FFF;
+    }
+
+    .navbar-nav .open .dropdown-menu {
+        background-color: #0D4A9A;
+    }
+}
+
+
+.navbar-shrink .dropdown-menu-main-button {
+    color: #ffffff;
+}
+
+
+.btn-group.open .dropdown-toggle {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.125) inset;
+}
+
+.btn-group {
+    height: 50px;
+}
+
+.dropdown-menu-main {
+    color: #FFF;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+    .dropdown-menu-main:hover, .dropdown-menu-main:focus {
+        color: #F3A400;
+    }
+
+.dropdown-menu-main {
+    text-transform: uppercase;
+    font-family: "Roboto",sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #0D4A9A;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+.open > .dropdown-menu .dropdown-menu-main {
+    display: block;
+}
+
+.navbar-shrink .dropdown-menu-main {
+    color: #FFF;
+    background-color: #0D4A9A;
+}
+
+.dropdown-menu-main > li > a:hover {
+    color: #0D4A9A;
+    text-decoration: none;
+    background-color: #F3A400;
+}
+
+.navbar-shrink .nav .dropdown-menu-main li a:hover, .navbar-shrink .nav .dropdown-menu-main li a:focus {
+    outline: 0px none;
+    color: #0D4A9A;
+}
+
+.navbar-shrink .nav .dropdown-menu-main li a:hover, .navbar-shrink .nav .dropdown-menu-main li a:focus {
+    outline: 0px none;
+    color: #F3A400;
+}
+
+.navbar-default .nav .dropdown-menu-main li a:hover, .navbar-shrink .nav .dropdown-menu-main li a:focus {
+    outline: 0px none;
+    color: #F3A400;
+}
+
+.navbar-default .nav .dropdown-menu-main li a:hover, .navbar-shrink .nav .dropdown-menu-main li a:focus {
+    outline: 0px none;
+    color: #0D4A9A;
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
+    color: #FFF;
+    text-decoration: none;
+    background-color: #F3A400;
+    outline: 0px none;
+}
+
+@media(min-width: 0px) and (max-width: 768px) {
+    .navbar-nav .open .dropdown-menu-main {
+        position: absolute;
+        float: none;
+        width: auto;
+        margin-top: 2px;
+        background-color: #0D4A9A;
+        border-bottom-color: rgba(0, 0, 0, 0.15);
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-image-outset: 0 0 0 0;
+        border-image-repeat: stretch stretch;
+        border-image-slice: 100% 100% 100% 100%;
+        border-image-source: none;
+        border-image-width: 1 1 1 1;
+        border-left-color: rgba(0, 0, 0, 0.15);
+        border-left-style: solid;
+        border-left-width: 1px;
+        border-right-color: rgba(0, 0, 0, 0.15);
+        border-right-style: solid;
+        border-right-width: 1px;
+        border-top-color: rgba(0, 0, 0, 0.15);
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border-top-style: solid;
+        border-top-width: 1px;
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176);
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #fff;
+    }
+
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+            color: #F3A400;
+            background-color: transparent;
+        }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #0D4A9A;
+        background-color: #F3A400;
+    }
 }

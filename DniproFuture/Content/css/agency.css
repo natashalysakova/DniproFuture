@@ -6,7 +6,7 @@
 
 body {
     overflow-x: hidden;
-    font-family: 'Andika', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #0d4a9a;
 }
 
@@ -53,7 +53,7 @@ h4,
 h5,
 h6 {
     text-transform: uppercase;
-    font-family: 'Andika', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
 }
 
@@ -72,7 +72,7 @@ h6 {
 .btn-primary {
     border-color: #f3a400;
     text-transform: uppercase;
-    font-family: 'Andika', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     color: #fff;
     background-color: #f3a400;
@@ -127,7 +127,7 @@ fieldset[disabled] .btn-primary.active {
     border-color: #f3a400;
     border-radius: 3px;
     text-transform: uppercase;
-    font-family: 'Andika', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: #fff;
@@ -180,7 +180,7 @@ fieldset[disabled] .btn-primary.active {
 }
 
     .navbar-default .navbar-brand {
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         color: #f3a400;
     }
 
@@ -211,7 +211,7 @@ fieldset[disabled] .btn-primary.active {
 
     .navbar-default .nav li a {
         text-transform: uppercase;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 400;
         letter-spacing: 1px;
         color: #0d4a9a;
@@ -308,7 +308,7 @@ header .intro-text {
 
     header .intro-text .intro-lead-in {
         margin-bottom: 25px;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 22px;
         font-style: italic;
         line-height: 22px;
@@ -317,7 +317,7 @@ header .intro-text {
     header .intro-text .intro-heading {
         margin-bottom: 25px;
         text-transform: uppercase;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 50px;
         font-weight: 700;
         line-height: 50px;
@@ -332,7 +332,7 @@ header .intro-text {
 
         header .intro-text .intro-lead-in {
             margin-bottom: 25px;
-            font-family: 'Andika', sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-size: 40px;
             font-style: italic;
             line-height: 40px;
@@ -341,7 +341,7 @@ header .intro-text {
         header .intro-text .intro-heading {
             margin-bottom: 50px;
             text-transform: uppercase;
-            font-family: 'Andika', sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-size: 75px;
             font-weight: 700;
             line-height: 75px;
@@ -362,7 +362,7 @@ section {
     section h3.section-subheading {
         margin-bottom: 40px;
         text-transform: none;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 16px;
         font-style: italic;
         font-weight: 400;
@@ -440,7 +440,7 @@ section {
 
         .portfolio .portfolio-item .portfolio-caption p {
             margin: 0;
-            font-family: 'Andika', sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-size: 16px;
             font-style: italic;
         }
@@ -718,28 +718,28 @@ section#contacts {
 
     section#contacts::-webkit-input-placeholder {
         text-transform: uppercase;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 700;
         color: #bbb;
     }
 
     section#contacts:-moz-placeholder {
         text-transform: uppercase;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 700;
         color: #bbb;
     }
 
     section#contacts::-moz-placeholder {
         text-transform: uppercase;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 700;
         color: #bbb;
     }
 
     section#contacts:-ms-input-placeholder {
         text-transform: uppercase;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 700;
         color: #bbb;
     }
@@ -756,7 +756,7 @@ footer {
     footer span.copyright {
         text-transform: uppercase;
         text-transform: none;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         line-height: 40px;
     }
 
@@ -764,7 +764,7 @@ footer {
         margin-bottom: 0;
         text-transform: uppercase;
         text-transform: none;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         line-height: 40px;
     }
 
@@ -829,7 +829,7 @@ ul.social-buttons {
 
     .portfolio-modal .modal-content p.item-intro {
         margin: 20px 0 30px;
-        font-family: 'Andika', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 16px;
         font-style: italic;
     }
@@ -1262,7 +1262,7 @@ td a .fa-remove {
 
 .dropdown-menu-main-button {
     text-transform: uppercase;
-    font-family: "Andika",sans-serif;
+    font-family: "Roboto",sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
     color: #0D4A9A;
@@ -1305,7 +1305,7 @@ td a .fa-remove {
 
 .dropdown-menu-main {
     text-transform: uppercase;
-    font-family: "Andika",sans-serif;
+    font-family: "Roboto",sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
     color: #0D4A9A;

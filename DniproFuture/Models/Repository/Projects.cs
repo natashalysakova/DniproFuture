@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Linq;
@@ -162,6 +163,22 @@ namespace DniproFuture.Models.Repository
         public IQueryable<Projects> GetQueryOfProjects()
         {
             return _dbContext.Projects.ToList().AsQueryable();
+        }
+
+        public void RemoveProjectById(int id, string fullPath)
+        {
+            var project = _dbContext.Projects.Find(id);
+
+            for (int i = project.ProjectsLocalSet.Count - 1; i >= 0; i--)
+            {
+                ProjectsLocalSet local = project.ProjectsLocalSet.ElementAt(i);
+                _dbContext.Entry(local).State = EntityState.Deleted;
+            }
+
+            DeleteAllPhotos(fullPath, project.Photos);
+
+            _dbContext.Projects.Remove(project);
+            _dbContext.SaveChanges();
         }
     }
 

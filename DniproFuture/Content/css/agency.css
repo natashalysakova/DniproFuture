@@ -1023,7 +1023,7 @@ footer {
 }
 
 
-@media(max-width:1000px) {
+@media(max-width:1200px) {
     .customContainer {
         padding-top: 80px;
         padding-left: 100px;

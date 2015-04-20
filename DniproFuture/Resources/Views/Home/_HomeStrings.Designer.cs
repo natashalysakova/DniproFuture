@@ -477,6 +477,15 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Допомога.
+        /// </summary>
+        public static string NavBarHelps {
+            get {
+                return ResourceManager.GetString("NavBarHelps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Як допомогти.
         /// </summary>
         public static string NavBarHow {

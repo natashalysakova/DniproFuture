@@ -117,7 +117,7 @@ namespace DniproFuture.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             string fullPath = Request.MapPath("~/Content/img/Projects");
-            _repository.RemoveNewsById(id, fullPath);
+            _repository.RemoveProjectById(id, fullPath);
             return RedirectToAction("Index");
         }
 

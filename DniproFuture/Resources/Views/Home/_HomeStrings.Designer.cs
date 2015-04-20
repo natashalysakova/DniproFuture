@@ -585,6 +585,15 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Деталі проекту.
+        /// </summary>
+        public static string ProjectsDetales {
+            get {
+                return ResourceManager.GetString("ProjectsDetales", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Більше проектів.
         /// </summary>
         public static string ProjectsMore {

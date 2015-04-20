@@ -40,7 +40,7 @@
                         </div>
                         <div class="media-body">
                             <p class="panel-title text-muted text-right">@news.Date.ToShortDateString()</p>
-                            @news.ShortText...
+                            @MvcHtmlString.Create(news.ShortText)...
                         </div>
                     </div>
                 </div>

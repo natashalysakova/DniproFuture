@@ -327,6 +327,9 @@ Also, you can simply fill out an application on our website and we will contact 
   <data name="PartnersTitle" xml:space="preserve">
     <value>Partners</value>
   </data>
+  <data name="ProjectsDetales" xml:space="preserve">
+    <value>Detales of project</value>
+  </data>
   <data name="ProjectsMore" xml:space="preserve">
     <value>More projects</value>
   </data>
